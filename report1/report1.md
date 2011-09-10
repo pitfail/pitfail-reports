@@ -1,4 +1,5 @@
 Stock Options
+
   -buy stock
   -sell stock
   -call (sell at certain price)
@@ -13,6 +14,7 @@ Stock Options
   -dividends 
   
 Other investment types:
+
   -Bonds
   -Mutual Funds
   -foreign markets
@@ -23,6 +25,7 @@ Other investment types:
   -precious metals
 
 Cool Features
+
   -past money trend
   -you versus major mutual fund and you versus major trading indexes (NASDAQ, DOW)
   -ranking of call options
