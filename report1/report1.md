@@ -1,17 +1,17 @@
 Stock Options
 
-  -buy stock
-  -sell stock
-  -call (sell at certain price)
-  -call (buy at certain price)
-  -short stock
-  -buy to cover
-  -buy call options
-  -put option (for selling)
-  -sell at certain time or End of Day
-  -buying on margin (interest loan)
-  -shorting on margin
-  -dividends 
+  - buy stock
+  - sell stock
+  - call (sell at certain price)
+  - call (buy at certain price)
+  - short stock
+  - buy to cover
+  - buy call options
+  - put option (for selling)
+  - sell at certain time or End of Day
+  - buying on margin (interest loan)
+  - shorting on margin
+  - dividends 
   
 Other investment types:
 
