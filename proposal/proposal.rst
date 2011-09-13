@@ -75,21 +75,25 @@ Owen Healy
 
 Proposed Project
 ================
-The proposed project is a simulation of financial trading and financial
-engineering. Users can buy and sell stocks and other "standard" products from
-an exchange, as well as trade with each other and design new derivatives.
+Pitfail is a financial engineering simulation in which users can buy and sell
+securities. This includes buying and selling stock from the exchange, trading
+between users, and designing new derivatives. Users "compete" with one another
+by growing their portfolios and attempting to attain the highest net worth.
 
-Differentiating Features
-========================
-PitFail is less focused on *simulation* than on *playing a game*. Existing
-trading simulations mimic the inconveniences of trading stock on real markets;
-while this is nice for future traders hoping to practice it is out of place and
-confusing to the vast majority of users.
+Unlike existing trading simulations, PitFail is less focused on *simulation*
+than on *playing a game*. These existing simulations mimic the inconveniences
+of trading stock on real markets; while this is nice for future traders hoping
+to practice it is out of place and confusing to the vast majority of users. In
+contrast with the existing alternatives, PitFail offers the following
+differentiating features:
 
-- Zero-setup interface
+- Zero-setup accounts
 - Trading over Twitter
-- Designing derivatives
-- Teams can play with common portfolio
+- Designing custom derivatives
+- Playing on teams with a shared portfolio
+
+These features act in combination to lower the barrier-to-entry for new members
+and attract new members through viral marketing on Twitter.
 
 Expected audience
 ~~~~~~~~~~~~~~~~~
