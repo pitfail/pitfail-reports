@@ -238,25 +238,34 @@ message board and Investopedia only supports private messages:
 .. image:: ip-trades.png
     :width: 5 in
 
-Rate other users' trades
-------------------------
-*Social Voting*
-
-Both over Twitter and on the Pitfail website users can rate other users trades
-with an up or down vote. Votes are anonymous but a score is displayed next to
-the trade on the main site.
-
-This is similar to features of other websites, such as
-
-Stack Overflow:
+Social Voting
+-------------
+In addition to commenting on trades, users can "upvote" and "downvote" trades
+based on their opinion of trade. Votes are anonomous, but an aggregrate score
+is computed from the votes and is displayed next to each trade. This gives
+users an opportunity to interact with Pitfail similar to the voting system on
+StackOverflow and "Like" on Facebook:
 
 .. image:: so-votes.png
     :width: 5 in
 
-Facebook:
-
 .. image:: fb-votes.png
     :width: 5 in
+
+Unlike StackOverflow and Facebook, Pitfail gives users a stake in their votes.
+As an example, say Alice sells security ABC to Bob for $100. When they make the
+trade, each of Alice and Bob set aside a small part (say $0.50 worth) into two
+pools, the up-voter pool and the down-voter pool. Voters then purchase a small
+portion of the pools with their votes.
+
+Backing votes with a small amount of money has a few important consequences:
+
+1. Encourages users to vote
+2. Incentive to voting intelligently, based on the user's opinion of the trade
+3. Performance of individual users can be measured by their earnings from voting
+
+Using the voting data, Pitfail could rank users and assign status symbols (e.g.
+badges) to users with the strongest ability to vote predictively.
 
 Designing Securities
 ~~~~~~~~~~~~~~~~~~~~
@@ -301,25 +310,6 @@ similar to NeoPets "click to list":
 
 Though more along the lines of "search" than list, since there are more
 real-world companies than companies in Neopia.
-
-Prediction Market Voting
-~~~~~~~~~~~~~~~~~~~~~~~~
-One option for making voting "count" more, would be to give users a stake in
-their votes.
-
-As an example, say Alice sells security ABC to Bob for $100. When they make the
-trade, each of Alice and Bob set aside a small part (say $0.50 worth) into two
-pools, the up-voter pool and the down-voter pool. Voters then purchase a small
-portion of the pools with their votes.
-
-This has a few consequences:
-
-- It becomes possible to rate the accuracy of a user's votes based on how much
-  cash they make from voting. This can act as a status symbol.
-
-- It gives users an incentive to vote.
-
-We are not aware of any existing websites that implement this feature.
 
 Teams + Leagues
 ~~~~~~~~~~~~~~~
