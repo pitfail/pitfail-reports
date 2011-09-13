@@ -3,7 +3,9 @@ RST2LATEX = rst2latex.py
 PDFLATEX = pdflatex
 
 TARGET = proposal
-TRASH = $(TARGET).pdf $(TARGET).tex $(TARGET).aux
+TRASH  = $(TARGET).pdf \
+         $(TARGET).tex $(TARGET).aux $(TARGET).log  $(TARGET).out \
+         $(TARGET).maf $(TARGET).mtc $(TARGET).mtc0
 
 .PHONY: all all-rst all-latex clean
 .SECONDARY:

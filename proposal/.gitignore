@@ -1,1 +1,8 @@
-proposal.pdf
+*.pdf
+*.aux
+*.log
+*.maf
+*.mtc
+*.mtc0
+*.out
+*.tex
