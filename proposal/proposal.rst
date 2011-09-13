@@ -109,25 +109,21 @@ All of the features and design decisions described below were chosen with both
 of these target groups in mind, with a special emphasis on making the
 simulation approachable for casual users.
 
-Accessing the software
-~~~~~~~~~~~~~~~~~~~~~~
-There are two ways to access the software:
+Accessing Pitfail
+~~~~~~~~~~~~~~~~~
+There are two ways to access Pitfail: through a dedicated website or by
+interacting with the Pitfail Twitter account. Each of these methods targeted
+for its own purposes:
 
-- A dedicated website
-- Through Twitter
+Website
+  *Audience:* teachers and students
 
-Each is targeted for its own purposes:
-
-Web
----
-- **Audience**: Teachers and students
-- **Purpose**: Plots, graphs, consolidated information, ad revenue
+  *Purpose:* plots, graphs, consolidated information, ad revenue
 
 Twitter
--------
-- **Audience**: Casual users, people who already use Twitter
-- **Purpose**: Very low barrier to start using, lets you play around, familiar
-  UI, integrated with everything
+  *Audience*: casual users, Twitter users
+
+  *Purpose*: low barrier-to-entry, easy to use, ubiquitous, familiar interface
 
 Trading through Twitter
 ~~~~~~~~~~~~~~~~~~~~~~~
