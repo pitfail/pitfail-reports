@@ -128,12 +128,12 @@ Compare this account creation mechanism with, for example, `Economics Wisconsin
 <http://www.wisconsinsms.com/>`_ which requires you not only to create an
 account to start using their site
 
-.. image:: wisc-login.png
+.. figure:: wisc-login.png
     :width: 5 in
 
 But also to join a particular "challenge":
 
-.. image:: wisc-challenge.png
+.. figure:: wisc-challenge.png
     :width: 3 in
 
 Alternatively, consider the labrynthine registration procedures such as with
@@ -162,17 +162,17 @@ primarily consists of a list of the securities a user owns, including stocks
 and derivitives. This is similar to the existing portfolio overviews offered
 by Investopedia and NeoPets:
 
-.. image:: ip-portfolio.png
+.. figure:: ip-portfolio.png
     :width: 5 in
 
-.. image:: neo-portfolio.png
+.. figure:: neo-portfolio.png
     :width: 5 in
 
 In addition to the stocks currently owned by the user, the user is able to view
 his or her historical performance as measure by net worth. Much like the portfolio,
 this feature is already present on Investopedia:
 
-.. image:: ip-history.png
+.. figure:: ip-history.png
     :width: 5 in
 
 Unfortunately, graphing historical net worth is not possible in Pitfail. Custom
@@ -188,10 +188,10 @@ eachother's progress by viewing a feed of recent activity and browsing
 leaderboards. These features are similar to the ability to browse leaderboards
 and user-specific activity feeds on Investopedia:
 
-.. image:: ip-trades.png
+.. figure:: ip-trades.png
     :width: 5 in
 
-.. image:: ip-rankings.png
+.. figure:: ip-rankings.png
     :width: 5 in
 
 Unlike Investopedia, Pitfail will offer aggregate feeds of recent activity in
@@ -202,20 +202,20 @@ When browsing recent activity or viewing another user's portfolio users are
 able to comment on trades. These comments make users feel involved and part of
 a larger community, similar to the comment system on StackOverflow:
 
-.. image:: so-comment.png
+.. figure:: so-comment.png
     :width: 3 in
 
 Investopedia and NeoPets both offer differing levels of social interaction, but
 both lack the ability to comment on specific trades. NeoPets uses a dedicated
 message board and Investopedia only supports private messages:
 
-.. image:: neo-messages.png
+.. figure:: neo-messages.png
     :width: 3 in
 
-.. image:: ip-messages.png
+.. figure:: ip-messages.png
     :width: 3 in
 
-.. image:: ip-trades.png
+.. figure:: ip-trades.png
     :width: 5 in
 
 Social Voting
@@ -226,10 +226,10 @@ is computed from the votes and is displayed next to each trade. This gives
 users an opportunity to interact with Pitfail similar to the voting system on
 StackOverflow and "Like" on Facebook:
 
-.. image:: so-votes.png
+.. figure:: so-votes.png
     :width: 5 in
 
-.. image:: fb-votes.png
+.. figure:: fb-votes.png
     :width: 5 in
 
 Unlike StackOverflow and Facebook, Pitfail gives users a stake in their votes.
@@ -283,7 +283,7 @@ how many dollars of a stock they are buying.
 Because users may not know the ticker of the stock they want to buy, something
 similar to NeoPets "click to list":
 
-.. image:: neo-click-to-list.png
+.. figure:: neo-click-to-list.png
     :width: 3 in
 
 Though more along the lines of "search" than list, since there are more
