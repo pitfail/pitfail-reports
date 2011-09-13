@@ -26,87 +26,76 @@ Project Proposal for PitFail
 .. contents::
     :local:
 
-Project Title
-=============
+Team Information
+================
+Title
+  PitFail: An Online Finance Game
 
-PitFail: An Online Finance Game
+Website
+  https://github.com/pitfail/pitfail-reports/wiki
 
-Project Website
-===============
+Members
+  Michael Koval <mkoval@eden.rutgers.edu>
 
-https://github.com/pitfail/pitfail-reports/wiki
+  Owen Healy <owenh@eden.rutgers.edu>
 
-Team Members
-============
+  Cody Schafer <cschafer@eden.rutgers.edu>
 
-- Michael Koval mkoval@eden.rutgers.edu
-
-- Owen Healy owenh@eden.rutgers.edu
-
-- Cody Schafer cschafer@eden.rutgers.edu
-
-- Brian Goodacre bgoodacr@eden.rutgers.edu
+  Brian Goodacre <bgoodacr@eden.rutgers.edu>
 
 Team Profile
 ============
-
-Individual Strengths
-====================
-
 Michael Koval
-~~~~~~~~~~~~~
+  *Languages:* C, C++, C#, Java, Python, Scheme, Matlab
 
-Web design, CSS, data structures, Java, C#, Python, C++, algorithms. Experience
-working at Microsoft and DoD.
+  *Experience:* Microsoft, Department of Defense
+
+  *Skills:* design, organization, programming
 
 Cody Schafer
-~~~~~~~~~~~~
+  *Languages:* C, C++, Java, Python, Forth
 
-Microcontroller programming, enterprise software development with IBM, Forth,
-C, C++, Python, Java
+  *Experience:* IBM, ICAP
 
+  *Skills:* design, organization, programming
+  
 Brian Goodacre
-~~~~~~~~~~~~~~
+  *Languages:* Java, MySQL, Apache
 
-Data modeling, database development, UML diagrams, software engineering
-process, Java, MySQL, Apache, Leadership.
+  *Experience:* AT&T
+
+  *Skills:* leadership, data modeling, database development, UML, software engineering
 
 Owen Healy
-~~~~~~~~~~
+  *Languages:* Haskell, Scheme, Scala, R, Prolog, category theory, C, Python
 
-Haskell, Scheme, Scala, R, Prolog, category theory, C, Python, UML, experience
-at small tech startups.
+  *Experience:* technology startups
+
+  *Skills:* design, programming
+
+Proposed Project
+================
+The proposed project is a simulation of financial trading and financial
+engineering. Users can buy and sell stocks and other "standard" products from
+an exchange, as well as trade with each other and design new derivatives.
 
 Differentiating Features
 ========================
-
-- Zero-setup interface
-
-- Trading over Twitter
-
-- Designing derivatives
-
-- Teams can play with common portfolio
-
 PitFail is less focused on *simulation* than on *playing a game*. Existing
 trading simulations mimic the inconveniences of trading stock on real markets;
 while this is nice for future traders hoping to practice it is out of place and
 confusing to the vast majority of users.
 
-Proposed Project
-================
-
-The proposed project is a simulation of financial trading and financial
-engineering. Users can buy and sell stocks and other "standard" products from
-an exchange, as well as trade with each other and design new derivatives.
+- Zero-setup interface
+- Trading over Twitter
+- Designing derivatives
+- Teams can play with common portfolio
 
 Expected audience
 ~~~~~~~~~~~~~~~~~
-
 We imagine the software will be used by
 
 - Teachers and their students in economics classes
-
 - Curious people who want to try out trading in a simulated environment.
 
 The features are designed with those groups in mind. Most trading simulation
@@ -115,33 +104,26 @@ things easier for the casual user.
 
 Accessing the software
 ~~~~~~~~~~~~~~~~~~~~~~
-
 There are two ways to access the software:
 
 - A dedicated website
-
 - Through Twitter
 
 Each is targeted for its own purposes:
 
 Web
 ---
-
 - **Audience**: Teachers and students
-
 - **Purpose**: Plots, graphs, consolidated information, ad revenue
 
 Twitter
 -------
-
 - **Audience**: Casual users, people who already use Twitter
-
 - **Purpose**: Very low barrier to start using, lets you play around, familiar
   UI, integrated with everything
 
 Trading through Twitter
 ~~~~~~~~~~~~~~~~~~~~~~~
-
 While accessing some software through Twitter would be unruly, financial trades
 are atomized and compact enough that they can be expressed naturally through
 small messages.
@@ -179,7 +161,6 @@ listings and graphs.
 
 The PitFail Website
 ~~~~~~~~~~~~~~~~~~~
-
 Through the PitFail website users can
 
 .. contents::
@@ -187,7 +168,6 @@ Through the PitFail website users can
 
 View their portfolio
 --------------------
-
 Such as on Investopedia:
 
 .. image:: ip-portfolio.png
@@ -200,7 +180,6 @@ Or NeoPets:
 
 View the historical value of their portfolio
 --------------------------------------------
-  
 To some extent, this may be impossible. User-created derivatives are not liquid
 enough to have a market price that the game can reference. But the value of
 stocks and cash can be added up to create a total of "liquid assets", which can
@@ -213,11 +192,9 @@ Investopedia has this feature:
 
 Make a trade
 ------------
-
 When making a trade, the user should be able to see
 
 - The current price
-
 - Their own current level of cash
 
 Most sites allow you to buy a certain number of "shares", but this is an extra
@@ -235,7 +212,6 @@ real-world companies than companies in Neopia.
 
 See recent activity by other users
 ----------------------------------
-
 In Investopedia this can be shown individually:
 
 .. image:: ip-trades.png
@@ -245,7 +221,6 @@ though there does not seem to be a way to view all trades in aggregate.
 
 See rankings of portfolios
 --------------------------
-
 Users can see the top players, such as in Investopedia:
 
 .. image:: ip-rankings.png
@@ -255,7 +230,6 @@ This should add a flavor of competition.
 
 Comment on other users' trades
 ------------------------------
-
 Comments make users feel involved and part of a community. Such as at
 StackOverflow:
 
@@ -280,7 +254,6 @@ comment:
 
 Rate other users' trades
 ------------------------
-
 *Social Voting*
 
 Both over Twitter and on the PitFail website users can rate other users trades
@@ -301,7 +274,6 @@ Facebook:
 
 Designing Securities
 ~~~~~~~~~~~~~~~~~~~~
-
 Many trading games allow players to trade securities other than stocks, such as
 options and futures. One way to look at this is that these securities are just
 *other things with value*, and can be traded exactly like stocks. This is
@@ -326,7 +298,6 @@ We are not aware of any existing websites that implement this feature.
 
 Prediction Market Voting
 ~~~~~~~~~~~~~~~~~~~~~~~~
-
 One option for making voting "count" more, would be to give users a stake in
 their votes.
 
@@ -346,19 +317,16 @@ We are not aware of any existing websites that implement this feature.
 
 Teams + Leagues
 ~~~~~~~~~~~~~~~
-
 Although there is a global "PitFail Universe", some users are going to want to
 play in smaller groups. To this end we introduce Teams and Leagues.
 
 Teams
 -----
-
 A team is a group of users who share a portfolio, and all are free to trade
 using this portfolio. There is no "leader" and no set decision making process.
 
 Leagues
 -------
-
 A league is a group of users who compete together. Typically a league will be
 created for a particular game session, then users will join, each starting with
 the same portfolio. There will be rankings and winners within a League.
