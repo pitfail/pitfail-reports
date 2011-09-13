@@ -6,9 +6,9 @@
 
 Software Engineering
 
-Group PitFail
+Group Pitfail
 
-PitFail: An Online Finance Game
+Pitfail: An Online Finance Game
 
 https://github.com/pitfail/pitfail-reports/wiki
 
@@ -20,7 +20,7 @@ Brian Goodacre, Michael Koval, Owen Healy, Cody Schafer
 
     PageBreak
 
-Project Proposal for PitFail
+Project Proposal for Pitfail
 ############################
 
 .. contents::
@@ -29,7 +29,7 @@ Project Proposal for PitFail
 Team Information
 ================
 Title
-  PitFail: An Online Finance Game
+  Pitfail: An Online Finance Game
 
 Website
   https://github.com/pitfail/pitfail-reports/wiki
@@ -80,11 +80,11 @@ securities. This includes buying and selling stock from the exchange, trading
 between users, and designing new derivatives. Users "compete" with one another
 by growing their portfolios and attempting to attain the highest net worth.
 
-Unlike existing trading simulations, PitFail is less focused on *simulation*
+Unlike existing trading simulations, Pitfail is less focused on *simulation*
 than on *playing a game*. These existing simulations mimic the inconveniences
 of trading stock on real markets; while this is nice for future traders hoping
 to practice it is out of place and confusing to the vast majority of users. In
-contrast with the existing alternatives, PitFail offers the following
+contrast with the existing alternatives, Pitfail offers the following
 differentiating features:
 
 - Zero-setup accounts
@@ -95,15 +95,15 @@ differentiating features:
 These features act in combination to lower the barrier-to-entry for new members
 and attract new members through viral marketing on Twitter.
 
-Expected audience
+Expected Audience
 ~~~~~~~~~~~~~~~~~
-We imagine the software will be used by
+Pitfail is expected to We imagine the software will be used by
 
 - Teachers and their students in economics classes
 - Curious people who want to try out trading in a simulated environment.
 
 The features are designed with those groups in mind. Most trading simulation
-websites appear to be targeted primarily at students. PitFail aims to make
+websites appear to be targeted primarily at students. Pitfail aims to make
 things easier for the casual user.
 
 Accessing the software
@@ -138,11 +138,11 @@ their tweets to ``@pitfail``, e.g.::
     @pitfail #buy $100 of ABC
 
 Critically, **there is no setup needed**. The instant a user sends a tweet to
-``@pitfail``, an account is created for them with a default setup, and PitFail
-remembers them next time they talk. This feature is crucial to PitFail's
+``@pitfail``, an account is created for them with a default setup, and Pitfail
+remembers them next time they talk. This feature is crucial to Pitfail's
 viability: such a large number of financial trading simulations already exist,
 that it is near-impossible for users to differentiate between them. Because
-PitFail requires essentially no commitment it is easy for users to try it out.
+Pitfail requires essentially no commitment it is easy for users to try it out.
 
 Compare, for example, `Economics Wisconsin <http://www.wisconsinsms.com/>`_
 which requires you not only to create an account to start using their site:
@@ -160,12 +160,12 @@ one (The Stock Market Game)
 <http://www.smgww.org/cgi-bin/haipage/page.html?tpl=coordinator/index>`_.
 
 For reasons of advertising revenue, however, it is desirable to draw users to
-the PitFail site, and so links can be provided to features such as portfolio
+the Pitfail site, and so links can be provided to features such as portfolio
 listings and graphs.
 
-The PitFail Website
+The Pitfail Website
 ~~~~~~~~~~~~~~~~~~~
-Through the PitFail website users can
+Through the Pitfail website users can
 
 .. contents::
     :local:
@@ -260,7 +260,7 @@ Rate other users' trades
 ------------------------
 *Social Voting*
 
-Both over Twitter and on the PitFail website users can rate other users trades
+Both over Twitter and on the Pitfail website users can rate other users trades
 with an up or down vote. Votes are anonymous but a score is displayed next to
 the trade on the main site.
 
@@ -285,14 +285,14 @@ closest to how these securities are traded in the real world.
 
 This is realistic, but it's not terribly interesting for a game. An option has
 a contract underneath it, and the nature of that contract can become
-interesting in a real market. PitFail therefore allows users to *design their
+interesting in a real market. Pitfail therefore allows users to *design their
 own contracts*, i.e. create new financial products.
 
 This ability essentially allows users to create a new financial environment.
 There are a few key aspects:
 
 - In the real world there are courts to enforce contracts, so they can be
-  creative. In PitFail contracts must be simple enough that the software can
+  creative. In Pitfail contracts must be simple enough that the software can
   enforce them.
 
 - Contracts need to be simple enough for users to be comfortable using them,
@@ -321,7 +321,7 @@ We are not aware of any existing websites that implement this feature.
 
 Teams + Leagues
 ~~~~~~~~~~~~~~~
-Although there is a global "PitFail Universe", some users are going to want to
+Although there is a global "Pitfail Universe", some users are going to want to
 play in smaller groups. To this end we introduce Teams and Leagues.
 
 Teams
