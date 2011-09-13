@@ -1,24 +1,8 @@
+:Organization: Group 3
+:Contact: pitfail.group@gmail.com
 
 .. Cover Page
 .. http://www.ece.rutgers.edu/~marsic/Teaching/SE1/projects.html#TEAMS
-
-**Project Proposal**
-
-Software Engineering
-
-Group Pitfail
-
-Pitfail: An Online Finance Game
-
-https://github.com/pitfail/pitfail-reports/wiki
-
-9/14/2011
-
-Brian Goodacre, Michael Koval, Owen Healy, Cody Schafer
-
-.. raw:: pdf
-
-    PageBreak
 
 Project Proposal for Pitfail
 ############################
@@ -287,6 +271,7 @@ subject to a few artificial restrictions:
 Even without a court system to enforce complex contracts, custom securties
 allow Pitfail's users to a new financial environment. Creating custom securities
 and derivatives appears to be unique to Pitfail.
+We are not aware of any existing websites that implement this feature.
 
 Make a trade
 ------------

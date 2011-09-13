@@ -30,4 +30,5 @@ clean:
 	$(RST2PDF) $^
 
 %.tex: %.rst
-	$(RST2LATEX) $^ > $@
+	$(RST2LATEX) --template=titlepage.tex --documentclass=report --latex-preamble='' $^ > $@
+
