@@ -125,8 +125,8 @@ Twitter
 
   *Purpose*: low barrier-to-entry, easy to use, ubiquitous, familiar interface
 
-Trading through Twitter
-~~~~~~~~~~~~~~~~~~~~~~~
+Playing on Twitter
+~~~~~~~~~~~~~~~~~~
 While accessing most software through Twitter would be unruly, financial trades
 are sufficiently atomic and compact that they can be expressed naturally
 through small messages.
@@ -165,38 +165,41 @@ times.
 Trading on the Website
 ~~~~~~~~~~~~~~~~~~~~~~
 Twitter is ideal for attracting new users, but does not generate any
-advertising revenue. Therefore, it is desirable to attract users to using the
-more Pitfail website through links to features such as social portfolio
-listings and graphs.
+advertising revenue. Therefore, it is desirable to attract users to the
+Pitfail website by offering features that are not possible via Twitter,
+such as social portfolio listings and historical graphs.
 
-Through the Pitfail website users can:
+In addition to all of the functionality provided by the Twitter interface, the
+Pitfail website offers an additional set of features: view their portfolio,
+design custom securities, social interaction with other users, and play against
+cooperation and competition with other users. Each of these differentiating
+features is described in detail below.
 
-.. contents::
-    :local:
-
-View their portfolio
---------------------
-Such as on Investopedia:
+Portfolio View 
+--------------
+Users can view their entire their portfolio on the Pitfail website. This
+primarily consists of a list of the securities a user owns, including stocks
+and derivitives. This is similar to the existing portfolio overviews offered
+by Investopedia and NeoPets:
 
 .. image:: ip-portfolio.png
     :width: 5 in
 
-Or NeoPets:
-
 .. image:: neo-portfolio.png
     :width: 5 in
 
-View the historical value of their portfolio
---------------------------------------------
-To some extent, this may be impossible. User-created derivatives are not liquid
-enough to have a market price that the game can reference. But the value of
-stocks and cash can be added up to create a total of "liquid assets", which can
-be plotted over time to show users how their wealth is progressing.
-
-Investopedia has this feature:
+In addition to the stocks currently owned by the user, the user is able to view
+his or her historical performance as measure by net worth. Much like the portfolio,
+this feature is already present on Investopedia:
 
 .. image:: ip-history.png
     :width: 5 in
+
+Unfortunately, graphing historical net worth is not possible in Pitfail. Custom
+derivatives are not liquid enough to have a market price that Pitfail can
+compute. Therefore, all historical graphs will instead be the total value of
+the user's cash and stocks, combined to form his or her total "liquid assets"
+that is plotted over time to show users how his or her wealth is progressing.
 
 Make a trade
 ------------
