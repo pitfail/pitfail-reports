@@ -201,64 +201,39 @@ compute. Therefore, all historical graphs will instead be the total value of
 the user's cash and stocks, combined to form his or her total "liquid assets"
 that is plotted over time to show users how his or her wealth is progressing.
 
-Make a trade
-------------
-When making a trade, the user should be able to see
-
-- The current price
-- Their own current level of cash
-
-Most sites allow you to buy a certain number of "shares", but this is an extra
-detail and not relevant to managing a portfolio -- what a user cares about is
-how many dollars of a stock they are buying.
-
-Because users may not know the ticker of the stock they want to buy, something
-similar to NeoPets "click to list":
-
-.. image:: neo-click-to-list.png
-    :width: 3 in
-
-Though more along the lines of "search" than list, since there are more
-real-world companies than companies in Neopia.
-
-See recent activity by other users
-----------------------------------
-In Investopedia this can be shown individually:
+Social Interaction
+------------------
+As a game, Pitfail thrives on friendly competition. Users can monitor
+eachother's progress by viewing a feed of recent activity and browsing
+leaderboards. These features are similar to the ability to browse leaderboards
+and user-specific activity feeds on Investopedia:
 
 .. image:: ip-trades.png
     :width: 5 in
 
-though there does not seem to be a way to view all trades in aggregate.
-
-See rankings of portfolios
---------------------------
-Users can see the top players, such as in Investopedia:
-
 .. image:: ip-rankings.png
     :width: 5 in
 
-This should add a flavor of competition.
+Unlike Investopedia, Pitfail will offer aggregate feeds of recent activity in
+addition to user-specific feeds. This allows a group of people to keep abreast
+of their friends' or enemies' activities and add a flavor of competition.
 
-Comment on other users' trades
-------------------------------
-Comments make users feel involved and part of a community. Such as at
-StackOverflow:
+When browsing recent activity or viewing another user's portfolio users are
+able to comment on trades. These comments make users feel involved and part of
+a larger community, similar to the comment system on StackOverflow:
 
 .. image:: so-comment.png
     :width: 3 in
 
-Neopets has a message board, but this is not as immediately interactive:
+Investopedia and NeoPets both offer differing levels of social interaction, but
+both lack the ability to comment on specific trades. NeoPets uses a dedicated
+message board and Investopedia only supports private messages:
 
 .. image:: neo-messages.png
     :width: 3 in
 
-And Investopedia has private messages, but this is still not the same thing:
-
 .. image:: ip-messages.png
     :width: 3 in
-
-And Investopedia also shows trades by other users, but there is no way to
-comment:
 
 .. image:: ip-trades.png
     :width: 5 in
@@ -306,6 +281,26 @@ There are a few key aspects:
   and also fit well into an online game.
 
 We are not aware of any existing websites that implement this feature.
+
+Make a trade
+------------
+When making a trade, the user should be able to see
+
+- The current price
+- Their own current level of cash
+
+Most sites allow you to buy a certain number of "shares", but this is an extra
+detail and not relevant to managing a portfolio -- what a user cares about is
+how many dollars of a stock they are buying.
+
+Because users may not know the ticker of the stock they want to buy, something
+similar to NeoPets "click to list":
+
+.. image:: neo-click-to-list.png
+    :width: 3 in
+
+Though more along the lines of "search" than list, since there are more
+real-world companies than companies in Neopia.
 
 Prediction Market Voting
 ~~~~~~~~~~~~~~~~~~~~~~~~
