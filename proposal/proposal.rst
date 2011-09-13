@@ -97,14 +97,17 @@ and attract new members through viral marketing on Twitter.
 
 Expected Audience
 ~~~~~~~~~~~~~~~~~
-Pitfail is expected to We imagine the software will be used by
+Existing financial engineering simulations appear to be targetted primarily at
+students. Pitfail aims to make things easier for the casual user without
+compromising its usefulness to students and teachers. As such, the expected
+audience for Pitfail consists of:
 
-- Teachers and their students in economics classes
-- Curious people who want to try out trading in a simulated environment.
+- Teachers and students in economics classes
+- Curious individuals who want to try trading with no personal no-risk.
 
-The features are designed with those groups in mind. Most trading simulation
-websites appear to be targeted primarily at students. Pitfail aims to make
-things easier for the casual user.
+All of the features and design decisions described below were chosen with both
+of these target groups in mind, with a special emphasis on making the
+simulation approachable for casual users.
 
 Accessing the software
 ~~~~~~~~~~~~~~~~~~~~~~
