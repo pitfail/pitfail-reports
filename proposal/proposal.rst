@@ -265,31 +265,28 @@ Backing votes with a small amount of money has a few important consequences:
 3. Performance of individual users can be measured by their earnings from voting
 
 Using the voting data, Pitfail could rank users and assign status symbols (e.g.
-badges) to users with the strongest ability to vote predictively.
+badges) to users with the strongest ability to vote predictively. This type of
+ranking appears to be unique to Pitfail.
 
 Designing Securities
 ~~~~~~~~~~~~~~~~~~~~
 Many trading games allow players to trade securities other than stocks, such as
 options and futures. One way to look at this is that these securities are just
-*other things with value*, and can be traded exactly like stocks. This is
-closest to how these securities are traded in the real world.
+*other things with value*, and can be traded exactly like stocks. This
+representation is closest to how these securities are traded in the real world.
 
-This is realistic, but it's not terribly interesting for a game. An option has
-a contract underneath it, and the nature of that contract can become
-interesting in a real market. Pitfail therefore allows users to *design their
-own contracts*, i.e. create new financial products.
+While realistic, this type of security but it's not terribly interesting for a
+game. Options, however, have an underlying contract and can become very
+interesting. Pitfail allows users to design their *design their own contracts*,
+thus creating new financial products. As an online game, these contracts are
+subject to a few artificial restrictions:
 
-This ability essentially allows users to create a new financial environment.
-There are a few key aspects:
+- Simple enough for users to be comfortable using them, and into the gam
+- Restricted to contracts can be programmatically enforced
 
-- In the real world there are courts to enforce contracts, so they can be
-  creative. In Pitfail contracts must be simple enough that the software can
-  enforce them.
-
-- Contracts need to be simple enough for users to be comfortable using them,
-  and also fit well into an online game.
-
-We are not aware of any existing websites that implement this feature.
+Even without a court system to enforce complex contracts, custom securties
+allow Pitfail's users to a new financial environment. Creating custom securities
+and derivatives appears to be unique to Pitfail.
 
 Make a trade
 ------------
