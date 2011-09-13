@@ -1,4 +1,3 @@
-RST2PDF = rst2pdf
 RST2LATEX = rst2latex.py
 PDFLATEX = pdflatex
 
@@ -7,28 +6,30 @@ TRASH  = $(TARGET).pdf \
          $(TARGET).tex $(TARGET).aux $(TARGET).log  $(TARGET).out \
          $(TARGET).maf $(TARGET).mtc $(TARGET).mtc0
 
-.PHONY: all all-rst all-latex clean
+.PHONY: all clean
 .SECONDARY:
 
-# Use LaTeX as an intermediate if it is available.
-ifeq ($(shell which pdflatex),)
-all: all-rst
-else
-all: all-latex
+ifeq ($(shell which $(PDFLATEX)),)
+$(error Missing Dependency - LaTeX)
 endif
 
-all-rst: $(TARGET).pdf
+ifeq ($(shell which $(RST2LATEX)),)
+$(error Missing Dependency - reStructured Text)
+endif
 
-all-latex: $(TARGET).tex
-	$(PDFLATEX) $^
-	$(PDFLATEX) $^
+all: $(TARGET).pdf
 
 clean:
 	$(RM) $(TRASH)
 
-%.pdf: %.rst
-	$(RST2PDF) $^
+%.pdf: %.tex
+	$(PDFLATEX) $<
+	$(PDFLATEX) $<
 
-%.tex: %.rst
-	$(RST2LATEX) --template=titlepage.tex --documentclass=report --latex-preamble='' $^ > $@
-
+%.tex: %.rst Makefile
+	@# Explaination of options:
+	@#   --use-latex-toc: uses LaTeX to generate a ToC with page numbers
+	@#   --use-latex-docinfo: uses LaTeX to generate the title page
+	@#   --documentclass=report: enables LaTeX title page
+	@#   --latex-preamble='': use the default font instead of Times
+	$(RST2LATEX) --use-latex-toc --use-latex-docinfo --documentclass=article --documentoptions=a4,titlepage --latex-preamble='' $< > $@

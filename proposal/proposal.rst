@@ -1,31 +1,27 @@
-:Organization: Group 3
+Pitfail Project Proposal
+########################
+
+:Author: Software Engineering I, Group 3
 :Contact: pitfail.group@gmail.com
 
-.. Cover Page
-.. http://www.ece.rutgers.edu/~marsic/Teaching/SE1/projects.html#TEAMS
-
-Project Proposal for Pitfail
-############################
+.. sectnum::
 
 .. contents::
     :local:
 
 Team Information
 ================
-Title
+Title:
   Pitfail: An Online Finance Game
 
-Website
+Website:
   https://github.com/pitfail/pitfail-reports/wiki
 
-Members
-  Michael Koval <mkoval@eden.rutgers.edu>
-
-  Owen Healy <owenh@eden.rutgers.edu>
-
-  Cody Schafer <cschafer@eden.rutgers.edu>
-
-  Brian Goodacre <bgoodacr@eden.rutgers.edu>
+Members:
+  - Michael Koval <mkoval@eden.rutgers.edu>
+  - Owen Healy <owenh@eden.rutgers.edu>
+  - Cody Schafer <cschafer@eden.rutgers.edu>
+  - Brian Goodacre <bgoodacr@eden.rutgers.edu>
 
 Team Profile
 ============
