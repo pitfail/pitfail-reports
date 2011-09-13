@@ -127,24 +127,26 @@ Twitter
 
 Trading through Twitter
 ~~~~~~~~~~~~~~~~~~~~~~~
-While accessing some software through Twitter would be unruly, financial trades
-are atomized and compact enough that they can be expressed naturally through
-small messages.
+While accessing most software through Twitter would be unruly, financial trades
+are sufficiently atomic and compact that they can be expressed naturally
+through small messages.
 
 The software has a Twitter account tentatively called ``pitfail``. Users direct
 their tweets to ``@pitfail``, e.g.::
 
     @pitfail #buy $100 of ABC
 
-Critically, **there is no setup needed**. The instant a user sends a tweet to
-``@pitfail``, an account is created for them with a default setup, and Pitfail
-remembers them next time they talk. This feature is crucial to Pitfail's
-viability: such a large number of financial trading simulations already exist,
-that it is near-impossible for users to differentiate between them. Because
-Pitfail requires essentially no commitment it is easy for users to try it out.
+Critically, *there is no setup needed*. When a user with an unrecognized
+Twitter account sends a tweet to ``@pitfail``, an account is created for them
+with a default configuration, and Pitfail remembers their account for the next
+time they tweet.  This feature is crucial to Pitfail's viability: such a large
+number of financial trading simulations already exist that it is
+near-impossible for users to differentiate between them. Because Pitfail
+requires essentially no commitment it is easy for users to try it out.
 
-Compare, for example, `Economics Wisconsin <http://www.wisconsinsms.com/>`_
-which requires you not only to create an account to start using their site:
+Compare this account creation mechanism with, for example, `Economics Wisconsin
+<http://www.wisconsinsms.com/>`_ which requires you not only to create an
+account to start using their site
 
 .. image:: wisc-login.png
     :width: 5 in
@@ -154,17 +156,20 @@ But also to join a particular "challenge":
 .. image:: wisc-challenge.png
     :width: 3 in
 
-And because there are *no steps*, uses won't get lost in `labyrinths like this
-one (The Stock Market Game)
-<http://www.smgww.org/cgi-bin/haipage/page.html?tpl=coordinator/index>`_.
+Alternatively, consider the labrynthine registration procedures such as with
+the the `Stock Market Game
+<http://www.smgww.org/cgi-bin/haipage/page.html?tpl=coordinator/index>`_ that
+involve filling several pages of form fields after being redirected multiple
+times.
 
-For reasons of advertising revenue, however, it is desirable to draw users to
-the Pitfail site, and so links can be provided to features such as portfolio
+Trading on the Website
+~~~~~~~~~~~~~~~~~~~~~~
+Twitter is ideal for attracting new users, but does not generate any
+advertising revenue. Therefore, it is desirable to attract users to using the
+more Pitfail website through links to features such as social portfolio
 listings and graphs.
 
-The Pitfail Website
-~~~~~~~~~~~~~~~~~~~
-Through the Pitfail website users can
+Through the Pitfail website users can:
 
 .. contents::
     :local:
