@@ -40,7 +40,7 @@
 Team Information
 ================
 Michael Koval
-  mkoval@cs.rutgers.edu
+  mkoval@eden.rutgers.edu
 
 - *Languages:* C, C++, C#, Java, Python, Scheme, Matlab
 - *Experience:* Microsoft, U.S. Department of Defense
@@ -59,7 +59,7 @@ Owen Healy
 - *Languages:* Haskell, Scheme, Scala, R, Prolog, category theory, C, Python
 - *Experience:* technology startups, developer
 - *Skills:* design, programming
-  
+
 Brian Goodacre
   bgoodacr@eden.rutgers.edu
 
@@ -142,6 +142,19 @@ Twitter
 
   *Purpose*: low barrier-to-entry, easy to use, ubiquitous, familiar interface
 
+Android
+  *Audience*: mobile users who like having apps
+
+  *Purpose*: direct income from sales or from ads. Hip, cool, and new. Allow
+  users to develop addictions to graphs of their earnings, yeilding us a more
+  stable user base.
+
+Facebook
+  *Audience*: people who aren't on twitter.
+
+  *Purpose*: Connect pitfail to the already exsisting user adiction to
+  facebook, leading to increased user capture.
+
 Twitter Integration
 ~~~~~~~~~~~~~~~~~~~
 While accessing most software through Twitter would be unruly, financial trades
@@ -191,6 +204,16 @@ Pitfail website offers an additional set of features: view their portfolio,
 design custom securities, social interaction with other users, and play against
 cooperation and competition with other users. Each of these differentiating
 features is described in detail below.
+
+Android Interface
+~~~~~~~~~~~~~~~~~
+Experience will be similar to that of the website, with the addition of
+notifications to the user (should they choose not to disable them) when some
+event occurs within Pitfail, drawing the users back into the application.
+
+Facebook Interface
+~~~~~~~~~~~~~~~~~~
+See 'Playing on Twitter'.
 
 Features
 ========
