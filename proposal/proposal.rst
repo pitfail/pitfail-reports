@@ -17,41 +17,54 @@ Title:
 Website:
   https://github.com/pitfail/pitfail-reports/wiki
 
-Members:
-  - Michael Koval <mkoval@eden.rutgers.edu>
-  - Owen Healy <owenh@eden.rutgers.edu>
-  - Cody Schafer <cschafer@eden.rutgers.edu>
-  - Brian Goodacre <bgoodacr@eden.rutgers.edu>
-
 Team Profile
 ============
 Michael Koval
-  *Languages:* C, C++, C#, Java, Python, Scheme, Matlab
+  mkoval@eden.rutgers.edu
 
-  *Experience:* Microsoft, Department of Defense
-
-  *Skills:* design, organization, programming
+- *Languages:* C, C++, C#, Java, Python, Scheme, Matlab
+- *Experience:* Microsoft, U.S. Department of Defense
+- *Skills:* design, organization, programming
 
 Cody Schafer
-  *Languages:* C, C++, Java, Python, Forth
+  cschafer@eden.rutgers.edu
 
-  *Experience:* IBM, ICAP
-
-  *Skills:* design, organization, programming
-  
-Brian Goodacre
-  *Languages:* Java, MySQL, Apache
-
-  *Experience:* AT&T
-
-  *Skills:* leadership, data modeling, database development, UML, software engineering
+- *Languages:* C, C++, Java, Python, Forth
+- *Experience:* IBM, ICAP
+- *Skills:* design, organization, programming
 
 Owen Healy
-  *Languages:* Haskell, Scheme, Scala, R, Prolog, category theory, C, Python
+  owenh@eden.rutgers.edu
 
-  *Experience:* technology startups
+- *Languages:* Haskell, Scheme, Scala, R, Prolog, category theory, C, Python
+- *Experience:* technology startups, developer
+- *Skills:* design, programming
+  
+Brian Goodacre
+  bgoodacr@eden.rutgers.edu
 
-  *Skills:* design, programming
+- *Languages:* Java, MySQL, Apache
+- *Experience:* AT&T
+- *Skills:* leadership, data modeling, database development, UML, software engineering
+
+Roma Mehta
+  romameht@cs.rutgers.edu
+
+- *Languages:* Java, Javascript, ExtJS, Android
+- *Experience:* Goldman Sachs, C-Sam (India)
+- *Skills:* screen design and layout, Android, Java servers
+
+Sonu Iqbal
+  sonui@cs.rutgers.edu
+
+- *Languages:* C, C++, JSP, Perl, MySQL
+- *Experience:* Bank of America Merrill Lynch, LinsysSoft Technologies (India), Izel Technologies (India)
+
+Avanti Kulkarni
+  avantik@cs.rutgers.edu
+
+- *Languages:* C, C++, MySQL, JSP, C#.Net
+- *Experience:* Barclays Capital, Cisco Systems
 
 Proposed Project
 ================
@@ -142,7 +155,7 @@ the the `Stock Market Game
 involve filling several pages of form fields after being redirected multiple
 times.
 
-Trading on the Website
+Playing on the Website
 ~~~~~~~~~~~~~~~~~~~~~~
 Twitter is ideal for attracting new users, but does not generate any
 advertising revenue. Therefore, it is desirable to attract users to the
@@ -154,6 +167,27 @@ Pitfail website offers an additional set of features: view their portfolio,
 design custom securities, social interaction with other users, and play against
 cooperation and competition with other users. Each of these differentiating
 features is described in detail below.
+
+Trading
+-------
+As a full-featured alternative to Twitter, the Pitfail website is an
+alternative interface for making trades. When making a trade, the user is
+presented with the following information:
+
+1. Market price
+2. Amount of available cash
+
+Most sites allow you to buy a certain number of "shares", but this is an extra
+detail and not relevant to managing a portfolio -- what a user cares about is
+how many dollars of a stock they are buying. Users may not know the ticker
+symbol of the stock they want to purchase, so , something similar to NeoPets "click to
+list":
+
+.. figure:: neo-click-to-list.png
+    :width: 3 in
+
+Though more along the lines of "search" than list, since there are more
+real-world companies than companies in Neopia.
 
 Portfolio View 
 --------------
@@ -269,25 +303,6 @@ allow Pitfail's users to a new financial environment. Creating custom securities
 and derivatives appears to be unique to Pitfail.
 We are not aware of any existing websites that implement this feature.
 
-Make a trade
-------------
-When making a trade, the user should be able to see
-
-- The current price
-- Their own current level of cash
-
-Most sites allow you to buy a certain number of "shares", but this is an extra
-detail and not relevant to managing a portfolio -- what a user cares about is
-how many dollars of a stock they are buying.
-
-Because users may not know the ticker of the stock they want to buy, something
-similar to NeoPets "click to list":
-
-.. figure:: neo-click-to-list.png
-    :width: 3 in
-
-Though more along the lines of "search" than list, since there are more
-real-world companies than companies in Neopia.
 
 Teams + Leagues
 ~~~~~~~~~~~~~~~
