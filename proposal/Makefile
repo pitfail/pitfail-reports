@@ -32,4 +32,4 @@ clean:
 	@#   --use-latex-docinfo: uses LaTeX to generate the title page
 	@#   --documentclass=report: enables LaTeX title page
 	@#   --latex-preamble='': use the default font instead of Times
-	$(RST2LATEX) --use-latex-toc --use-latex-docinfo --documentclass=article --documentoptions=a4,titlepage  --stylesheet=parskip --latex-preamble='\usepackage{fullpage}' $< > $@
+	$(RST2LATEX) --config=docutils.conf --stylesheet-path=stylesheet.tex $< > $@
