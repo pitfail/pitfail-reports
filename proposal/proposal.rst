@@ -39,7 +39,7 @@ Owen Healy
 - *Languages:* Haskell, Scheme, Scala, R, Prolog, category theory, C, Python
 - *Experience:* technology startups, developer
 - *Skills:* design, programming
-  
+
 Brian Goodacre
   bgoodacr@eden.rutgers.edu
 
