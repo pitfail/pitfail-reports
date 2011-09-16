@@ -343,7 +343,8 @@ interesting. Pitfail allows users to design their *design their own contracts*,
 thus creating new financial products. As an online game, these contracts are
 subject to a few artificial restrictions:
 
-- Simple enough for users to be comfortable using them, and into the gam
+- Simple enough for users to be comfortable using them and to fit into an
+  online game
 - Restricted to contracts can be programmatically enforced
 
 Even without a court system to enforce complex contracts, custom securties
