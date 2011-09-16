@@ -114,7 +114,7 @@ and attract new members through viral marketing on Twitter.
 
 Expected Audience
 =================
-Existing financial engineering simulations appear to be targetted primarily at
+Existing financial engineering simulations appear to be targeted primarily at
 students. Pitfail aims to make things easier for the casual user without
 compromising its usefulness to students and teachers. As such, the expected
 audience for Pitfail consists of:
@@ -146,14 +146,14 @@ Android
   *Audience*: mobile users who like having apps
 
   *Purpose*: direct income from sales or from ads. Hip, cool, and new. Allow
-  users to develop addictions to graphs of their earnings, yeilding us a more
+  users to develop addictions to graphs of their earnings, yielding us a more
   stable user base.
 
 Facebook
   *Audience*: people who aren't on twitter.
 
-  *Purpose*: Connect pitfail to the already exsisting user adiction to
-  facebook, leading to increased user capture.
+  *Purpose*: Connect pitfail to the already existing user addiction to
+  Facebook, leading to increased user capture.
 
 Twitter Integration
 ~~~~~~~~~~~~~~~~~~~
@@ -186,7 +186,7 @@ But also to join a particular "challenge":
 .. figure:: wisc-challenge.png
     :width: 3 in
 
-Alternatively, consider the labrynthine registration procedures such as with
+Alternatively, consider the labyrinthine registration procedures such as with
 the the `Stock Market Game
 <http://www.smgww.org/cgi-bin/haipage/page.html?tpl=coordinator/index>`_ that
 involve filling several pages of form fields after being redirected multiple
@@ -241,7 +241,7 @@ Portfolio View
 ~~~~~~~~~~~~~~
 Users can view their entire their portfolio on the Pitfail website. This
 primarily consists of a list of the securities a user owns, including stocks
-and derivitives. This is similar to the existing portfolio overviews offered
+and derivatives. This is similar to the existing portfolio overviews offered
 by Investopedia and NeoPets:
 
 .. figure:: ip-portfolio.png
@@ -266,7 +266,7 @@ that is plotted over time to show users how his or her wealth is progressing.
 Social Interaction
 ~~~~~~~~~~~~~~~~~~
 As a game, Pitfail thrives on friendly competition. Users can monitor
-eachother's progress by viewing a feed of recent activity and browsing
+each other's progress by viewing a feed of recent activity and browsing
 leaderboards. These features are similar to the ability to browse leaderboards
 and user-specific activity feeds on Investopedia:
 
@@ -282,7 +282,7 @@ of their friends' or enemies' activities and add a flavor of competition.
 
 When browsing recent activity or viewing another user's portfolio users are
 able to comment on trades. These comments make users feel involved and part of
-a larger community, similar to the comment system on StackOverflow:
+a larger community, similar to the comment system on Stack Overflow:
 
 .. figure:: so-comment.png
     :width: 3 in
@@ -303,10 +303,10 @@ message board and Investopedia only supports private messages:
 Social Voting
 ~~~~~~~~~~~~~
 In addition to commenting on trades, users can "upvote" and "downvote" trades
-based on their opinion of trade. Votes are anonomous, but an aggregrate score
+based on their opinion of trade. Votes are anonymous, but an aggregate score
 is computed from the votes and is displayed next to each trade. This gives
 users an opportunity to interact with Pitfail similar to the voting system on
-StackOverflow and "Like" on Facebook:
+Stack Overflow and "Like" on Facebook:
 
 .. figure:: so-votes.png
     :width: 5 in
@@ -314,7 +314,7 @@ StackOverflow and "Like" on Facebook:
 .. figure:: fb-votes.png
     :width: 5 in
 
-Unlike StackOverflow and Facebook, Pitfail gives users a stake in their votes.
+Unlike Stack Overflow and Facebook, Pitfail gives users a stake in their votes.
 As an example, say Alice sells security ABC to Bob for $100. When they make the
 trade, each of Alice and Bob set aside a small part (say $0.50 worth) into two
 pools, the up-voter pool and the down-voter pool. Voters then purchase a small
@@ -347,7 +347,7 @@ subject to a few artificial restrictions:
   online game
 - Restricted to contracts can be programmatically enforced
 
-Even without a court system to enforce complex contracts, custom securties
+Even without a court system to enforce complex contracts, custom securities
 allow Pitfail's users to a new financial environment. Creating custom securities
 and derivatives appears to be unique to Pitfail.
 We are not aware of any existing websites that implement this feature.
