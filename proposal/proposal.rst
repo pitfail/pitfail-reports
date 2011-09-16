@@ -362,5 +362,5 @@ play in smaller groups. To this end we introduce *teams* and *leagues*:
 
 Members of a team are free to trade using there collective portfolio; there is
 no "leader" or set decision-making process. Conversely, a league specifies a
-common portfolio and allows users to be ranked against one another without
-bias.
+common initial portfolio for a competitor and allows competitors to be ranked
+against one another without bias.
