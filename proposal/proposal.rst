@@ -1,26 +1,46 @@
-Pitfail Project Proposal
-########################
+.. raw:: latex
 
-:Author: Software Engineering I, Group 3
-:Contact: pitfail.group@gmail.com
+	\begin{titlepage}
+	\centering
+	\singlespacing
+
+	\vspace*{2in}
+
+	\begin{center}
+		\Huge Pitfail Proposal \\
+		\Large An Online Financial Engineering Game
+	\end{center}
+
+	\vspace*{2in}
+
+	\large
+	September 16, 2011 \\
+
+	\vspace*{0.5in}
+
+	Software Engineering I, Group 3 \\
+	\href{https://github.com/pitfail/pitfail-reports/wiki}{https://github.com/pitfail/pitfail-reports/wiki} \\
+
+	\vspace*{0.5in}
+	
+	Michael Koval, Cody Schafer, \\
+	Owen Healy, Brian Goodacre \\
+	Roma Mehta, Sonu Iqbal \\
+	Avanti Kulkarni \\
+	\end{titlepage}
 
 .. sectnum::
 
-.. contents::
-    :local:
+.. contents:: Table of Contents
+
+.. raw:: latex
+
+	\pagebreak
 
 Team Information
 ================
-Title:
-  Pitfail: An Online Finance Game
-
-Website:
-  https://github.com/pitfail/pitfail-reports/wiki
-
-Team Profile
-============
 Michael Koval
-  mkoval@eden.rutgers.edu
+  mkoval@cs.rutgers.edu
 
 - *Languages:* C, C++, C#, Java, Python, Scheme, Matlab
 - *Experience:* Microsoft, U.S. Department of Defense
@@ -66,7 +86,11 @@ Avanti Kulkarni
 - *Languages:* C, C++, MySQL, JSP, C#.Net
 - *Experience:* Barclays Capital, Cisco Systems
 
-Proposed Project
+.. raw:: latex
+
+	\pagebreak
+
+Pitfail Overview
 ================
 Pitfail is a financial engineering simulation in which users can buy and sell
 securities. This includes buying and selling stock from the exchange, trading
@@ -89,7 +113,7 @@ These features act in combination to lower the barrier-to-entry for new members
 and attract new members through viral marketing on Twitter.
 
 Expected Audience
-~~~~~~~~~~~~~~~~~
+=================
 Existing financial engineering simulations appear to be targetted primarily at
 students. Pitfail aims to make things easier for the casual user without
 compromising its usefulness to students and teachers. As such, the expected
@@ -103,7 +127,7 @@ of these target groups in mind, with a special emphasis on making the
 simulation approachable for casual users.
 
 Accessing Pitfail
-~~~~~~~~~~~~~~~~~
+=================
 There are two ways to access Pitfail: through a dedicated website or by
 interacting with the Pitfail Twitter account. Each of these methods targeted
 for its own purposes:
@@ -118,8 +142,8 @@ Twitter
 
   *Purpose*: low barrier-to-entry, easy to use, ubiquitous, familiar interface
 
-Playing on Twitter
-~~~~~~~~~~~~~~~~~~
+Twitter Integration
+~~~~~~~~~~~~~~~~~~~
 While accessing most software through Twitter would be unruly, financial trades
 are sufficiently atomic and compact that they can be expressed naturally
 through small messages.
@@ -155,8 +179,8 @@ the the `Stock Market Game
 involve filling several pages of form fields after being redirected multiple
 times.
 
-Playing on the Website
-~~~~~~~~~~~~~~~~~~~~~~
+Website Interface
+~~~~~~~~~~~~~~~~~
 Twitter is ideal for attracting new users, but does not generate any
 advertising revenue. Therefore, it is desirable to attract users to the
 Pitfail website by offering features that are not possible via Twitter,
@@ -168,14 +192,15 @@ design custom securities, social interaction with other users, and play against
 cooperation and competition with other users. Each of these differentiating
 features is described in detail below.
 
+Features
+========
+
 Trading
--------
+~~~~~~~
 As a full-featured alternative to Twitter, the Pitfail website is an
 alternative interface for making trades. When making a trade, the user is
-presented with the following information:
-
-1. Market price
-2. Amount of available cash
+presented with the following information: (1) market price, (2) amount of
+available cash.
 
 Most sites allow you to buy a certain number of "shares", but this is an extra
 detail and not relevant to managing a portfolio -- what a user cares about is
@@ -190,7 +215,7 @@ Though more along the lines of "search" than list, since there are more
 real-world companies than companies in Neopia.
 
 Portfolio View 
---------------
+~~~~~~~~~~~~~~
 Users can view their entire their portfolio on the Pitfail website. This
 primarily consists of a list of the securities a user owns, including stocks
 and derivitives. This is similar to the existing portfolio overviews offered
@@ -216,7 +241,7 @@ the user's cash and stocks, combined to form his or her total "liquid assets"
 that is plotted over time to show users how his or her wealth is progressing.
 
 Social Interaction
-------------------
+~~~~~~~~~~~~~~~~~~
 As a game, Pitfail thrives on friendly competition. Users can monitor
 eachother's progress by viewing a feed of recent activity and browsing
 leaderboards. These features are similar to the ability to browse leaderboards
@@ -253,7 +278,7 @@ message board and Investopedia only supports private messages:
     :width: 5 in
 
 Social Voting
--------------
+~~~~~~~~~~~~~
 In addition to commenting on trades, users can "upvote" and "downvote" trades
 based on their opinion of trade. Votes are anonomous, but an aggregrate score
 is computed from the votes and is displayed next to each trade. This gives
@@ -303,20 +328,15 @@ allow Pitfail's users to a new financial environment. Creating custom securities
 and derivatives appears to be unique to Pitfail.
 We are not aware of any existing websites that implement this feature.
 
+Teams and Leagues
+~~~~~~~~~~~~~~~~~
+Although there is a global "Pitfail universe", some users are going to want to
+play in smaller groups. To this end we introduce *teams* and *leagues*:
 
-Teams + Leagues
-~~~~~~~~~~~~~~~
-Although there is a global "Pitfail Universe", some users are going to want to
-play in smaller groups. To this end we introduce Teams and Leagues.
+- **Team:** a group of users who share a portfolio
+- **League:** a group of users who individually compete against one-another
 
-Teams
------
-A team is a group of users who share a portfolio, and all are free to trade
-using this portfolio. There is no "leader" and no set decision making process.
-
-Leagues
--------
-A league is a group of users who compete together. Typically a league will be
-created for a particular game session, then users will join, each starting with
-the same portfolio. There will be rankings and winners within a League.
-
+Members of a team are free to trade using there collective portfolio; there is
+no "leader" or set decision-making process. Conversely, a league specifies a
+common portfolio and allows users to be ranked against one another without
+bias.
