@@ -1,0 +1,116 @@
+----------------------------------------------------------------------------------------
+Design Decisions:
+	- how many decimal places and how large should numbers be for portfolios and stocks
+	- see Historical Price: how to store information - to the second accurately or for speed with less parsing?
+	- how often to run script to update Historical Pricing
+	- User: is a Twitter account required (if so, use NOT NULL)
+	- for a user, will they have a user account with a password or soley is this through a twitter account?
+----------------------------------------------------------------------------------------
+Restrictions:
+	- A user can be part of only one company
+	- A user can be part of only one league
+	- A company can have only one portfolio
+	- A company can be part of only one league
+----------------------------------------------------------------------------------------
+CREATE TABLE User (
+	uid INTEGER PRIMARY KEY UNIQUE AUTOINCREMENT NOT NULL,
+	
+	twitter VARCHAR(25),
+	username VARCHAR(25), {pending design decision}
+	password VARCHAR(25), {pending design decision}
+	
+	registration_date TIMESTAMP NOT NULL,
+	first_name VARCHAR(30), {optional}
+	last_name VARCHAR(30), {optional}
+	email VARCHAR(50), {optional}
+	
+	lid INTEGER FOREIGN KEY,
+	cid INTEGER FOREIGN KEY
+	
+	);
+
+CREATE TABLE Company(
+	cid INTEGER PRIMARY KEY UNIQUE AUTOINCREMENT,
+	
+	name TEXT,
+	slogan TEXT,
+	registration_date TIMESTAMP NOT NULL,
+	
+	pid INTEGER FOREIGN KEY UNIQUE,
+	lid INTEGER FOREIGN KEY
+	
+	{Relation - User - Stored in the User table}
+	{Relation - Portfolio - Stored in Portfolio table}
+	
+	);
+
+CREATE TABLE Portfolio(
+	pid INTEGER PRIMARY KEY UNIQUE AUTOINCREMENT,
+	
+	cid INTEGER FOREIGN KEY,
+	
+	cash NUMERIC(20,4) {This is free cash that is not invested}
+	
+	{Relation - Stock Assets - Stored in Stock_Asset Table}
+	{Relation - Derivatives - Stored in Derivative Table}
+	
+	);
+
+CREATE TABLE League(
+	lid INTEGER PRIMARY KEY UNIQUE AUTOINCREMENT,
+	
+	admin INTEGER FOREIGN KEY,
+	
+	name TEXT,
+	description TEXT,
+	slogan TEXT,
+	
+	start_date TIMESTAMP,
+	end_date TIMESTAMP,
+	start_cash NUMERIC(20,4),
+	margin_limit NUMERIC(20,4),
+	
+	{Relation - Company - Stored in the Company table}
+	{Relation - User - Stored in the User table}
+	
+	);
+
+CREATE TABLE Historical_Price(
+	ticker VARCHAR(25) FOREIGN KEY UNIQUE,
+	
+	num_portofolio INTEGER, {If num_portfolio==0, then do not update}
+	
+	{Design Decision - Store datetime/price in a text.}
+	date_time_price VARCHAR(40), {mm-dd-yyyy_hh:mm:ss_$$$$$$$$$$$$$$$.$$$$}
+	date_time TIMESTAMP,
+	price NUMERIC (10,4)
+	
+	
+	);
+
+CREATE TABLE Stock_Asset(
+	ticker VARCHAR(25) PRIMARY KEY UNIQUE NOT NULL,
+	
+	pid INTEGER FOREIGN KEY NOT NULL,
+	
+	shares NUMERIC(10,4) NOT NULL,
+	purchase_value NUMERIC(20,4) NOT NULL,
+	sold_value NUMERIC(20,4),
+	purchase_date TIMESTAMP NOT NULL,
+	sold_date TIMESTAMP
+	
+	);
+
+CREATE TABLE Derivative(
+	ticker_name VARCHAR(25) PRIMARY KEY UNIQUE,
+	type VARCHAR(10), {all the types of derivatives could be placed here, such as sell option, e.g.}
+	
+	pid INTEGER FOREIGN KEY,
+	
+	shares NUMERIC(10,4) NOT NULL,
+	purchase_value NUMERIC(20,4) NOT NULL,
+	sold_value NUMERIC(20,4),
+	purchase_date TIMESTAMP NOT NULL,
+	sold_date TIMESTAMP
+);
+----------------------------------------------------------------------------------------
