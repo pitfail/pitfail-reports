@@ -64,8 +64,10 @@ Individual Contributions
 
 Glossary of Terms
 =================
-term1
-  definition 1
+
+League
+  An instance of the Game having particular rules associated with it. A
+  Coordinator may create a league for Players to join.
 
 term2
   definition 2
@@ -76,13 +78,21 @@ Functional Requirements Specification
 Stakeholders
 ------------
 
+1. Ad Space purchasers.
+2. People with an interest in the fincancial markets who lack the means or
+   willingness to interact with the Real Market directly.
+3. Teachers of economics courses (and the students of those teachers).
+
 Actors and Goals
 ----------------
+
+1. Player, participates by buying and selling items and managing a portfolio
+2. Coordinator, controls/runs a league
 
 Use Cases
 ---------
 
-Nonfunctional Requirements 
+Nonfunctional Requirements
 ==========================
 
 Domain Analysis
