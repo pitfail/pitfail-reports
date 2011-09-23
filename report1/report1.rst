@@ -22,7 +22,7 @@
 	\href{https://github.com/pitfail/pitfail-reports/wiki}{https://github.com/pitfail/pitfail-reports/wiki} \\
 
 	\vspace*{0.5in}
-	
+
 	Michael Koval, Cody Schafer, \\
 	Owen Healy, Brian Goodacre \\
 	Roma Mehta, Sonu Iqbal \\
@@ -142,10 +142,10 @@ Domain Model
 System Operation Contracts
 --------------------------
 
-Mathematical Model 
+Mathematical Model
 ------------------
 
-User Interface Design 
+User Interface Design
 =====================
 
 Preliminary Design
