@@ -64,8 +64,7 @@ Individual Contributions
 
 Glossary of Terms
 =================
-
-League
+league
   An instance of the Game having particular rules associated with it. A
   Coordinator may create a league for Players to join.
 
@@ -77,19 +76,18 @@ Functional Requirements Specification
 
 Stakeholders
 ------------
-
-1. Ad Space purchasers.
-2. People with an interest in the fincancial markets who lack the means or
-   willingness to interact with the Real Market directly.
-3. Teachers of economics courses (and the students of those teachers).
+- *Advertisers* who purchase ads on the website
+- *Spectators* interested in finance who do not wish to invest in the real market
+- *Teachers* of economics courses and their *students*
 
 Actors and Goals
 ----------------
+- TODO
 
 Actors
 ~~~~~~
-1. Player, participates by buying and selling items and managing a portfolio
-2. Coordinator, controls/runs a league
+- *Player* who participates by buying and selling securities
+- *Coordinator* responsible for administering a *league*
 
 Goals
 ~~~~~
@@ -97,23 +95,22 @@ Goals
 Use Cases
 ---------
 
-===========  ===================================================  =====
-Actor            Description                                       UC#
-===========  ===================================================  =====
-Player       Purchases a security.                                   1
-Player       Sells a held security.                                  2
-Player       Querys the value of his portfolio.                      3
-Player       Examines details of a particular asset.                 4
-Player       Checks league statistics.                               5
-Player       Changes their current league.                           6
-Coordinator  Creates a league.                                       7
-Coordinator  Modifys the settings for a league.                      8
-Coordinator  Add an additional Coordinator to a league.              9
-Coordinator  Delete a tournament.                                   10
-Coordinator  Admit players to a league (accept/reject requests).    11
-Coordinator  Invite players to a league.                            12
-===========  ===================================================  =====
-
+===========  ===================================================  =======
+Actor            Description                                        UC#
+===========  ===================================================  =======
+Player       Purchases a security.                                 UC-1
+Player       Sells a held security.                                UC-2
+Player       Queries the value of his or her portfolio.            UC-3
+Player       Examines details of a particular asset.               UC-4
+Player       Checks league statistics.                             UC-5
+Player       Changes his or her current league.                    UC-6
+Coordinator  Creates a league.                                     UC-7
+Coordinator  Modifies a league's settings.                         UC-8
+Coordinator  Add an additional Coordinator to a league.            UC-9
+Coordinator  Delete a league.                                      UC-10
+Coordinator  Accept or decline requests to join a league.          UC-11
+Coordinator  Invite players to a league.                           UC-12
+===========  ===================================================  =======
 
 Nonfunctional Requirements
 ==========================
