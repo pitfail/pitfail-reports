@@ -98,35 +98,20 @@ Use Cases
 ---------
 
 =========== =================================================== ===========
-
 Actor           Description                                     Case Number
-
 ----------- --------------------------------------------------- -----------
-
 Player      Purchases a security.                                        1
-
 Player      Sells a held security.                                       2
-
 Player      Querys the value of his portfolio.                           3
-
 Player      Examines details of a particular asset.                      4
-
 Player      Checks league statistics.                                    5
-
 Player      Changes their current league.                                6
-
 Coordinator Creates a league.                                            7
-
 Coordinator Modifys the settings for a league.                           8
-
 Coordinator Add an additional Coordinator to a league.                   9
-
 Coordinator Delete a tournament.                                        10
-
 Coordinator Admit players to a league (accept/reject requests).         11
-
 Coordinator Invite players to a league.                                 12
-
 =========== =================================================== ===========
 
 
