@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg height="574" version="1.1" width="984" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="270,160 270,184" stroke="#000000" stroke-width="1"/>
+<rect fill="#ffffff" height="24" stroke="#ffffff" stroke-width="1" width="109" x="238" y="184"/>
+<rect fill="none" height="24" stroke="#000000" stroke-width="1" width="109" x="238" y="184"/>
+<text font-family="Dialog" font-size="12" x="243" y="197">
+Web Framework</text>
+<polygon fill="#ffffff" points="110,232 732,232 732,255 781,255 781,511 110,511 110,232" stroke="#ffffff" stroke-width="1"/>
+<rect fill="none" height="23" stroke="#000000" stroke-width="1" width="622" x="110" y="232"/>
+<text font-family="Dialog" font-size="12" x="115" y="245">
+PitFail (server side)</text>
+<rect fill="none" height="256" stroke="#000000" stroke-width="1" width="671" x="110" y="255"/>
+<rect fill="#ffffff" height="24" stroke="#ffffff" stroke-width="1" width="81" x="238" y="136"/>
+<rect fill="none" height="24" stroke="#000000" stroke-width="1" width="81" x="238" y="136"/>
+<text font-family="Dialog" font-size="12" x="243" y="149">
+Web Server</text>
+<rect fill="#ffffff" height="24" stroke="#ffffff" stroke-width="1" width="100" x="222" y="304"/>
+<rect fill="none" height="24" stroke="#000000" stroke-width="1" width="100" x="222" y="304"/>
+<text font-family="Dialog" font-size="12" x="227" y="317">
+PageRenderer</text>
+<polyline fill="none" points="256,208 256,304" stroke="#000000" stroke-width="1"/>
+<rect fill="#ffffff" height="24" stroke="#ffffff" stroke-width="1" width="111" x="446" y="272"/>
+<rect fill="none" height="24" stroke="#000000" stroke-width="1" width="111" x="446" y="272"/>
+<text font-family="Dialog" font-size="12" x="451" y="285">
+OAuthConsumer</text>
+<polyline fill="none" points="347,208 446,272" stroke="#000000" stroke-width="1"/>
+<rect fill="#ffffff" height="24" stroke="#ffffff" stroke-width="1" width="80" x="542" y="168"/>
+<rect fill="none" height="24" stroke="#000000" stroke-width="1" width="80" x="542" y="168"/>
+<text font-family="Dialog" font-size="12" x="547" y="181">
+twitter.com</text>
+<polyline fill="none" points="542,272 542,192" stroke="#000000" stroke-width="1"/>
+<rect fill="#ffffff" height="24" stroke="#ffffff" stroke-width="1" width="66" x="246" y="32"/>
+<rect fill="none" height="24" stroke="#000000" stroke-width="1" width="66" x="246" y="32"/>
+<text font-family="Dialog" font-size="12" x="264" y="45">
+User</text>
+<rect fill="#ffffff" height="24" stroke="#ffffff" stroke-width="1" width="91" x="238" y="80"/>
+<rect fill="none" height="24" stroke="#000000" stroke-width="1" width="91" x="238" y="80"/>
+<text font-family="Dialog" font-size="12" x="243" y="93">
+Web Browser</text>
+<polyline fill="none" points="280,56 280,80" stroke="#000000" stroke-width="1"/>
+<polyline fill="none" points="278,104 278,136" stroke="#000000" stroke-width="1"/>
+<rect fill="#ffffff" height="24" stroke="#ffffff" stroke-width="1" width="86" x="366" y="320"/>
+<rect fill="none" height="24" stroke="#000000" stroke-width="1" width="86" x="366" y="320"/>
+<text font-family="Dialog" font-size="12" x="371" y="333">
+StockTrader</text>
+<polyline fill="none" points="366,320 347,208" stroke="#000000" stroke-width="1"/>
+<rect fill="#ffffff" height="24" stroke="#ffffff" stroke-width="1" width="66" x="366" y="440"/>
+<rect fill="none" height="24" stroke="#000000" stroke-width="1" width="66" x="366" y="440"/>
+<text font-family="Dialog" font-size="12" x="380" y="453">
+Model</text>
+<rect fill="#ffffff" height="24" stroke="#ffffff" stroke-width="1" width="71" x="326" y="536"/>
+<rect fill="none" height="24" stroke="#000000" stroke-width="1" width="71" x="326" y="536"/>
+<text font-family="Dialog" font-size="12" x="331" y="549">
+Database</text>
+<polyline fill="none" points="374,536 374,464" stroke="#000000" stroke-width="1"/>
+<polyline fill="none" points="322,328 366,440" stroke="#000000" stroke-width="1"/>
+<polyline fill="none" points="374,344 374,440" stroke="#000000" stroke-width="1"/>
+<rect fill="#ffffff" height="24" stroke="#ffffff" stroke-width="1" width="89" x="206" y="392"/>
+<rect fill="none" height="24" stroke="#000000" stroke-width="1" width="89" x="206" y="392"/>
+<text font-family="Dialog" font-size="12" x="211" y="405">
+PriceFetcher</text>
+<rect fill="#ffffff" height="24" stroke="#ffffff" stroke-width="1" width="78" x="14" y="400"/>
+<rect fill="none" height="24" stroke="#000000" stroke-width="1" width="78" x="14" y="400"/>
+<text font-family="Dialog" font-size="12" x="19" y="413">
+yahoo.com</text>
+<polyline fill="none" points="92,408 206,408" stroke="#000000" stroke-width="1"/>
+<polyline fill="none" points="366,344 295,392" stroke="#000000" stroke-width="1"/>
+<polyline fill="none" points="295,416 366,440" stroke="#000000" stroke-width="1"/>
+<polyline fill="none" points="278,392 278,328" stroke="#000000" stroke-width="1"/>
+<rect fill="#ffffff" height="24" stroke="#ffffff" stroke-width="1" width="98" x="454" y="368"/>
+<rect fill="none" height="24" stroke="#000000" stroke-width="1" width="98" x="454" y="368"/>
+<text font-family="Dialog" font-size="12" x="459" y="381">
+LoginManager</text>
+<polyline fill="none" points="518,296 518,368" stroke="#000000" stroke-width="1"/>
+<polyline fill="none" points="454,392 432,440" stroke="#000000" stroke-width="1"/>
+<rect fill="#ffffff" height="24" stroke="#ffffff" stroke-width="1" width="106" x="638" y="280"/>
+<rect fill="none" height="24" stroke="#000000" stroke-width="1" width="106" x="638" y="280"/>
+<text font-family="Dialog" font-size="12" x="643" y="293">
+Twitter Listener</text>
+<polyline fill="none" points="622,192 638,280" stroke="#000000" stroke-width="1"/>
+<rect fill="#ffffff" height="24" stroke="#ffffff" stroke-width="1" width="124" x="638" y="344"/>
+<rect fill="none" height="24" stroke="#000000" stroke-width="1" width="124" x="638" y="344"/>
+<text font-family="Dialog" font-size="12" x="666" y="357">
+Interpreter</text>
+<rect fill="#ffffff" height="24" stroke="#ffffff" stroke-width="1" width="66" x="710" y="376"/>
+<rect fill="none" height="24" stroke="#000000" stroke-width="1" width="66" x="710" y="376"/>
+<text font-family="Dialog" font-size="12" x="722" y="389">
+Parser</text>
+<polyline fill="none" points="710,368 710,376" stroke="#000000" stroke-width="1"/>
+<polyline fill="none" points="726,344 726,304" stroke="#000000" stroke-width="1"/>
+<polyline fill="none" points="638,344 452,344" stroke="#000000" stroke-width="1"/>
+<rect fill="#ffffff" height="24" stroke="#ffffff" stroke-width="1" width="98" x="830" y="488"/>
+<rect fill="none" height="24" stroke="#000000" stroke-width="1" width="98" x="830" y="488"/>
+<text font-family="Dialog" font-size="12" x="835" y="501">
+facebook.com</text>
+<rect fill="#ffffff" height="24" stroke="#ffffff" stroke-width="1" width="125" x="638" y="472"/>
+<rect fill="none" height="24" stroke="#000000" stroke-width="1" width="125" x="638" y="472"/>
+<text font-family="Dialog" font-size="12" x="643" y="485">
+Facebook Listener</text>
+<polyline fill="none" points="763,488 830,488" stroke="#000000" stroke-width="1"/>
+<polyline fill="none" points="654,368 654,472" stroke="#000000" stroke-width="1"/>
+<rect fill="#ffffff" height="24" stroke="#ffffff" stroke-width="1" width="66" x="558" y="120"/>
+<rect fill="none" height="24" stroke="#000000" stroke-width="1" width="66" x="558" y="120"/>
+<text font-family="Dialog" font-size="12" x="576" y="133">
+User</text>
+<polyline fill="none" points="590,144 590,168" stroke="#000000" stroke-width="1"/>
+<rect fill="#ffffff" height="24" stroke="#ffffff" stroke-width="1" width="66" x="846" y="440"/>
+<rect fill="none" height="24" stroke="#000000" stroke-width="1" width="66" x="846" y="440"/>
+<text font-family="Dialog" font-size="12" x="864" y="453">
+User</text>
+<polyline fill="none" points="878,464 878,488" stroke="#000000" stroke-width="1"/>
+</svg>
