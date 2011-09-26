@@ -64,12 +64,19 @@ Individual Contributions
 
 Glossary of Terms
 =================
-league
-  An instance of the Game having particular rules associated with it. A
-  Coordinator may create a league for Players to join.
+League
+  An instance of the *game* having particular rules associated with it. A
+  *coordinator* may create a league for *players* to join.
 
-term2
-  definition 2
+Player
+  See `Actors`_
+
+Coordinator
+  See `Actors`_
+
+Game
+  The trading of securities given a particular set of rules with the object to
+  increase the value of one's portfolio.
 
 Functional Requirements Specification
 =====================================
@@ -81,36 +88,39 @@ Stakeholders
 - *Teachers* of economics courses and their *students*
 
 Actors and Goals
-----------------
-- TODO
+~~~~~~~~~~~~~~~~
 
-Actors
-~~~~~~
-- *Player* who participates by buying and selling securities
-- *Coordinator* responsible for administering a *league*
-
-Goals
-~~~~~
+- A *Player* is one who participates by buying and selling securities.
+  - Wants to increase the value of their portfolio, thereby proving compitency
+    at security trading.
+- A *Coordinator* is responsible for administering a *league*.
+  - Wants to effectively administer the tournament to provide either a learning
+    experience to the *players*, or, alternately, an enjoyable experience to
+    the players.
+  - Desires a construct in which to effectively challenge others interested in
+    security trading.
 
 Use Cases
 ---------
 
-===========  ===================================================  =======
-Actor            Description                                        UC#
-===========  ===================================================  =======
-Player       Purchases a security.                                 UC-1
-Player       Sells a held security.                                UC-2
-Player       Queries the value of his or her portfolio.            UC-3
-Player       Examines details of a particular asset.               UC-4
-Player       Checks league statistics.                             UC-5
-Player       Changes his or her current league.                    UC-6
-Coordinator  Creates a league.                                     UC-7
-Coordinator  Modifies a league's settings.                         UC-8
-Coordinator  Add an additional Coordinator to a league.            UC-9
-Coordinator  Delete a league.                                      UC-10
-Coordinator  Accept or decline requests to join a league.          UC-11
-Coordinator  Invite players to a league.                           UC-12
-===========  ===================================================  =======
+=============  ===================================================  =======
+Actor              Description                                        UC#
+=============  ===================================================  =======
+Player         Purchases a security.                                 UC-1
+Player         Sells a held security.                                UC-2
+Player         Joins a leage                                         UC-3
+WebPlayer      Queries the value of his or her portfolio.            UC-4
+WebPlayer      Examines details of a particular asset.               UC-5
+WebPlayer      Checks league statistics.                             UC-6
+TwitterPlayer  Requests to brag about their portfolio.               UC-7
+TwitterPlayer  Changes his or her current league.                    UC-8
+Coordinator    Creates a league.                                     UC-9
+Coordinator    Modifies a league's settings.                         UC-10
+Coordinator    Add an additional Coordinator to a league.            UC-11
+Coordinator    Delete a league.                                      UC-12
+Coordinator    Accept or decline requests to join a league.          UC-13
+Coordinator    Invite players to a league.                           UC-14
+=============  ===================================================  =======
 
 Nonfunctional Requirements
 ==========================
