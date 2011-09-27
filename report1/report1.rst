@@ -94,15 +94,31 @@ Actors and Goals
 - A *Player* is one who participates by buying and selling securities.
   - Wants to increase the value of their portfolio, thereby proving compitency
     at security trading.
+- A *Web Player* is a *player* who is interacting with the *game* via the web
+  browser interface. This actor contains all use cases of the *player*. It also shares the goal of the *player*.
+- A *Twitter Player* is a *player* who is interacting with the *game* via the
+  twitter interface. This actor contains all use cases of the *player*. It also shares the goal of the *player*.
 - A *Coordinator* is responsible for administering a *league*.
   - Wants to effectively administer the tournament to provide either a learning
     experience to the *players*, or, alternately, an enjoyable experience to
     the players.
   - Desires a construct in which to effectively challenge others interested in
     security trading.
+- *Yahoo* is the source for all real market data which determines the actual
+  effect of purchasing and selling securities.
 
 Use Cases
 ---------
+
+The system is designed such that customization and setup by a *player* is
+minimized. As such, league joining is uneeded by new players. In fact, to be a
+new *twitter player*, one can simply send a *commanding tweet* and the Pitfail
+system will automatically initialize the required backing data.
+
+Account creation is ommited from the use case listing because account creation
+is always acomplished implicitly. Third party services are used for
+authorization, and all other setup is accomplished with defaults that may be
+changed at another point it time by the *player* as requested (UC-7).
 
 =============  ===================================================  =======
 Actor              Description                                        UC#
@@ -113,14 +129,17 @@ Player         Joins a leage                                         UC-3
 WebPlayer      Queries the value of his or her portfolio.            UC-4
 WebPlayer      Examines details of a particular asset.               UC-5
 WebPlayer      Checks league statistics.                             UC-6
-TwitterPlayer  Requests to brag about their portfolio.               UC-7
-TwitterPlayer  Changes his or her current league.                    UC-8
-Coordinator    Creates a league.                                     UC-9
-Coordinator    Modifies a league's settings.                         UC-10
-Coordinator    Add an additional Coordinator to a league.            UC-11
-Coordinator    Delete a league.                                      UC-12
-Coordinator    Accept or decline requests to join a league.          UC-13
-Coordinator    Invite players to a league.                           UC-14
+WebPlayer      Changes some settings regarding their Player          UC-7
+WebPlayer      Changes some settings regarding a portfolio/league    UC-8
+               they are a member of.
+TwitterPlayer  Requests to brag about their portfolio.               UC-9
+TwitterPlayer  Changes his or her current league.                    UC-10
+Coordinator    Creates a league.                                     UC-11
+Coordinator    Modifies a league's settings.                         UC-12
+Coordinator    Add an additional Coordinator to a league.            UC-13
+Coordinator    Delete a league.                                      UC-14
+Coordinator    Accept or decline requests to join a league.          UC-15
+Coordinator    Invite players to a league.                           UC-16
 =============  ===================================================  =======
 
 Nonfunctional Requirements
