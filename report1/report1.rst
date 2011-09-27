@@ -92,18 +92,24 @@ Stakeholders
 Actors and Goals
 ----------------
 - A *Player* is one who participates by buying and selling securities.
+
   - Wants to increase the value of their portfolio, thereby proving compitency
     at security trading.
+
 - A *Web Player* is a *player* who is interacting with the *game* via the web
-  browser interface. This actor contains all use cases of the *player*. It also shares the goal of the *player*.
+  browser interface. This actor contains all use cases of the *player*. It also
+  shares the goal of the *player*.
 - A *Twitter Player* is a *player* who is interacting with the *game* via the
-  twitter interface. This actor contains all use cases of the *player*. It also shares the goal of the *player*.
+  twitter interface. This actor contains all use cases of the *player*. It also
+  shares the goal of the *player*.
 - A *Coordinator* is responsible for administering a *league*.
+
   - Wants to effectively administer the tournament to provide either a learning
     experience to the *players*, or, alternately, an enjoyable experience to
     the players.
   - Desires a construct in which to effectively challenge others interested in
     security trading.
+
 - *Yahoo* is the source for all real market data which determines the actual
   effect of purchasing and selling securities.
 
