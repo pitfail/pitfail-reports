@@ -129,6 +129,40 @@ Mathematical Model
 
 User Interface Design
 =====================
+Pitfail's website satisfies the requirements that the other interfaces cannot:
+generating advertising revenue, enabling social interaction, and for creating
+and administering leagues. To satisfy the design requirements the website must
+be very simple to use, particularly for first-time users.
+
+This simplicity starts with the account-creation process: instead of welcoming
+new users with a registration page, Pitfail presents new users with a four-step
+process to purchase his or her first stock:
+
+.. figure:: figures/ui-welcome1
+	:scale: 40%
+
+	When logged out, the website displays a welcome message and a simple
+	four-step process for getting started. The user begins by entering a
+	stock symbol that he or she wants to buy.
+
+.. figure:: figures/ui-welcome2
+	:scale: 40%
+
+	After entering a valid ticker symbol the user proceeds to the second
+	step and chooses an amount of stock to buy. This purchase is added to
+	the user's global league portfolio once his or her account is created.
+
+.. figure:: figures/ui-welcome3
+	:scale: 40%
+
+	Finally, the user is presented with an option to login using his or an
+	existing OpenID account. Facebook and Google login buttons are provided
+	for users that aren't familiar with OpenID.
+
+This process acts both as a tutorial for new members to familiarize themselves
+with Pitfail's user interface and an account-creation process. Returning users
+who are already familiar with Pitfail's interface can bypass this guided setup
+procedure by selecting the "login" option.
 
 Preliminary Design
 ------------------
