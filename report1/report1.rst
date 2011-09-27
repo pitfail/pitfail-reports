@@ -133,7 +133,7 @@ WebPlayer      Changes some settings regarding their Player          UC-7
 WebPlayer      Changes some settings regarding a portfolio/league    UC-8
                they are a member of.
 TwitterPlayer  Requests to brag about their portfolio.               UC-9
-TwitterPlayer  Changes his or her current league.                    UC-10
+TwitterPlayer  Changes his or her current (default) league.          UC-10
 Coordinator    Creates a league.                                     UC-11
 Coordinator    Modifies a league's settings.                         UC-12
 Coordinator    Add an additional Coordinator to a league.            UC-13
