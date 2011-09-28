@@ -408,46 +408,55 @@ Preliminary Design
 Simplifying the registration procedure starts with the welcome page. Instead of
 welcomes the logged-out user with a registration page, Pitfail presents him or
 her with a simple four-step guide to purchasing his or her first stock.
-Existing users can bypass this guided registration process at any time by
-following the "login" link that is in the top-right corner of ever page. This
-intentionally mimics the login method on popular websites such as Facebook,
-Google, and Reddit.
+Existing users can bypass this guided process at any time by following the
+"login" link that is in the top-right corner of ever page. This intentionally
+mimics the login method on popular websites such as Facebook, Google, and
+Reddit.
 
-If the prospective user chooses to create an account, he or she is guided
-through a four step process to buy his or her first stock:
+If the user is logged out, he or she is assumed to be a new user and is
+presented with a guided login process.  Existing users can skip the account
+registration by using the OpenID "login" link in the upper-right corner of the
+page. This design intentionally designed to mimic the behavior of popular
+websites such as Facebook, Google, and Reddit.
+
+New users, on the other hand, are guided through the process of purchasing
+their first security. Guiding new users through their first purchase helps the
+new users gain familiarity with Pitfail's user interface before confronting
+the full complexity of portfolio management.
+
+First, the user is asked to enter a stock ticker symbol into the search box to
+request a quote:
 
 .. figure:: ui-mockups/ui-welcome1
 	:scale: 50%
 
-	When logged out, the website displays a welcome message and a simple
-	four-step process for getting started. The user begins by entering a
-	stock symbol that he or she wants to buy.
+Assuming the ticker symbol exists, the Pitfail slogan is replaced with a stock
+quote that indicates the stock's market value. The user then chooses how many
+shares he or she wishes to purchase and clicks the "buy" button to confirm the
+purchase (this process of purchasing a stock is described in more detail when
+discussing the portfolio page):
 
 .. figure:: ui-mockups/ui-welcome2
 	:scale: 50%
 
-	After entering a valid ticker symbol the user proceeds to the second
-	step and chooses an amount of stock to buy. This purchase is added to
-	the user's global league portfolio once his or her account is created.
+After the user clicks "buy" he or she is prompted to login using OAuth, OpenID,
+or Facebook Connect. Single-click login buttons are provided for most common
+providers, such as Facebook, Google, and Twitter:
 
 .. figure:: ui-mockups/ui-welcome3
 	:scale: 50%
 
-	Finally, the user is presented with an option to login using his or an
-	existing OpenID account. Facebook and Google login buttons are provided
-	for users that aren't familiar with OpenID.
+Once authentication is complete the user's Pitfail account has been initialized
+and the stock has been purchased. This account creation is completely
+transparent to the user and no personal information is required to complete the
+login process. From this point forward, new users and returning users are treated
+identically.
 
-Once authenticated with OpenID the user's account has been created and the
-stock has been purchased. Note that the user is not prompted for any personal
-information when creating his or her account. Whether registering a new account
-or logging in, the user is now redirected to his or her Global league
-portfolio.
-
-Once logged in the user is redirected to his or her portfolio page in the
-Global League. The portfolio page is the heart of the Pitfail website and
-serves as a portal to the rest of the website and is split into three sections:
-(1) controls to buy/sell securities, (2) league controls, and (3) an overview
-of the securities in the current portfolio:
+Now logged in, the user is redirected to his or her Global League portfolio
+page. The portfolio page is the heart of the Pitfail website and serves as a
+portal to the rest of the website and is split into three sections: (1)
+controls to buy/sell securities, (2) league controls, and (3) an overview of
+the securities in the current portfolio:
 
 .. figure:: ui-mockups/ui-portfolio
 	:scale: 50%
