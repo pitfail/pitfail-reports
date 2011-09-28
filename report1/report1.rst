@@ -70,10 +70,10 @@ League
   *coordinator* may create a league for *players* to join.
 
 Player
-  See `Actors`_
+  See `Actors and Goals`_
 
 Coordinator
-  See `Actors`_
+  See `Actors and Goals`_
 
 Game
   The trading of securities given a particular set of rules with the object to
