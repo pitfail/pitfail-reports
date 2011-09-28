@@ -395,42 +395,83 @@ System Operation Contracts
 User Interface Design
 =====================
 Pitfail's website satisfies the requirements that the other interfaces cannot:
-generating advertising revenue, enabling social interaction, and for creating
-and administering leagues. To satisfy the design requirements the website must
-be very simple to use, particularly for first-time users.
+enabling social interaction, providing a rich user interface, and coordinating
+leagues. Providing a rich set of features above what is available via Twitter
+is crucial for drawing existing users to the website. On balance, the website
+must have a simple interface that welcomes new users and guides the new user
+through the registration process. This starkly contrasts with many exiting
+trading simulations, such as the Stock Market Game's seven page registration
+procedure that requires a large amount of personal information.
 
-This simplicity starts with the account-creation process: instead of welcoming
-new users with a registration page, Pitfail presents new users with a four-step
-process to purchase his or her first stock:
+Preliminary Design
+------------------
+Simplifying the registration procedure starts with the welcome page. Instead of
+welcomes the logged-out user with a registration page, Pitfail presents him or
+her with a simple four-step guide to purchasing his or her first stock.
+Existing users can bypass this guided registration process at any time by
+following the "login" link that is in the top-right corner of ever page. This
+intentionally mimics the login method on popular websites such as Facebook,
+Google, and Reddit.
+
+If the prospective user chooses to create an account, he or she is guided
+through a four step process to buy his or her first stock:
 
 .. figure:: ui-mockups/ui-welcome1
-	:scale: 40%
+	:scale: 50%
 
 	When logged out, the website displays a welcome message and a simple
 	four-step process for getting started. The user begins by entering a
 	stock symbol that he or she wants to buy.
 
 .. figure:: ui-mockups/ui-welcome2
-	:scale: 40%
+	:scale: 50%
 
 	After entering a valid ticker symbol the user proceeds to the second
 	step and chooses an amount of stock to buy. This purchase is added to
 	the user's global league portfolio once his or her account is created.
 
 .. figure:: ui-mockups/ui-welcome3
-	:scale: 40%
+	:scale: 50%
 
 	Finally, the user is presented with an option to login using his or an
 	existing OpenID account. Facebook and Google login buttons are provided
 	for users that aren't familiar with OpenID.
 
-This process acts both as a tutorial for new members to familiarize themselves
-with Pitfail's user interface and an account-creation process. Returning users
-who are already familiar with Pitfail's interface can bypass this guided setup
-procedure by selecting the "login" option.
+Once authenticated with OpenID the user's account has been created and the
+stock has been purchased. Note that the user is not prompted for any personal
+information when creating his or her account. Whether registering a new account
+or logging in, the user is now redirected to his or her Global league
+portfolio.
 
-Preliminary Design
-------------------
+Once logged in the user is redirected to his or her portfolio page in the
+Global League. The portfolio page is the heart of the Pitfail website and
+serves as a portal to the rest of the website and is split into three sections:
+(1) controls to buy/sell securities, (2) league controls, and (3) an overview
+of the securities in the current portfolio:
+
+.. figure:: ui-mockups/ui-portfolio
+	:scale: 50%
+
+Users that are members of more than one league manage their league portfolios
+completely independently: buying and selling securities only applies to the
+portfolio that he or she is currently viewing. Such users can see which
+portfolio they are managing and switch between portfolios using the tabs
+attached to the top of the table of securities.
+
+Much like when completing the guided account creation process, users can
+purchase shares of a stock at market price by entering a ticker symbol in the
+large search box near the top of the page. This displays a stock quote for the
+requested company and displays the fields necessary to purchase the stock:
+
+.. figure:: ui-mockups/ui-buy
+	:scale: 50%
+
+The user completes the purchase by entering a number of shares or dollar amount
+into the text field and clicking the "buy" button. Similarly, the user can sell
+shares at market price by using the same input technique in the table row that
+corresponds to the stock that he or she wishes to sell (not pictured due to
+space constraints).
+
 
 User Effort Estimation
 ----------------------
