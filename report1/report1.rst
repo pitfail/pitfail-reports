@@ -413,6 +413,8 @@ Existing users can bypass this guided process at any time by following the
 mimics the login method on popular websites such as Facebook, Google, and
 Reddit.
 
+Welcome Page for New User
+.........................
 If the user is logged out, he or she is assumed to be a new user and is
 presented with a guided login process.  Existing users can skip the account
 registration by using the OpenID "login" link in the upper-right corner of the
@@ -452,6 +454,8 @@ transparent to the user and no personal information is required to complete the
 login process. From this point forward, new users and returning users are treated
 identically.
 
+Portfolio Management
+....................
 Now logged in, the user is redirected to his or her Global League portfolio
 page. The portfolio page is the heart of the Pitfail website and serves as a
 portal to the rest of the website and is split into three sections: (1)
@@ -460,12 +464,6 @@ the securities in the current portfolio:
 
 .. figure:: ui-mockups/ui-portfolio
 	:scale: 50%
-
-Users that are members of more than one league manage their league portfolios
-completely independently: buying and selling securities only applies to the
-portfolio that he or she is currently viewing. Such users can see which
-portfolio they are managing and switch between portfolios using the tabs
-attached to the top of the table of securities.
 
 Much like when completing the guided account creation process, users can
 purchase shares of a stock at market price by entering a ticker symbol in the
@@ -480,6 +478,29 @@ into the text field and clicking the "buy" button. Similarly, the user can sell
 shares at market price by using the same input technique in the table row that
 corresponds to the stock that he or she wishes to sell (not pictured due to
 space constraints).
+
+Users that are members of multiple portfolios (e.g. students, teachers) can
+switch between their portfolios using the tabs near the top of the page. All
+actions, including buying/selling securities, only apply to the currently
+selected portfolio. Besides managing his or her own portfolio, each user can
+also view the current league's leaderboard:
+
+.. figure:: ui-mockups/ui-leaderboard
+	:scale: 50%
+
+The leaderboard shows a list of all users in the current league ranked by the
+current net worth of their portfolios. This encourages friendly competition and
+a provides a natural portal for the addition of social features in future
+versions.
+
+League Coordination
+...................
+
+.. figure:: ui-mockups/ui-admin
+	:scale: 50%
+
+.. figure:: ui-mockups/ui-members
+	:scale: 50%
 
 
 User Effort Estimation
