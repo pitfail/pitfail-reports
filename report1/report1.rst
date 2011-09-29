@@ -104,8 +104,8 @@ to real-time stock information and should adjust the value of a player's
 investments based on this real time stock info. Pitfail retrieves actual stock 
 prices from a third-party source Yahoo! that monitors stock exchanges and maintains 
 up-to-date stock prices.if the corresponding actual stock loses value on a 
-real-world stock exchange, the player’s virtual investment loses value equally.
- Likewise, if the corresponding  actual stock gains value, the players’s virtual 
+real-world stock exchange, the player's virtual investment loses value equally.
+ Likewise, if the corresponding  actual stock gains value, the players's virtual 
 investment grows equally.
 
 As a game, a crucial part of application is mentaining player portfolio. The 
@@ -113,19 +113,19 @@ application  provides every player with portfolio to view/modify his/her history
 i.e. list of securities owned(stocks/derivatives). In addition to the securites 
 currently owned by the player, the player is able to view his or her historical 
 performance as measure by net worth. To add  a flavour of a game, players can 
-monitor each other’s progress by viewing a feed of recent activity and browsing 
+monitor each other's progress by viewing a feed of recent activity and browsing 
 leaderboards. Pitfail also offers aggregate feeds of recent activity. This allows
- a group of people to keep abreast of their friends’ or enemies’ activities. Pitfail
+ a group of people to keep abreast of their friends' or enemies' activities. Pitfail
  provides the players with the ability to comments on other's trades when browsing
- recent activity or viewing another user’s portfolio. These comments make players 
+ recent activity or viewing another user's portfolio. These comments make players 
 feel involved and part of a larger community. One additional feature Pitfail provides
- is the ability for players to “upvote” and “downvote” trades based on their opinion
+ is the ability for players to "upvote" and "downvote" trades based on their opinion
  of trade. Pitfail can then rank users and assign status symbols (e.g. badges) to
  users with the strongest ability to vote predictively. This type of ranking appears
  to be unique to Pitfail. Another feature that appears to be unique to pitfail is 
  that it allows users todesign their own securities (i.e futures or options) , 
 thus creating new financial products.Even without a court system to enforce complex
- contracts, custom securities allow Pitfail’s users to a new financial environment.
+ contracts, custom securities allow Pitfail's users to a new financial environment.
 
 As mentioned, Pitfail can be accessed via a website, twitter , Facebook and android 
 interface. Each of these methods have their own purposes. As financial trades are 
@@ -300,16 +300,16 @@ number of users are logged in.
 3.Reliability:
 ------------
 
-In case of Internet failure, the user’s portfolios should be brought
+In case of Internet failure, the user's portfolios should be brought
 back to a consistent state when user logs in the system again after 
 the failed internet connection. The system should keep a backup of 
-user’s data in case of server failure. A proper care should be taken 
+user's data in case of server failure. A proper care should be taken 
 to handle a situation where a particular stock source is not available (i.e. Yahoo).
 
 4.Security:
 ------------
 
-The system should be secure enough such that user’s privacy is maintained.  
+The system should be secure enough such that user's privacy is maintained.  
 The system should have a login process irrespective of the application i.e via 
 Website, Mobile or twitter interface.
  
