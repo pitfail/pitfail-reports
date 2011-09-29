@@ -63,6 +63,134 @@ Individual Contributions
 
 	\end{center}
 
+
+Customer Statement of Requirements
+==================================
+
+Investors today are seeking more effective financial tools that not only
+motivates them to invest in the stock market and imporve their decision 
+making skills but also an application that is interesting enough to keep 
+using. Our goal is to build a systems that is less focused on simulation 
+than on playing a game. Existing simulations mimic the inconveniences of 
+trading stock on real markets; While this can be a good option for future 
+traders to practice , but confuses the the vast majority of users. In contrast
+with the existing alternatives, Pitfail offers number of differentiating 
+features: Pitfail is an financial engineering simulation which will allow
+investor players to virtually invest money in real-world stocks. The basic 
+features include buying and selling stocks/securities from the exchange, 
+trading between players, and designing new derivatives. Pitfail can also 
+be accessed using Twitter, Facebook and Android interface. 
+
+Pitfail simulates a virtual stock world, creating a network of stock investors,
+through which they trade real-world stocks without the risk of losing real 
+money. Unlike existing trading simulations, Pitfail does not require the 
+players to go through a time consuming registration process. Players can 
+login to the system  using their existing e-mail addresses and the system 
+remembers the players for their next use. As Pitfail requires essentially no
+commitment it is easy for players to try it out.  
+Initially, the player is given a fixed amount of startup funds. The player 
+uses these funds to virtually buy the stocks. 
+There are many options for a player to choose from once he/she logs in--- 
+1) Player can join a team ( a small group of already registered players). Once 
+player joins a team ,the player will buy/sell/compete with other players/teams
+ using collective portfolio of the team.
+2) Player can  join a league (a small group of already registered players) 
+where the members of a league compete with each other using their individual
+portfolio.
+3) Player can play with 'pitfail Universe' which includes all  players. 
+
+When the player trades and builds a portfolio , the system should have access 
+to real-time stock information and should adjust the value of a player's 
+investments based on this real time stock info. Pitfail retrieves actual stock 
+prices from a third-party source Yahoo! that monitors stock exchanges and maintains 
+up-to-date stock prices.if the corresponding actual stock loses value on a 
+real-world stock exchange, the player’s virtual investment loses value equally.
+ Likewise, if the corresponding  actual stock gains value, the players’s virtual 
+investment grows equally.
+
+As a game, a crucial part of application is mentaining player portfolio. The 
+application  provides every player with portfolio to view/modify his/her history  
+i.e. list of securities owned(stocks/derivatives). In addition to the securites 
+currently owned by the player, the player is able to view his or her historical 
+performance as measure by net worth. To add  a flavour of a game, players can 
+monitor each other’s progress by viewing a feed of recent activity and browsing 
+leaderboards. Pitfail also offers aggregate feeds of recent activity. This allows
+ a group of people to keep abreast of their friends’ or enemies’ activities. Pitfail
+ provides the players with the ability to comments on other's trades when browsing
+ recent activity or viewing another user’s portfolio. These comments make players 
+feel involved and part of a larger community. One additional feature Pitfail provides
+ is the ability for players to “upvote” and “downvote” trades based on their opinion
+ of trade. Pitfail can then rank users and assign status symbols (e.g. badges) to
+ users with the strongest ability to vote predictively. This type of ranking appears
+ to be unique to Pitfail. Another feature that appears to be unique to pitfail is 
+ that it allows users todesign their own securities (i.e futures or options) , 
+thus creating new financial products.Even without a court system to enforce complex
+ contracts, custom securities allow Pitfail’s users to a new financial environment.
+
+As mentioned, Pitfail can be accessed via a website, twitter , Facebook and android 
+interface. Each of these methods have their own purposes. As financial trades are 
+compact and atomic and that they can be expressed through small messages, Pitfail
+ provides a twitter and facebook interfaces where players can buy/sell securities 
+ by tweeting to a perticular account/ writing post on FB account wall .  Twitter 
+and Facebook  provide a familier interfaces to use the system. Also, as no 
+registration  is required which makes it easy to use.  Pitfail can also be accessed
+ via a website that offers additional set of features (In addition to all of the 
+functionality provided by the Twitter interfaces): like view portfolio, design 
+custom securities, interact socially with other users and play against or in 
+co-operation (teams/leagues)  with other users. Also, website helps to generate 
+some advertising revenue. Therefore making it desirable to attract users to the
+ Pitfail website by offering features that are not possible via Twitter/Facebook.
+Android interface provides features that are similar to that of the website, with 
+the addition of notifications to the user when some event occurs within Pitfail. 
+
+Below is the list of customer requirements:
+
+Requirements:
+
+1) A Stock market simulator website :
+Investors are looking for a effective tool that allows users to invest and 
+learn without  having to invest real money and also allows them to interact with
+ other users more effectively to make the game really enjoyable. 
+
+2) Access via Android application:
+Mobile users who like having apps can use such system with quick access very 
+easily.
+
+3) Access Via Twitter/Facebook Interfaces:
+Users already addicted to networks like Facebook/Twitter can connect to 
+Pitfail easilty.
+
+4) Graphical User Interface:
+Users are looking for simple interface that welcomes new users and guides 
+the new user through the registration process. 
+
+5) Updated Stock Information:
+Application should present stock symbols, company names, stock history, updated 
+stock values and prices amonst other details. 
+
+6) Player Portfolio:
+Each player must have seperate portfolio that gives him/her option to buy/sell 
+new securities, view currently owned securities.
+
+7)Evaluate Portfolios:
+Securities owned by each player should be periodically evaluated and should be 
+updated to their current value.
+
+8) Advertisements:
+The website must contain appropriate and interesting advertisements relating 
+to finance and stock
+
+9) Administrators for help/supervision :
+An administrator must be available to answer questions and to supervise the game.
+
+10) User-friendly application:
+The application should be easy to use and understand. 
+
+
+
+
+
+
 Glossary of Terms
 =================
 League
@@ -287,6 +415,16 @@ The concepts from the model are:
  - Receive responses from Web Server
  - Render page content
 
+**Android Client**
+
+*Definition*: The Android application: PitFail, running on the User's Android phone.
+
+*Responsibilities*:
+
+ - Listen to user input via touch
+ - Send request to Web Server, receive response from web server
+ - Display appropriate screen with response action
+
 **Web Server**
 
 *Definition*: HTTP web server, running on PitFail's server.
@@ -374,6 +512,16 @@ structured data.
  - Maintains a connection with twitter.com and listens for tweets
  - Delegates tweets to the Interpreter
  - Receives responses from the interpreter and sends them as tweets
+
+**Facebook Listener**
+
+*Definition*: Provides an interface for users to interact with PitFail via Facebook.
+
+*Responsibilities:*
+
+ - Listens to wall posts on PitFail Page and maintains a connection with Facebook.com
+ - Delegates the wall posts with requests to buy/sell to the interpreter
+ - Receives responses from the interpreter and sends them as a response to the Wall posts as comments.
 
 **Interpreter**
 
@@ -466,6 +614,65 @@ Model              informs             Page Renderer     Current status of portf
 System Operation Contracts
 --------------------------
 
+**UC 1: Buy Security**
+
+*Preconditions*:
+
+ - Verify user entry into the system
+ - Verify funds of the user 
+ - Verify availability of security in desired quantity (or even more)
+
+*Post conditions*:
+
+ - Update user portfolio
+ - Update database of system with the latest value of available security
+
+**UC 2: Sell Security**
+
+*Preconditions*:
+
+ - Verify the number of securities with the user (should be sufficient enough to sell security)
+
+*Post conditions*:
+
+ - Update database with an increase in the number of available securities
+ - Update user profile
+
+**UC 3: View Portfolio**
+
+*Pre conditions*:
+
+ - Valid and updated values of user's account
+
+*Post conditions*:
+
+ - Display of information is in a format readable and understandable by the requestor
+
+**UC 4: View League Statistics**
+
+*Pre conditions*:
+
+ - Existence of Valid League
+ - Participation of valid users into the league
+
+*Post conditions*:
+
+ - Display of information is in a format readable and understandable by the requestor
+ - Display of statistics should be according to the access rights of the requestor 
+
+**UC 5: Modify League Settings**
+
+*Pre conditions*:
+
+ - Existence of Valid League
+ - Access of the League to its issuer
+
+*Post conditions*:
+
+ - Update the League information according to the new changes
+ - Reflect the changes to the users participating in the league
+
+
 .. We don't have one of these, as far as I know
 .. Mathematical Model
 .. ------------------
@@ -486,55 +693,62 @@ Preliminary Design
 Simplifying the registration procedure starts with the welcome page. Instead of
 welcomes the logged-out user with a registration page, Pitfail presents him or
 her with a simple four-step guide to purchasing his or her first stock.
-Existing users can bypass this guided registration process at any time by
-following the "login" link that is in the top-right corner of ever page. This
-intentionally mimics the login method on popular websites such as Facebook,
-Google, and Reddit.
+Existing users can bypass this guided process at any time by following the
+"login" link that is in the top-right corner of ever page. This intentionally
+mimics the login method on popular websites such as Facebook, Google, and
+Reddit.
 
-If the prospective user chooses to create an account, he or she is guided
-through a four step process to buy his or her first stock:
+Welcome Page for New User
+.........................
+If the user is logged out, he or she is assumed to be a new user and is
+presented with a guided login process.  Existing users can skip the account
+registration by using the OpenID "login" link in the upper-right corner of the
+page. This design intentionally designed to mimic the behavior of popular
+websites such as Facebook, Google, and Reddit.
+
+New users, on the other hand, are guided through the process of purchasing
+their first security. Guiding new users through their first purchase helps the
+new users gain familiarity with Pitfail's user interface before confronting
+the full complexity of portfolio management.
+
+First, the user is asked to enter a stock ticker symbol into the search box to
+request a quote:
 
 .. figure:: ui-mockups/ui-welcome1
 	:scale: 50%
 
-	When logged out, the website displays a welcome message and a simple
-	four-step process for getting started. The user begins by entering a
-	stock symbol that he or she wants to buy.
+Assuming the ticker symbol exists, the Pitfail slogan is replaced with a stock
+quote that indicates the stock's market value. The user then chooses how many
+shares he or she wishes to purchase and clicks the "buy" button to confirm the
+purchase (this process of purchasing a stock is described in more detail when
+discussing the portfolio page):
 
 .. figure:: ui-mockups/ui-welcome2
 	:scale: 50%
 
-	After entering a valid ticker symbol the user proceeds to the second
-	step and chooses an amount of stock to buy. This purchase is added to
-	the user's global league portfolio once his or her account is created.
+After the user clicks "buy" he or she is prompted to login using OAuth, OpenID,
+or Facebook Connect. Single-click login buttons are provided for most common
+providers, such as Facebook, Google, and Twitter:
 
 .. figure:: ui-mockups/ui-welcome3
 	:scale: 50%
 
-	Finally, the user is presented with an option to login using his or an
-	existing OpenID account. Facebook and Google login buttons are provided
-	for users that aren't familiar with OpenID.
+Once authentication is complete the user's Pitfail account has been initialized
+and the stock has been purchased. This account creation is completely
+transparent to the user and no personal information is required to complete the
+login process. From this point forward, new users and returning users are treated
+identically.
 
-Once authenticated with OpenID the user's account has been created and the
-stock has been purchased. Note that the user is not prompted for any personal
-information when creating his or her account. Whether registering a new account
-or logging in, the user is now redirected to his or her Global league
-portfolio.
-
-Once logged in the user is redirected to his or her portfolio page in the
-Global League. The portfolio page is the heart of the Pitfail website and
-serves as a portal to the rest of the website and is split into three sections:
-(1) controls to buy/sell securities, (2) league controls, and (3) an overview
-of the securities in the current portfolio:
+Portfolio Management
+....................
+Now logged in, the user is redirected to his or her Global League portfolio
+page. The portfolio page is the heart of the Pitfail website and serves as a
+portal to the rest of the website and is split into three sections: (1)
+controls to buy/sell securities, (2) league controls, and (3) an overview of
+the securities in the current portfolio:
 
 .. figure:: ui-mockups/ui-portfolio
 	:scale: 50%
-
-Users that are members of more than one league manage their league portfolios
-completely independently: buying and selling securities only applies to the
-portfolio that he or she is currently viewing. Such users can see which
-portfolio they are managing and switch between portfolios using the tabs
-attached to the top of the table of securities.
 
 Much like when completing the guided account creation process, users can
 purchase shares of a stock at market price by entering a ticker symbol in the
@@ -550,6 +764,45 @@ shares at market price by using the same input technique in the table row that
 corresponds to the stock that he or she wishes to sell (not pictured due to
 space constraints).
 
+Users that are members of multiple portfolios (e.g. students, teachers) can
+switch between their portfolios using the tabs near the top of the page. All
+actions, including buying/selling securities, only apply to the currently
+selected portfolio. Besides managing his or her own portfolio, each user can
+also view the current league's leaderboard:
+
+.. figure:: ui-mockups/ui-leaderboard
+	:scale: 50%
+
+The leaderboard shows a list of all users in the current league ranked by the
+current net worth of their portfolios. This encourages friendly competition and
+a provides a natural portal for the addition of social features in future
+versions.
+
+League Coordination
+...................
+Besides the league-dependent "portfolio" and "leaderboard" links, there are two
+contextual links that are only visible to league coordinators. First, the
+league administration page allows league coordinators to change league-wide
+preferences:
+
+.. figure:: ui-mockups/ui-admin
+	:scale: 50%
+
+These preferences include the league's name, nickname (used in places where the
+full name would be too long), starting funds, and access restriction
+preferences. An identical form is used for league creation.
+
+Second, the league coordinator has access to tools necessary to manage the
+league's members. This includes inviting new members, removing members, and
+promoting existing members to league coordinator status:
+
+.. figure:: ui-mockups/ui-members
+	:scale: 50%
+
+This page is particularly important for invite-only leagues, such as those used
+by teachers. League coordinators are presented with a comprehensive list of
+current members and a queue of pending join requests that are awaiting
+approval. 
 
 User Effort Estimation
 ----------------------
