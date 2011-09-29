@@ -803,7 +803,7 @@ Usage Scenario                        Clicks  Keystrokes
 ====================================  ======  ==========
 purchase a stock                      5       7
 sell a stock                          5       2
-change current league                 ?       ?
+change current league                 4       19
 create a new league                   ?       ?
 modify an existing league             ?       ?
 invite a user to a league             ?       ?
@@ -844,17 +844,33 @@ League. The user must:
 - **Data Entry:** total of 2 clicks and 2 keystrokes, as follows
 
  1. Click on the text input in the row corresponding to Google.
- 2. Type "1" and "0" to specify 10 shares.
+ 2. Press the keys "1" and "0" to specify 10 shares.
  3. Click the "sell" button to confirm the purchase.
 
 Note that the user could press "enter" instead of clicking the "sell" button.
 
-Change Current League
-.....................
-.. TODO
-
 Create a New League
 ...................
+Assume the user wishes to create a new league named "Rutgers" with the nickname
+"RU", $100,000 starting funds, and allow public access. The user must:
+
+- **Navigation:** total of two clicks, as follows:
+
+ 1. Click on "login".
+ 2. Click on "create league"
+
+- **Data Entry:** total of two clicks and 19 keystrokes, as follows
+
+ 1. Click on the "name" field.
+ 2. Press the keys "R", "u", "t", "g", "e", "r", and "s" to enter the name.
+ 3. Press the "tab" key to move to the "nickname" field.
+ 4. Press the keys "R" and "U" to enter the nickname.
+ 5. Press the "tab" key to move to the "starting funds" field.
+ 6. Press the keys "1", "0", "0", "0", "0", and "0" to enter $100,000.
+ 7. Press the "tab" key to move to the "access restriction" field.
+ 8. Press the "down" key to select "public".
+ 9. Click the "create league" button.
+
 .. TODO
 
 Modify an Existing League
