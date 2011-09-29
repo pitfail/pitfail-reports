@@ -70,10 +70,10 @@ League
   *coordinator* may create a league for *players* to join.
 
 Player
-  See `Actors`_
+  See `Actors and Goals`_
 
 Coordinator
-  See `Actors`_
+  See `Actors and Goals`_
 
 Game
   The trading of securities given a particular set of rules with the object to
@@ -110,6 +110,9 @@ Actors and Goals
   - Desires a construct in which to effectively challenge others interested in
     security trading.
 
+- *Securities* are financial tools such as stocks and bonds which may be traded
+  for some amount of capital (dollars).
+
 - *Yahoo* is the source for all real market data which determines the actual
   effect of purchasing and selling securities.
 
@@ -131,21 +134,28 @@ Actor              Description                                        UC#
 =============  ===================================================  =======
 Player         Purchases a security.                                 UC-1
 Player         Sells a held security.                                UC-2
-Player         Joins a leage                                         UC-3
-WebPlayer      Queries the value of his or her portfolio.            UC-4
+Player         Joins a league.                                       UC-3
+WebPlayer      Examine the contrents of their portfolio.             UC-4
 WebPlayer      Examines details of a particular asset.               UC-5
-WebPlayer      Checks league statistics.                             UC-6
+WebPlayer      Checks league statistics. Provide a clear view of     UC-6
+               the leaderboard as well as changes over time.
 WebPlayer      Changes some settings regarding their Player          UC-7
 WebPlayer      Changes some settings regarding a portfolio/league    UC-8
                they are a member of.
-TwitterPlayer  Requests to brag about their portfolio.               UC-9
+TwitterPlayer  Query portfolio value & other details.                UC-9
 TwitterPlayer  Changes his or her current (default) league.          UC-10
+               The default league is the league which UC-1(Buy)
+               and UC-2(Sell) requests are sent to when a league
+               is not specified in the command string.
 Coordinator    Creates a league.                                     UC-11
-Coordinator    Modifies a league's settings.                         UC-12
+Coordinator    Modifies a league's settings. A coordinator will      UC-12
+               need to manage a league via changing settings
+               regarding the league.
 Coordinator    Add an additional Coordinator to a league.            UC-13
-Coordinator    Delete a league.                                      UC-14
-Coordinator    Accept or decline requests to join a league.          UC-15
-Coordinator    Invite players to a league.                           UC-16
+Coordinator    Remove a coordinator from the league.                 UC-14
+Coordinator    Delete a league.                                      UC-15
+Coordinator    Accept or decline requests to join a league.          UC-16
+Coordinator    Invite players to a league.                           UC-17
 =============  ===================================================  =======
 
 Nonfunctional Requirements
@@ -307,7 +317,7 @@ structured data.
  - Delegate commands to the Parser and receive a structured representation
  - Send structured commands to the Stock Trader and receive a response
  - Convert response to text and send back to the corresponding Listener
-   
+
 **Parser**
 
 *Definition*: Converts human-entered text to structured trading commands.
