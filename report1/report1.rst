@@ -66,130 +66,122 @@ Individual Contributions
 
 Customer Statement of Requirements
 ==================================
-
 Investors today are seeking more effective financial tools that not only
-motivates them to invest in the stock market and improve their decision
-making skills but also an application that is interesting enough to keep
-using. Our goal is to build a systems that is less focused on simulation
-than on playing a game. Existing simulations mimic the inconveniences of
-trading stock on real markets; While this can be a good option for future
-traders to practice , but confuses the the vast majority of users. In contrast
-with the existing alternatives, Pitfail offers number of differentiating
-features: Pitfail is an financial engineering simulation which will allow
-investor players to virtually invest money in real-world stocks. The basic
-features include buying and selling stocks/securities from the exchange,
-trading between players, and designing new derivatives. Pitfail can also
-be accessed using Twitter, Facebook and Android interface.
+motivates them to invest in the stock market and improve their decision making
+skills but also an application that is interesting enough to keep using. Our
+goal is to build a systems that is less focused on simulation than on playing a
+game. Existing simulations mimic the inconveniences of trading stock on real
+markets; While this can be a good option for future traders to practice , but
+confuses the the vast majority of users. In contrast with the existing
+alternatives, Pitfail offers number of differentiating features: Pitfail is an
+financial engineering simulation which will allow investor players to virtually
+invest money in real-world stocks. The basic features include buying and
+selling stocks/securities from the exchange, trading between players, and
+designing new derivatives. Pitfail can also be accessed using Twitter, Facebook
+and Android interface.
 
 Pitfail simulates a virtual stock world, creating a network of stock investors,
 through which they trade real-world stocks without the risk of losing real
 money. Unlike existing trading simulations, Pitfail does not require the
-players to go through a time consuming registration process. Players can
-login to the system  using their existing e-mail addresses and the system
-remembers the players for their next use. As Pitfail requires essentially no
-commitment it is easy for players to try it out. 
-Initially, the player is given a fixed amount of startup funds. The player
-uses these funds to virtually buy the stocks.
-There are many options for a player to choose from once he/she logs in---
-1) Player can join a team ( a small group of already registered players). Once
-player joins a team ,the player will buy/sell/compete with other players/teams
- using collective portfolio of the team.
-2) Player can  join a league (a small group of already registered players)
-where the members of a league compete with each other using their individual
-portfolio.
-3) Player can play with 'Pitfail Universe' which includes all  players.
+players to go through a time consuming registration process. Players can login
+to the system  using their existing e-mail addresses and the system remembers
+the players for their next use. As Pitfail requires essentially no commitment
+it is easy for players to try it out.  Initially, the player is given a fixed
+amount of startup funds. The player uses these funds to virtually buy the
+stocks.
+
+There are many options for a player to choose from once he/she logs in:
+
+1. Player can join a team (a small group of already registered players). Once
+   player joins a team ,the player will buy/sell/compete with other players/teams
+   using collective portfolio of the team.
+
+2. Player can  join a league (a small group of already registered players)
+   where the members of a league compete with each other using their individual
+   portfolio.
+
+3. Player can play with 'Pitfail Universe' which includes all players.
 
 When the player trades and builds a portfolio , the system should have access
 to real-time stock information and should adjust the value of a player's
 investments based on this real time stock info. Pitfail retrieves actual stock
-prices from a third-party source Yahoo! that monitors stock exchanges and maintains
-up-to-date stock prices.if the corresponding actual stock loses value on a
-real-world stock exchange, the player's virtual investment loses value equally.
- Likewise, if the corresponding  actual stock gains value, the player's virtual
-investment grows equally.
+prices from a third-party source Yahoo! that monitors stock exchanges and
+maintains up-to-date stock prices.if the corresponding actual stock loses value
+on a real-world stock exchange, the player's virtual investment loses value
+equally.  Likewise, if the corresponding  actual stock gains value, the
+player's virtual investment grows equally.
 
 As a game, a crucial part of application is maintaining player portfolio. The
-application  provides every player with portfolio to view/modify his/her history 
-i.e. list of securities owned(stocks/derivatives). In addition to the securities
-currently owned by the player, the player is able to view his or her historical
-performance as measure by net worth. To add  a flavor of a game, players can
-monitor each other's progress by viewing a feed of recent activity and browsing
-leader boards. Pitfail also offers aggregate feeds of recent activity. This allows
- a group of people to keep abreast of their friends' or enemies' activities. Pitfail
- provides the players with the ability to comments on other's trades when browsing
- recent activity or viewing another user's portfolio. These comments make players
-feel involved and part of a larger community. One additional feature Pitfail provides
- is the ability for players to "upvote" and "downvote" trades based on their opinion
- of trade. Pitfail can then rank users and assign status symbols (e.g. badges) to
- users with the strongest ability to vote predicatively. This type of ranking appears
- to be unique to Pitfail. Another feature that appears to be unique to Pitfail is
- that it allows users to design their own securities (i.e futures or options) ,
-thus creating new financial products.Even without a court system to enforce complex
- contracts, custom securities allow Pitfail's users to a new financial environment.
+application  provides every player with portfolio to view/modify his/her
+history i.e. list of securities owned(stocks/derivatives). In addition to the
+securities currently owned by the player, the player is able to view his or her
+historical performance as measure by net worth. To add  a flavor of a game,
+players can monitor each other's progress by viewing a feed of recent activity
+and browsing leader boards. Pitfail also offers aggregate feeds of recent
+activity. This allows a group of people to keep abreast of their friends' or
+enemies' activities. Pitfail provides the players with the ability to comments
+on other's trades when browsing recent activity or viewing another user's
+portfolio. These comments make players feel involved and part of a larger
+community. One additional feature Pitfail provides is the ability for players
+to "upvote" and "downvote" trades based on their opinion of trade. Pitfail can
+then rank users and assign status symbols (e.g. badges) to users with the
+strongest ability to vote predictively. This type of ranking appears to be
+unique to Pitfail. Another feature that appears to be unique to Pitfail is that
+it allows users to design their own securities (i.e futures or options) , thus
+creating new financial products.Even without a court system to enforce complex
+contracts, custom securities allow Pitfail's users to a new financial
+environment.
 
-As mentioned, Pitfail can be accessed via a website, twitter , Facebook and android
-interface. Each of these methods have their own purposes. As financial trades are
-compact and atomic and that they can be expressed through small messages, Pitfail
- provides a twitter and Facebook interfaces where players can buy/sell securities
- by tweeting to a particular account/ writing post on Facebook account wall .  Twitter
-and Facebook  provide a familiar interfaces to use the system. Also, as no
-registration  is required which makes it easy to use.  Pitfail can also be accessed
- via a website that offers additional set of features (In addition to all of the
-functionality provided by the Twitter interfaces): like view portfolio, design
-custom securities, interact socially with other users and play against or in
-co-operation (teams/leagues)  with other users. Also, website helps to generate
-some advertising revenue. Therefore making it desirable to attract users to the
- Pitfail website by offering features that are not possible via Twitter/Facebook.
-Android interface provides features that are similar to that of the website, with
-the addition of notifications to the user when some event occurs within Pitfail.
+As mentioned, Pitfail can be accessed via a website, twitter , Facebook and
+android interface. Each of these methods have their own purposes. As financial
+trades are compact and atomic and that they can be expressed through small
+messages, Pitfail provides a twitter and Facebook interfaces where players can
+buy/sell securities by tweeting to a particular account/ writing post on
+Facebook account wall .  Twitter and Facebook  provide a familiar interfaces to
+use the system. Also, as no registration  is required which makes it easy to
+use.  Pitfail can also be accessed via a website that offers additional set of
+features (In addition to all of the functionality provided by the Twitter
+interfaces): like view portfolio, design custom securities, interact socially
+with other users and play against or in co-operation (teams/leagues)  with
+other users. Also, website helps to generate some advertising revenue.
+Therefore making it desirable to attract users to the Pitfail website by
+offering features that are not possible via Twitter/Facebook.  Android
+interface provides features that are similar to that of the website, with the
+addition of notifications to the user when some event occurs within Pitfail.
 
 Below is the list of customer requirements:
 
-Requirements:
+1.  A Stock market simulator website: Investors are looking for a effective
+    tool that allows users to invest and learn without  having to invest real money
+    and also allows them to interact with other users more effectively to make the
+    game really enjoyable.
 
-1) A Stock market simulator website :
-Investors are looking for a effective tool that allows users to invest and
-learn without  having to invest real money and also allows them to interact with
- other users more effectively to make the game really enjoyable.
+2.  Access via Android application: Mobile users who like having apps can use
+    such system with quick access very easily.
 
-2) Access via Android application:
-Mobile users who like having apps can use such system with quick access very
-easily.
+3.  Access Via Twitter/Facebook Interfaces: Users already addicted to networks
+    like Facebook/Twitter can connect to Pitfail easily.
 
-3) Access Via Twitter/Facebook Interfaces:
-Users already addicted to networks like Facebook/Twitter can connect to
-Pitfail easily.
+4.  Graphical User Interface: Users are looking for simple interface that
+    welcomes new users and guides the new user through the registration process.
 
-4) Graphical User Interface:
-Users are looking for simple interface that welcomes new users and guides
-the new user through the registration process.
+5.  Updated Stock Information: Application should present stock symbols, company
+    names, stock history, updated stock values and prices amongst other details.
 
-5) Updated Stock Information:
-Application should present stock symbols, company names, stock history, updated
-stock values and prices amongst other details.
+6.  Player Portfolio: Each player must have separate portfolio that gives
+    him/her option to buy/sell new securities, view currently owned securities.
 
-6) Player Portfolio:
-Each player must have separate portfolio that gives him/her option to buy/sell
-new securities, view currently owned securities.
+7.  Evaluate Portfolios: Securities owned by each player should be periodically
+    evaluated and should be updated to their current value.
 
-7)Evaluate Portfolios:
-Securities owned by each player should be periodically evaluated and should be
-updated to their current value.
+8.  Advertisements: The website must contain appropriate and interesting
+    advertisements relating to finance and stock
 
-8) Advertisements:
-The website must contain appropriate and interesting advertisements relating
-to finance and stock
+9)  Administrators for help/supervision: An administrator must be available to
+    answer questions and to supervise the game.
 
-9) Administrators for help/supervision :
-An administrator must be available to answer questions and to supervise the game.
-
-10) User-friendly application:
-The application should be easy to use and understand.
-
-
-
-
-
+10) User-friendly application: The application should be easy to use and
+    understand.
 
 Glossary of Terms
 =================
