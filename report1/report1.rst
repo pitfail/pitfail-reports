@@ -798,6 +798,71 @@ approval.
 User Effort Estimation
 ----------------------
 
+====================================  ======  ==========
+Usage Scenario                        Clicks  Keystrokes
+====================================  ======  ==========
+purchase a stock                      5       7
+sell a stock                          5       2
+change current league                 ?       ?
+create a new league                   ?       ?
+modify an existing league             ?       ?
+invite a user to a league             ?       ?
+====================================  ======  ==========
+
+Purchase a Stock
+................
+Assume the user wishes to purchase 10 shares of Google stock in his or her
+Global League portfolio. The user must:
+
+- **Navigation:** total of three clicks, as follows
+
+ 1. Click on "login".
+ 2. Click on the "Global League" tab.
+ 3. Click on "portfolio".
+
+- **Data Entry:** total of two clicks and seven keystrokes, as follows
+
+ 1. Click on the "enter a ticker symbol" text field.
+ 2. Press the keys "G", "O", "O", and "G".
+ 3. Present "enter" to load the quote.
+ 4. Press the keys "1" and "0" to specify 10 shares.
+ 5. Click the "buy" button to confirm the purchase.
+
+Note that the user could press "enter" instead of clicking the "buy" button.
+
+Sell a Stock
+............
+Assume the user wishes to sell 10 shares of Google stock from his or her Global
+League. The user must:
+
+- **Navigation:** total of three clicks, as follows
+
+ 1. Click on "login".
+ 2. Click on the "Global League" tab.
+ 3. Click on the "portfolio" tab.
+
+- **Data Entry:** total of 2 clicks and 2 keystrokes, as follows
+
+ 1. Click on the text input in the row corresponding to Google.
+ 2. Type "1" and "0" to specify 10 shares.
+ 3. Click the "sell" button to confirm the purchase.
+
+Note that the user could press "enter" instead of clicking the "sell" button.
+
+Change Current League
+.....................
+.. TODO
+
+Create a New League
+...................
+.. TODO
+
+Modify an Existing League
+.........................
+.. TODO
+
+Invite User to a League
+.......................
 .. TODO
 
 Plan of Work
