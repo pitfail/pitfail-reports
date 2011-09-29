@@ -459,7 +459,7 @@ structured data.
  - Send requests for authentication to twitter.com
  - Receive + store session secrets from twitter.com
  - Inform Login Manager of new logins
-  
+
 **Stock Trader**
 
 *Definition*: Is in change of the logic of making trades.
@@ -482,7 +482,7 @@ structured data.
  - Request new price information from yahoo.com
  - Receive price information from yahoo.com
  - Maintain a cache of recent price quotes
-  
+
 **Login Manager**
 
 *Definition*: Handles the current user login.
@@ -584,7 +584,7 @@ Stock Trader       requests            Price Fetcher     Requests price data for
 Price Fetcher      informs             Stock Trader      Returns requested data
 Price Fetcher      requests            yahoo.com         Requests price for ticker
 yahoo.com          informs             Price Fetcher     Tells price for ticker
-                                                   
+
 Stock Trader       manipulates         Model             To perform a trade
 Model              informs             Stock Trader      Current status of portfolios
 
