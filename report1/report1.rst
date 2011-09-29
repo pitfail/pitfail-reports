@@ -803,9 +803,8 @@ Usage Scenario                        Clicks  Keystrokes
 ====================================  ======  ==========
 purchase a stock                      5       7
 sell a stock                          5       2
-change current league                 4       19
-create a new league                   ?       ?
-modify an existing league             ?       ?
+create a new league                   4       19
+modify an existing league             5       4
 invite a user to a league             ?       ?
 ====================================  ======  ==========
 
@@ -863,19 +862,38 @@ Assume the user wishes to create a new league named "Rutgers" with the nickname
 
  1. Click on the "name" field.
  2. Press the keys "R", "u", "t", "g", "e", "r", and "s" to enter the name.
- 3. Press the "tab" key to move to the "nickname" field.
+ 3. Press the tab key to move to the "nickname" field.
  4. Press the keys "R" and "U" to enter the nickname.
- 5. Press the "tab" key to move to the "starting funds" field.
+ 5. Press the tab key to move to the "starting funds" field.
  6. Press the keys "1", "0", "0", "0", "0", and "0" to enter $100,000.
- 7. Press the "tab" key to move to the "access restriction" field.
- 8. Press the "down" key to select "public".
+ 7. Press the tab key to move to the "access restriction" field.
+ 8. Press the down-arrow key to select "public".
  9. Click the "create league" button.
 
-.. TODO
+Note that the user could have selected "public" using the mouse and/or pressed
+"enter" instead of clicking the "create league" button.
 
 Modify an Existing League
 .........................
-.. TODO
+Assume a coordinator of the "Rutgers" league wishes to change the league's
+nickname from "RU" to "RU1", which he or she is a coordinator of. The user
+must:
+
+- **Navigation:** total of three clicks, as follows:
+
+ 1. Click on "login".
+ 2. Click on the "Rutgers" tab.
+ 3. Click on the "admin" link.
+
+- **Data Entry:** total of two clicks and four keystrokes, as follows
+
+ 1. Click on the "nickname" field.
+ 2. Press the "backspace" key to clear the field's contents.
+ 3. Press the keys, "R", "U", and "1" to enter the new nickname.
+ 4. Click on the "update field" button.
+
+Note that the user could have pressed "enter" instead of clicking the "create
+league" button.
 
 Invite User to a League
 .......................
