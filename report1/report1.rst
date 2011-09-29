@@ -209,6 +209,16 @@ The concepts from the model are:
  - Receive responses from Web Server
  - Render page content
 
+**Android Client**
+
+*Definition*: The Android application: PitFail, running on the User's Android phone.
+
+*Responsibilities*:
+
+ - Listen to user input via touch
+ - Send request to Web Server, receive response from web server
+ - Display appropriate screen with response action
+
 **Web Server**
 
 *Definition*: HTTP web server, running on PitFail's server.
@@ -296,6 +306,16 @@ structured data.
  - Maintains a connection with twitter.com and listens for tweets
  - Delegates tweets to the Interpreter
  - Receives responses from the interpreter and sends them as tweets
+
+**Facebook Listener**
+
+*Definition*: Provides an interface for users to interact with PitFail via Facebook.
+
+*Responsibilities:*
+
+ - Listens to wall posts on PitFail Page and maintains a connection with Facebook.com
+ - Delegates the wall posts with requests to buy/sell to the interpreter
+ - Receives responses from the interpreter and sends them as a response to the Wall posts as comments.
 
 **Interpreter**
 
