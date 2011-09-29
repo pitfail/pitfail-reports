@@ -495,13 +495,29 @@ versions.
 
 League Coordination
 ...................
+Besides the league-dependent "portfolio" and "leaderboard" links, there are two
+contextual links that are only visible to league coordinators. First, the
+league administration page allows league coordinators to change league-wide
+preferences:
 
 .. figure:: ui-mockups/ui-admin
 	:scale: 50%
 
+These preferences include the league's name, nickname (used in places where the
+full name would be too long), starting funds, and access restriction
+preferences. An identical form is used for league creation.
+
+Second, the league coordinator has access to tools necessary to manage the
+league's members. This includes inviting new members, removing members, and
+promoting existing members to league coordinator status:
+
 .. figure:: ui-mockups/ui-members
 	:scale: 50%
 
+This page is particularly important for invite-only leagues, such as those used
+by teachers. League coordinators are presented with a comprehensive list of
+current members and a queue of pending join requests that are awaiting
+approval. 
 
 User Effort Estimation
 ----------------------
