@@ -408,6 +408,65 @@ Model              informs             Page Renderer     Current status of portf
 System Operation Contracts
 --------------------------
 
+**UC 1: Buy Security**
+
+*Preconditions*:
+
+ - Verify user entry into the system
+ - Verify funds of the user 
+ - Verify availability of security in desired quantity (or even more)
+
+*Post conditions*:
+
+ - Update user portfolio
+ - Update database of system with the latest value of available security
+
+**UC 2: Sell Security**
+
+*Preconditions*:
+
+ - Verify the number of securities with the user (should be sufficient enough to sell security)
+
+*Post conditions*:
+
+ - Update database with an increase in the number of available securities
+ - Update user profile
+
+**UC 3: View Portfolio**
+
+*Pre conditions*:
+
+ - Valid and updated values of user's account
+
+*Post conditions*:
+
+ - Display of information is in a format readable and understandable by the requestor
+
+**UC 4: View League Statistics**
+
+*Pre conditions*:
+
+ - Existence of Valid League
+ - Participation of valid users into the league
+
+*Post conditions*:
+
+ - Display of information is in a format readable and understandable by the requestor
+ - Display of statistics should be according to the access rights of the requestor 
+
+**UC 5: Modify League Settings**
+
+*Pre conditions*:
+
+ - Existence of Valid League
+ - Access of the League to its issuer
+
+*Post conditions*:
+
+ - Update the League information according to the new changes
+ - Reflect the changes to the users participating in the league
+
+
 .. We don't have one of these, as far as I know
 .. Mathematical Model
 .. ------------------
