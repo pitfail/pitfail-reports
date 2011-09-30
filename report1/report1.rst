@@ -49,18 +49,18 @@ Individual Contributions
 	:header: "Responsibility", "Michal Koval", "Cody Schafer", "Owen Healy", "Brian Good-acre", "Roma Mehta", "Sonu Iqbal", "Avanti Kulkarni"
 	:widths: 15, 6, 6, 6, 6, 6, 6, 6
 
-	Project Manage. (10),           15%,  15%,  14%,  14%,  14%,  14%,  14%
 	Customer Reqs. (6),                ,     ,     ,     ,     ,     , 100%
 	Glossary of Terms (4),          40%,  10%,  10%,  10%,  10%,  10%,  10%
-	Functional Reqs. (37),             ,     ,     ,     ,     ,     ,
+	Functional Reqs.,                  ,     ,     ,     ,     ,     ,
 	→ Stakeholders (2),                , 100%,     ,     ,     ,     ,
+	→ Actors (2),                      , 100%,     ,     ,     ,     ,
 	→ Goals (4),                       , 100%,     ,     ,     ,     ,
 	→ Casual UC (5),                   , 100%,     ,     ,     ,     ,
 	→ Dressed UC (11),              40%,  20%,     ,  40%,     ,     ,
-	→ UC Diagram (4),                  ,     ,     ,     ,     ,     ,
+	→ UC Diagram (4),                  , 100%,     ,     ,     ,     ,
 	Seq. Diagrams (9),                 ,     ,     ,     ,     , 100%,
 	Nonfunc. Reqs. (6),                ,     ,     ,     ,     , 100%,
-	Domain Analysis (25),              ,     , 100%,     ,     ,     ,
+	Domain Analysis,                   ,     ,     ,     ,     ,     ,
 	→ Concepts (12),                   ,     , 100%,     ,     ,     ,
 	→ Associations (4),                ,     , 100%,     ,     ,     ,
 	→ Attributes (3),                  ,     , 100%,     ,     ,     ,
@@ -669,31 +669,31 @@ UC-1:
 Buy Stocks (Scenario: Successful operation)
 
 .. figure:: ssd/BuyStocks_SD.png
-    :width: 100%
+    :width: 50%
 
 UC-2:
 Sell Stocks (Scenario: Successful Operation)
 
 .. figure:: ssd/SellStocks_SD.jpg
-    :width: 100%
+    :width: 50%
 
 UC-3:
 View Portfolio (Scenario: Successful Operation)
 
 .. figure:: ssd/ViewPortfolio_SD.jpg
-    :width: 100%
+    :width: 50%
 
 UC-4
 View League Statistics (Scenario: Successful Operation)
 
 .. figure:: ssd/ViewLeague_SD.jpg
-    :width: 100%
+    :width: 50%
 
 UC-5
 Modify League settings (Scenario: Successful Operation)
 
 .. figure:: ssd/ModifyLeague_SD.jpg
-    :width: 100%
+    :width: 50%
 
 Nonfunctional Requirements
 ==========================
@@ -1353,6 +1353,7 @@ button:
 Plan of Work
 ============
 
+.. figure::
 .. TODO
 
 References
