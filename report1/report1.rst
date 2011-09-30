@@ -509,7 +509,7 @@ System Sequence Diagrams
 UC-1:
 Buy Stocks (Scenario: Successful operation)
 
-.. figure:: ssd/BuyStocks_SD.jpg
+.. figure:: ssd/BuyStocks_SD.png
     :width: 100%
 
 UC-2:

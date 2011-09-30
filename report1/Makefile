@@ -6,13 +6,14 @@ DA := Overview.pdf Model.pdf PriceFetching.pdf WebTrading.pdf \
       TwitterTrading.pdf Login.pdf Schema.pdf
 DA := $(addprefix domain-analysis/,$(DA))
 
-SSD := 
+SSD := BuyStocks_SD.png SellStocks_SD.jpg ModifyLeague_SD.jpg \
+       ViewLeague_SD.jpg ViewPortfolio_SD.jpg
 SSD := $(addprefix ssd/,$(SSD))
 
 TARGET = report1
 TRASH  = $(TARGET).pdf \
          $(TARGET).tex $(TARGET).aux $(TARGET).log  $(TARGET).out \
-	 $(TARGET).maf $(TARGET).mtc $(TARGET).mtc0 $(DA) $(SSD)
+	 $(TARGET).maf $(TARGET).mtc $(TARGET).mtc0 $(DA)
 
 .PHONY: all clean
 .SECONDARY:
