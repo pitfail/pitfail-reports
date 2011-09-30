@@ -2,9 +2,13 @@ RST2LATEX = rst2latex.py
 PDFLATEX = pdflatex
 CONVERT = convert
 
-DA :=	Overview.pdf Model.pdf PriceFetching.pdf WebTrading.pdf \
-	TwitterTrading.pdf Login.pdf
+DA := Overview.pdf Model.pdf PriceFetching.pdf WebTrading.pdf \
+      TwitterTrading.pdf Login.pdf Schema.pdf
 DA := $(addprefix domain-analysis/,$(DA))
+
+SSD := BuyStocks_SD.png SellStocks_SD.jpg ModifyLeague_SD.jpg \
+       ViewLeague_SD.jpg ViewPortfolio_SD.jpg
+SSD := $(addprefix ssd/,$(SSD))
 
 TARGET = report1
 TRASH  = $(TARGET).pdf \
@@ -31,7 +35,7 @@ clean:
 %.pdf: %.svg
 	$(CONVERT) $< $@
 
-report1.pdf : report1.tex $(DA)
+report1.pdf : report1.tex $(DA) $(SSD)
 
 %.pdf: %.tex
 	$(PDFLATEX) $<
@@ -43,4 +47,5 @@ report1.pdf : report1.tex $(DA)
 	@#   --use-latex-docinfo: uses LaTeX to generate the title page
 	@#   --documentclass=report: enables LaTeX title page
 	@#   --latex-preamble='': use the default font instead of Times
-	$(RST2LATEX) --config=docutils.conf --stylesheet-path=stylesheet.tex $< > $@
+	@#   --traceback: Give Python stack traces
+	$(RST2LATEX) --traceback --config=docutils.conf --stylesheet-path=stylesheet.tex $< > $@
