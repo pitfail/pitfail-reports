@@ -361,35 +361,36 @@ Use Case Tracability Matrix
 ...........................
 
 System Sequence Diagrams
-........................
+------------------------
+
 UC-1:
 Buy Stocks (Scenario: Successful operation)
 
-.. figure:: domain-analysis/BuyStocks_SD.svg
+.. figure:: ssd/BuyStocks_SD.pdf
     :width: 100%
 
 UC-2:
 Sell Stocks (Scenario: Successful Operation)
 
-.. figure:: domain-analysis/SellStocks_SD.jpg
+.. figure:: ssd/SellStocks_SD.jpg
     :width: 100%
 
 UC-3:
 View Portfolio (Scenario: Successful Operation)
 
-.. figure:: domain-analysis/ViewPortfolio_SD.jpg
+.. figure:: ssd/ViewPortfolio_SD.jpg
     :width: 100%
 
 UC-4
 View League Statistics (Scenario: Successful Operation)
 
-.. figure:: domain-analysis/ViewLeague_SD.jpg
+.. figure:: ssd/ViewLeague_SD.jpg
     :width: 100%
 
 UC-5
 Modify League settings (Scenario: Successful Operation)
 
-.. figure:: domain-analysis/ModifyLeague_SD.jpg
+.. figure:: ssd/ModifyLeague_SD.jpg
     :width: 100%
 
 Nonfunctional Requirements
