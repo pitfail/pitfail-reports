@@ -797,6 +797,10 @@ approval.
 
 User Effort Estimation
 ----------------------
+Several of the most common usage scenarios for the Pitfail website are
+evaluated below. In particular, note that common scenarios (e.g. buying a
+stock) are much easier to perform than rare scenarios (e.g. creating a new
+league):
 
 ====================================  ======  ==========
 Usage Scenario                        Clicks  Keystrokes
@@ -805,8 +809,10 @@ purchase a stock                      5       7
 sell a stock                          5       2
 create a new league                   4       19
 modify an existing league             5       4
-invite a user to a league             ?       ?
+invite a user to a league             6       5
 ====================================  ======  ==========
+
+These usage scenarios are discussed in detail below.
 
 Purchase a Stock
 ................
