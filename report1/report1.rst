@@ -364,9 +364,11 @@ Fully Dressed Use Cases
 UC-4: View Portfolio
 ....................
 Related Requrements:
-        Unknown.
+        REQ-1, REQ-4, REQ-5, REQ-6
+
 Initiating Actor:
         Only *WebPlayer*, the similar UC-9 is provided for the *twitter player*.
+
 Actor's Goal:
         To view information regarding their portfolio. This information
         includes the currently owned securities, minimal statistics regarding
