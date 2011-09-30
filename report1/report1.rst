@@ -897,7 +897,24 @@ league" button.
 
 Invite User to a League
 .......................
-.. TODO
+Assume a coordinator of the "Rutgers" league wishes to add the "Bucky" user
+as a coordinator of the "Rutgers" league. The user must:
+
+- **Navigation:** total of three clicks, as follows:
+
+ 1. Click on "login".
+ 2. Click on the "Rutgers" tab.
+ 3. Click on the "members" link.
+
+- **Data Entry:** total of three clicks and five keystrokes, as follows
+
+ 1. Click on the "invite member" text field.
+ 2. Press the keys "B", "u", "c", "k", and "y" to enter the user name.
+ 3. Click on the "coordinator" checkbox.
+ 4. Click on the "add" button.
+
+Note that the user could have pressed "enter" instead of clicking the "add"
+button:
 
 Plan of Work
 ============
