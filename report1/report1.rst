@@ -407,32 +407,46 @@ Participating Actors:
 Preconditions:
         The user should have created an account, be in a league  with settings
         that allows the "BUY", and have enough money to perform the BUY of the
-        security. 
+        security.
 
 Postconditions:
         The user needs to be able to see his purchased security in his
         portfolio and track the progress of the security in his portfolio until
-        he "SELLS" it. 
+        he "SELLS" it.
 
 Flow of Events for Successful Buy:
-        1. → The *Player, Webplayer, or TwitterPlayer* determines a *Security* and how much of it to "BUY".
-        2. ← *System* signals the *Stock Price Source* for the price of the security.
-        3. ← *Stock Price Source* sends the price of the *Security* to the *System.*
-        4. ← *System* signals the *Database* for the amount of money the *Player* has.
-        5. ← *Database* sends the amount of money for the *Player* to the System.
-        6. ← *System* checks that there is enough money for compelete the transcation.
-        7. ← *System* signals the *Database* to complete the transcation for a *Player*, *Security*, and the quantity. 
+        1. → The *Player, Webplayer, or TwitterPlayer* determines a *Security*
+           and how much of it to "BUY".
+        2. ← *System* signals the *Stock Price Source* for the price of the
+           security.
+        3. ← *Stock Price Source* sends the price of the *Security* to the
+           *System.*
+        4. ← *System* signals the *Database* for the amount of money the
+           *Player* has.
+        5. ← *Database* sends the amount of money for the *Player* to the
+           System.
+        6. ← *System* checks that there is enough money for compelete the
+           transcation.
+        7. ← *System* signals the *Database* to complete the transcation for a
+           *Player*, *Security*, and the quantity.
         8. ← *Database* signals the *System* the transcation is complete.
-        9. ← *System* signals to the *Player* "Transcation Completed." 
+        9. ← *System* signals to the *Player* "Transcation Completed."
 
 Flow of Events for Unsuccessful Buy:
-        1. → The *Player, Webplayer, or TwitterPlayer* determines a *Security* and how much of it to "BUY".
-        2. ← *System* signals the *Stock Price Source* for the price of the security.
-        3. ← *Stock Price Source* sends the price of the *Security* to the *System.*
-        4. ← *System* signals the *Database* for the amount of money the *Player* has.
-        5. ← *Database* sends the amount of money for the *Player* to the System.
-        6. ← *System* checks that there is enough money for compelete the transcation.
-        7. ← There is not enough money. *System* signals to the *Player* "Transcation Not Completed: Insufficient Funds." 
+        1. → The *Player, Webplayer, or TwitterPlayer* determines a *Security*
+           and how much of it to "BUY".
+        2. ← *System* signals the *Stock Price Source* for the price of the
+           security.
+        3. ← *Stock Price Source* sends the price of the *Security* to the
+           *System.*
+        4. ← *System* signals the *Database* for the amount of money the
+           *Player* has.
+        5. ← *Database* sends the amount of money for the *Player* to the
+           System.
+        6. ← *System* checks that there is enough money for compelete the
+           transcation.
+        7. ← There is not enough money. *System* signals to the *Player*
+           "Transcation Not Completed: Insufficient Funds."
 
 UC-2: Sell
 ..........
@@ -455,35 +469,50 @@ Participating Actors:
 
 Preconditions:
         - User is logged in
-        - Contain in his portfolio at least the quantity of securities his is requesting to sell.
+        - Contain in his portfolio at least the quantity of securities his is
+          requesting to sell.
 
 Postconditions:
         - The user's portfolio will reflect the quantity of securities sold.
 
 Flow of Events for Successful Sell:
-        1. → The *Player, Webplayer, or TwitterPlayer* determines a *Security* and how much of it to "SELL".
-        2. ←  *System* signals the *Stock Price Source* for the price of the security.
-        3. ←  *Stock Price Source* sends the price of the *Security* to the *System.*
-        4. ←  *System* signals the *Database* for the amount of the *Security* the *Player* has.
-        5. ←  *Database* sends the amount of the *Security* the *Player* has to the System.
-        6. ←  *System* checks that there is enough *Securities* to complete the transaction.
-        7. ←  *System* signals the *Database* to complete the transcation for a *Player*, *Security*, and the quantity. 
+        1. → The *Player, Webplayer, or TwitterPlayer* determines a *Security*
+           and how much of it to "SELL".
+        2. ←  *System* signals the *Stock Price Source* for the price of the
+           security.
+        3. ←  *Stock Price Source* sends the price of the *Security* to the
+           *System.*
+        4. ←  *System* signals the *Database* for the amount of the *Security*
+           the *Player* has.
+        5. ←  *Database* sends the amount of the *Security* the *Player* has to
+           the System.
+        6. ←  *System* checks that there is enough *Securities* to complete the
+           transaction.
+        7. ←  *System* signals the *Database* to complete the transcation for a
+           *Player*, *Security*, and the quantity.
         8. ←  *Database* signals the *System* the transaction is complete.
-        9. ←  *System* signals to the *Player* "Transaction Completed." 
+        9. ←  *System* signals to the *Player* "Transaction Completed."
 
 Flow of Events for Unsuccessful Sell:
-        1. → The *Player, Webplayer, or TwitterPlayer* determines a *Security* and how much of it to "SELL".
-        2. ←  *System* signals the *Stock Price Source* for the price of the security.
-        3. ←  *Stock Price Source* sends the price of the *Security* to the *System.*
-        4. ←  *System* signals the *Database* for the amount of the *Security* the *Player* has.
-        5. ←  *Database* sends the amount of the *Security* the *Player* has to the System.
-        6. ←  *System* checks that there is enough *Securities* to complete the transaction. There is not.
-        7. ←  *System* signals to the *Player* "Transaction Not Completed: Insufficient Securities."  
+        1. → The *Player, Webplayer, or TwitterPlayer* determines a *Security*
+           and how much of it to "SELL".
+        2. ←  *System* signals the *Stock Price Source* for the price of the
+           security.
+        3. ←  *Stock Price Source* sends the price of the *Security* to the
+           *System.*
+        4. ←  *System* signals the *Database* for the amount of the *Security*
+           the *Player* has.
+        5. ←  *Database* sends the amount of the *Security* the *Player* has to
+           the System.
+        6. ←  *System* checks that there is enough *Securities* to complete the
+           transaction. There is not.
+        7. ←  *System* signals to the *Player* "Transaction Not Completed:
+           Insufficient Securities."
 
 UC-4: View Portfolio
 ....................
 Related Requrements:
-        - REQ1: Stock Market Simulator Website     
+        - REQ1: Stock Market Simulator Website
         - REQ4: Simple User Interface
         - REQ5: Updated Stock Information
         - REQ6: Player Portfolio
@@ -568,7 +597,7 @@ Flow of Events for league does not exist:
 	2. ← *System* signals the *Database* for authentication and the league's leaderboard.
 	3. ← *Database* signals the *System* that the league does not exist.
         4. ← *System* returns "page not found" error.
-                   
+
 Flow of Events for league is invite-only and the user is not a member:
 	1. → *Player* requests the league statistics page.
 	2. ← *System* signals the *Database* for authentication and the league's leaderboard.
@@ -616,7 +645,7 @@ Flow of Events for league does not exist:
 	2. ← *System* signals the *Database* for authentication and the league's settings page.
 	3. ← *Database* signals the *System* that the league does not exist.
         4. ← *System* returns "page not found" error.
-                   
+
 Flow of Events for user is not a coordinator of the league:
 	1. → *Player* requests the league settings page.
 	2. ← *System* signals the *Database* for authentication and the league's settings page.
@@ -642,23 +671,23 @@ Use Case Tracability Matrix
 =====  =====  =====  =====  =====  =====  =====  =====  =====  =====
 UC-1          x      x                    x
 UC-2          x      x                    x 
-UC-3          x                                         x      x 
+UC-3          x                                         x      x
 UC-4   x                    x             x      x      x
 UC-5   x                    x      x
 UC-6   x                    x                    x      x
-UC-7   x                    x                           x 
-UC-8   x                    x                           x      x 
+UC-7   x                    x                           x
+UC-8   x                    x                           x      x
 UC-9                 x             x      x      x
-UC-10                x      x             x 
-UC-11  x                                                x      x 
-UC-12  x                                                x      x 
-UC-13  x                                                x      x 
-UC-14  x                                                x      x 
-UC-15  x                                                x      x 
-UC-16  x                                                x      x 
-UC-17  x                                  x             x      x 
+UC-10                x      x             x
+UC-11  x                                                x      x
+UC-12  x                                                x      x
+UC-13  x                                                x      x
+UC-14  x                                                x      x
+UC-15  x                                                x      x
+UC-16  x                                                x      x
+UC-17  x                                  x             x      x
 UC-18  x      x      x             x
-UC-19  x      x      x      x 
+UC-19  x      x      x      x
 =====  =====  =====  =====  =====  =====  =====  =====  =====  =====
 
 .. raw:: latex
