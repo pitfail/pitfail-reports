@@ -560,7 +560,7 @@ Postconditions:
 Flow of Events for Main Success Scenario:
         1. → *Player* requests to view league performance.
         2. ← *System* signals the *Database* for authentication and the league's leaderboard.
-        3. ← *Database* authenticates the user's the user's ability to view the statistics and returns the league's leaderboard.
+        3. ← *Database* authenticates the user's ability to view the statistics and returns the league's leaderboard.
         4. ← *System* returns a leaderboard of all league members.
 
 Flow of Events for league does not exist:
@@ -573,7 +573,7 @@ Flow of Events for league is invite-only and the user is not a member:
 	1. → *Player* requests the league statistics page.
 	2. ← *System* signals the *Database* for authentication and the league's leaderboard.
 	3. ← *Database* signals the *System* that the league is invite-only and the *Player* is not a member.
-        4. ← *System* returns "page not found" error.
+        4. ← *System* returns "access denied" error.
 
 UC-6: Modify League Settings
 ............................
@@ -601,25 +601,27 @@ Postconditions:
         - Starting funds is positive
 
 Flow of Events for Main Success Scenario:
-        1. → Requests the league settings page
-        2. ← Authenticates the user's credentials against the database
-        3. ← Return a settings page populated with the current settings
-        4. → Submits updated league settings
-        5. ← Validate new league settings
-        6. ← Store updated settings in the database
+        1. → *Coordinator* requests to view league settings page.
+        2. ← *System* signals the *Database* for authentication and the league's settings page.
+        3. ← *Database* authenticates the user's ability to modify the league settings and returns the league settings page.
+        4. ← *System* returns a league setting page populated with the current settings.
+        6. → *Coordinator* submits updated league settings.
+        7. ← *System* Validate new league settings
+        8. ← *System* sends updated settings to the *database.*
+        9. ← *Database* signals the *System* that the settings have been updated.
+        10. ← *System* signals the *Coordinator* "Settings have been updated."
 
-Flow of Events for Extensions:
-
-        - League does not exist
-          
-                1. → Requests the league settings page
-                2. ← Return "page not found" error
+Flow of Events for league does not exist:
+	1. → *Player* requests the league settings page.
+	2. ← *System* signals the *Database* for authentication and the league's settings page.
+	3. ← *Database* signals the *System* that the league does not exist.
+        4. ← *System* returns "page not found" error.
                    
-        - User is not a coordinator of the league
-          
-                1. → Requests the league settings page
-                2. ← Authenticates the user's credentials against the database
-                3. ← Return "access denied" error
+Flow of Events for user is not a coordinator of the league:
+	1. → *Player* requests the league settings page.
+	2. ← *System* signals the *Database* for authentication and the league's settings page.
+	3. ← *Database* signals the *System* that the league is invite-only and the *Player* is not a member.
+        4. ← *System* returns "access denied" error.
 
 Use Case Diagram
 ----------------
@@ -1323,5 +1325,6 @@ Plan of Work
 
 References
 ==========
+Miles,  Russ  and  Kim  Hamilton.  Learning  UML  2.0.  Ed.  Eric  McLaughlin  and  Mary  O'Brien. Sebastopol: O'Reilly, 2006.
 
 .. TODO
