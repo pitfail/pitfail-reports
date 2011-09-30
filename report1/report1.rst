@@ -233,6 +233,10 @@ Actors and Goals
 - *Securities* are financial tools such as stocks and bonds which may be traded
   for some amount of capital (dollars).
 
+- A *Stock Price Source* is a supplier of stock pricing data for the present
+  (within the margin of some minutes). They are queried for all data regarding
+  actual market numbers. Currently, *Yahoo* is the *stock srice source*.
+
 - *Yahoo* is the source for all real market data which determines the actual
   effect of purchasing and selling securities.
 
@@ -249,34 +253,45 @@ is always accomplished implicitly. Third party services are used for
 authorization, and all other setup is accomplished with defaults that may be
 changed at another point it time by the *player* as requested (UC-7).
 
-=============  ===================================================  =======
-Actor              Description                                        UC#
-=============  ===================================================  =======
-Player         Purchases a security.                                 UC-1
-Player         Sells a held security.                                UC-2
-Player         Joins a league.                                       UC-3
-WebPlayer      Examine the contrents of his or her portfolio.        UC-4
-WebPlayer      Examines details of a particular asset.               UC-5
-WebPlayer      Checks league statistics. Provide a clear view of     UC-6
+=============  ===================================================  ==================  =====
+Actor          Description                                          Short Name           UC#
+=============  ===================================================  ==================  =====
+Player         Purchases a security from the market at the price    Buy                 UC-1
+               the *stock price source* indicates is the market
+               price for that security.
+Player         Sells a held security at the price indicated by the  Sell                UC-2
+               *stock price source*.
+Player         Indicates that they wish to begin participating in   Join League         UC-3
+               a particular league. Does not remove them from any
+               league. Also note that leaveing a league is omitted
+               to prevent people from gaming the system by
+               joining a league, doing poorly, and leaving to
+               essentially have a "clean record".
+WebPlayer      Examine the contrents of his or her portfolio,       Examine Portfolio   UC-4
+               displaying information regarding their current
+               assets and liabilities as well as how they have
+               been progressing over time
+WebPlayer      Examines details of a particular asset.              Get Asset Details   UC-5
+WebPlayer      Checks league statistics. Provide a clear view of    View League Stats   UC-6
                the leaderboard as well as changes over time.
-WebPlayer      Changes some settings regarding their Player          UC-7
-WebPlayer      Changes some settings regarding a portfolio/league    UC-8
+WebPlayer      Changes some settings regarding their Player         Player Settings     UC-7
+WebPlayer      Changes some settings regarding a portfolio/league   Portfolio Settings  UC-8
                they are a member of.
-TwitterPlayer  Query portfolio value & other details.                UC-9
-TwitterPlayer  Changes his or her current (default) league.          UC-10
-               The default league is the league which UC-1(Buy)
+TwitterPlayer  Query portfolio value & other details.               Portfolio Info      UC-9
+TwitterPlayer  Changes his or her current (default) league.         Change Default      UC-10
+               The default league is the league which UC-1(Buy)     League
                and UC-2(Sell) requests are sent to when a league
                is not specified in the command string.
-Coordinator    Creates a league.                                     UC-11
-Coordinator    Modifies a league's settings. A coordinator will      UC-12
+Coordinator    Creates a league.                                    Make League         UC-11
+Coordinator    Modifies a league's settings. A coordinator will     League Settings     UC-12
                need to manage a league via changing settings
                regarding the league.
-Coordinator    Add an additional Coordinator to a league.            UC-13
-Coordinator    Remove a coordinator from the league.                 UC-14
-Coordinator    Delete a league.                                      UC-15
-Coordinator    Accept or decline requests to join a league.          UC-16
-Coordinator    Invite players to a league.                           UC-17
-=============  ===================================================  =======
+Coordinator    Add an additional Coordinator to a league.           Add Coordinator     UC-13
+Coordinator    Remove a coordinator from the league.                Remove Coordinator  UC-14
+Coordinator    Delete a league.                                     Delete League       UC-15
+Coordinator    Accept or decline requests to join a league.         Manage League       UC-16
+Coordinator    Invite players to a league.                          Invite to League    UC-17
+=============  ===================================================  ==================  =====
 
 Nonfunctional Requirements
 ==========================
