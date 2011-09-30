@@ -812,8 +812,130 @@ approval.
 
 User Effort Estimation
 ----------------------
+Several of the most common usage scenarios for the Pitfail website are
+evaluated below. In particular, note that common scenarios (e.g. buying a
+stock) are much easier to perform than rare scenarios (e.g. creating a new
+league):
 
-.. TODO
+====================================  ======  ==========
+Usage Scenario                        Clicks  Keystrokes
+====================================  ======  ==========
+purchase a stock                      5       7
+sell a stock                          5       2
+create a new league                   4       19
+modify an existing league             5       4
+invite a user to a league             6       5
+====================================  ======  ==========
+
+These usage scenarios are discussed in detail below.
+
+Purchase a Stock
+................
+Assume the user wishes to purchase 10 shares of Google stock in his or her
+Global League portfolio. The user must:
+
+- **Navigation:** total of three clicks, as follows
+
+ 1. Click on "login".
+ 2. Click on the "Global League" tab.
+ 3. Click on "portfolio".
+
+- **Data Entry:** total of two clicks and seven keystrokes, as follows
+
+ 1. Click on the "enter a ticker symbol" text field.
+ 2. Press the keys "G", "O", "O", and "G".
+ 3. Present "enter" to load the quote.
+ 4. Press the keys "1" and "0" to specify 10 shares.
+ 5. Click the "buy" button to confirm the purchase.
+
+Note that the user could press "enter" instead of clicking the "buy" button.
+
+Sell a Stock
+............
+Assume the user wishes to sell 10 shares of Google stock from his or her Global
+League. The user must:
+
+- **Navigation:** total of three clicks, as follows
+
+ 1. Click on "login".
+ 2. Click on the "Global League" tab.
+ 3. Click on the "portfolio" tab.
+
+- **Data Entry:** total of 2 clicks and 2 keystrokes, as follows
+
+ 1. Click on the text input in the row corresponding to Google.
+ 2. Press the keys "1" and "0" to specify 10 shares.
+ 3. Click the "sell" button to confirm the purchase.
+
+Note that the user could press "enter" instead of clicking the "sell" button.
+
+Create a New League
+...................
+Assume the user wishes to create a new league named "Rutgers" with the nickname
+"RU", $100,000 starting funds, and allow public access. The user must:
+
+- **Navigation:** total of two clicks, as follows:
+
+ 1. Click on "login".
+ 2. Click on "create league"
+
+- **Data Entry:** total of two clicks and 19 keystrokes, as follows
+
+ 1. Click on the "name" field.
+ 2. Press the keys "R", "u", "t", "g", "e", "r", and "s" to enter the name.
+ 3. Press the tab key to move to the "nickname" field.
+ 4. Press the keys "R" and "U" to enter the nickname.
+ 5. Press the tab key to move to the "starting funds" field.
+ 6. Press the keys "1", "0", "0", "0", "0", and "0" to enter $100,000.
+ 7. Press the tab key to move to the "access restriction" field.
+ 8. Press the down-arrow key to select "public".
+ 9. Click the "create league" button.
+
+Note that the user could have selected "public" using the mouse and/or pressed
+"enter" instead of clicking the "create league" button.
+
+Modify an Existing League
+.........................
+Assume a coordinator of the "Rutgers" league wishes to change the league's
+nickname from "RU" to "RU1", which he or she is a coordinator of. The user
+must:
+
+- **Navigation:** total of three clicks, as follows:
+
+ 1. Click on "login".
+ 2. Click on the "Rutgers" tab.
+ 3. Click on the "admin" link.
+
+- **Data Entry:** total of two clicks and four keystrokes, as follows
+
+ 1. Click on the "nickname" field.
+ 2. Press the "backspace" key to clear the field's contents.
+ 3. Press the keys, "R", "U", and "1" to enter the new nickname.
+ 4. Click on the "update field" button.
+
+Note that the user could have pressed "enter" instead of clicking the "create
+league" button.
+
+Invite User to a League
+.......................
+Assume a coordinator of the "Rutgers" league wishes to add the "Bucky" user
+as a coordinator of the "Rutgers" league. The user must:
+
+- **Navigation:** total of three clicks, as follows:
+
+ 1. Click on "login".
+ 2. Click on the "Rutgers" tab.
+ 3. Click on the "members" link.
+
+- **Data Entry:** total of three clicks and five keystrokes, as follows
+
+ 1. Click on the "invite member" text field.
+ 2. Press the keys "B", "u", "c", "k", and "y" to enter the user name.
+ 3. Click on the "coordinator" checkbox.
+ 4. Click on the "add" button.
+
+Note that the user could have pressed "enter" instead of clicking the "add"
+button:
 
 Plan of Work
 ============
