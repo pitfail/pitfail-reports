@@ -442,13 +442,18 @@ Flow of Events for Main Success Scenario:
         3. ← Return a leaderboard of all league members
 
 Flow of Events for Extensions:
+
         - League does not exist
+          
                 1. → Requests the league statistics page.
                 2. ← Return "page not found" error
+                   
         - League is invite-only and the user is not a member
+          
                 1. → Requests the league settings page
                 2. ← Authenticates the user's credentials against the database
                 3. ← Return "access denied" error
+
 
 UC-6: Modify League Settings
 ............................
@@ -484,10 +489,14 @@ Flow of Events for Main Success Scenario:
         6. ← Store updated settings in the database
 
 Flow of Events for Extensions:
+
         - League does not exist
+          
                 1. → Requests the league settings page
                 2. ← Return "page not found" error
+                   
         - User is not a coordinator of the league
+          
                 1. → Requests the league settings page
                 2. ← Authenticates the user's credentials against the database
                 3. ← Return "access denied" error
