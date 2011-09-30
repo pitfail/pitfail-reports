@@ -401,42 +401,49 @@ The user needs to be able to see his purchased security in his portfolio and tra
 
 UC-2: Sell
 ..........
-**Related Requirements:**
-REQ1, REQ2, REQ3, REQ5, REQ6, REQ10
+Related Requirements:
+        - REQ1: Stock Market Simulator Website
+        - REQ2: Android Application
+        - REQ3: Access via Twitter/Facebook
+        - REQ5: Updated Stock Information
+        - REQ6: Player Portfolio
 
-**Initiating Actor:**
-Any of: Player, Webplayer, TwitterPlayer
+Initiating Actor:
+        Any of: Player, Webplayer, TwitterPlayer
 
-**Actor's Goal:**
-To purchase a security from the market, to add it to his portfolio, and see the updated 
+Actor's Goal:
+        To purchase a security from the market, to add it to his portfolio, and
+        see the updated portfolio
 
-*Participating Actors:**
-Database, Securities, Stock Price Source, Yahoo!
+Participating Actors:
+        Database, Securities, Stock Price Source, Yahoo!
 
-**Preconditions:** The user should have created an account, be in a league with settings that allows the "SELL", and contain in his portfolio at least the quantity of securities his is requesting to SELL.
+Preconditions:
+        - User is logged in
+        - Contain in his portfolio at least the quantity of securities his is requesting to sell.
 
-**Postconditions:**
-The user's portfolio will reflect the quantity of securities SOLD. 
+Postconditions:
+        - The user's portfolio will reflect the quantity of securities sold.
 
-**Flow of Events for Successful SELL:**
- ->	1. The **Player, Webplayer, or TwitterPlayer** determines a **Security** and how much of it to "SELL".
- <-	2. **System** signals the **Stock Price Source** for the price of the security.
- <-	3. **Stock Price Source** sends the price of the **Security** to the **System.**
- <-	4. **System** signals the **Database** for the amount of the **Security** the **Player** has.
- <-	5. **Database** sends the amount of the **Security** the **Player** has to the System.
- <-	6. **System** checks that there is enough **Securities** to compelete the transcation.
- <-	7. **System** signals the **Database** to complete the transcation for a **Player**, **Security**, and the quantity. 
- <-	8. **Database** signals the **System** the transcation is complete.
- <-	9.  **System** signals to the **Player** "Transcation Completed." 
+Flow of Events for Successful Sell:
+        1. → The *Player, Webplayer, or TwitterPlayer* determines a *Security* and how much of it to "SELL".
+        2. ←  *System* signals the *Stock Price Source* for the price of the security.
+        3. ←  *Stock Price Source* sends the price of the *Security* to the *System.*
+        4. ←  *System* signals the *Database* for the amount of the *Security* the *Player* has.
+        5. ←  *Database* sends the amount of the *Security* the *Player* has to the System.
+        6. ←  *System* checks that there is enough *Securities* to complete the transaction.
+        7. ←  *System* signals the *Database* to complete the transcation for a *Player*, *Security*, and the quantity. 
+        8. ←  *Database* signals the *System* the transaction is complete.
+        9. ←  *System* signals to the *Player* "Transaction Completed." 
 
-**Flow of Events for Unsuccessful SELL: Not Enough Securities**
- ->	1. The **Player, Webplayer, or TwitterPlayer** determines a **Security** and how much of it to "SELL".
- <-	2. **System** signals the **Stock Price Source** for the price of the security.
- <-	3. **Stock Price Source** sends the price of the **Security** to the **System.**
- <-	4. **System** signals the **Database** for the amount of the **Security** the **Player** has.
- <-	5. **Database** sends the amount of the **Security** the **Player** has to the System.
- <-	6. **System** checks that there is enough **Securities** to compelete the transcation. There is not.
- <-	9.  **System** signals to the **Player** "Transcation Not Completed: Insufficient Securities."  
+Flow of Events for Unsuccessful Sell:
+        1. → The *Player, Webplayer, or TwitterPlayer* determines a *Security* and how much of it to "SELL".
+        2. ←  *System* signals the *Stock Price Source* for the price of the security.
+        3. ←  *Stock Price Source* sends the price of the *Security* to the *System.*
+        4. ←  *System* signals the *Database* for the amount of the *Security* the *Player* has.
+        5. ←  *Database* sends the amount of the *Security* the *Player* has to the System.
+        6. ←  *System* checks that there is enough *Securities* to complete the transaction. There is not.
+        7. ←  *System* signals to the *Player* "Transaction Not Completed: Insufficient Securities."  
 
 UC-4: View Portfolio
 ....................
@@ -471,7 +478,7 @@ Postcondions:
 
 Flow of Events for Main Success Scenario:
         1. → *Web player* browses to a page which will display his portfolio.
-        2. — *System* checks for authentication and when it does not exsist (a)
+        2. ← *System* checks for authentication and when it does not exsist (a)
            runs the authentication (UC-18). Checks for a associated *user* in
            the system and when there is none runs (b) user creation (UC-19).
         3. ← *System* requests the information about the user's portfolio for
