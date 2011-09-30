@@ -10,6 +10,8 @@ SSD := BuyStocks_SD.png SellStocks_SD.jpg ModifyLeague_SD.jpg \
        ViewLeague_SD.jpg ViewPortfolio_SD.jpg
 SSD := $(addprefix ssd/,$(SSD))
 
+POW := plan_of_work.pdf
+
 TARGET = report1
 TRASH  = $(TARGET).pdf \
          $(TARGET).tex $(TARGET).aux $(TARGET).log  $(TARGET).out \
@@ -35,7 +37,7 @@ clean:
 %.pdf: %.svg
 	$(CONVERT) $< $@
 
-report1.pdf : report1.tex $(DA) $(SSD)
+report1.pdf : report1.tex $(DA) $(SSD) $(POW)
 
 %.pdf: %.tex
 	$(PDFLATEX) $<
