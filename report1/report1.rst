@@ -315,7 +315,7 @@ Actors and Goals
 
 - *Yahoo!* is the source for all real market data which determines the actual
   effect of purchasing and selling securities.
-=======
+  
 - A *Stock information provider* is a supplier of stock pricing data for the present
   (within the margin of some minutes). They are queried for all data regarding
   actual market numbers. Currently, *Yahoo* used in this capacity.
