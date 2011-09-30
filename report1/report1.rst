@@ -286,9 +286,6 @@ Actors and Goals
   *system*. It stores data regarding all user portfolios and the association of
   authentications with users.
 
-- *Securities* are financial tools such as stocks and bonds which may be traded
-  for some amount of capital (dollars).
-
 - A *Stock information provider* is a supplier of stock pricing data for the present
   (within the margin of some minutes). They are queried for all data regarding
   actual market numbers. Currently, *Yahoo* used in this capacity.
