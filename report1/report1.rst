@@ -623,7 +623,8 @@ Flow of Events for Extensions:
 
 Use Case Diagram
 ----------------
-.. TODO
+.. figure:: UseCaseDiagram.pdf
+        :width: 100%
 
 Use Case Tracability Matrix
 ---------------------------
