@@ -2,8 +2,8 @@ RST2LATEX = rst2latex.py
 PDFLATEX = pdflatex
 CONVERT = convert
 
-DA :=	Overview.pdf Model.pdf PriceFetching.pdf WebTrading.pdf \
-	TwitterTrading.pdf Login.pdf
+DA := Overview.pdf Model.pdf PriceFetching.pdf WebTrading.pdf \
+      TwitterTrading.pdf Login.pdf Schema.pdf
 DA := $(addprefix domain-analysis/,$(DA))
 
 TARGET = report1
