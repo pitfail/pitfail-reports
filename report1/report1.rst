@@ -386,12 +386,48 @@ Flow of Events for Main Success Scenario:
 
 Flow of Events for Extensions (Alternate Scenarios):
 
+UC-5: View League Statistics
+.............................
+Related Requirements:
+        - REQ-1: Shock Market Simulator Website
+
+Initiating Actor:
+        WebPlayer
+
+Actor's Goal:
+        To view the performance of his or her portfolio relative to other
+        league members. For a teacher, this may also be used to verify that his
+        or her students are actively participating in the game.
+
+Participating Actors:
+        Database
+
+Preconditions:
+        - League that is being viewed exists
+        - League is either public or the user is a member
+
+Postconditions:
+        None; this is a stateless action.
+
+Flow of Events for Main Success Scenario:
+        1. → Requests to view league performance
+        2. ← Authenticates the user's the user's ability to view the statistics
+        3. ← Return a leaderboard of all league members
+
+Flow of Events for Extensions:
+        - League does not exist
+                1. → Requests the league statistics page.
+                2. ← Return "page not found" error
+        - League is invite-only and the user is not a member
+                1. → Requests the league settings page
+                2. ← Authenticates the user's credentials against the database
+                3. ← Return "access denied" error
 
 UC-6: Modify League Settings
 ............................
 Related Requirements:
-        - REQ1: Stock Market Simulator Website
-        - REQ9: Coordinators for Supervision
+        - REQ-1: Stock Market Simulator Website
+        - REQ-9: Coordinators for Supervision
 
 Initiating Actor:
         Coordinator
@@ -428,6 +464,7 @@ Flow of Events for Extensions:
                 1. → Requests the league settings page
                 2. ← Authenticates the user's credentials against the database
                 3. ← Return "access denied" error
+
 
 
 Use Case Diagram
