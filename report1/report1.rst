@@ -65,6 +65,7 @@ Individual Contributions
 
 Glossary of Terms
 =================
+
 League
   An instance of the *game* having particular rules associated with it. A
   *coordinator* may create a league for *players* to join.
@@ -79,6 +80,20 @@ Game
   The trading of securities given a particular set of rules with the object to
   increase the value of one's portfolio.
 
+OAuth
+  Protocol used for authenticating users on the website (http://oauth.net/).
+
+Stock
+  Nominally, a claim on the earnings of a company, but to players it is
+  effectively an opaque asset with fluctuating value.
+
+Ticker
+  A string which uniquely identifies a stock.
+
+Asset
+  These show up on a users balance sheet, as things that they own. An asset is
+  anything which may someday be converted co cash.
+
 Functional Requirements Specification
 =====================================
 
@@ -91,6 +106,7 @@ Stakeholders
 
 Actors and Goals
 ----------------
+
 - A *Player* is one who participates by buying and selling securities.
 
   - Wants to increase the value of their portfolio, thereby proving compitency
@@ -215,7 +231,7 @@ The concepts from the model are:
 
 *Responsibilities*
 
- - Receive requests for Web Browser
+ - Receive requests from Web Browser
  - Delegate requests to Web Framework
  - Receive responses from Web Framework
  - Send Responses to Web Browser
@@ -361,7 +377,7 @@ Model              informs             Login Manager     Tells is this a new use
 OAuth Consumer     informs             Login Manager     Tells about new authentications
 
 Model              sends query         JODBC             Sends SQL to be performed on the database
-JODBC              returns srct. data  Model             Results of query
+JODBC              returns strc. data  Model             Results of query
 
 Stock Trader       requests            Price Fetcher     Requests price data for a ticker symbol
 Price Fetcher      informs             Stock Trader      Returns requested data
