@@ -294,12 +294,8 @@ Actors and Goals
 - *Yahoo* is the source for all real market data which determines the actual
   effect of purchasing and selling securities.
 
-Use Cases
----------
-
-Casual Description
-..................
-
+Casual Use-Case Description
+---------------------------
 The system is designed such that customization and setup by a *player* is
 minimized. As such, league joining is unneeded by new players. In fact, to be a
 new *twitter player*, one can simply send a *commanding tweet* and the Pitfail
@@ -355,10 +351,10 @@ Player         Has their initial account (portfolio tracking)       Create User 
 =============  ===================================================  ==================  =====
 
 Fully Dressed Use Cases
-.......................
+-----------------------
 
-Use Case UC-4: View Portfolio
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+UC-4: View Portfolio
+....................
 Related Requrements:
         Unknown.
 Initiating Actor:
@@ -392,11 +388,13 @@ Flow of Events for Extensions (Alternate Scenarios):
 
 
 Use Case Diagram
-................
+----------------
+        
+
 
 
 Use Case Tracability Matrix
-...........................
+---------------------------
 
 System Sequence Diagrams
 ------------------------
