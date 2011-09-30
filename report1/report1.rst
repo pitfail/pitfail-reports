@@ -1,4 +1,4 @@
-.. raw:: latex
+﻿.. raw:: latex
 
 	\begin{titlepage}
 	\centering
@@ -286,7 +286,6 @@ Actors and Goals
   *system*. It stores data regarding all user portfolios and the association of
   authentications with users.
 
-<<<<<<< HEAD
 - A *Stock Price Source* is a supplier of stock pricing data for the present    (within the margin of some minutes). They are queried for all data regarding
   actual market numbers. Currently, *Yahoo* is the *stock srice source*.
 
@@ -299,7 +298,6 @@ Actors and Goals
 
 - *Authentication Providers* allow us to uniquely identify users and associate
   some stored state with their unique identification.
->>>>>>> upstream/master
 
 - *Twitter* is utilized both as a authentication provider (for all *players* as
   well as a portion of the interface to the service.
@@ -366,7 +364,6 @@ Player         Has their initial account (portfolio tracking)       Create User 
                created.
 =============  ===================================================  ==================  =====
 
-<<<<<<< HEAD
 Fully-Dressed Description
 .........................
 
@@ -515,14 +512,12 @@ Related Requirements:
 Initiating Actor:
         WebPlayer
 
-<<<<<<< HEAD
->>>>>>> upstream/master
+
 =======
 Actor's Goal:
         To view the performance of his or her portfolio relative to other
         league members. For a teacher, this may also be used to verify that his
         or her students are actively participating in the game.
->>>>>>> upstream/master
 
 Participating Actors:
         Database
@@ -534,8 +529,8 @@ Preconditions:
 Postconditions:
         None; this is a stateless action.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
+
 System Requirements - Use Case Traceability Matrix
 ..................................................
 =======
@@ -608,7 +603,6 @@ Flow of Events for Extensions:
 Use Case Diagram
 ----------------
 .. TODO
->>>>>>> upstream/master
 
 Use Case Tracability Matrix
 ---------------------------
@@ -645,7 +639,6 @@ Modify League settings (Scenario: Successful Operation)
 
 .. figure:: ssd/ModifyLeague_SD.jpg
     :width: 100%
->>>>>>> upstream/master
 
 Nonfunctional Requirements
 ==========================
