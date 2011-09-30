@@ -315,6 +315,34 @@ Coordinator    Invite players to a league.                          Invite to Le
 Fully-Dressed Description
 .........................
 
+**Use Case UC-1: Buy**
+~~~~~~~~~~~~~~~~~~~~~~
+
+**Related Requirements**
+**Initiating Actor:**
+**Actor's Goal:**
+*Participating Actors:**
+**Preconditions:**
+**Postconditions:**
+
+**Flow of Events for Main Success Scenario:**
+
+**Flow of Events for Extensions:**
+
+**Use Case UC-2: Sell**
+~~~~~~~~~~~~~~~~~~~~~~
+
+**Related Requirements**
+**Initiating Actor:**
+**Actor's Goal:**
+*Participating Actors:**
+**Preconditions:**
+**Postconditions:**
+
+**Flow of Events for Main Success Scenario:**
+
+**Flow of Events for Extensions:**
+
 Use Case Diagram
 ................
 
