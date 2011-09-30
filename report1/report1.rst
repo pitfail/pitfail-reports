@@ -633,6 +633,17 @@ Page Renderer      informs             Web Framework     How to render the new p
 Model              informs             Page Renderer     Current status of portfolios
 =================  ==================  ================  ===================================================
 
+Attributes Stored Persistently in Database
+..........................................
+
+Because this constitutes the majority of the state of PitFail, it is worth
+giving a rough schema for the database, even though this will never be visible
+to the user, because it indicates what data is expected to persist across
+sessions.
+
+.. image:: domain-analysis/Schema.pdf
+    :width: 90%
+
 System Operation Contracts
 --------------------------
 
