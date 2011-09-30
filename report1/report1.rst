@@ -1,4 +1,4 @@
-.. raw:: latex
+﻿.. raw:: latex
 
 	\begin{titlepage}
 	\centering
@@ -302,6 +302,12 @@ Actors and Goals
   *system*. It stores data regarding all user portfolios and the association of
   authentications with users.
 
+- A *Stock Price Source* is a supplier of stock pricing data for the present    (within the margin of some minutes). They are queried for all data regarding
+  actual market numbers. Currently, *Yahoo* is the *stock srice source*.
+
+- *Yahoo!* is the source for all real market data which determines the actual
+  effect of purchasing and selling securities.
+=======
 - A *Stock information provider* is a supplier of stock pricing data for the present
   (within the margin of some minutes). They are queried for all data regarding
   actual market numbers. Currently, *Yahoo* used in this capacity.
@@ -326,6 +332,9 @@ Account creation is omitted from the use case listing because account creation
 is always accomplished implicitly. Third party services are used for
 authorization, and all other setup is accomplished with defaults that may be
 changed at another point it time by the *player* as requested (UC-7).
+
+Casual Description
+..................
 
 =============  ===================================================  ==================  =====
 Actor          Description                                          Short Name           UC#
@@ -371,6 +380,91 @@ Player         Has their initial account (portfolio tracking)       Create User 
                created.
 =============  ===================================================  ==================  =====
 
+Fully-Dressed Description
+.........................
+
+**UC-1: Buy**
+~~~~~~~~~~~~~~~~~~~~~~
+
+**Related Requirements:** 
+REQ1, REQ2, REQ3, REQ5, REQ6, REQ10
+
+**Initiating Actor:**
+Any of: Player, Webplayer, TwitterPlayer
+
+**Actor's Goal:**
+To purchase a security from the market, to add it to his portfolio, and see his updated portfolio.
+
+*Participating Actors:**
+Database, Securities, Stock Price Source, Yahoo!
+
+**Preconditions:**
+The user should have created an account, be in a league  with settings that allows the "BUY", and have enough money to perform the BUY of the security. 
+
+**Postconditions:**
+The user needs to be able to see his purchased security in his portfolio and track the progress of the security in his portfolio until he "SELLS" it. 
+
+**Flow of Events for Successful BUY:**
+ ->	1. The **Player, Webplayer, or TwitterPlayer** determines a **Security** and how much of it to "BUY".
+ <-	2. **System** signals the **Stock Price Source** for the price of the security.
+ <-	3. **Stock Price Source** sends the price of the **Security** to the **System.**
+ <-	4. **System** signals the **Database** for the amount of money the **Player** has.
+ <-	5. **Database** sends the amount of money for the **Player** to the System.
+ <-	6. **System** checks that there is enough money for compelete the transcation.
+ <-	7. **System** signals the **Database** to complete the transcation for a **Player**, **Security**, and the quantity. 
+ <-	8. **Database** signals the **System** the transcation is complete.
+ <-	9.  **System** signals to the **Player** "Transcation Completed." 
+
+**Flow of Events for Unsuccessful BUY:**
+ ->	1. The **Player, Webplayer, or TwitterPlayer** determines a **Security** and how much of it to "BUY".
+ <-	2. **System** signals the **Stock Price Source** for the price of the security.
+ <-	3. **Stock Price Source** sends the price of the **Security** to the **System.**
+ <-	4. **System** signals the **Database** for the amount of money the **Player** has.
+ <-	5. **Database** sends the amount of money for the **Player** to the System.
+ <-	6. **System** checks that there is enough money for compelete the transcation.
+ <-	7.  There is not enough money. **System** signals to the **Player** "Transcation Not Completed: Insufficient Funds." 
+
+**UC-2: Sell**
+~~~~~~~~~~~~~~~~~~~~~~
+
+**Related Requirements:**
+REQ1, REQ2, REQ3, REQ5, REQ6, REQ10
+
+**Initiating Actor:**
+Any of: Player, Webplayer, TwitterPlayer
+
+**Actor's Goal:**
+To purchase a security from the market, to add it to his portfolio, and see the updated 
+
+*Participating Actors:**
+Database, Securities, Stock Price Source, Yahoo!
+
+**Preconditions:** The user should have created an account, be in a league with settings that allows the "SELL", and contain in his portfolio at least the quantity of securities his is requesting to SELL.
+
+**Postconditions:**
+The user's portfolio will reflect the quantity of securities SOLD. 
+
+**Flow of Events for Successful SELL:**
+ ->	1. The **Player, Webplayer, or TwitterPlayer** determines a **Security** and how much of it to "SELL".
+ <-	2. **System** signals the **Stock Price Source** for the price of the security.
+ <-	3. **Stock Price Source** sends the price of the **Security** to the **System.**
+ <-	4. **System** signals the **Database** for the amount of the **Security** the **Player** has.
+ <-	5. **Database** sends the amount of the **Security** the **Player** has to the System.
+ <-	6. **System** checks that there is enough **Securities** to compelete the transcation.
+ <-	7. **System** signals the **Database** to complete the transcation for a **Player**, **Security**, and the quantity. 
+ <-	8. **Database** signals the **System** the transcation is complete.
+ <-	9.  **System** signals to the **Player** "Transcation Completed." 
+
+**Flow of Events for Unsuccessful SELL: Not Enough Securities**
+ ->	1. The **Player, Webplayer, or TwitterPlayer** determines a **Security** and how much of it to "SELL".
+ <-	2. **System** signals the **Stock Price Source** for the price of the security.
+ <-	3. **Stock Price Source** sends the price of the **Security** to the **System.**
+ <-	4. **System** signals the **Database** for the amount of the **Security** the **Player** has.
+ <-	5. **Database** sends the amount of the **Security** the **Player** has to the System.
+ <-	6. **System** checks that there is enough **Securities** to compelete the transcation. There is not.
+ <-	9.  **System** signals to the **Player** "Transcation Not Completed: Insufficient Securities."  
+ 
+=======
 Fully Dressed Use Cases
 -----------------------
 
@@ -434,6 +528,8 @@ Related Requirements:
 Initiating Actor:
         WebPlayer
 
+
+=======
 Actor's Goal:
         To view the performance of his or her portfolio relative to other
         league members. For a teacher, this may also be used to verify that his
@@ -449,6 +545,12 @@ Preconditions:
 Postconditions:
         None; this is a stateless action.
 
+
+
+System Requirements - Use Case Traceability Matrix
+..................................................
+=======
+=======
 Flow of Events for Main Success Scenario:
         1. → Requests to view league performance
         2. ← Authenticates the user's the user's ability to view the statistics
