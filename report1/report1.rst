@@ -185,34 +185,62 @@ Below is the list of customer requirements:
 
 Glossary of Terms
 =================
-
-League
-  An instance of the *game* having particular rules associated with it. A
-  *coordinator* may create a league for *players* to join.
-
-Player
-  See `Actors and Goals`_
+Asset
+  These show up on a users balance sheet, as things that they own. An asset is
+  anything which may someday be converted co cash.
 
 Coordinator
-  See `Actors and Goals`_
+  Pitfail user responsible for administering a \textit{league}. See `Actors and
+  Goals`_ for more information.
 
 Game
   The trading of securities given a particular set of rules with the object to
   increase the value of one's portfolio.
 
+Invite-Only League
+  Restricted league where becoming a *member* requires approval by a
+  *coordinator*.
+
+League
+  An instance of the *game* having particular rules associated with it. A
+  *coordinator* may create a league for *players* to join.
+
+Member
+  *Player* who has a portfolio associated with a specific league. Members of a
+  league compete against each other.
+
 OAuth
-  Protocol used for authenticating users on the website (http://oauth.net/).
+  Protocol used for authenticating users and sharing information with Pitfail
+  on their behalf. See (http://oauth.net/).
+
+OpenID
+  Protocol used for authenticating users using their existing accounts. See
+  (http://openid.net/).
+
+OpenID Provider
+  Third-party service that provides an OpenID identity for users; e.g. Google.
+
+Player
+  Pitfail user participating in one or more \textit{leagues}. See `Actors and
+  Goals`_ for more information.
+
+Portfolio
+  Collection of *securities* associated with a specific user and league. Each
+  user aims to maximize the value of his or her own portfolio.
+
+Public League
+  Open league where users can choose to become *members* with no approval.
+
+Security
+  Financial asset having a cash value. This includes *stocks*, bonds, and
+  *derivatives*.
 
 Stock
-  Nominally, a claim on the earnings of a company, but to players it is
-  effectively an opaque asset with fluctuating value.
+  Claim on the earnings of a company. To Pitfail players, a stock is an opaque
+  asset with fluctuating value.
 
 Ticker
-  A string which uniquely identifies a stock.
-
-Asset
-  These show up on a users balance sheet, as things that they own. An asset is
-  anything which may someday be converted co cash.
+  Short string which uniquely identifies a stock.
 
 Functional Requirements Specification
 =====================================
