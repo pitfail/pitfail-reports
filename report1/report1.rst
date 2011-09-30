@@ -625,11 +625,45 @@ Flow of Events for user is not a coordinator of the league:
 
 Use Case Diagram
 ----------------
-.. TODO
+.. figure:: UseCaseDiagram.pdf
+        :width: 100%
 
 Use Case Tracability Matrix
 ---------------------------
-.. TODO
+
+
+.. raw:: latex
+
+        \begin{center}
+        \small
+
+=====  =====  =====  =====  =====  =====  =====  =====  =====  =====
+.      REQ-1  REQ-2  REQ-3  REQ-4  REQ-5  REQ-6  REQ-7  REQ-8  REQ-9
+=====  =====  =====  =====  =====  =====  =====  =====  =====  =====
+UC-1          x      x                    x
+UC-2          x      x                    x 
+UC-3          x                                         x      x 
+UC-4   x                    x             x      x      x
+UC-5   x                    x      x
+UC-6   x                    x                    x      x
+UC-7   x                    x                           x 
+UC-8   x                    x                           x      x 
+UC-9                 x             x      x      x
+UC-10                x      x             x 
+UC-11  x                                                x      x 
+UC-12  x                                                x      x 
+UC-13  x                                                x      x 
+UC-14  x                                                x      x 
+UC-15  x                                                x      x 
+UC-16  x                                                x      x 
+UC-17  x                                  x             x      x 
+UC-18  x      x      x             x
+UC-19  x      x      x      x 
+=====  =====  =====  =====  =====  =====  =====  =====  =====  =====
+
+.. raw:: latex
+
+	\end{center}
 
 System Sequence Diagrams
 ------------------------
