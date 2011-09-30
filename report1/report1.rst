@@ -49,15 +49,25 @@ Individual Contributions
 	:header: "Responsibility", "Michal Koval", "Cody Schafer", "Owen Healy", "Brian Good-acre", "Roma Mehta", "Sonu Iqbal", "Avanti Kulkarni"
 	:widths: 15, 6, 6, 6, 6, 6, 6, 6
 
-	Project Management,    0%, 0%, 0%, 0%, 0%, 0%, 0%
-	Customer Statement,    0%, 0%, 0%, 0%, 0%, 0%, 0%
-	Glossary of Terms,     0%, 0%, 0%, 0%, 0%, 0%, 0%
-	Functional Reqs.,      0%, 0%, 0%, 0%, 0%, 0%, 0%
-	Nonfunctional Reqs.,   0%, 0%, 0%, 0%, 0%, 0%, 0%
-	Domain Analysis,       0%, 0%, 0%, 0%, 0%, 0%, 0%
-	User Interface Design, 0%, 0%, 0%, 0%, 0%, 0%, 0%
-	Plan of Work,          0%, 0%, 0%, 0%, 0%, 0%, 0%
-	References,            0%, 0%, 0%, 0%, 0%, 0%, 0%
+	Project Manage. (10),           15%,  15%,  14%,  14%,  14%,  14%,  14%
+	Customer Reqs. (6),                ,     ,     ,     ,     ,     , 100%
+	Glossary of Terms (4),          40%,  10%,  10%,  10%,  10%,  10%,  10%
+	Functional Reqs. (37),             ,     ,     ,     ,     ,     ,
+	→ Stakeholders (2),                , 100%,     ,     ,     ,     ,
+	→ Goals (4),                       , 100%,     ,     ,     ,     ,
+	→ Casual UC (5),                   , 100%,     ,     ,     ,     ,
+	→ Dressed UC (11),                 ,  20%,     ,  40%,     ,     ,
+	→ UC Diagram (4),                  ,     ,     ,     ,     ,     ,
+	Seq. Diagrams (9),                 ,     ,     ,     ,     , 100%,
+	Nonfunc. Reqs. (6),                ,     ,     ,     ,     , 100%,
+	Domain Analysis (25),              ,     , 100%,     ,     ,     ,
+	→ Concepts (12),                   ,     , 100%,     ,     ,     ,
+	→ Associations (4),                ,     , 100%,     ,     ,     ,
+	→ Attributes (3),                  ,     , 100%,     ,     ,     ,
+	Contracts (6),                     ,     ,     ,     , 100%,     ,
+	User Interface (8),            100%,     ,     ,     ,     ,     ,
+	Plan of Work (3),                  ,     ,     , 100%,     ,     ,
+	References (1),                 14%,  14%,  14%,  14%,  15%,  15%,  14%
 
 .. raw:: latex
 
