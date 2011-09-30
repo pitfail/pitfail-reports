@@ -54,7 +54,7 @@ Individual Contributions
 	Functional Reqs.,                  ,     ,     ,     ,     ,     ,
 	→ Stakeholders (2),                , 100%,     ,     ,     ,     ,
 	→ Actors (2),                      , 100%,     ,     ,     ,     ,
-	→ Goals (4),                       , 100%,     ,     ,     ,     ,
+	→ Goals (4),                    50%,  50%,     ,     ,     ,     ,
 	→ Casual UC (5),                   , 100%,     ,     ,     ,     ,
 	→ Dressed UC (11),              40%,  20%,     ,  40%,     ,     ,
 	→ UC Diagram (4),                  , 100%,     ,     ,     ,     ,
@@ -68,7 +68,7 @@ Individual Contributions
 	Contracts (6),                     ,     ,     ,     , 100%,     ,
 	User Interface (8),            100%,     ,     ,     ,     ,     ,
 	Plan of Work (3),                  ,     ,     , 100%,     ,     ,
-	References (1),                 14%,  14%,  14%,  14%,  15%,  15%,  14%
+	References (1),                 14%,  14%,  14%,  14%,  14%,  15%,  14%
 
 .. raw:: latex
 
@@ -292,33 +292,36 @@ Actors and Goals
 
   - Wants to increase the value of their portfolio, thereby proving competency
     at security trading.
+  - Competes with other players for higher ranks in leagues.
 
 - A *Web Player* is a *player* who is interacting with the *game* via the web
   browser interface. This actor contains all use cases of the *player*. It also
   shares the goal of the *player*.
+
 - A *Twitter Player* is a *player* who is interacting with the *game* via the
   twitter interface. This actor contains all use cases of the *player*. It also
   shares the goal of the *player*.
+
 - A *Coordinator* is responsible for administering a *league*.
 
   - Wants to effectively administer the tournament to provide either a learning
     experience to the *players*, or, alternately, an enjoyable experience to
-    the players.
+    the *players*.
   - Desires a construct in which to effectively challenge others interested in
     security trading.
 
-- The *database* is the store for all persistent data on iteractions with the
+- The *database* is the store for all persistent data on interactions with the
   *system*. It stores data regarding all user portfolios and the association of
   authentications with users.
 
 - *Yahoo!* is the source for all real market data which determines the actual
   effect of purchasing and selling securities.
   
-- A *Stock information provider* is a supplier of stock pricing data for the present
+- A *stock information provider* is a supplier of stock pricing data for the present
   (within the margin of some minutes). They are queried for all data regarding
-  actual market numbers. Currently, *Yahoo* is the *stock srice source*.
+  actual market numbers. Currently, *Yahoo* is the *stock information provider*.
 
-- *Authentication Providers* allow us to uniquely identify users and associate
+- *Authentication providers* allow us to uniquely identify users and associate
   some stored state with their unique identification.
 
 - *Twitter* is utilized both as a authentication provider (for all *players* as
