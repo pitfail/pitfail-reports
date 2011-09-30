@@ -2,14 +2,17 @@ RST2LATEX = rst2latex.py
 PDFLATEX = pdflatex
 CONVERT = convert
 
-DA :=	Overview.pdf Model.pdf PriceFetching.pdf WebTrading.pdf \
-	TwitterTrading.pdf Login.pdf Schema.pdf
+DA := Overview.pdf Model.pdf PriceFetching.pdf WebTrading.pdf \
+      TwitterTrading.pdf Login.pdf Schema.pdf
 DA := $(addprefix domain-analysis/,$(DA))
+
+SSD := 
+SSD := $(addprefix ssd/,$(SSD))
 
 TARGET = report1
 TRASH  = $(TARGET).pdf \
          $(TARGET).tex $(TARGET).aux $(TARGET).log  $(TARGET).out \
-	 $(TARGET).maf $(TARGET).mtc $(TARGET).mtc0 $(DA)
+	 $(TARGET).maf $(TARGET).mtc $(TARGET).mtc0 $(DA) $(SSD)
 
 .PHONY: all clean
 .SECONDARY:
@@ -31,7 +34,7 @@ clean:
 %.pdf: %.svg
 	$(CONVERT) $< $@
 
-report1.pdf : report1.tex $(DA)
+report1.pdf : report1.tex $(DA) $(SSD)
 
 %.pdf: %.tex
 	$(PDFLATEX) $<

@@ -49,15 +49,25 @@ Individual Contributions
 	:header: "Responsibility", "Michal Koval", "Cody Schafer", "Owen Healy", "Brian Good-acre", "Roma Mehta", "Sonu Iqbal", "Avanti Kulkarni"
 	:widths: 15, 6, 6, 6, 6, 6, 6, 6
 
-	Project Management,    0%, 0%, 0%, 0%, 0%, 0%, 0%
-	Customer Statement,    0%, 0%, 0%, 0%, 0%, 0%, 0%
-	Glossary of Terms,     0%, 0%, 0%, 0%, 0%, 0%, 0%
-	Functional Reqs.,      0%, 0%, 0%, 0%, 0%, 0%, 0%
-	Nonfunctional Reqs.,   0%, 0%, 0%, 0%, 0%, 0%, 0%
-	Domain Analysis,       0%, 0%, 0%, 0%, 0%, 0%, 0%
-	User Interface Design, 0%, 0%, 0%, 0%, 0%, 0%, 0%
-	Plan of Work,          0%, 0%, 0%, 0%, 0%, 0%, 0%
-	References,            0%, 0%, 0%, 0%, 0%, 0%, 0%
+	Project Manage. (10),           15%,  15%,  14%,  14%,  14%,  14%,  14%
+	Customer Reqs. (6),                ,     ,     ,     ,     ,     , 100%
+	Glossary of Terms (4),          40%,  10%,  10%,  10%,  10%,  10%,  10%
+	Functional Reqs. (37),             ,     ,     ,     ,     ,     ,
+	→ Stakeholders (2),                , 100%,     ,     ,     ,     ,
+	→ Goals (4),                       , 100%,     ,     ,     ,     ,
+	→ Casual UC (5),                   , 100%,     ,     ,     ,     ,
+	→ Dressed UC (11),                 ,  20%,     ,  40%,     ,     ,
+	→ UC Diagram (4),                  ,     ,     ,     ,     ,     ,
+	Seq. Diagrams (9),                 ,     ,     ,     ,     , 100%,
+	Nonfunc. Reqs. (6),                ,     ,     ,     ,     , 100%,
+	Domain Analysis (25),              ,     , 100%,     ,     ,     ,
+	→ Concepts (12),                   ,     , 100%,     ,     ,     ,
+	→ Associations (4),                ,     , 100%,     ,     ,     ,
+	→ Attributes (3),                  ,     , 100%,     ,     ,     ,
+	Contracts (6),                     ,     ,     ,     , 100%,     ,
+	User Interface (8),            100%,     ,     ,     ,     ,     ,
+	Plan of Work (3),                  ,     ,     , 100%,     ,     ,
+	References (1),                 14%,  14%,  14%,  14%,  15%,  15%,  14%
 
 .. raw:: latex
 
@@ -185,34 +195,62 @@ Below is the list of customer requirements:
 
 Glossary of Terms
 =================
-
-League
-  An instance of the *game* having particular rules associated with it. A
-  *coordinator* may create a league for *players* to join.
-
-Player
-  See `Actors and Goals`_
+Asset
+  These show up on a users balance sheet, as things that they own. An asset is
+  anything which may someday be converted co cash.
 
 Coordinator
-  See `Actors and Goals`_
+  Pitfail user responsible for administering a \textit{league}. See `Actors and
+  Goals`_ for more information.
 
 Game
   The trading of securities given a particular set of rules with the object to
   increase the value of one's portfolio.
 
+Invite-Only League
+  Restricted league where becoming a *member* requires approval by a
+  *coordinator*.
+
+League
+  An instance of the *game* having particular rules associated with it. A
+  *coordinator* may create a league for *players* to join.
+
+Member
+  *Player* who has a portfolio associated with a specific league. Members of a
+  league compete against each other.
+
 OAuth
-  Protocol used for authenticating users on the website (http://oauth.net/).
+  Protocol used for authenticating users and sharing information with Pitfail
+  on their behalf. See (http://oauth.net/).
+
+OpenID
+  Protocol used for authenticating users using their existing accounts. See
+  (http://openid.net/).
+
+OpenID Provider
+  Third-party service that provides an OpenID identity for users; e.g. Google.
+
+Player
+  Pitfail user participating in one or more *leagues*. See `Actors and
+  Goals`_ for more information.
+
+Portfolio
+  Collection of *securities* associated with a specific user and league. Each
+  user aims to maximize the value of his or her own portfolio.
+
+Public League
+  Open league where users can choose to become *members* with no approval.
+
+Security
+  Financial asset having a cash value. This includes *stocks*, bonds, and
+  *derivatives*.
 
 Stock
-  Nominally, a claim on the earnings of a company, but to players it is
-  effectively an opaque asset with fluctuating value.
+  Claim on the earnings of a company. To Pitfail players, a stock is an opaque
+  asset with fluctuating value.
 
 Ticker
-  A string which uniquely identifies a stock.
-
-Asset
-  These show up on a users balance sheet, as things that they own. An asset is
-  anything which may someday be converted co cash.
+  Short string which uniquely identifies a stock.
 
 Functional Requirements Specification
 =====================================
@@ -246,19 +284,28 @@ Actors and Goals
   - Desires a construct in which to effectively challenge others interested in
     security trading.
 
+- The *database* is the store for all persistent data on iteractions with the
+  *system*. It stores data regarding all user portfolios and the association of
+  authentications with users.
+
 - *Securities* are financial tools such as stocks and bonds which may be traded
   for some amount of capital (dollars).
 
-- A *Stock Price Source* is a supplier of stock pricing data for the present
+- A *Stock information provider* is a supplier of stock pricing data for the present
   (within the margin of some minutes). They are queried for all data regarding
-  actual market numbers. Currently, *Yahoo* is the *stock srice source*.
+  actual market numbers. Currently, *Yahoo* used in this capacity.
+
+- *Authorization Providers* allow us to uniquely identify users and associate
+  some stored state with their unique identification.
+
+- *Twitter* is utilized both as a authentication provider (for all *players* as
+  well as a portion of the interface to the service.
 
 - *Yahoo* is the source for all real market data which determines the actual
   effect of purchasing and selling securities.
 
-Use Cases
----------
-
+Casual Use-Case Description
+---------------------------
 The system is designed such that customization and setup by a *player* is
 minimized. As such, league joining is unneeded by new players. In fact, to be a
 new *twitter player*, one can simply send a *commanding tweet* and the Pitfail
@@ -283,11 +330,12 @@ Player         Indicates that they wish to begin participating in   Join League 
                to prevent people from gaming the system by
                joining a league, doing poorly, and leaving to
                essentially have a "clean record".
-WebPlayer      Examine the contrents of his or her portfolio,       Examine Portfolio   UC-4
+WebPlayer      Examine the contrents of his or her portfolio,       View Portfolio      UC-4
                displaying information regarding their current
                assets and liabilities as well as how they have
                been progressing over time
-WebPlayer      Examines details of a particular asset.              Get Asset Details   UC-5
+WebPlayer      Examines details of a particular security.           Get Security        UC-5
+                                                                    Details
 WebPlayer      Checks league statistics. Provide a clear view of    View League Stats   UC-6
                the leaderboard as well as changes over time.
 WebPlayer      Changes some settings regarding their Player         Player Settings     UC-7
@@ -307,7 +355,186 @@ Coordinator    Remove a coordinator from the league.                Remove Coord
 Coordinator    Delete a league.                                     Delete League       UC-15
 Coordinator    Accept or decline requests to join a league.         Manage League       UC-16
 Coordinator    Invite players to a league.                          Invite to League    UC-17
+Player         Authenticates with the system.                       Authentication      UC-18
+Player         Has their initial account (portfolio tracking)       Create User         UC-19
+               created.
 =============  ===================================================  ==================  =====
+
+Fully Dressed Use Cases
+-----------------------
+
+UC-4: View Portfolio
+....................
+Related Requrements:
+        Unknown.
+Initiating Actor:
+        Only *WebPlayer*, the similar UC-9 is provided for the *twitter player*.
+Actor's Goal:
+        To view information regarding their portfolio. This information
+        includes the currently owned securities, minimal statistics regarding
+        those securities (as they relate to the current and past value of the
+        portfolio), current avaliable capital (and similar minimal information
+        regarding its change), and the overall value of the portfolio (also
+        with some statistical information regarding changes over time). The
+        actor desires this information to make decisions regarding what their
+        next interaction with the system should be. They use this info to
+        decide to sell stock they have or buy an increased number of shares of
+        stock they have).
+
+Participating Actors:
+        *Stock information provider*, *Database*
+
+Preconditions:
+        None, note that authentication & account creation are handled within
+        this use case.
+
+Postcondions:
+        None, this is a stateless action. Information is displayed to the user
+        but no internal actions are taken.
+
+Flow of Events for Main Success Scenario:
+        1. → *Web player* browses to a page which will display his portfolio.
+        2. — *System* checks for authentication and when it does not exsist (a)
+           runs the authentication (UC-18). Checks for a associated *user* in
+           the system and when there is none runs (b) user creation (UC-19).
+        3. ← *System* requests the information about the user's portfolio for
+           this particular league from the *Database*.
+        4. → *Database* returns the information regarding the portfolio.
+        5. ← *System* forms a query regarding all the currently held securities
+           within the portfolio and dispatches it to the *stock info provider*.
+        6. → *Stock info provider* returns the requested data.
+        7. ← *System* forms a web view of the portfolio information and returns
+           it to the *web player*
+
+Additional Notes:
+        When this use case is running the other contained use cases (UC-18 and
+        UC-19), each of these perform their own sequence of interactions with
+        the user. In the case of a failure in one of the included use cases,
+        the users remains in the control of that included use case until the
+        failure is resolved or another use case is initiated.
+
+UC-5: View League Statistics
+.............................
+Related Requirements:
+        - REQ-1: Shock Market Simulator Website
+
+Initiating Actor:
+        WebPlayer
+
+Actor's Goal:
+        To view the performance of his or her portfolio relative to other
+        league members. For a teacher, this may also be used to verify that his
+        or her students are actively participating in the game.
+
+Participating Actors:
+        Database
+
+Preconditions:
+        - League that is being viewed exists
+        - League is either public or the user is a member
+
+Postconditions:
+        None; this is a stateless action.
+
+Flow of Events for Main Success Scenario:
+        1. → Requests to view league performance
+        2. ← Authenticates the user's the user's ability to view the statistics
+        3. ← Return a leaderboard of all league members
+
+Flow of Events for Extensions:
+        - League does not exist
+                1. → Requests the league statistics page.
+                2. ← Return "page not found" error
+        - League is invite-only and the user is not a member
+                1. → Requests the league settings page
+                2. ← Authenticates the user's credentials against the database
+                3. ← Return "access denied" error
+
+UC-6: Modify League Settings
+............................
+Related Requirements:
+        - REQ-1: Stock Market Simulator Website
+        - REQ-9: Coordinators for Supervision
+
+Initiating Actor:
+        Coordinator
+
+Actor's Goal:
+        To modify settings for the coordinator's league. This includes modifying
+        the league's name, nickname, starting funds, and security settings.
+
+Participating Actors:
+        Database
+
+Preconditions:
+        - League that is being modified exists
+        - Initiating actor is a coordinator of the league that he or she is modifying
+
+Postconditions:
+        - League name is still unique
+        - League nickname is still unique
+        - Starting funds is positive
+
+Flow of Events for Main Success Scenario:
+        1. → Requests the league settings page
+        2. ← Authenticates the user's credentials against the database
+        3. ← Return a settings page populated with the current settings
+        4. → Submits updated league settings
+        5. ← Validate new league settings
+        6. ← Store updated settings in the database
+
+Flow of Events for Extensions:
+        - League does not exist
+                1. → Requests the league settings page
+                2. ← Return "page not found" error
+        - User is not a coordinator of the league
+                1. → Requests the league settings page
+                2. ← Authenticates the user's credentials against the database
+                3. ← Return "access denied" error
+
+
+
+Use Case Diagram
+----------------
+        
+
+
+
+Use Case Tracability Matrix
+---------------------------
+
+System Sequence Diagrams
+------------------------
+
+UC-1:
+Buy Stocks (Scenario: Successful operation)
+
+.. figure:: ssd/BuyStocks_SD.jpg
+    :width: 100%
+
+UC-2:
+Sell Stocks (Scenario: Successful Operation)
+
+.. figure:: ssd/SellStocks_SD.jpg
+    :width: 100%
+
+UC-3:
+View Portfolio (Scenario: Successful Operation)
+
+.. figure:: ssd/ViewPortfolio_SD.jpg
+    :width: 100%
+
+UC-4
+View League Statistics (Scenario: Successful Operation)
+
+.. figure:: ssd/ViewLeague_SD.jpg
+    :width: 100%
+
+UC-5
+Modify League settings (Scenario: Successful Operation)
+
+.. figure:: ssd/ModifyLeague_SD.jpg
+    :width: 100%
 
 Nonfunctional Requirements
 ==========================
