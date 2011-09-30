@@ -333,7 +333,7 @@ Actor's Goal:
         regarding its change), and the overall value of the portfolio (also
         with some statistical information regarding changes over time). The
         actor desires this information to make decisions regarding what their
-        next interaction with the system should be. : they use this info to
+        next interaction with the system should be. They use this info to
         decide to sell stock they have or buy an increased number of shares of
         stock they have).
 
