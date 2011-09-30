@@ -360,44 +360,52 @@ Fully Dressed Use Cases
 
 UC-1: Buy
 .........
+Related Requirements:
+        - REQ1: Stock Market Simulator Website
+        - REQ2: Android Application
+        - REQ3: Access via Twitter/Facebook
+        - REQ5: Updated Stock Information
+        - REQ6: Player Portfolio
 
-**Related Requirements:** 
-REQ1, REQ2, REQ3, REQ5, REQ6, REQ10
+Initiating Actor:
+        Any of: Player, Webplayer, TwitterPlayer
 
-**Initiating Actor:**
-Any of: Player, Webplayer, TwitterPlayer
+Actor's Goal:
+        To purchase a security from the market, to add it to his portfolio, and
+        see his updated portfolio.
 
-**Actor's Goal:**
-To purchase a security from the market, to add it to his portfolio, and see his updated portfolio.
+Participating Actors:
+        Database, Securities, Stock Price Source, Yahoo!
 
-*Participating Actors:**
-Database, Securities, Stock Price Source, Yahoo!
+Preconditions:
+        The user should have created an account, be in a league  with settings
+        that allows the "BUY", and have enough money to perform the BUY of the
+        security. 
 
-**Preconditions:**
-The user should have created an account, be in a league  with settings that allows the "BUY", and have enough money to perform the BUY of the security. 
+Postconditions:
+        The user needs to be able to see his purchased security in his
+        portfolio and track the progress of the security in his portfolio until
+        he "SELLS" it. 
 
-**Postconditions:**
-The user needs to be able to see his purchased security in his portfolio and track the progress of the security in his portfolio until he "SELLS" it. 
+Flow of Events for Successful Buy:
+        1. → The *Player, Webplayer, or TwitterPlayer* determines a *Security* and how much of it to "BUY".
+        2. ← *System* signals the *Stock Price Source* for the price of the security.
+        3. ← *Stock Price Source* sends the price of the *Security* to the *System.*
+        4. ← *System* signals the *Database* for the amount of money the *Player* has.
+        5. ← *Database* sends the amount of money for the *Player* to the System.
+        6. ← *System* checks that there is enough money for compelete the transcation.
+        7. ← *System* signals the *Database* to complete the transcation for a *Player*, *Security*, and the quantity. 
+        8. ← *Database* signals the *System* the transcation is complete.
+        9. ← *System* signals to the *Player* "Transcation Completed." 
 
-**Flow of Events for Successful BUY:**
- ->	1. The **Player, Webplayer, or TwitterPlayer** determines a **Security** and how much of it to "BUY".
- <-	2. **System** signals the **Stock Price Source** for the price of the security.
- <-	3. **Stock Price Source** sends the price of the **Security** to the **System.**
- <-	4. **System** signals the **Database** for the amount of money the **Player** has.
- <-	5. **Database** sends the amount of money for the **Player** to the System.
- <-	6. **System** checks that there is enough money for compelete the transcation.
- <-	7. **System** signals the **Database** to complete the transcation for a **Player**, **Security**, and the quantity. 
- <-	8. **Database** signals the **System** the transcation is complete.
- <-	9.  **System** signals to the **Player** "Transcation Completed." 
-
-**Flow of Events for Unsuccessful BUY:**
- ->	1. The **Player, Webplayer, or TwitterPlayer** determines a **Security** and how much of it to "BUY".
- <-	2. **System** signals the **Stock Price Source** for the price of the security.
- <-	3. **Stock Price Source** sends the price of the **Security** to the **System.**
- <-	4. **System** signals the **Database** for the amount of money the **Player** has.
- <-	5. **Database** sends the amount of money for the **Player** to the System.
- <-	6. **System** checks that there is enough money for compelete the transcation.
- <-	7.  There is not enough money. **System** signals to the **Player** "Transcation Not Completed: Insufficient Funds." 
+Flow of Events for Unsuccessful Buy:
+        1. → The *Player, Webplayer, or TwitterPlayer* determines a *Security* and how much of it to "BUY".
+        2. ← *System* signals the *Stock Price Source* for the price of the security.
+        3. ← *Stock Price Source* sends the price of the *Security* to the *System.*
+        4. ← *System* signals the *Database* for the amount of money the *Player* has.
+        5. ← *Database* sends the amount of money for the *Player* to the System.
+        6. ← *System* checks that there is enough money for compelete the transcation.
+        7. ← There is not enough money. *System* signals to the *Player* "Transcation Not Completed: Insufficient Funds." 
 
 UC-2: Sell
 ..........
