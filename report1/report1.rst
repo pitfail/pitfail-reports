@@ -463,20 +463,16 @@ Flow of Events for Extensions:
                 2. ← Authenticates the user's credentials against the database
                 3. ← Return "access denied" error
 
-
-
 Use Case Diagram
 ----------------
-        
-
-
+.. TODO
 
 Use Case Tracability Matrix
 ---------------------------
+.. TODO
 
 System Sequence Diagrams
 ------------------------
-
 UC-1:
 Buy Stocks (Scenario: Successful operation)
 
