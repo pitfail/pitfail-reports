@@ -6,7 +6,7 @@ DA := Overview.pdf Model.pdf PriceFetching.pdf WebTrading.pdf \
       TwitterTrading.pdf Login.pdf Schema.pdf
 DA := $(addprefix domain-analysis/,$(DA))
 
-SSD := BuyStocks_SD.pdf
+SSD := 
 SSD := $(addprefix ssd/,$(SSD))
 
 TARGET = report1

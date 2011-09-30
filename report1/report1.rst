@@ -231,7 +231,7 @@ OpenID Provider
   Third-party service that provides an OpenID identity for users; e.g. Google.
 
 Player
-  Pitfail user participating in one or more \textit{leagues}. See `Actors and
+  Pitfail user participating in one or more *leagues*. See `Actors and
   Goals`_ for more information.
 
 Portfolio
@@ -404,7 +404,7 @@ System Sequence Diagrams
 UC-1:
 Buy Stocks (Scenario: Successful operation)
 
-.. figure:: ssd/BuyStocks_SD.pdf
+.. figure:: ssd/BuyStocks_SD.jpg
     :width: 100%
 
 UC-2:
