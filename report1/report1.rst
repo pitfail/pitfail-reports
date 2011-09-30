@@ -56,7 +56,7 @@ Individual Contributions
 	→ Stakeholders (2),                , 100%,     ,     ,     ,     ,
 	→ Goals (4),                       , 100%,     ,     ,     ,     ,
 	→ Casual UC (5),                   , 100%,     ,     ,     ,     ,
-	→ Dressed UC (11),                 ,  20%,     ,  40%,     ,     ,
+	→ Dressed UC (11),              40%,  20%,     ,  40%,     ,     ,
 	→ UC Diagram (4),                  ,     ,     ,     ,     ,     ,
 	Seq. Diagrams (9),                 ,     ,     ,     ,     , 100%,
 	Nonfunc. Reqs. (6),                ,     ,     ,     ,     , 100%,
@@ -161,37 +161,35 @@ addition of notifications to the user when some event occurs within Pitfail.
 
 Below is the list of customer requirements:
 
-1.  A Stock market simulator website: Investors are looking for a effective
+1.  **REQ-1** Stock Market Simulator Website: Investors are looking for a effective
     tool that allows users to invest and learn without  having to invest real money
     and also allows them to interact with other users more effectively to make the
     game really enjoyable.
 
-2.  Access via Android application: Mobile users who like having apps can use
-    such system with quick access very easily.
+2.  **REQ-2** Android Application: Mobile users who like having native applications
+    can use such system with quick access very easily.
 
-3.  Access Via Twitter/Facebook Interfaces: Users already addicted to networks
+3.  **REQ-3** Access via Twitter/Facebook: Users who heavily use social networks
     like Facebook/Twitter can connect to Pitfail easily.
 
-4.  Graphical User Interface: Users are looking for simple interface that
-    welcomes new users and guides the new user through the registration process.
+4.  **REQ-4** Simple User Interface: Users are looking for simple interface that
+    welcomes new users and guides the new user through portfolio management.
 
-5.  Updated Stock Information: Application should present stock symbols, company
-    names, stock history, updated stock values and prices amongst other details.
+5.  **REQ-5** Updated Stock Information: Application should present stock
+    symbols, company names, stock history, updated stock values and prices amongst
+    other details.
 
-6.  Player Portfolio: Each player must have separate portfolio that gives
+6.  **REQ-6** Player Portfolio: Each player must have separate portfolio that gives
     him/her option to buy/sell new securities, view currently owned securities.
 
-7.  Evaluate Portfolios: Securities owned by each player should be periodically
+7.  **REQ-7** Evaluate Portfolios: Securities owned by each player should be periodically
     evaluated and should be updated to their current value.
 
-8.  Advertisements: The website must contain appropriate and interesting
+8.  **REQ-8** Advertisements: The website must contain appropriate and interesting
     advertisements relating to finance and stock
 
-9)  Administrators for help/supervision: An administrator must be available to
+9)  **REQ-9** Administrators for help/supervision: An administrator must be available to
     answer questions and to supervise the game.
-
-10) User-friendly application: The application should be easy to use and
-    understand.
 
 Glossary of Terms
 =================
@@ -288,14 +286,11 @@ Actors and Goals
   *system*. It stores data regarding all user portfolios and the association of
   authentications with users.
 
-- *Securities* are financial tools such as stocks and bonds which may be traded
-  for some amount of capital (dollars).
-
 - A *Stock information provider* is a supplier of stock pricing data for the present
   (within the margin of some minutes). They are queried for all data regarding
   actual market numbers. Currently, *Yahoo* used in this capacity.
 
-- *Authorization Providers* allow us to uniquely identify users and associate
+- *Authentication Providers* allow us to uniquely identify users and associate
   some stored state with their unique identification.
 
 - *Twitter* is utilized both as a authentication provider (for all *players* as
@@ -366,9 +361,11 @@ Fully Dressed Use Cases
 UC-4: View Portfolio
 ....................
 Related Requrements:
-        Unknown.
+        REQ-1, REQ-4, REQ-5, REQ-6
+
 Initiating Actor:
         Only *WebPlayer*, the similar UC-9 is provided for the *twitter player*.
+
 Actor's Goal:
         To view information regarding their portfolio. This information
         includes the currently owned securities, minimal statistics regarding
@@ -454,9 +451,9 @@ Flow of Events for Extensions:
                 2. ← Authenticates the user's credentials against the database
                 3. ← Return "access denied" error
 
-
 UC-6: Modify League Settings
 ............................
+
 Related Requirements:
         - REQ-1: Stock Market Simulator Website
         - REQ-9: Coordinators for Supervision
@@ -501,24 +498,20 @@ Flow of Events for Extensions:
                 2. ← Authenticates the user's credentials against the database
                 3. ← Return "access denied" error
 
-
-
 Use Case Diagram
 ----------------
-        
-
-
+.. TODO
 
 Use Case Tracability Matrix
 ---------------------------
+.. TODO
 
 System Sequence Diagrams
 ------------------------
-
 UC-1:
 Buy Stocks (Scenario: Successful operation)
 
-.. figure:: ssd/BuyStocks_SD.jpg
+.. figure:: ssd/BuyStocks_SD.png
     :width: 100%
 
 UC-2:
