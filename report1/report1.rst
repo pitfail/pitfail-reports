@@ -269,6 +269,9 @@ is always accomplished implicitly. Third party services are used for
 authorization, and all other setup is accomplished with defaults that may be
 changed at another point it time by the *player* as requested (UC-7).
 
+Casual Description
+..................
+
 =============  ===================================================  ==================  =====
 Actor          Description                                          Short Name           UC#
 =============  ===================================================  ==================  =====
@@ -308,6 +311,15 @@ Coordinator    Delete a league.                                     Delete Leagu
 Coordinator    Accept or decline requests to join a league.         Manage League       UC-16
 Coordinator    Invite players to a league.                          Invite to League    UC-17
 =============  ===================================================  ==================  =====
+
+Fully-Dressed Description
+.........................
+
+Use Case Diagram
+................
+
+System Requirements - Use Case Traceability Matrix
+..................................................
 
 Nonfunctional Requirements
 ==========================
