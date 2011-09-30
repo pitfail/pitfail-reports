@@ -634,11 +634,11 @@ Flow of Events for Main Success Scenario:
         2. ← *System* signals the *Database* for authentication and the league's settings page.
         3. ← *Database* authenticates the user's ability to modify the league settings and returns the league settings page.
         4. ← *System* returns a league setting page populated with the current settings.
-        6. → *Coordinator* submits updated league settings.
-        7. ← *System* Validate new league settings
-        8. ← *System* sends updated settings to the *database.*
-        9. ← *Database* signals the *System* that the settings have been updated.
-        10. ← *System* signals the *Coordinator* "Settings have been updated."
+        5. → *Coordinator* submits updated league settings.
+        6. ← *System* Validate new league settings
+        7. ← *System* sends updated settings to the *database.*
+        8. ← *Database* signals the *System* that the settings have been updated.
+        9. ← *System* signals the *Coordinator* "Settings have been updated."
 
 Flow of Events for league does not exist:
 	1. → *Player* requests the league settings page.
