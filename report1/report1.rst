@@ -286,15 +286,9 @@ Actors and Goals
   *system*. It stores data regarding all user portfolios and the association of
   authentications with users.
 
-- A *Stock Price Source* is a supplier of stock pricing data for the present    (within the margin of some minutes). They are queried for all data regarding
-  actual market numbers. Currently, *Yahoo* is the *stock srice source*.
-
-- *Yahoo!* is the source for all real market data which determines the actual
-  effect of purchasing and selling securities.
-=======
-- A *Stock information provider* is a supplier of stock pricing data for the present
+- A *Stock Price Source* is a supplier of stock pricing data for the present
   (within the margin of some minutes). They are queried for all data regarding
-  actual market numbers. Currently, *Yahoo* used in this capacity.
+  actual market numbers. Currently, *Yahoo* is the *stock srice source*.
 
 - *Authentication Providers* allow us to uniquely identify users and associate
   some stored state with their unique identification.
@@ -316,9 +310,6 @@ Account creation is omitted from the use case listing because account creation
 is always accomplished implicitly. Third party services are used for
 authorization, and all other setup is accomplished with defaults that may be
 changed at another point it time by the *player* as requested (UC-7).
-
-Casual Description
-..................
 
 =============  ===================================================  ==================  =====
 Actor          Description                                          Short Name           UC#
@@ -363,12 +354,12 @@ Player         Authenticates with the system.                       Authenticati
 Player         Has their initial account (portfolio tracking)       Create User         UC-19
                created.
 =============  ===================================================  ==================  =====
+ 
+Fully Dressed Use Cases
+-----------------------
 
-Fully-Dressed Description
-.........................
-
-**UC-1: Buy**
-~~~~~~~~~~~~~~~~~~~~~~
+UC-1: Buy
+.........
 
 **Related Requirements:** 
 REQ1, REQ2, REQ3, REQ5, REQ6, REQ10
@@ -408,9 +399,8 @@ The user needs to be able to see his purchased security in his portfolio and tra
  <-	6. **System** checks that there is enough money for compelete the transcation.
  <-	7.  There is not enough money. **System** signals to the **Player** "Transcation Not Completed: Insufficient Funds." 
 
-**UC-2: Sell**
-~~~~~~~~~~~~~~~~~~~~~~
-
+UC-2: Sell
+..........
 **Related Requirements:**
 REQ1, REQ2, REQ3, REQ5, REQ6, REQ10
 
@@ -447,10 +437,6 @@ The user's portfolio will reflect the quantity of securities SOLD.
  <-	5. **Database** sends the amount of the **Security** the **Player** has to the System.
  <-	6. **System** checks that there is enough **Securities** to compelete the transcation. There is not.
  <-	9.  **System** signals to the **Player** "Transcation Not Completed: Insufficient Securities."  
- 
-=======
-Fully Dressed Use Cases
------------------------
 
 UC-4: View Portfolio
 ....................
@@ -512,8 +498,6 @@ Related Requirements:
 Initiating Actor:
         WebPlayer
 
-
-=======
 Actor's Goal:
         To view the performance of his or her portfolio relative to other
         league members. For a teacher, this may also be used to verify that his
@@ -529,12 +513,6 @@ Preconditions:
 Postconditions:
         None; this is a stateless action.
 
-
-
-System Requirements - Use Case Traceability Matrix
-..................................................
-=======
-=======
 Flow of Events for Main Success Scenario:
         1. → Requests to view league performance
         2. ← Authenticates the user's the user's ability to view the statistics
@@ -555,7 +533,6 @@ Flow of Events for Extensions:
 
 UC-6: Modify League Settings
 ............................
-
 Related Requirements:
         - REQ-1: Stock Market Simulator Website
         - REQ-9: Coordinators for Supervision
