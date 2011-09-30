@@ -154,7 +154,7 @@ then rank users and assign status symbols (e.g. badges) to users with the
 strongest ability to vote predictively. This type of ranking appears to be
 unique to Pitfail. Another feature that appears to be unique to Pitfail is that
 it allows users to design their own securities (i.e futures or options) , thus
-creating new financial products.Even without a court system to enforce complex
+creating new financial products. Even without a court system to enforce complex
 contracts, custom securities allow Pitfail's users to a new financial
 environment.
 
@@ -472,7 +472,6 @@ The user's portfolio will reflect the quantity of securities SOLD.
  <-	6. **System** checks that there is enough **Securities** to compelete the transcation. There is not.
  <-	9.  **System** signals to the **Player** "Transcation Not Completed: Insufficient Securities."  
  
-=======
 Fully Dressed Use Cases
 -----------------------
 
@@ -536,8 +535,6 @@ Related Requirements:
 Initiating Actor:
         WebPlayer
 
-
-=======
 Actor's Goal:
         To view the performance of his or her portfolio relative to other
         league members. For a teacher, this may also be used to verify that his
@@ -557,8 +554,7 @@ Postconditions:
 
 System Requirements - Use Case Traceability Matrix
 ..................................................
-=======
-=======
+
 Flow of Events for Main Success Scenario:
         1. → Requests to view league performance
         2. ← Authenticates the user's the user's ability to view the statistics
