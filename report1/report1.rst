@@ -1388,8 +1388,8 @@ button:
 Plan of Work
 ============
 
-.. figure::
-.. TODO
+.. figure:: plan_of_work.pdf
+        :scale: 80%
 
 References
 ==========
