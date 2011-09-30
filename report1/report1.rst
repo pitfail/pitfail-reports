@@ -309,6 +309,39 @@ Coordinator    Accept or decline requests to join a league.         Manage Leagu
 Coordinator    Invite players to a league.                          Invite to League    UC-17
 =============  ===================================================  ==================  =====
 
+System Sequence Diagrams
+-------------------------
+UC-1:
+Buy Stocks (Scenario: Successful operation)
+
+.. figure:: domain-analysis/BuyStocks_SD.svg
+    :width: 100%
+
+UC-2:
+Sell Stocks (Scenario: Successful Operation)
+
+.. figure:: domain-analysis/SellStocks_SD.jpg
+    :width: 100%
+
+UC-3:
+View Portfolio (Scenario: Successful Operation)
+
+.. figure:: domain-analysis/ViewPortfolio_SD.jpg
+    :width: 100%
+
+UC-4
+View League Statistics (Scenario: Successful Operation)
+
+.. figure:: domain-analysis/ViewLeague_SD.jpg
+    :width: 100%
+
+UC-5
+Modify League settings (Scenario: Successful Operation)
+
+.. figure:: domain-analysis/ModifyLeague_SD.jpg
+    :width: 100%
+
+
 Nonfunctional Requirements
 ==========================
 
