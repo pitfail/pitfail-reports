@@ -290,7 +290,7 @@ Actors and Goals
   (within the margin of some minutes). They are queried for all data regarding
   actual market numbers. Currently, *Yahoo* used in this capacity.
 
-- *Authorization Providers* allow us to uniquely identify users and associate
+- *Authentication Providers* allow us to uniquely identify users and associate
   some stored state with their unique identification.
 
 - *Twitter* is utilized both as a authentication provider (for all *players* as
