@@ -282,12 +282,22 @@ Actors and Goals
   - Desires a construct in which to effectively challenge others interested in
     security trading.
 
+- The *database* is the store for all persistent data on iteractions with the
+  *system*. It stores data regarding all user portfolios and the association of
+  authentications with users.
+
 - *Securities* are financial tools such as stocks and bonds which may be traded
   for some amount of capital (dollars).
 
-- A *Stock Price Source* is a supplier of stock pricing data for the present
+- A *Stock information provider* is a supplier of stock pricing data for the present
   (within the margin of some minutes). They are queried for all data regarding
-  actual market numbers. Currently, *Yahoo* is the *stock srice source*.
+  actual market numbers. Currently, *Yahoo* used in this capacity.
+
+- *Authorization Providers* allow us to uniquely identify users and associate
+  some stored state with their unique identification.
+
+- *Twitter* is utilized both as a authentication provider (for all *players* as
+  well as a portion of the interface to the service.
 
 - *Yahoo* is the source for all real market data which determines the actual
   effect of purchasing and selling securities.
@@ -370,7 +380,7 @@ Actor's Goal:
         stock they have).
 
 Participating Actors:
-        *Stock price source*
+        *Stock information provider*, *Database*
 
 Preconditions:
         None, note that authentication & account creation are handled within
@@ -381,8 +391,25 @@ Postcondions:
         but no internal actions are taken.
 
 Flow of Events for Main Success Scenario:
+        1. → *Web player* browses to a page which will display his portfolio.
+        2. — *System* checks for authentication and when it does not exsist (a)
+           runs the authentication (UC-18). Checks for a associated *user* in
+           the system and when there is none runs (b) user creation (UC-19).
+        3. ← *System* requests the information about the user's portfolio for
+           this particular league from the *Database*.
+        4. → *Database* returns the information regarding the portfolio.
+        5. ← *System* forms a query regarding all the currently held securities
+           within the portfolio and dispatches it to the *stock info provider*.
+        6. → *Stock info provider* returns the requested data.
+        7. ← *System* forms a web view of the portfolio information and returns
+           it to the *web player*
 
-Flow of Events for Extensions (Alternate Scenarios):
+Additional Notes:
+        When this use case is running the other contained use cases (UC-18 and
+        UC-19), each of these perform their own sequence of interactions with
+        the user. In the case of a failure in one of the included use cases,
+        the users remains in the control of that included use case until the
+        failure is resolved or another use case is initiated.
 
 UC-5: View League Statistics
 .............................
@@ -476,7 +503,7 @@ System Sequence Diagrams
 UC-1:
 Buy Stocks (Scenario: Successful operation)
 
-.. figure:: ssd/BuyStocks_SD.jpg
+.. figure:: ssd/BuyStocks_SD.png
     :width: 100%
 
 UC-2:
