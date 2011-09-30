@@ -58,6 +58,7 @@ Individual Contributions
 	→ Casual UC (5),                   , 100%,     ,     ,     ,     ,
 	→ Dressed UC (11),              40%,  20%,     ,  40%,     ,     ,
 	→ UC Diagram (4),                  , 100%,     ,     ,     ,     ,
+	→ UC Tracability,              100%,     ,     ,     ,     ,
 	Seq. Diagrams (9),                 ,     ,     ,     ,     , 100%,
 	Nonfunc. Reqs. (6),                ,     ,     ,     ,     , 100%,
 	Domain Analysis,                   ,     ,     ,     ,     ,     ,
