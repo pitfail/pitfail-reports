@@ -243,6 +243,9 @@ Actors and Goals
 Use Cases
 ---------
 
+Casual Description
+..................
+
 The system is designed such that customization and setup by a *player* is
 minimized. As such, league joining is unneeded by new players. In fact, to be a
 new *twitter player*, one can simply send a *commanding tweet* and the Pitfail
@@ -267,11 +270,12 @@ Player         Indicates that they wish to begin participating in   Join League 
                to prevent people from gaming the system by
                joining a league, doing poorly, and leaving to
                essentially have a "clean record".
-WebPlayer      Examine the contrents of his or her portfolio,       Examine Portfolio   UC-4
+WebPlayer      Examine the contrents of his or her portfolio,       View Portfolio      UC-4
                displaying information regarding their current
                assets and liabilities as well as how they have
                been progressing over time
-WebPlayer      Examines details of a particular asset.              Get Asset Details   UC-5
+WebPlayer      Examines details of a particular security.           Get Security        UC-5
+                                                                    Details
 WebPlayer      Checks league statistics. Provide a clear view of    View League Stats   UC-6
                the leaderboard as well as changes over time.
 WebPlayer      Changes some settings regarding their Player         Player Settings     UC-7
@@ -291,7 +295,59 @@ Coordinator    Remove a coordinator from the league.                Remove Coord
 Coordinator    Delete a league.                                     Delete League       UC-15
 Coordinator    Accept or decline requests to join a league.         Manage League       UC-16
 Coordinator    Invite players to a league.                          Invite to League    UC-17
+
+
+Player         Authenticates with the system.                       Authentication      UC-18
+Player         Has their initial account (portfolio tracking)       Create User         UC-19
+               created.
 =============  ===================================================  ==================  =====
+
+Fully Dressed Use Cases
+.......................
+
+Use Case UC-4: View Portfolio
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Related Requrements:
+        Unknown.
+Initiating Actor:
+        Only *WebPlayer*, the similar UC-9 is provided for the *twitter player*.
+Actor's Goal:
+        To view information regarding their portfolio. This information
+        includes the currently owned securities, minimal statistics regarding
+        those securities (as they relate to the current and past value of the
+        portfolio), current avaliable capital (and similar minimal information
+        regarding its change), and the overall value of the portfolio (also
+        with some statistical information regarding changes over time). The
+        actor desires this information to make decisions regarding what their
+        next interaction with the system should be. : they use this info to
+        decide to sell stock they have or buy an increased number of shares of
+        stock they have).
+
+Participating Actors:
+        *Stock price source*
+
+Preconditions:
+        None, note that authentication & account creation are handled within
+        this use case.
+
+Postcondions:
+        None, this is a stateless action. Information is displayed to the user
+        but no internal actions are taken.
+
+Flow of Events for Main Success Scenario:
+
+Flow of Events for Extensions (Alternate Scenarios):
+
+
+
+
+Use Case Diagram
+................
+
+
+Use Case Tracability Matrix
+...........................
+
 
 Nonfunctional Requirements
 ==========================
