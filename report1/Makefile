@@ -3,7 +3,7 @@ PDFLATEX = pdflatex
 CONVERT = convert
 
 DA :=	Overview.pdf Model.pdf PriceFetching.pdf WebTrading.pdf \
-	TwitterTrading.pdf Login.pdf
+	TwitterTrading.pdf Login.pdf Schema.pdf
 DA := $(addprefix domain-analysis/,$(DA))
 
 TARGET = report1
