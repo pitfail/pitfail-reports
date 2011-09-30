@@ -76,19 +76,35 @@ Individual Contributions
 
 Customer Statement of Requirements
 ==================================
+
+.. I really hoped we could get something about design derivatives in here, but
+.. unfortunately it doesn't look like we have it thought through well enough to
+.. make it in the first report...
+
 Investors today are seeking more effective financial tools that not only
 motivates them to invest in the stock market and improve their decision making
 skills but also an application that is interesting enough to keep using. Our
-goal is to build a systems that is less focused on simulation than on playing a
-game. Existing simulations mimic the inconveniences of trading stock on real
-markets; While this can be a good option for future traders to practice , but
-confuses the the vast majority of users. In contrast with the existing
-alternatives, Pitfail offers number of differentiating features: Pitfail is an
-financial engineering simulation which will allow investor players to virtually
-invest money in real-world stocks. The basic features include buying and
-selling stocks/securities from the exchange, trading between players, and
-designing new derivatives. Pitfail can also be accessed using Twitter, Facebook
-and Android interface.
+goal is to build a system that is less focused on simulation than on playing a
+game. Existing trading simulations mimic the inconveniences of trading stocks
+on real markets; while this might help future traders to practice, it is out of
+place for the typical internet user. In contrast with the existing
+alternatives, Pitfail offers number of differentiating features: while the core
+program centers around buying and selling of liquid assets (stocks, options;
+anything with available market prices), PitFail aims eventually to users to
+trade directly with each other in non-liquid assets such as derivatives. To
+acheive a low-threshold for getting in to the game, PitFail may be played using
+users' existing accounts (such as Twitter, smart phones or Facebook) with
+essentially no setup.
+
+.. Sorry I changed this to reflect the fact that we haven't developed a lot of
+.. these ideas yet and I didn't want it to sound like we had... here's the
+.. original:
+
+.. Pitfail is an financial engineering simulation which will allow investor
+.. players to virtually invest money in real-world stocks. The basic features
+.. include buying and selling stocks/securities from the exchange, trading
+.. between players, and designing new derivatives. Pitfail can also be accessed
+.. using Twitter, Facebook and Android interface.
 
 Pitfail simulates a virtual stock world, creating a network of stock investors,
 through which they trade real-world stocks without the risk of losing real
@@ -121,8 +137,8 @@ on a real-world stock exchange, the player's virtual investment loses value
 equally.  Likewise, if the corresponding  actual stock gains value, the
 player's virtual investment grows equally.
 
-As a game, a crucial part of application is maintaining player portfolio. The
-application  provides every player with portfolio to view/modify his/her
+As a game, a crucial part of the application is maintaining player portfolio.
+The application  provides every player with portfolio to view/modify his/her
 history i.e. list of securities owned(stocks/derivatives). In addition to the
 securities currently owned by the player, the player is able to view his or her
 historical performance as measure by net worth. To add  a flavor of a game,
