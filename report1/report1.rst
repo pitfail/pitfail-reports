@@ -387,6 +387,49 @@ Flow of Events for Main Success Scenario:
 Flow of Events for Extensions (Alternate Scenarios):
 
 
+UC-6: Modify League Settings
+............................
+Related Requirements:
+        - REQ1: Stock Market Simulator Website
+        - REQ9: Coordinators for Supervision
+
+Initiating Actor:
+        Coordinator
+
+Actor's Goal:
+        To modify settings for the coordinator's league. This includes modifying
+        the league's name, nickname, starting funds, and security settings.
+
+Participating Actors:
+        Database
+
+Preconditions:
+        - League that is being modified exists
+        - Initiating actor is a coordinator of the league that he or she is modifying
+
+Postconditions:
+        - League name is still unique
+        - League nickname is still unique
+        - Starting funds is positive
+
+Flow of Events for Main Success Scenario:
+        1. → Requests the league settings page
+        2. ← Authenticates the user's credentials against the database
+        3. ← Return a settings page populated with the current settings
+        4. → Submits updated league settings
+        5. ← Validate new league settings
+        6. ← Store updated settings in the database
+
+Flow of Events for Extensions:
+        - League does not exist
+                1. → Requests the league settings page
+                2. ← Return "page not found" error
+        - User is not a coordinator of the league
+                1. → Requests the league settings page
+                2. ← Authenticates the user's credentials against the database
+                3. ← Return "access denied" error
+
+
 Use Case Diagram
 ----------------
         
