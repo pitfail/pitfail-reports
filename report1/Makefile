@@ -46,4 +46,5 @@ report1.pdf : report1.tex $(DA) $(SSD)
 	@#   --use-latex-docinfo: uses LaTeX to generate the title page
 	@#   --documentclass=report: enables LaTeX title page
 	@#   --latex-preamble='': use the default font instead of Times
-	$(RST2LATEX) --config=docutils.conf --stylesheet-path=stylesheet.tex $< > $@
+	@#   --traceback: Give Python stack traces
+	$(RST2LATEX) --traceback --config=docutils.conf --stylesheet-path=stylesheet.tex $< > $@
