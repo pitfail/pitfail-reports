@@ -49,25 +49,26 @@ Individual Contributions
 	:header: "Responsibility", "Michal Koval", "Cody Schafer", "Owen Healy", "Brian Good-acre", "Roma Mehta", "Sonu Iqbal", "Avanti Kulkarni"
 	:widths: 15, 6, 6, 6, 6, 6, 6, 6
 
-	Project Manage. (10),           15%,  15%,  14%,  14%,  14%,  14%,  14%
 	Customer Reqs. (6),                ,     ,     ,     ,     ,     , 100%
 	Glossary of Terms (4),          40%,  10%,  10%,  10%,  10%,  10%,  10%
-	Functional Reqs. (37),             ,     ,     ,     ,     ,     ,
+	Functional Reqs.,                  ,     ,     ,     ,     ,     ,
 	→ Stakeholders (2),                , 100%,     ,     ,     ,     ,
-	→ Goals (4),                       , 100%,     ,     ,     ,     ,
+	→ Actors (2),                      , 100%,     ,     ,     ,     ,
+	→ Goals (4),                    50%,  50%,     ,     ,     ,     ,
 	→ Casual UC (5),                   , 100%,     ,     ,     ,     ,
 	→ Dressed UC (11),              40%,  20%,     ,  40%,     ,     ,
-	→ UC Diagram (4),                  ,     ,     ,     ,     ,     ,
+	→ UC Diagram (4),                  , 100%,     ,     ,     ,     ,
+	→ UC Tracability,              100%,     ,     ,     ,     ,
 	Seq. Diagrams (9),                 ,     ,     ,     ,     , 100%,
 	Nonfunc. Reqs. (6),                ,     ,     ,     ,     , 100%,
-	Domain Analysis (25),              ,     , 100%,     ,     ,     ,
+	Domain Analysis,                   ,     ,     ,     ,     ,     ,
 	→ Concepts (12),                   ,     , 100%,     ,     ,     ,
 	→ Associations (4),                ,     , 100%,     ,     ,     ,
 	→ Attributes (3),                  ,     , 100%,     ,     ,     ,
 	Contracts (6),                     ,     ,     ,     , 100%,     ,
 	User Interface (8),            100%,     ,     ,     ,     ,     ,
 	Plan of Work (3),                  ,     ,     , 100%,     ,     ,
-	References (1),                 14%,  14%,  14%,  14%,  15%,  15%,  14%
+	References (1),                 14%,  14%,  14%,  14%,  14%,  15%,  14%
 
 .. raw:: latex
 
@@ -291,36 +292,36 @@ Actors and Goals
 
   - Wants to increase the value of their portfolio, thereby proving competency
     at security trading.
+  - Competes with other players for higher ranks in leagues.
 
 - A *Web Player* is a *player* who is interacting with the *game* via the web
   browser interface. This actor contains all use cases of the *player*. It also
   shares the goal of the *player*.
+
 - A *Twitter Player* is a *player* who is interacting with the *game* via the
   twitter interface. This actor contains all use cases of the *player*. It also
   shares the goal of the *player*.
+
 - A *Coordinator* is responsible for administering a *league*.
 
   - Wants to effectively administer the tournament to provide either a learning
     experience to the *players*, or, alternately, an enjoyable experience to
-    the players.
+    the *players*.
   - Desires a construct in which to effectively challenge others interested in
     security trading.
 
-- The *database* is the store for all persistent data on iteractions with the
+- The *database* is the store for all persistent data on interactions with the
   *system*. It stores data regarding all user portfolios and the association of
   authentications with users.
-
-- A *Stock Price Source* is a supplier of stock pricing data for the present    (within the margin of some minutes). They are queried for all data regarding
-  actual market numbers. Currently, *Yahoo* is the *stock srice source*.
 
 - *Yahoo!* is the source for all real market data which determines the actual
   effect of purchasing and selling securities.
   
-- A *Stock information provider* is a supplier of stock pricing data for the present
+- A *stock information provider* is a supplier of stock pricing data for the present
   (within the margin of some minutes). They are queried for all data regarding
-  actual market numbers. Currently, *Yahoo* used in this capacity.
+  actual market numbers. Currently, *Yahoo* is the *stock information provider*.
 
-- *Authentication Providers* allow us to uniquely identify users and associate
+- *Authentication providers* allow us to uniquely identify users and associate
   some stored state with their unique identification.
 
 - *Twitter* is utilized both as a authentication provider (for all *players* as
@@ -340,9 +341,6 @@ Account creation is omitted from the use case listing because account creation
 is always accomplished implicitly. Third party services are used for
 authorization, and all other setup is accomplished with defaults that may be
 changed at another point it time by the *player* as requested (UC-7).
-
-Casual Description
-..................
 
 =============  ===================================================  ==================  =====
 Actor          Description                                          Short Name           UC#
@@ -387,98 +385,141 @@ Player         Authenticates with the system.                       Authenticati
 Player         Has their initial account (portfolio tracking)       Create User         UC-19
                created.
 =============  ===================================================  ==================  =====
-
-Fully-Dressed Description
-.........................
-
-**UC-1: Buy**
-~~~~~~~~~~~~~~~~~~~~~~
-
-**Related Requirements:** 
-REQ1, REQ2, REQ3, REQ5, REQ6, REQ10
-
-**Initiating Actor:**
-Any of: Player, Webplayer, TwitterPlayer
-
-**Actor's Goal:**
-To purchase a security from the market, to add it to his portfolio, and see his updated portfolio.
-
-*Participating Actors:**
-Database, Securities, Stock Price Source, Yahoo!
-
-**Preconditions:**
-The user should have created an account, be in a league  with settings that allows the "BUY", and have enough money to perform the BUY of the security. 
-
-**Postconditions:**
-The user needs to be able to see his purchased security in his portfolio and track the progress of the security in his portfolio until he "SELLS" it. 
-
-**Flow of Events for Successful BUY:**
- ->	1. The **Player, Webplayer, or TwitterPlayer** determines a **Security** and how much of it to "BUY".
- <-	2. **System** signals the **Stock Price Source** for the price of the security.
- <-	3. **Stock Price Source** sends the price of the **Security** to the **System.**
- <-	4. **System** signals the **Database** for the amount of money the **Player** has.
- <-	5. **Database** sends the amount of money for the **Player** to the System.
- <-	6. **System** checks that there is enough money for compelete the transcation.
- <-	7. **System** signals the **Database** to complete the transcation for a **Player**, **Security**, and the quantity. 
- <-	8. **Database** signals the **System** the transcation is complete.
- <-	9.  **System** signals to the **Player** "Transcation Completed." 
-
-**Flow of Events for Unsuccessful BUY:**
- ->	1. The **Player, Webplayer, or TwitterPlayer** determines a **Security** and how much of it to "BUY".
- <-	2. **System** signals the **Stock Price Source** for the price of the security.
- <-	3. **Stock Price Source** sends the price of the **Security** to the **System.**
- <-	4. **System** signals the **Database** for the amount of money the **Player** has.
- <-	5. **Database** sends the amount of money for the **Player** to the System.
- <-	6. **System** checks that there is enough money for compelete the transcation.
- <-	7.  There is not enough money. **System** signals to the **Player** "Transcation Not Completed: Insufficient Funds." 
-
-**UC-2: Sell**
-~~~~~~~~~~~~~~~~~~~~~~
-
-**Related Requirements:**
-REQ1, REQ2, REQ3, REQ5, REQ6, REQ10
-
-**Initiating Actor:**
-Any of: Player, Webplayer, TwitterPlayer
-
-**Actor's Goal:**
-To purchase a security from the market, to add it to his portfolio, and see the updated 
-
-*Participating Actors:**
-Database, Securities, Stock Price Source, Yahoo!
-
-**Preconditions:** The user should have created an account, be in a league with settings that allows the "SELL", and contain in his portfolio at least the quantity of securities his is requesting to SELL.
-
-**Postconditions:**
-The user's portfolio will reflect the quantity of securities SOLD. 
-
-**Flow of Events for Successful SELL:**
- ->	1. The **Player, Webplayer, or TwitterPlayer** determines a **Security** and how much of it to "SELL".
- <-	2. **System** signals the **Stock Price Source** for the price of the security.
- <-	3. **Stock Price Source** sends the price of the **Security** to the **System.**
- <-	4. **System** signals the **Database** for the amount of the **Security** the **Player** has.
- <-	5. **Database** sends the amount of the **Security** the **Player** has to the System.
- <-	6. **System** checks that there is enough **Securities** to compelete the transcation.
- <-	7. **System** signals the **Database** to complete the transcation for a **Player**, **Security**, and the quantity. 
- <-	8. **Database** signals the **System** the transcation is complete.
- <-	9.  **System** signals to the **Player** "Transcation Completed." 
-
-**Flow of Events for Unsuccessful SELL: Not Enough Securities**
- ->	1. The **Player, Webplayer, or TwitterPlayer** determines a **Security** and how much of it to "SELL".
- <-	2. **System** signals the **Stock Price Source** for the price of the security.
- <-	3. **Stock Price Source** sends the price of the **Security** to the **System.**
- <-	4. **System** signals the **Database** for the amount of the **Security** the **Player** has.
- <-	5. **Database** sends the amount of the **Security** the **Player** has to the System.
- <-	6. **System** checks that there is enough **Securities** to compelete the transcation. There is not.
- <-	9.  **System** signals to the **Player** "Transcation Not Completed: Insufficient Securities."  
  
 Fully Dressed Use Cases
 -----------------------
 
+UC-1: Buy
+.........
+Related Requirements:
+        - REQ1: Stock Market Simulator Website
+        - REQ2: Android Application
+        - REQ3: Access via Twitter/Facebook
+        - REQ5: Updated Stock Information
+        - REQ6: Player Portfolio
+
+Initiating Actor:
+        Any of: Player, Webplayer, TwitterPlayer
+
+Actor's Goal:
+        To purchase a security from the market, to add it to his portfolio, and
+        see his updated portfolio.
+
+Participating Actors:
+        Database, Securities, Stock Price Source, Yahoo!
+
+Preconditions:
+        The user should have created an account, be in a league  with settings
+        that allows the "BUY", and have enough money to perform the BUY of the
+        security.
+
+Postconditions:
+        The user needs to be able to see his purchased security in his
+        portfolio and track the progress of the security in his portfolio until
+        he "SELLS" it.
+
+Flow of Events for Successful Buy:
+        1. → The *Player, Webplayer, or TwitterPlayer* determines a *Security*
+           and how much of it to "BUY".
+        2. ← *System* signals the *Stock Price Source* for the price of the
+           security.
+        3. ← *Stock Price Source* sends the price of the *Security* to the
+           *System.*
+        4. ← *System* signals the *Database* for the amount of money the
+           *Player* has.
+        5. ← *Database* sends the amount of money for the *Player* to the
+           System.
+        6. ← *System* checks that there is enough money for compelete the
+           transcation.
+        7. ← *System* signals the *Database* to complete the transcation for a
+           *Player*, *Security*, and the quantity.
+        8. ← *Database* signals the *System* the transcation is complete.
+        9. ← *System* signals to the *Player* "Transcation Completed."
+
+Flow of Events for Unsuccessful Buy:
+        1. → The *Player, Webplayer, or TwitterPlayer* determines a *Security*
+           and how much of it to "BUY".
+        2. ← *System* signals the *Stock Price Source* for the price of the
+           security.
+        3. ← *Stock Price Source* sends the price of the *Security* to the
+           *System.*
+        4. ← *System* signals the *Database* for the amount of money the
+           *Player* has.
+        5. ← *Database* sends the amount of money for the *Player* to the
+           System.
+        6. ← *System* checks that there is enough money for compelete the
+           transcation.
+        7. ← There is not enough money. *System* signals to the *Player*
+           "Transcation Not Completed: Insufficient Funds."
+
+UC-2: Sell
+..........
+Related Requirements:
+        - REQ1: Stock Market Simulator Website
+        - REQ2: Android Application
+        - REQ3: Access via Twitter/Facebook
+        - REQ5: Updated Stock Information
+        - REQ6: Player Portfolio
+
+Initiating Actor:
+        Any of: Player, Webplayer, TwitterPlayer
+
+Actor's Goal:
+        To purchase a security from the market, to add it to his portfolio, and
+        see the updated portfolio
+
+Participating Actors:
+        Database, Securities, Stock Price Source, Yahoo!
+
+Preconditions:
+        - User is logged in
+        - Contain in his portfolio at least the quantity of securities his is
+          requesting to sell.
+
+Postconditions:
+        - The user's portfolio will reflect the quantity of securities sold.
+
+Flow of Events for Successful Sell:
+        1. → The *Player, Webplayer, or TwitterPlayer* determines a *Security*
+           and how much of it to "SELL".
+        2. ←  *System* signals the *Stock Price Source* for the price of the
+           security.
+        3. ←  *Stock Price Source* sends the price of the *Security* to the
+           *System.*
+        4. ←  *System* signals the *Database* for the amount of the *Security*
+           the *Player* has.
+        5. ←  *Database* sends the amount of the *Security* the *Player* has to
+           the System.
+        6. ←  *System* checks that there is enough *Securities* to complete the
+           transaction.
+        7. ←  *System* signals the *Database* to complete the transcation for a
+           *Player*, *Security*, and the quantity.
+        8. ←  *Database* signals the *System* the transaction is complete.
+        9. ←  *System* signals to the *Player* "Transaction Completed."
+
+Flow of Events for Unsuccessful Sell:
+        1. → The *Player, Webplayer, or TwitterPlayer* determines a *Security*
+           and how much of it to "SELL".
+        2. ←  *System* signals the *Stock Price Source* for the price of the
+           security.
+        3. ←  *Stock Price Source* sends the price of the *Security* to the
+           *System.*
+        4. ←  *System* signals the *Database* for the amount of the *Security*
+           the *Player* has.
+        5. ←  *Database* sends the amount of the *Security* the *Player* has to
+           the System.
+        6. ←  *System* checks that there is enough *Securities* to complete the
+           transaction. There is not.
+        7. ←  *System* signals to the *Player* "Transaction Not Completed:
+           Insufficient Securities."
+
 UC-4: View Portfolio
 ....................
 Related Requrements:
-        REQ-1, REQ-4, REQ-5, REQ-6
+        - REQ1: Stock Market Simulator Website
+        - REQ4: Simple User Interface
+        - REQ5: Updated Stock Information
+        - REQ6: Player Portfolio
 
 Initiating Actor:
         Only *WebPlayer*, the similar UC-9 is provided for the *twitter player*.
@@ -508,7 +549,7 @@ Postcondions:
 
 Flow of Events for Main Success Scenario:
         1. → *Web player* browses to a page which will display his portfolio.
-        2. — *System* checks for authentication and when it does not exsist (a)
+        2. ← *System* checks for authentication and when it does not exsist (a)
            runs the authentication (UC-18). Checks for a associated *user* in
            the system and when there is none runs (b) user creation (UC-19).
         3. ← *System* requests the information about the user's portfolio for
@@ -544,38 +585,31 @@ Participating Actors:
         Database
 
 Preconditions:
-        - League that is being viewed exists
-        - League is either public or the user is a member
+	The league that is being viewed exists and the league is either public or the user is a member.
 
 Postconditions:
         None; this is a stateless action.
 
-
-
-System Requirements - Use Case Traceability Matrix
-..................................................
-
 Flow of Events for Main Success Scenario:
-        1. → Requests to view league performance
-        2. ← Authenticates the user's the user's ability to view the statistics
-        3. ← Return a leaderboard of all league members
+        1. → *Player* requests to view league performance.
+        2. ← *System* signals the *Database* for authentication and the league's leaderboard.
+        3. ← *Database* authenticates the user's ability to view the statistics and returns the league's leaderboard.
+        4. ← *System* returns a leaderboard of all league members.
 
-Flow of Events for Extensions:
+Flow of Events for league does not exist:
+	1. → *Player* requests the league statistics page.
+	2. ← *System* signals the *Database* for authentication and the league's leaderboard.
+	3. ← *Database* signals the *System* that the league does not exist.
+        4. ← *System* returns "page not found" error.
 
-        - League does not exist
-          
-                1. → Requests the league statistics page.
-                2. ← Return "page not found" error
-                   
-        - League is invite-only and the user is not a member
-          
-                1. → Requests the league settings page
-                2. ← Authenticates the user's credentials against the database
-                3. ← Return "access denied" error
+Flow of Events for league is invite-only and the user is not a member:
+	1. → *Player* requests the league statistics page.
+	2. ← *System* signals the *Database* for authentication and the league's leaderboard.
+	3. ← *Database* signals the *System* that the league is invite-only and the *Player* is not a member.
+        4. ← *System* returns "access denied" error.
 
 UC-6: Modify League Settings
 ............................
-
 Related Requirements:
         - REQ-1: Stock Market Simulator Website
         - REQ-9: Coordinators for Supervision
@@ -600,33 +634,69 @@ Postconditions:
         - Starting funds is positive
 
 Flow of Events for Main Success Scenario:
-        1. → Requests the league settings page
-        2. ← Authenticates the user's credentials against the database
-        3. ← Return a settings page populated with the current settings
-        4. → Submits updated league settings
-        5. ← Validate new league settings
-        6. ← Store updated settings in the database
+        1. → *Coordinator* requests to view league settings page.
+        2. ← *System* signals the *Database* for authentication and the league's settings page.
+        3. ← *Database* authenticates the user's ability to modify the league settings and returns the league settings page.
+        4. ← *System* returns a league setting page populated with the current settings.
+        5. → *Coordinator* submits updated league settings.
+        6. ← *System* Validate new league settings
+        7. ← *System* sends updated settings to the *database.*
+        8. ← *Database* signals the *System* that the settings have been updated.
+        9. ← *System* signals the *Coordinator* "Settings have been updated."
 
-Flow of Events for Extensions:
+Flow of Events for league does not exist:
+	1. → *Player* requests the league settings page.
+	2. ← *System* signals the *Database* for authentication and the league's settings page.
+	3. ← *Database* signals the *System* that the league does not exist.
+        4. ← *System* returns "page not found" error.
 
-        - League does not exist
-          
-                1. → Requests the league settings page
-                2. ← Return "page not found" error
-                   
-        - User is not a coordinator of the league
-          
-                1. → Requests the league settings page
-                2. ← Authenticates the user's credentials against the database
-                3. ← Return "access denied" error
+Flow of Events for user is not a coordinator of the league:
+	1. → *Player* requests the league settings page.
+	2. ← *System* signals the *Database* for authentication and the league's settings page.
+	3. ← *Database* signals the *System* that the league is invite-only and the *Player* is not a member.
+        4. ← *System* returns "access denied" error.
 
 Use Case Diagram
 ----------------
-.. TODO
+.. figure:: UseCaseDiagram.pdf
+        :width: 100%
 
 Use Case Tracability Matrix
 ---------------------------
-.. TODO
+
+
+.. raw:: latex
+
+        \begin{center}
+        \small
+
+=====  =====  =====  =====  =====  =====  =====  =====  =====  =====
+.      REQ-1  REQ-2  REQ-3  REQ-4  REQ-5  REQ-6  REQ-7  REQ-8  REQ-9
+=====  =====  =====  =====  =====  =====  =====  =====  =====  =====
+UC-1          x      x                    x
+UC-2          x      x                    x 
+UC-3          x                                         x      x
+UC-4   x                    x             x      x      x
+UC-5   x                    x      x
+UC-6   x                    x                    x      x
+UC-7   x                    x                           x
+UC-8   x                    x                           x      x
+UC-9                 x             x      x      x
+UC-10                x      x             x
+UC-11  x                                                x      x
+UC-12  x                                                x      x
+UC-13  x                                                x      x
+UC-14  x                                                x      x
+UC-15  x                                                x      x
+UC-16  x                                                x      x
+UC-17  x                                  x             x      x
+UC-18  x      x      x             x
+UC-19  x      x      x      x
+=====  =====  =====  =====  =====  =====  =====  =====  =====  =====
+
+.. raw:: latex
+
+	\end{center}
 
 System Sequence Diagrams
 ------------------------
@@ -634,31 +704,31 @@ UC-1:
 Buy Stocks (Scenario: Successful operation)
 
 .. figure:: ssd/BuyStocks_SD.png
-    :width: 100%
+    :width: 50%
 
 UC-2:
 Sell Stocks (Scenario: Successful Operation)
 
 .. figure:: ssd/SellStocks_SD.jpg
-    :width: 100%
+    :width: 50%
 
 UC-3:
 View Portfolio (Scenario: Successful Operation)
 
 .. figure:: ssd/ViewPortfolio_SD.jpg
-    :width: 100%
+    :width: 50%
 
 UC-4
 View League Statistics (Scenario: Successful Operation)
 
 .. figure:: ssd/ViewLeague_SD.jpg
-    :width: 100%
+    :width: 50%
 
 UC-5
 Modify League settings (Scenario: Successful Operation)
 
 .. figure:: ssd/ModifyLeague_SD.jpg
-    :width: 100%
+    :width: 50%
 
 Nonfunctional Requirements
 ==========================
@@ -1318,9 +1388,11 @@ button:
 Plan of Work
 ============
 
-.. TODO
+.. figure:: plan_of_work.pdf
+        :scale: 80%
 
 References
 ==========
+Miles,  Russ  and  Kim  Hamilton.  Learning  UML  2.0.  Ed.  Eric  McLaughlin  and  Mary  O'Brien. Sebastopol: O'Reilly, 2006.
 
 .. TODO
