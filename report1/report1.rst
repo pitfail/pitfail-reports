@@ -78,44 +78,63 @@ Individual Contributions
 Customer Statement of Requirements
 ==================================
 
-.. I really hoped we could get something about design derivatives in here, but
-.. unfortunately it doesn't look like we have it thought through well enough to
-.. make it in the first report...
-
 Investors today are seeking more effective financial tools that not only
 motivates them to invest in the stock market and improve their decision making
 skills but also an application that is interesting enough to keep using. Our
 goal is to build a system that is less focused on simulation than on playing a
 game. Existing trading simulations mimic the inconveniences of trading stocks
 on real markets; while this might help future traders to practice, it is out of
-place for the typical internet user. In contrast with the existing
-alternatives, Pitfail offers number of differentiating features: while the core
-program centers around buying and selling of liquid assets (stocks, options;
-anything with available market prices), PitFail aims eventually to users to
-trade directly with each other in non-liquid assets such as derivatives. To
-acheive a low-threshold for getting in to the game, PitFail may be played using
-users' existing accounts (such as Twitter, smart phones or Facebook) with
-essentially no setup.
+place for the typical internet user. PitFail's philosophy is that the market
+for trading *practice* is already well-handled by games such as Investopedia's.
+PitFail instead believes that it is more important to teach theory than
+mechanics. In contrast with the existing alternatives, Pitfail offers number of
+differentiating features: while the core program centers around buying and
+selling of liquid assets (stocks, options; anything with available market
+prices), PitFail aims eventually to users to trade directly with each other in
+non-liquid assets such as derivatives. To acheive a low-threshold for getting
+in to the game, PitFail may be played using users' existing accounts (such as
+Twitter, smart phones or Facebook) with essentially no setup.
 
-.. Sorry I changed this to reflect the fact that we haven't developed a lot of
-.. these ideas yet and I didn't want it to sound like we had... here's the
-.. original:
+.. Pitfail is an financial game which will allow investor players to virtually
+.. invest money in real-world stocks. The basic features include buying and
+.. selling stocks/securities from the exchange, trading between players, and
+.. designing new derivatives. Pitfail can also be accessed using Twitter, Facebook
+.. and Android interface.
 
-.. Pitfail is an financial engineering simulation which will allow investor
-.. players to virtually invest money in real-world stocks. The basic features
-.. include buying and selling stocks/securities from the exchange, trading
-.. between players, and designing new derivatives. Pitfail can also be accessed
-.. using Twitter, Facebook and Android interface.
-
-Pitfail simulates a virtual stock world, creating a network of stock investors,
+Pitfail creates a virtual stock world, creating a network of stock investors,
 through which they trade real-world stocks without the risk of losing real
 money. Unlike existing trading simulations, Pitfail does not require the
-players to go through a time consuming registration process. Players can login
-to the system  using their existing e-mail addresses and the system remembers
+players to go through a time-consuming registration process. Players can login
+to the system using their existing e-mail addresses and the system remembers
 the players for their next use. As Pitfail requires essentially no commitment
 it is easy for players to try it out.  Initially, the player is given a fixed
 amount of startup funds. The player uses these funds to virtually buy the
 stocks.
+
+You could take a trading game different ways -- Investopedia, which is
+excruciatingly tied to the real world, or Neopets which is isolated and
+pristine -- but the nice thing about capitalism is that we can play with any
+rules, so long as they're consistent. But so many (all that I'm aware of) of
+the games that have been written so far left out something so important: you
+can't enter (enforced) contracts with other players.
+
+It's not a trivial detail -- if you can't enter contracts, you can't turn
+intangible ideas into *assets* -- ie, you can't commoditize all the things you
+might like to commoditize (well, maybe you can if that's nothing). There's a
+good reason they don't do this, of course: to enforce contracts you either need
+a legal system (doable -- Wikipedia has one, but a serious impediment still) or
+contracts that a computer can enforce. PitFail makes a compromise -- users can
+enter into contracts (in the form of derivatives), but the rules are reduced to
+a simple set that the system can enforce, yet that can be combined creatively
+by the players.
+
+This adds a new aspect to the game -- illiquidity. The PitFail stock exchange
+is simulated as a perfectly efficient, perfectly liquid market. This is of
+course unrealistic -- in the real world, trading volume is finite, trades are
+not made constantly, not all trades are made at the marginal price. Alas, it
+would be hard for PitFail to simulated illiquidity in stocks -- unless we have
+access to an actual massive population of traders, it would be simply *too*
+illiquid to be worth playing.
 
 There are many options for a player to choose from once he/she logs in:
 
@@ -140,29 +159,43 @@ gains value, the player's virtual investment grows equally.
 
 As a game, a crucial part of the application is maintaining player portfolio.
 The application  provides every player with portfolio to view/modify his/her
-history i.e. list of securities owned(stocks/derivatives). In addition to the
-securities currently owned by the player, the player is able to view his or her
-historical performance as measure by net worth. To add  a flavor of a game,
-players can monitor each other's progress by viewing a feed of recent activity
-and browsing leader boards. Pitfail also offers aggregate feeds of recent
-activity. This allows a group of people to keep abreast of their friends' or
-enemies' activities. Pitfail provides the players with the ability to comments
-on other's trades when browsing recent activity or viewing another user's
-portfolio. These comments make players feel involved and part of a larger
-community. One additional feature Pitfail provides is the ability for players
-to "upvote" and "downvote" trades based on their opinion of trade. Pitfail can
-then rank users and assign status symbols (e.g. badges) to users with the
-strongest ability to vote predictively. This type of ranking appears to be
-unique to Pitfail. Another feature that appears to be unique to Pitfail is that
-it allows users to design their own securities (i.e futures or options) , thus
-creating new financial products. Even without a court system to enforce complex
-contracts, custom securities allow Pitfail's users to a new financial
-environment.
+history i.e. list of securities owned(stocks/derivatives).
 
-As mentioned, Pitfail can be accessed via a website, twitter, Facebook and
+In addition to the securities currently owned by the player, the player is able
+to view a few summary statistics about their portfolio, such as a history of
+net worth over time, and an indication of which assets have increased in value
+since their purchase. What the player ultimately cares about, of course, is net
+worth in the future -- that's what they are trying to optimize. We can't tell
+them that, of course, nor should we, since it's the whole point of playing the
+game. We should even be careful in categorizing assets by change in value --
+users will of course purchase assets that perform oppositely to hedge risk.
+Basically, we don't want to decide strategy for the player; we want to give
+them information and let them decide strategy.
+
+To add a flavor of a game, players can monitor each other's progress by viewing
+a feed of recent activity and browsing leader boards. Pitfail also offers
+aggregate feeds of recent activity. This allows a group of people to keep
+abreast of their friends' or enemies' activities. Remember, this is not real
+personal information we're talking about -- we're willing to sacrifice privacy
+(if you can call it that) for a competitive spirit. Pitfail provides the
+players with the ability to comments on other's trades when browsing recent
+activity or viewing another user's portfolio. These comments make players feel
+involved and part of a larger community. One additional feature Pitfail
+provides is the ability for players to "upvote" and "downvote" trades based on
+their opinion of trade. Pitfail can then rank users and assign status symbols
+(e.g. badges) to users with the strongest ability to vote predictively. Of
+course, predicting is only so good if you can't make good trades yourself --
+but it's interesting to see both rankings nonetheless. This type of ranking
+appears to be unique to Pitfail. Another feature that appears to be unique to
+Pitfail is that it allows users to design their own securities (i.e futures or
+options) , thus creating new financial products. Even without a court system to
+enforce complex contracts, custom securities allow Pitfail's users to a new
+financial environment.
+
+As mentioned, Pitfail can be accessed via a website, Twitter, Facebook and
 android interface. Each of these methods have their own purposes. As financial
 trades are compact and atomic and that they can be expressed through small
-messages, Pitfail provides a twitter and Facebook interfaces where players can
+messages, Pitfail provides a Twitter and Facebook interfaces where players can
 buy/sell securities by tweeting to a particular account/ writing post on
 Facebook account wall .  Twitter and Facebook  provide a familiar interfaces to
 use the system. Also, as no registration  is required which makes it easy to
@@ -184,37 +217,98 @@ the casual online player -- the classroom market is too big to ignore
 completely, hence a feature that makes it possible for students to play against
 each other in a league.
 
+For more information on PitFail's theory of operation see:
+
+ - `Representing Finiancial Products for Online Simulation
+   (https://github.com/pitfail/pitfail-reports/wiki/Products)
+   <https://github.com/pitfail/pitfail-reports/wiki/Products>`_
+
+ - `Interacting with a Trading Simulation over Twitter
+   (https://github.com/pitfail/pitfail-reports/wiki/Twitter)
+   <https://github.com/pitfail/pitfail-reports/wiki/Twitter>`_
+
+ - `A Syntax for Securities
+   (https://github.com/pitfail/pitfail-reports/wiki/Syntax)
+   <https://github.com/pitfail/pitfail-reports/wiki/Syntax>`_
+
+ - `A Prediction Market for Voting on Trades
+   (https://github.com/pitfail/pitfail-reports/wiki/Voting)
+   <https://github.com/pitfail/pitfail-reports/wiki/Voting>`_
+
 Below is the list of customer requirements:
 
-1.  **REQ-1** Stock Market Simulator Website: Investors are looking for a effective
-    tool that allows users to invest and learn without  having to invest real money
-    and also allows them to interact with other users more effectively to make the
-    game really enjoyable.
+1. **REQ-1** Stock Market Simulator Website: Investors are looking for an
+   effective tool that allows users to invest and learn without having to
+   invest real money and also allows them to interact with other users more
+   effectively to make the game really enjoyable.
 
-2.  **REQ-2** Android Application: Mobile users who like having native applications
-    can use such system with quick access very easily.
+2. **REQ-2** Android Application: Mobile users who like having native
+   applications can use such system with quick access very easily.
 
-3.  **REQ-3** Access via Twitter/Facebook: Users who heavily use social networks
-    like Facebook/Twitter can connect to Pitfail easily.
+3. **REQ-3** Access via Twitter/Facebook: Users who heavily use social networks
+   like Facebook/Twitter can connect to Pitfail easily.
 
-4.  **REQ-4** Simple User Interface: Users are looking for simple interface that
-    welcomes new users and guides the new user through portfolio management.
+4. **REQ-4** Simple User Interface: Users are looking for simple interface that
+   welcomes new users and guides the new user through portfolio management.
 
-5.  **REQ-5** Updated Stock Information: Application should present stock
-    symbols, company names, stock history, updated stock values and prices amongst
-    other details.
+5. **REQ-5** Zero-configuration setup: Users should not have to set any
+   settings or explicitly create an account to begin playing.
 
-6.  **REQ-6** Player Portfolio: Each player must have separate portfolio that gives
-    him/her option to buy/sell new securities, view currently owned securities.
+6. **REQ-6** Updated Stock Information: Application should present stock
+   symbols, company names, stock history, updated stock values and prices
+   amongst other details.
 
-7.  **REQ-7** Evaluate Portfolios: Securities owned by each player should be periodically
-    evaluated and should be updated to their current value.
+7. **REQ-7** Basic trading: Users should be able to buy and sell stocks whose
+   values change over time.
 
-8.  **REQ-8** Advertisements: The website must contain appropriate and interesting
-    advertisements relating to finance and stock
+8. **REQ-8** Large, liquid, efficient market: The simulated "exchange" should
+   present the illusion of a large, liquid and efficient market -- stocks are
+   traded constantly, at marginal price, and each individual trade is small
+   compared to the total trading volume.
 
-9)  **REQ-9** Administrators for help/supervision: An administrator must be available to
-    answer questions and to supervise the game.
+9. **REQ-9** Relation to the outside world: The values of stocks should be in
+   some way related to the outside world so that users have information to base
+   trading decisions on.
+
+10. **REQ-10** Player Portfolio: Each player must have separate portfolio that
+    gives him/her option to buy/sell new securities, view currently owned
+    securities.
+
+11. **REQ-11** Evaluate Portfolios: Securities owned by each player should be
+    periodically evaluated and should be updated to their current value.
+
+12. **REQ-12** Advertisements: The website must contain appropriate and
+    interesting advertisements relating to finance and stock
+
+13. **REQ-13** Administrators for help/supervision: An administrator must be
+    available to answer questions and to supervise the game.
+
+14. **REQ-14** Summary statistics: The website should provide users with a few
+    summary statistics about their portfolio -- aggregate value over time,
+    which securities have increased in value. The website shouldn't usurp the
+    role of deciding strategy for the player; only the most basic of stats
+    should be displayed.
+
+15. **REQ-15** Voting: players should be able to up/down-vote each other's
+    trades. Vote tallies should be visible to other users.
+
+16. **REQ-16** Commenting: players should be able to comment (via the website
+    -- you can already comment on anything via Twitter) on each other's trades.
+    Comments should be visible to all users.
+
+17. **REQ-17** Moderation: There should be at least a minimal degree of comment
+    moderation so blatantly offensive comments can be removed.
+
+18. **REQ-18** Designing derivatives: Players should be able to enter into
+    contracts with each other that will be enforced by the PitFail system.
+
+19. **REQ-19** Guided designing of derivatives: The website should guide
+    players into common formats for derivatives to make it easier for new
+    players to figure out.
+
+20. **REQ-20** Rankings: On the website players should be able to see rankings
+    of all players by portfolio value (liquid assets only), and by voting
+    score.
 
 Glossary of Terms
 =================
@@ -806,6 +900,196 @@ Domain Analysis
 
 Domain Model
 ------------
+
+Concept Definitions
+...................
+
+Our Domain uses the following concepts (which appear in the Domain Model
+diagrams later):
+
+User
+````
+
+*Definition*: A human being playing the Pitfail game.
+
+Web Browser
+```````````
+
+*Definition*: The User's browser, running on the User's computer.
+
+*Responsibilities*:
+
+ - Take input from User
+ - Send requests to Web Server
+ - Receive responses from Web Server
+ - Render page content
+
+Android Client
+``````````````
+
+*Definition*: The Android application: Pitfail, running on the User's Android phone.
+
+*Responsibilities*:
+
+ - Listen to user input via touch
+ - Send request to Web Server, receive response from web server
+ - Display appropriate screen with response action
+
+Web Server
+``````````
+
+*Definition*: HTTP web server, running on Pitfail's server.
+
+*Responsibilities*
+
+ - Receive requests from Web Browser
+ - Delegate requests to Web Framework
+ - Receive responses from Web Framework
+ - Send Responses to Web Browser
+
+Web Framework
+`````````````
+
+*Definition*: Web framework APIs.
+
+*Responsibilities*
+
+ - Receive requests from Web Server
+ - Convert requests to structured data and delegate to appropriate handlers
+ - Receive rendered pages in the form of structured data and convert to markup
+ - Send responses to Web Server
+
+Page Renderer
+`````````````
+
+*Definition*: Creates a presentation aimed at the User in the form of
+structured data.
+
+*Responsibilities*:
+
+ - Decide what information should be rendered
+ - Convert prices/balance sheets/news to human-readable form
+ - Send rendered pages to the Web Framework
+
+OAuthConsumer
+`````````````
+
+*Definition*: Takes the role of the "consumer" in the OAuth protocol.
+
+*Responsibilities*:
+
+ - Receive requests from Web Framework
+ - Send requests for authentication to twitter.com
+ - Receive + store session secrets from twitter.com
+ - Inform Login Manager of new logins
+
+Stock Trader
+````````````
+
+*Definition*: Is in change of the logic of translating high-level trades into
+model operations.
+
+*Responsibilities*:
+
+ - Translate an atomic trading operation (buy, sell, offer to player, accept,
+   decline) into a model operation.
+ - Decide if a trading operation is legal in terms of which user is performing
+   it, the current state of their portfolio, the current prices of stocks.
+ - Manipulate the model to reflect the results of a trade (if it is valid).
+
+Price Fetcher
+`````````````
+
+*Definition*: Gets real-world stock prices.
+
+*Responsibilities*:
+
+ - Receive requests for price information from various components
+ - Request new price information from Price Source
+ - Receive price information from Price Source
+ - Maintain a cache of recent price quotes
+
+Login Manager
+`````````````
+
+*Definition*: Handles the current user login.
+
+*Responsibilities*:
+
+ - Receive new login information from OAuthConsumer
+ - Store current login information for the session
+ - Query the Model to check for existing user information
+ - Update the Model to reflect new user information
+
+Web Controller
+``````````````
+
+*Definition*: Receives and processes requests delegated by the Web Framework.
+
+*Responsibilities*:
+
+ - Receive requests delegated by the web framework
+ - Parse user-supplied data into an internal form
+ - Invoke appropriate operation in the Stock Trader
+ - Inform the Page Renderer of the results of the operation
+
+Twitter Listener
+````````````````
+
+*Definition*: Provides an interface for users to play Pitfail via Twitter.
+
+*Responsibilities*:
+
+ - Maintains a connection with twitter.com and listens for tweets
+ - Delegates tweets to the Interpreter
+ - Receives responses from the interpreter and sends them as tweets
+
+Facebook Listener
+`````````````````
+
+*Definition*: Provides an interface for users to interact with Pitfail via Facebook.
+
+*Responsibilities:*
+
+ - Listens to wall posts on Pitfail Page and maintains a connection with Facebook.com
+ - Delegates the wall posts with requests to buy/sell to the interpreter
+ - Receives responses from the interpreter and sends them as a response to the Wall posts as comments.
+
+Interpreter
+```````````
+
+*Definition*: Interprets text-based trading commands.
+
+*Responsibilities*:
+
+ - Receive text commands from Twitter Listener and Facebook Listener
+ - Delegate commands to the Parser and receive a structured representation
+ - Send structured commands to the Stock Trader and receive a response
+ - Convert response to text and send back to the corresponding Listener
+
+Parser
+``````
+
+*Definition*: Converts human-entered text to structured trading commands.
+
+*Responsibilities*:
+
+ - Receive text commands from the Interpreter
+ - Convert commands to structured from
+
+Model
+`````
+
+*Definition*: Handles persistent data.
+
+*Responsibilities*:
+
+ - Create and maintain a database handle
+ - Convert high-level model operations to database queries
+   
+Model Diagram
+-------------
+
 A sparse overview of the Domain Model looks like
 
 .. figure:: domain-analysis/Overview.pdf
@@ -838,163 +1122,6 @@ And the login process:
 .. figure:: domain-analysis/Login.pdf
     :width: 50%
 
-Concept Definitions
-...................
-
-The concepts from the model are:
-
-**User**
-
-*Definition*: A human being playing the Pitfail game.
-
-**Web Browser**
-
-*Definition*: The User's browser, running on the User's computer.
-
-*Responsibilities*:
-
- - Take input from User
- - Send requests to Web Server
- - Receive responses from Web Server
- - Render page content
-
-**Android Client**
-
-*Definition*: The Android application: Pitfail, running on the User's Android phone.
-
-*Responsibilities*:
-
- - Listen to user input via touch
- - Send request to Web Server, receive response from web server
- - Display appropriate screen with response action
-
-**Web Server**
-
-*Definition*: HTTP web server, running on Pitfail's server.
-
-*Responsibilities*
-
- - Receive requests from Web Browser
- - Delegate requests to Web Framework
- - Receive responses from Web Framework
- - Send Responses to Web Browser
-
-**Web Framework**
-
-*Definition*: Web framework APIs.
-
-*Responsibilities*
-
- - Receive requests from Web Server
- - Convert requests to structured data and delegate to appropriate handlers
- - Receive rendered pages in the form of structured data and convert to markup
- - Send responses to Web Server
-
-**Page Renderer**
-
-*Definition*: Creates a presentation aimed at the User in the form of
-structured data.
-
-*Responsibilities*:
-
- - Decide what information should be rendered
- - Convert prices/balance sheets/news to human-readable form
- - Send rendered pages to the Web Framework
-
-**OAuthConsumer**
-
-*Definition*: Takes the role of the "consumer" in the OAuth protocol.
-
-*Responsibilities*:
-
- - Receive requests from Web Framework
- - Send requests for authentication to twitter.com
- - Receive + store session secrets from twitter.com
- - Inform Login Manager of new logins
-
-**Stock Trader**
-
-*Definition*: Is in change of the logic of making trades.
-
-*Responsibilities*:
-
- - Receive requests from Web Framework
- - Interpret requests and translate them into operations on the Model
- - Decide of a request makes sense and is legal for the current user
- - Inform the Page Renderer of recent actions so that they may be report to the user
- - Manipulate the Model to reflect the result of trades
-
-**Price Fetcher**
-
-*Definition*: Gets real-world stock prices.
-
-*Responsibilities*:
-
- - Receive requests for price information from various components
- - Request new price information from yahoo.com
- - Receive price information from yahoo.com
- - Maintain a cache of recent price quotes
-
-**Login Manager**
-
-*Definition*: Handles the current user login.
-
-*Responsibilities*:
-
- - Receive new login information from OAuthConsumer
- - Store current login information for the session
- - Query the Model to check for existing user information
- - Update the Model to reflect new user information
-
-**Twitter Listener**
-
-*Definition*: Provides an interface for users to play Pitfail via Twitter.
-
-*Responsibilities*:
-
- - Maintains a connection with twitter.com and listens for tweets
- - Delegates tweets to the Interpreter
- - Receives responses from the interpreter and sends them as tweets
-
-**Facebook Listener**
-
-*Definition*: Provides an interface for users to interact with Pitfail via Facebook.
-
-*Responsibilities:*
-
- - Listens to wall posts on Pitfail Page and maintains a connection with Facebook.com
- - Delegates the wall posts with requests to buy/sell to the interpreter
- - Receives responses from the interpreter and sends them as a response to the Wall posts as comments.
-
-**Interpreter**
-
-*Definition*: Interprets text-based trading commands.
-
-*Responsibilities*:
-
- - Receive text commands from Twitter Listener and Facebook Listener
- - Delegate commands to the Parser and receive a structured representation
- - Send structured commands to the Stock Trader and receive a response
- - Convert response to text and send back to the corresponding Listener
-
-**Parser**
-
-*Definition*: Converts human-entered text to structured trading commands.
-
-*Responsibilities*:
-
- - Receive text commands from the Interpreter
- - Convert commands to structured from
-
-**Model**
-
-*Definition*: Handles persistent data.
-
-*Responsibilities*:
-
- - Create and maintain a database handle
- - Convert high-level model operations to database queries
-
 Attribute Definitions
 .....................
 
@@ -1005,16 +1132,16 @@ is described later.
 A few attributes related to sessions and volatile information are stored within
 the program itself. These are described here.
 
-=============  ===============  =======================================================
+=============  ===============  =============================================================
 Concept        Attribute        Meaning
-=============  ===============  =======================================================
+=============  ===============  =============================================================
 Model          database handle    Allows communication with the database.
 Database       tables           Relational tables. Schema described elsewhere.
-Price Fetcher  cached prices    Stores recently retrieved prices to avoid DOSing yahoo
+Price Fetcher  cached prices    Stores recently retrieved prices to avoid DOSing the service
 OAuthConsumer  session secrets  OAuth authentication secrets
 OAuthConsumer  auth status      Whether authenticated, and if so as whom
 Login Manager  current login    Currently logged in user
-=============  ===============  =======================================================
+=============  ===============  =============================================================
 
 Association Definitions
 .......................
@@ -1034,8 +1161,8 @@ JODBC              returns strc. data  Model             Results of query
 
 Stock Trader       requests            Price Fetcher     Requests price data for a ticker symbol
 Price Fetcher      informs             Stock Trader      Returns requested data
-Price Fetcher      requests            yahoo.com         Requests price for ticker
-yahoo.com          informs             Price Fetcher     Tells price for ticker
+Price Fetcher      requests            Price Source      Requests price for ticker
+Price Source       informs             Price Fetcher     Tells price for ticker
 
 Stock Trader       manipulates         Model             To perform a trade
 Model              informs             Stock Trader      Current status of portfolios
@@ -1048,8 +1175,10 @@ Stock Trader       sends status        Interpreter       did it perform correctl
 twitter.com        sends tweets        Twitter Listener  Live stream of user's tweets
 Twitter Listener   sends tweets        twitter.com       Response to users
 
-Web Framework      delegates request   Stock Trader      User performed a trade in browser
-Stock Trader       informs             Page Renderer     Reports status of trade back to user
+Web Framework      delegates request   Web Controller    User performed a trade in browser
+Web Controller     invokes             Stock Trader      Specifies high-level trading operation
+Stock Trader       informs             Web Controller    Whether the operation performed successfully
+Web Controller     informs             Page Renderer     Reports status of trade back to user
 Page Renderer      informs             Web Framework     How to render the new page
 Model              informs             Page Renderer     Current status of portfolios
 =================  ==================  ================  ===================================================

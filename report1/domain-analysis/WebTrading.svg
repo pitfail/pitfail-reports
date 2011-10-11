@@ -6,11 +6,6 @@
 <text font-family="Dialog" font-size="12" x="19" y="211">
 PitFail (server side)</text>
 <rect fill="none" height="232" stroke="#000000" stroke-width="1" width="511" x="14" y="221"/>
-<polyline fill="none" points="230,174 230,294" stroke="#000000" stroke-width="1"/>
-<line fill="#000000" stroke="#000000" stroke-width="1" x1="223" x2="230" y1="282" y2="294"/>
-<line fill="#000000" stroke="#000000" stroke-width="1" x1="237" x2="230" y1="282" y2="294"/>
-<text font-family="Dialog" font-size="12" x="115" y="247">
-delegates request</text>
 <polyline fill="none" points="286,150 286,126" stroke="#000000" stroke-width="1"/>
 <line fill="#000000" stroke="#000000" stroke-width="1" x1="293" x2="286" y1="138" y2="126"/>
 <line fill="#000000" stroke="#000000" stroke-width="1" x1="279" x2="286" y1="138" y2="126"/>
@@ -21,12 +16,12 @@ delegates request</text>
 <line fill="#000000" stroke="#000000" stroke-width="1" x1="285" x2="278" y1="90" y2="78"/>
 <line fill="#000000" stroke="#000000" stroke-width="1" x1="271" x2="278" y1="90" y2="78"/>
 <text font-family="Dialog" font-size="12" x="287" y="94">
-sends response</text>
+responds</text>
 <polyline fill="none" points="230,78 230,102" stroke="#000000" stroke-width="1"/>
 <line fill="#000000" stroke="#000000" stroke-width="1" x1="223" x2="230" y1="90" y2="102"/>
 <line fill="#000000" stroke="#000000" stroke-width="1" x1="237" x2="230" y1="90" y2="102"/>
 <text font-family="Dialog" font-size="12" x="129" y="93">
-sends request</text>
+requests</text>
 <polyline fill="none" points="254,38 254,54" stroke="#000000" stroke-width="1"/>
 <rect fill="#ffffff" height="24" stroke="#ffffff" stroke-width="1" width="109" x="222" y="150"/>
 <rect fill="none" height="24" stroke="#000000" stroke-width="1" width="109" x="222" y="150"/>
@@ -44,55 +39,74 @@ Browser</text>
 <rect fill="none" height="24" stroke="#000000" stroke-width="1" width="66" x="222" y="14"/>
 <text font-family="Dialog" font-size="12" x="240" y="27">
 User</text>
-<rect fill="#ffffff" height="24" stroke="#ffffff" stroke-width="1" width="90" x="214" y="294"/>
-<rect fill="none" height="24" stroke="#000000" stroke-width="1" width="90" x="214" y="294"/>
-<text font-family="Dialog" font-size="12" x="219" y="307">
+<rect fill="#ffffff" height="24" stroke="#ffffff" stroke-width="1" width="90" x="214" y="334"/>
+<rect fill="none" height="24" stroke="#000000" stroke-width="1" width="90" x="214" y="334"/>
+<text font-family="Dialog" font-size="12" x="219" y="347">
 Stock Trader</text>
-<rect fill="#ffffff" height="24" stroke="#ffffff" stroke-width="1" width="104" x="406" y="270"/>
-<rect fill="none" height="24" stroke="#000000" stroke-width="1" width="104" x="406" y="270"/>
-<text font-family="Dialog" font-size="12" x="411" y="283">
+<rect fill="#ffffff" height="24" stroke="#ffffff" stroke-width="1" width="104" x="350" y="270"/>
+<rect fill="none" height="24" stroke="#000000" stroke-width="1" width="104" x="350" y="270"/>
+<text font-family="Dialog" font-size="12" x="355" y="283">
 Page Renderer</text>
 <polyline fill="none" points="422,270 422,166 331,166" stroke="#000000" stroke-width="1"/>
 <line fill="#000000" stroke="#000000" stroke-width="1" x1="343" x2="331" y1="159" y2="166"/>
 <line fill="#000000" stroke="#000000" stroke-width="1" x1="343" x2="331" y1="173" y2="166"/>
 <text font-family="Dialog" font-size="12" x="414" y="161">
 informs</text>
-<polyline fill="none" points="304,310 342,310 366,294 390,286 406,286" stroke="#000000" stroke-width="1"/>
-<line fill="#000000" stroke="#000000" stroke-width="1" x1="394" x2="406" y1="293" y2="286"/>
-<line fill="#000000" stroke="#000000" stroke-width="1" x1="394" x2="406" y1="279" y2="286"/>
-<text font-family="Dialog" font-size="12" x="312" y="280">
-informs</text>
 <rect fill="#ffffff" height="24" stroke="#ffffff" stroke-width="1" width="66" x="222" y="406"/>
 <rect fill="none" height="24" stroke="#000000" stroke-width="1" width="66" x="222" y="406"/>
 <text font-family="Dialog" font-size="12" x="236" y="419">
 Model</text>
-<polyline fill="none" points="222,318 222,406" stroke="#000000" stroke-width="1"/>
+<polyline fill="none" points="222,358 222,406" stroke="#000000" stroke-width="1"/>
 <line fill="#000000" stroke="#000000" stroke-width="1" x1="215" x2="222" y1="394" y2="406"/>
 <line fill="#000000" stroke="#000000" stroke-width="1" x1="229" x2="222" y1="394" y2="406"/>
-<text font-family="Dialog" font-size="12" x="131" y="367">
+<text font-family="Dialog" font-size="12" x="131" y="387">
 manipulates</text>
-<polyline fill="none" points="286,406 286,318" stroke="#000000" stroke-width="1"/>
-<line fill="#000000" stroke="#000000" stroke-width="1" x1="293" x2="286" y1="330" y2="318"/>
-<line fill="#000000" stroke="#000000" stroke-width="1" x1="279" x2="286" y1="330" y2="318"/>
-<text font-family="Dialog" font-size="12" x="297" y="367">
+<polyline fill="none" points="286,406 286,358" stroke="#000000" stroke-width="1"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="293" x2="286" y1="370" y2="358"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="279" x2="286" y1="370" y2="358"/>
+<text font-family="Dialog" font-size="12" x="297" y="387">
 informs</text>
 <polyline fill="none" points="288,414 430,414 430,294" stroke="#000000" stroke-width="1"/>
 <line fill="#000000" stroke="#000000" stroke-width="1" x1="437" x2="430" y1="306" y2="294"/>
 <line fill="#000000" stroke="#000000" stroke-width="1" x1="423" x2="430" y1="306" y2="294"/>
 <text font-family="Dialog" font-size="12" x="438" y="368">
 informs</text>
-<rect fill="#ffffff" height="32" stroke="#ffffff" stroke-width="1" width="93" x="22" y="294"/>
-<rect fill="none" height="32" stroke="#000000" stroke-width="1" width="93" x="22" y="294"/>
-<text font-family="Dialog" font-size="12" x="27" y="307">
+<rect fill="#ffffff" height="32" stroke="#ffffff" stroke-width="1" width="93" x="22" y="318"/>
+<rect fill="none" height="32" stroke="#000000" stroke-width="1" width="93" x="22" y="318"/>
+<text font-family="Dialog" font-size="12" x="27" y="331">
 Price Fetcher</text>
-<polyline fill="none" points="214,302 115,302" stroke="#000000" stroke-width="1"/>
-<line fill="#000000" stroke="#000000" stroke-width="1" x1="127" x2="115" y1="295" y2="302"/>
-<line fill="#000000" stroke="#000000" stroke-width="1" x1="127" x2="115" y1="309" y2="302"/>
-<text font-family="Dialog" font-size="12" x="132" y="297">
+<polyline fill="none" points="214,334 115,334" stroke="#000000" stroke-width="1"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="127" x2="115" y1="327" y2="334"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="127" x2="115" y1="341" y2="334"/>
+<text font-family="Dialog" font-size="12" x="132" y="329">
 queries</text>
-<polyline fill="none" points="115,318 214,318" stroke="#000000" stroke-width="1"/>
-<line fill="#000000" stroke="#000000" stroke-width="1" x1="202" x2="214" y1="325" y2="318"/>
-<line fill="#000000" stroke="#000000" stroke-width="1" x1="202" x2="214" y1="311" y2="318"/>
-<text font-family="Dialog" font-size="12" x="133" y="333">
+<polyline fill="none" points="115,334 214,334" stroke="#000000" stroke-width="1"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="202" x2="214" y1="341" y2="334"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="202" x2="214" y1="327" y2="334"/>
+<text font-family="Dialog" font-size="12" x="133" y="349">
+informs</text>
+<rect fill="#ffffff" height="24" stroke="#ffffff" stroke-width="1" width="98" x="214" y="270"/>
+<rect fill="none" height="24" stroke="#000000" stroke-width="1" width="98" x="214" y="270"/>
+<text font-family="Dialog" font-size="12" x="219" y="283">
+WebController</text>
+<polyline fill="none" points="238,174 238,270" stroke="#000000" stroke-width="1"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="231" x2="238" y1="258" y2="270"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="245" x2="238" y1="258" y2="270"/>
+<text font-family="Dialog" font-size="12" x="240" y="241">
+delegates</text>
+<polyline fill="none" points="312,278 350,278" stroke="#000000" stroke-width="1"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="338" x2="350" y1="285" y2="278"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="338" x2="350" y1="271" y2="278"/>
+<text font-family="Dialog" font-size="12" x="313" y="269">
+informs</text>
+<polyline fill="none" points="230,294 230,334" stroke="#000000" stroke-width="1"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="223" x2="230" y1="322" y2="334"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="237" x2="230" y1="322" y2="334"/>
+<text font-family="Dialog" font-size="12" x="233" y="319">
+invokes</text>
+<polyline fill="none" points="302,334 302,294" stroke="#000000" stroke-width="1"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="309" x2="302" y1="306" y2="294"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="295" x2="302" y1="306" y2="294"/>
+<text font-family="Dialog" font-size="12" x="311" y="321">
 informs</text>
 </svg>
