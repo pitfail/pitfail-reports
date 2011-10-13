@@ -829,6 +829,7 @@ Actors and Goals
 
 - A *Web Player* is a *player* who interacts with the *game* via the web
   browser interface. 
+
   - Buys and Sell Stocks.
   - View and Modify Portfolio.
   - Create League.
@@ -836,11 +837,13 @@ Actors and Goals
 
 - A *Twitter Player* is a *player* who interacts with the *game* via the
   twitter interface. This actor contains has limited use cases compared to a Web Player.
+  
   - Buys and Sells Stocks
   - Participates in Leagues
 
 - A *MobilePlayer* is a *player* who interacts with the *game* via the
   twitter interface. This actor contains has limited use cases compared to a Web Player.
+  
   - Buys and Sells Stocks
   - View Portfolio
   - Participate in Leagues
