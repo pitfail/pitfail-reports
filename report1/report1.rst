@@ -394,7 +394,7 @@ Actors and Goals
   - View and Modify Portfolio.
   - Create League.
   - Participate in Leagues.
-  
+
 - A *Twitter Player* is a *player* who interacts with the *game* via the
   twitter interface. This actor contains has limited use cases compared to a Web Player.
   - Buys and Sells Stocks
@@ -420,7 +420,8 @@ Actors and Goals
 
 - A *stock information provider* is a supplier of stock pricing data for the present
   (within the margin of some minutes). They are queried for all data regarding
-  actual market numbers. Currently, *Yahoo* is the *stock information provider*.
+  actual market numbers. Currently, *Yahoo* is the *stock information provider*
+  (via its Yahoo Finance API).
 
 - *Authentication providers* allow us to uniquely identify users and associate
   some stored state with their unique identification.
@@ -480,11 +481,19 @@ Coordinator    Remove a coordinator from the league.                Remove Coord
 Coordinator    Delete a league.                                     Delete League       UC-15
 Coordinator    Accept or decline requests to join a league.         Manage League       UC-16
 Coordinator    Invite players to a league.                          Invite to League    UC-17
-Player         Authenticates with the system.                       Authentication      UC-18
-Player         Has their initial account (portfolio tracking)       Create User         UC-19
+WebPlayer      Authenticates with the system.                       Authentication      UC-18
+WebPlayer      Has their initial account (portfolio tracking)       Create User         UC-19
                created.
+TwitterPlayer  Has their initial account (portfolio tracking)       Create User         UC-20
+               created.
+TwitterPlayer  Purchases a security from the market at the price    Buy                 UC-21
+               the *stock price source* indicates is the market
+               price for that security.
+TwitterPlayer  Sells a held security at the price indicated by the  Sell                UC-22
+               *stock price source*.
+
 =============  ===================================================  ==================  =====
- 
+
 Fully Dressed Use Cases
 -----------------------
 
