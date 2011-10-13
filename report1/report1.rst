@@ -839,19 +839,29 @@ Stakeholders
 Actors and Goals
 ----------------
 
-- A *Player* is one who participates by buying and selling securities.
+..  - A *Player* is one who participates by buying and selling securities.
 
-  - Wants to increase the value of their portfolio, thereby proving competency
-    at security trading.
-  - Competes with other players for higher ranks in leagues.
+..  - Wants to increase the value of their portfolio, thereby proving competency
+..    at security trading.
+..  - Competes with other players for higher ranks in leagues.
 
-- A *Web Player* is a *player* who is interacting with the *game* via the web
-  browser interface. This actor contains all use cases of the *player*. It also
-  shares the goal of the *player*.
+- A *Web Player* is a *player* who interacts with the *game* via the web
+  browser interface. 
+  - Buys and Sell Stocks.
+  - View and Modify Portfolio.
+  - Create League.
+  - Participate in Leagues.
 
-- A *Twitter Player* is a *player* who is interacting with the *game* via the
-  twitter interface. This actor contains all use cases of the *player*. It also
-  shares the goal of the *player*.
+- A *Twitter Player* is a *player* who interacts with the *game* via the
+  twitter interface. This actor contains has limited use cases compared to a Web Player.
+  - Buys and Sells Stocks
+  - Participates in Leagues
+
+- A *MobilePlayer* is a *player* who interacts with the *game* via the
+  twitter interface. This actor contains has limited use cases compared to a Web Player.
+  - Buys and Sells Stocks
+  - View Portfolio
+  - Participate in Leagues
 
 - A *Coordinator* is responsible for administering a *league*.
 
@@ -865,12 +875,10 @@ Actors and Goals
   *system*. It stores data regarding all user portfolios and the association of
   authentications with users.
 
-- *Yahoo!* is the source for all real market data which determines the actual
-  effect of purchasing and selling securities.
-  
 - A *stock information provider* is a supplier of stock pricing data for the present
   (within the margin of some minutes). They are queried for all data regarding
-  actual market numbers. Currently, *Yahoo* is the *stock information provider*.
+  actual market numbers. Currently, *Yahoo* is the *stock information provider*
+  (via its Yahoo Finance API).
 
 - *Authentication providers* allow us to uniquely identify users and associate
   some stored state with their unique identification.
@@ -878,8 +886,6 @@ Actors and Goals
 - *Twitter* is utilized both as a authentication provider (for all *players* as
   well as a portion of the interface to the service.
 
-- *Yahoo* is the source for all real market data which determines the actual
-  effect of purchasing and selling securities.
 
 Casual Use-Case Description
 ---------------------------
@@ -891,17 +897,17 @@ system will automatically initialize the required backing data.
 Account creation is omitted from the use case listing because account creation
 is always accomplished implicitly. Third party services are used for
 authorization, and all other setup is accomplished with defaults that may be
-changed at another point it time by the *player* as requested (UC-7).
+changed at another point it time by the *player* as requested.
 
 =============  ===================================================  ==================  =====
 Actor          Description                                          Short Name           UC#
 =============  ===================================================  ==================  =====
-Player         Purchases a security from the market at the price    Buy                 UC-1
+WebPlayer      Purchases a security from the market at the price    Buy                 UC-1
                the *stock price source* indicates is the market
                price for that security.
-Player         Sells a held security at the price indicated by the  Sell                UC-2
+WebPlayer      Sells a held security at the price indicated by the  Sell                UC-2
                *stock price source*.
-Player         Indicates that they wish to begin participating in   Join League         UC-3
+WebPlayer      Indicates that they wish to begin participating in   Join League         UC-3
                a particular league. Does not remove them from any
                league. Also note that leaveing a league is omitted
                to prevent people from gaming the system by
@@ -915,9 +921,11 @@ WebPlayer      Examines details of a particular security.           Get Security
                                                                     Details
 WebPlayer      Checks league statistics. Provide a clear view of    View League Stats   UC-6
                the leaderboard as well as changes over time.
-WebPlayer      Changes some settings regarding their Player         Player Settings     UC-7
-WebPlayer      Changes some settings regarding a portfolio/league   Portfolio Settings  UC-8
-               they are a member of.
+TwitterPlayer  Purchases a security from the market at the price    Buy via Twitter     UC-7
+               the *stock price source* indicates is the market
+               price for that security.
+TwitterPlayer  Sells a held security at the price indicated by the  Sell via Twitter    UC-8
+               *stock price source*.
 TwitterPlayer  Query portfolio value & other details.               Portfolio Info      UC-9
 TwitterPlayer  Changes his or her current (default) league.         Change Default      UC-10
                The default league is the league which UC-1(Buy)     League
@@ -932,11 +940,17 @@ Coordinator    Remove a coordinator from the league.                Remove Coord
 Coordinator    Delete a league.                                     Delete League       UC-15
 Coordinator    Accept or decline requests to join a league.         Manage League       UC-16
 Coordinator    Invite players to a league.                          Invite to League    UC-17
-Player         Authenticates with the system.                       Authentication      UC-18
-Player         Has their initial account (portfolio tracking)       Create User         UC-19
+WebPlayer      Authenticates with the system.                       Authentication      UC-18
+WebPlayer      Has their initial account (portfolio tracking)       Create User         UC-19
                created.
+TwitterPlayer  Has their initial account (portfolio tracking)       Create User via T.  UC-20
+               created.
+WebPlayer      Vote on trade.                                       Vote                UC-21
+TwitterPlayer  Vote on trade via a twitter repost.                  Vote by Tweet       UC-22
+WebPlayer      Create derivative.                                   Derivative Designer UC-23
+
 =============  ===================================================  ==================  =====
- 
+
 Fully Dressed Use Cases
 -----------------------
 
@@ -950,7 +964,7 @@ Related Requirements:
         - REQ6: Player Portfolio
 
 Initiating Actor:
-        Any of: Player, Webplayer, TwitterPlayer
+        Any of: Webplayer, TwitterPlayer, MobilePlayer
 
 Actor's Goal:
         To purchase a security from the market, to add it to his portfolio, and
@@ -1013,7 +1027,7 @@ Related Requirements:
         - REQ6: Player Portfolio
 
 Initiating Actor:
-        Any of: Player, Webplayer, TwitterPlayer
+        Any of: Webplayer, TwitterPlayer, MobilePlayer
 
 Actor's Goal:
         To purchase a security from the market, to add it to his portfolio, and
@@ -1031,7 +1045,7 @@ Postconditions:
         - The user's portfolio will reflect the quantity of securities sold.
 
 Flow of Events for Successful Sell:
-        1. → The *Player, Webplayer, or TwitterPlayer* determines a *Security*
+        1. → The *Player(ANY)* determines a *Security*
            and how much of it to "SELL".
         2. ←  *System* signals the *Stock Price Source* for the price of the
            security.
@@ -1049,7 +1063,7 @@ Flow of Events for Successful Sell:
         9. ←  *System* signals to the *Player* "Transaction Completed."
 
 Flow of Events for Unsuccessful Sell:
-        1. → The *Player, Webplayer, or TwitterPlayer* determines a *Security*
+        1. → The *Player(ANY)* determines a *Security*
            and how much of it to "SELL".
         2. ←  *System* signals the *Stock Price Source* for the price of the
            security.
