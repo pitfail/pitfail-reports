@@ -217,24 +217,6 @@ the casual online player -- the classroom market is too big to ignore
 completely, hence a feature that makes it possible for students to play against
 each other in a league.
 
-For more information on PitFail's theory of operation see:
-
- - `Representing Finiancial Products for Online Simulation
-   (https://github.com/pitfail/pitfail-reports/wiki/Products)
-   <https://github.com/pitfail/pitfail-reports/wiki/Products>`_
-
- - `Interacting with a Trading Simulation over Twitter
-   (https://github.com/pitfail/pitfail-reports/wiki/Twitter)
-   <https://github.com/pitfail/pitfail-reports/wiki/Twitter>`_
-
- - `A Syntax for Securities
-   (https://github.com/pitfail/pitfail-reports/wiki/Syntax)
-   <https://github.com/pitfail/pitfail-reports/wiki/Syntax>`_
-
- - `A Prediction Market for Voting on Trades
-   (https://github.com/pitfail/pitfail-reports/wiki/Voting)
-   <https://github.com/pitfail/pitfail-reports/wiki/Voting>`_
-
 Below is the list of customer requirements:
 
 1. **REQ-1** Stock Market Simulator Website: Investors are looking for an
