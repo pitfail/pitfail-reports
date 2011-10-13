@@ -217,24 +217,6 @@ the casual online player -- the classroom market is too big to ignore
 completely, hence a feature that makes it possible for students to play against
 each other in a league.
 
-For more information on PitFail's theory of operation see:
-
- - `Representing Finiancial Products for Online Simulation
-   (https://github.com/pitfail/pitfail-reports/wiki/Products)
-   <https://github.com/pitfail/pitfail-reports/wiki/Products>`_
-
- - `Interacting with a Trading Simulation over Twitter
-   (https://github.com/pitfail/pitfail-reports/wiki/Twitter)
-   <https://github.com/pitfail/pitfail-reports/wiki/Twitter>`_
-
- - `A Syntax for Securities
-   (https://github.com/pitfail/pitfail-reports/wiki/Syntax)
-   <https://github.com/pitfail/pitfail-reports/wiki/Syntax>`_
-
- - `A Prediction Market for Voting on Trades
-   (https://github.com/pitfail/pitfail-reports/wiki/Voting)
-   <https://github.com/pitfail/pitfail-reports/wiki/Voting>`_
-
 Below is the list of customer requirements:
 
 1. **REQ-1** Stock Market Simulator Website: Investors are looking for an
@@ -309,6 +291,463 @@ Below is the list of customer requirements:
 20. **REQ-20** Rankings: On the website players should be able to see rankings
     of all players by portfolio value (liquid assets only), and by voting
     score.
+
+Representing Financial Products for Online Simulation
+=====================================================
+
+An example: Options
+-------------------
+
+There are different kinds of options, but the basic form goes something like:
+"on a preset date, trader A agrees that trader B may optionally (at trader B's
+discretion) buy X shares of XYZ for D dollars, from trader A."
+
+Right away we see this will have some sharp edges in an online game:
+
+1. It requires obtaining a decision from trader B on the specified date, while
+   trader B may in real life be sleeping, be at work, be in the hospital, not
+   care about the game anymore, etc.
+
+2. If trader A doesn't have X shares of XYZ at the exercise time, the software
+   will have to handle that in a way that's fair to both players, and doesn't
+   require getting them out of bed.
+
+Luckily, real life comes to the rescue. First, stocks, being traded on
+exchanges, are fairly liquid, and have a market value that can be easily looked
+up. So if, on the exercise date, trader B has the option of buying X shares of
+XYZ for D dollars, we already know what trader B wants to do: if X shares of
+XYZ is worth more than D dollars, she'll buy it; otherwise she won't. It's
+reasonable to imagine that trader B would much rather have the software make
+this obvious decision for her than have to remember to be online at the right
+time to make a trivial decision in a game.
+
+The second problem is moot for a different reason: in real life, not only are
+stocks liquid, but *options* are liquid: they are set according to standard
+terms and traded on exchanges. Thus, in real life, options are rarely
+exercised; rather on the exercise date trader A simply buys back the option,
+which he can reliably do since there are thousands of other traders buying the
+same option. Likewise trader B simply sells it back. The option never gets used
+and the actual value of exercising it is reflected only in the change in its
+price.
+
+Alas, in an online game where membership may be sporadic, derivatives cannot be
+liquid, so buying the option back from the exchange isn't feasible. However,
+stocks *are* liquid, so it's safe to assume that, if trader B can't buy the
+promised X shares of XYZ, she'll be content with the corresponding value of
+those shares in dollars.
+
+Entering into a contract
+------------------------
+
+Since trader B gets positive value from the option contract and trader A gets
+negative value, in order for the contract to come about trader B needs to pay
+trader A for the privelidge.
+
+In the game, trader A can offer to "sell" the derivative to trader B -- meaning
+that, if trader B accepts, the derivative is created and they enter the
+contract. So for example, trader A can offer an option to B for $35. If trader
+B accepts, trader B pays trader A $35 and they enter the contract. Importantly,
+the $35 is not part of the derivative -- it doesn't depend on the eventual
+execution of the derivative.
+
+A representation
+----------------
+
+The proposed representation of a derivative consists of:
+
+1. An exercise date,
+
+2. A condition on which the derivative will be exercised,
+
+3. A list of securities to be traded.
+
+So for example, an option to buy 100 shares of GE on 9/18 for $350 would be
+represented as:
+
+1. 9/18
+
+2. GE > $3.5
+
+3. [100 * GE, -350]
+
+The - in -350 indicates that the money is moving from the buyer to the seller.
+
+Representation of dates is clear, but the representation of the condition and
+the securities is not. It is described in the next section.
+
+A language for securities
+-------------------------
+
+A security consists of two pieces of information:
+
+1. The "flavor" (if a stock, the stock ticker symbol)
+
+2. An amount, with a sign.
+
+Stocks, derivatives and dollars would be possible flavors. If the sign is +,
+the security is to be moved from the seller to the buyer (in the option
+example, trader A is the seller and trader B is the buyer). If it's -, it is to
+be moved from the buyer to the seller.
+
+Comparing securities
+--------------------
+
+*Not all securities can be compared*. This is simply because in a world where
+derivatives are not standardized and not traded on exchanges, it is impossible
+for software to know the value of a derivative, or to say if one derivative is
+more valuable than another
+
+Therefore, the only comparable securities are:
+
+1. Dollars
+
+2. Stocks
+
+Securities are compared according to their dollar value at the present time.
+The dollar value of a stock is the last traded price of that stock.
+
+Derivatives have endpoints
+--------------------------
+
+When trading on an exchange, you normally think of a derivative as looking like
+
+.. image:: Products/exchange-1.png
+
+or
+
+.. image:: Products/exchange-2.png
+
+It would not be technically infeasible (or even harder) to use this
+representation in an online game, but it could lead to serious problems. In
+real life, because the exchange takes one half of the trade, it needs to put
+effort into enforcing a standard of behavior for the traders: importantly, the
+exchange puts limits on leverage and sets margin requirements. It's hard for
+software to do a good job of this -- it would likely lead to a high number of
+defaults.
+
+In the game, a better representation is
+
+.. image:: Products/exchange-3.png
+
+importantly, neither trader A nor trader B *owns* the derivative; rather they
+each own one endpoint of it. An analogy would be a socket always having two
+endpoints (although sockets aren't normally traded).
+
+*Only the buyer endpoint of a derivative can be traded*. This is necessary to
+prevent people absorbing their debt into dummy accounts which will then
+default. There is no reason that the buyer endpoint must have positive value --
+so it map be vulnerable to the same tricks, but that is a problem that occurs
+in real life as well, and is a natural aspect to the strategy of the game.
+
+Exercising trades
+-----------------
+
+What happens when, on the exercise date, trader B goes to buy security XYZ from
+trader A, and trader A doesn't have security XYZ? The answer depends on the
+type of security.
+
+If XYZ is dollars, we can assume trader A is now in default and will need to
+declare bankruptcy, which is a whole topic in itself.
+
+If XYZ is a stock, as mentioned earlier, it is a simple matter to convert XYZ
+to dollars, and then the rules for dollars apply.
+
+The trickiest case is when XYZ is a derivative. First, remember that you don't
+trade derivatives, you trade endpoints, so what trader B is actually purchasing
+from trader A is one *endpoint* of derivative XYZ. The key point is that a
+derivative is just a contract: if trader A doesn't have the correct endpoint of
+XYZ, an XYZ derivative can be created at that time, giving trader B his
+promised endpoint, and letting trader A keep the other.
+
+For trader B this is obviously acceptable -- she get what she was promised, but
+what about for trader A? In fact, this should be entirely acceptable for trader
+A as well, because derivative endpoints cancel each other out. This means that
+receiving the seller endpoint of XYZ is no different than giving away the buyer
+endpoint -- so again, the difference should be moot for trader A.
+
+A problem *will* occur if derivative XYZ is past the exercise date, since this
+would involve editing the past. In real life, this would be impossible; in the
+game, it would be possible, but highly undesirable. However, assuming you can't
+directly trade XYZ after it has expired, the only time this would be an issue
+is when derivative XYZ is included as part of the contract of derivative ABC,
+and the exercise date of XYZ comes first. Since this can be detected at the
+time the user tries to create ABC, the error case can simply be presented to
+the user as not allowed, and the problem will never arise.
+
+Liquidating portfolios
+----------------------
+
+When a user goes bankrupt (cannot pay all her debts) a portfolio will be
+liquidated, hoping to obtain as much cash as possible.
+
+Cash is already cash. Stocks are liquid assets and will be immediately sold
+back on the exchange for cash. The remaining assets are derivatives and equity
+shares.
+
+Sadly, or fortunately, depending on your point of view, in economics the value
+of products is determined by what the market participants are willing to pay
+for them, so the software cannot put a value of derivatives and equity. The
+software will put these at auction for a period, say 1 day, and any that are
+not sold will vanish.
+
+A Prediction Market for Voting on Trades
+========================================
+
+Background
+----------
+
+Sites such as StackOverflow allow users to vote on items posted by other users,
+to express approval or disapproval. Here that concept is extended with a
+prediction market to give users an incentive to vote and to vote well.
+
+The implementation tries to work as much like a real prediction market as
+possible: the profit to the voters is tied as literally as possible to the
+object being voted on. This means that voting doesn't add any "new" concept of
+what a winner is -- it merely mimics the existing concept.
+
+Implementation
+--------------
+
+When a trade is made
+....................
+
+Say *Jen* sells a call option XYZ to *Nitish* for $100 (the other end of the
+option is currently held by *Atif*). To support voting, the following things
+happen at this time:
+
+1. Jen and Nitish set aside $0.25 each into the *common pool*.
+
+2. Nitish places 0.02*XYZ into the *buyer pool*.
+
+3. Jen places 0.02*$100 into the *seller pool*.
+
+The three pools are tied to this particular trade. The exist, potentially,
+forever, although the software may wish to reap pools on old trades.
+
+The game then does a hacky "pre-money evaluation" of the pools. Since one half
+of a trade is always cash (please let this be true), the game values XYZ at
+$100 and both pools are valued at $2.00.
+
+Casting votes
+.............
+
+Casting votes works exactly analogously to investing in a company. A vote costs
+a user $0.20, and in exchange they get $0.20 worth of the "company".
+
+Say *Mike* thinks that Nitish got the better deal, so he casts the first vote,
+for Nitish. Mike pays $0.20 into the *buyer pool*. Now the *buyer pool* contains:
+
+- $0.20 in cash
+- 0.02*XYZ
+
+Since 0.02*XYZ is considered to be worth $2.00, the pool now contains $2.20, so
+Mike's $0.20 entitles him to 9% of the pool, which he receives instantly in the
+form of $0.018 in cash and 0.02*0.09*XYZ.
+
+*A note on small numbers:* Votes are supposed to be small compared to other
+trades, but not so small that users don't bother with them. Because votes are
+tiny enough to divide cents and be annoying when looking at balance sheets,
+they don't show up on balance sheets until they are liquidated and added to the
+user's single pool of cash.
+
+Mike also receives, as a bonus for voting, 25% of the current contents of the
+*common pool*. This gives users an incentive to vote and to vote early. Users can
+only vote once per trade.
+
+Showing the results
+...................
+
+Vote tallies are displayed along with the announcement for a trade on the
+PitFail website. The votes give a sense of how the community judges the
+prudence of that trade.
+
+What happens to those tiny securities?
+......................................
+
+After voting, Mike now has 0.02*XYZ, which, as we said before, is a call
+option, the other end of which is held by *Atif*. From *Atif*'s perspective it
+is irrelevant who holds the other end of the option, and it doesn't show up in
+his balance sheet.
+
+At some point, the exercise date for XYZ will come due, and it will be fully or
+partly liquidated. Any cash is returned to Mike's pool of cash; any stock is
+immediately sold and converted to cash.
+
+Derivatives aquired through voting sit around in a user's "voting balance
+sheet", which is not shown.
+
+Reputation
+..........
+
+Sites such as Fluther and StackOverflow give "reputation" to users for
+receiving votes. PitFail voting also offers another possibility: reputation for
+*casting* votes accurately: "casting reputation" would simply be the total
+amount of cash received from casting votes to date. A user with a high casting
+reputation is good at judging other people's trades.
+
+Casting or receiving reputation could be shown along with user names on the
+site to create a more competetive atmosphere.
+
+Interacting with a Trading Simulation over Twitter
+==================================================
+
+Motivation
+----------
+
+Twitter is a service that is already widely used by many people, so there is a
+lower threshold of learning and discovery to play a game over Twitter than to
+use a dedicated website. It is not expected that the Twitter interface will
+duplicate all features of the website; rather users will be able to perform
+their most common tasks from an interface they are familiar with.
+
+The bulk of the proposal is a syntax that represents the operations of the
+game. This syntax could integrate into any system that allows sending brief
+messages from named accounts. However, since Twitter is already well integrated
+this extra flexibility may be unnecessary.
+
+Implementation
+--------------
+
+Accounts
+........
+
+The game has an account, tentatively named ``pitfail``, and will listen for
+user tweets sent to ``@pitfail``.
+
+Users must explicitly associate their Twitter accounts with their PitFail
+accounts. Once Twitter name ``joe`` is associated with PitFail account
+``joe26``, tweets from ``joe26`` will be interpreted as belonging to account
+``joe``.
+
+Another option is for a user to *start* playing FitFail over Twitter. This lets
+the user start playing faster and with no setup -- the first message they send
+to ``@pitfail`` creates an account. There's no way to automatically associate
+this with an OpenID login (that I know of) -- if the user later wants to use
+the PitFail website
+
+The program may respond to tweets that require a response by sending tweets
+back to users.
+
+Syntax of the commands
+......................
+
+View portfolio
+``````````````
+
+::
+
+    @pitfail #portfolio
+
+PitFail will respond with assets and liabilities in a human-readable form.
+
+Buy a stock
+```````````
+
+::
+
+    @pitfail #buy 100 shares of HP
+
+or::
+
+    @pitfail #buy HP * 100
+
+(See [[Products # A language for securities]])
+
+or::
+
+    @pitfail #buy $250 of HP
+
+PitFail will respond with an ACK if successful, or an error if the trade
+failed.
+
+Sell a stock
+````````````
+
+::
+
+    @pitfail #sell 100 shares of HP
+
+    @pitfail #sell HP * 100
+
+    @pitfail #sell $250 of HP
+
+Offer a security for sale to a specific user
+````````````````````````````````````````````
+
+::
+
+    @pitfail @joe #want 100 shares of HP for $250?
+
+See [[Syntax for securities|Syntax]]
+
+Accept an offer
+```````````````
+
+::
+
+    @pitfail @laura #yes
+
+This has an obvious ambiguity if `@laura` has made `@joe` more than one offer.
+Because that ambiguity could be used to trick `@joe`, it should not be allowed
+to make more than one outstanding offer to the same user from the same user.
+
+Decline an offer
+````````````````
+
+::
+
+    @pitfail @laura #no
+
+Offer a security for sale at auction
+````````````````````````````````````
+
+::
+
+    @pitfail #auction 100 shares of HP
+
+When an auction is started it is assigned an id, which is a unique, short
+string. The ID can be used when bidding on the auction.
+
+Bid on an auction
+`````````````````
+
+::
+
+    @pitfail #bid $15 on #ae7
+
+Comment on a trade
+``````````````````
+
+::
+
+    @pitfail @joe Are you serious?
+
+Comment and vote on a trade
+```````````````````````````
+
+::
+
+    @pitfail @joe Are you serious? #down
+
+    @pitfail @joe Dammn... #up
+
+These may be ambiguous, but it's not a big deal since little money is at stake.
+If the user wants to dig up an old trade and comment on it, they can use the ID
+assigned by pitfail::
+
+    @pitfail @joe Are you serious? #cc2f #down
+
+Design considerations
+---------------------
+
+- Operative words are given #tags so that users don't accidentally make trades
+  when just trying to discuss them.
+
+- When offering a security to another user, the role of the `@pitfail` account
+  is minimized -- it's still there watching so it can actually make the trade,
+  but the users feel as if they are just responding to each other. It makes it
+  feel more like a real trade.
+
 
 Glossary of Terms
 =================
@@ -390,18 +829,21 @@ Actors and Goals
 
 - A *Web Player* is a *player* who interacts with the *game* via the web
   browser interface. 
+
   - Buys and Sell Stocks.
   - View and Modify Portfolio.
   - Create League.
   - Participate in Leagues.
-  
+
 - A *Twitter Player* is a *player* who interacts with the *game* via the
   twitter interface. This actor contains has limited use cases compared to a Web Player.
+  
   - Buys and Sells Stocks
   - Participates in Leagues
 
 - A *MobilePlayer* is a *player* who interacts with the *game* via the
   twitter interface. This actor contains has limited use cases compared to a Web Player.
+  
   - Buys and Sells Stocks
   - View Portfolio
   - Participate in Leagues
@@ -420,7 +862,8 @@ Actors and Goals
 
 - A *stock information provider* is a supplier of stock pricing data for the present
   (within the margin of some minutes). They are queried for all data regarding
-  actual market numbers. Currently, *Yahoo* is the *stock information provider*.
+  actual market numbers. Currently, *Yahoo* is the *stock information provider*
+  (via its Yahoo Finance API).
 
 - *Authentication providers* allow us to uniquely identify users and associate
   some stored state with their unique identification.
@@ -439,52 +882,60 @@ system will automatically initialize the required backing data.
 Account creation is omitted from the use case listing because account creation
 is always accomplished implicitly. Third party services are used for
 authorization, and all other setup is accomplished with defaults that may be
-changed at another point it time by the *player* as requested (UC-7).
+changed at another point it time by the *player* as requested.
 
-=============  ===================================================  ==================  =====
-Actor          Description                                          Short Name           UC#
-=============  ===================================================  ==================  =====
-WebPlayer      Purchases a security from the market at the price    Buy                 UC-1
+=============  ===================================================  ===================  =====
+Actor          Description                                          Short Name            UC#
+=============  ===================================================  ===================  =====
+WebPlayer      Purchases a security from the market at the price    Buy                  UC-1
                the *stock price source* indicates is the market
                price for that security.
-WebPlayer      Sells a held security at the price indicated by the  Sell                UC-2
+WebPlayer      Sells a held security at the price indicated by the  Sell                 UC-2
                *stock price source*.
-WebPlayer      Indicates that they wish to begin participating in   Join League         UC-3
+WebPlayer      Indicates that they wish to begin participating in   Join League          UC-3
                a particular league. Does not remove them from any
                league. Also note that leaveing a league is omitted
                to prevent people from gaming the system by
                joining a league, doing poorly, and leaving to
                essentially have a "clean record".
-WebPlayer      Examine the contrents of his or her portfolio,       View Portfolio      UC-4
+WebPlayer      Examine the contrents of his or her portfolio,       View Portfolio       UC-4
                displaying information regarding their current
                assets and liabilities as well as how they have
                been progressing over time
-WebPlayer      Examines details of a particular security.           Get Security        UC-5
+WebPlayer      Examines details of a particular security.           Get Security         UC-5
                                                                     Details
-WebPlayer      Checks league statistics. Provide a clear view of    View League Stats   UC-6
+WebPlayer      Checks league statistics. Provide a clear view of    View League Stats    UC-6
                the leaderboard as well as changes over time.
-WebPlayer      Changes some settings regarding their Player         Player Settings     UC-7
-WebPlayer      Changes some settings regarding a portfolio/league   Portfolio Settings  UC-8
-               they are a member of.
-TwitterPlayer  Query portfolio value & other details.               Portfolio Info      UC-9
-TwitterPlayer  Changes his or her current (default) league.         Change Default      UC-10
+TwitterPlayer  Purchases a security from the market at the price    Buy via Twitter      UC-7
+               the *stock price source* indicates is the market
+               price for that security.
+TwitterPlayer  Sells a held security at the price indicated by the  Sell via Twitter     UC-8
+               *stock price source*.
+TwitterPlayer  Query portfolio value & other details.               Portfolio Info       UC-9
+TwitterPlayer  Changes his or her current (default) league.         Change Default       UC-10
                The default league is the league which UC-1(Buy)     League
                and UC-2(Sell) requests are sent to when a league
                is not specified in the command string.
-Coordinator    Creates a league.                                    Make League         UC-11
-Coordinator    Modifies a league's settings. A coordinator will     League Settings     UC-12
+Coordinator    Creates a league.                                    Make League          UC-11
+Coordinator    Modifies a league's settings. A coordinator will     League Settings      UC-12
                need to manage a league via changing settings
                regarding the league.
-Coordinator    Add an additional Coordinator to a league.           Add Coordinator     UC-13
-Coordinator    Remove a coordinator from the league.                Remove Coordinator  UC-14
-Coordinator    Delete a league.                                     Delete League       UC-15
-Coordinator    Accept or decline requests to join a league.         Manage League       UC-16
-Coordinator    Invite players to a league.                          Invite to League    UC-17
-Player         Authenticates with the system.                       Authentication      UC-18
-Player         Has their initial account (portfolio tracking)       Create User         UC-19
+Coordinator    Add an additional Coordinator to a league.           Add Coordinator      UC-13
+Coordinator    Remove a coordinator from the league.                Remove Coordinator   UC-14
+Coordinator    Delete a league.                                     Delete League        UC-15
+Coordinator    Accept or decline requests to join a league.         Manage League        UC-16
+Coordinator    Invite players to a league.                          Invite to League     UC-17
+WebPlayer      Authenticates with the system.                       Authentication       UC-18
+WebPlayer      Has their initial account (portfolio tracking)       Create User          UC-19
                created.
-=============  ===================================================  ==================  =====
- 
+TwitterPlayer  Has their initial account (portfolio tracking)       Create User via T.   UC-20
+               created.
+WebPlayer      Vote on trade.                                       Vote                 UC-21
+TwitterPlayer  Vote on trade via a twitter repost.                  Vote by Tweet        UC-22
+WebPlayer      Create derivative.                                   Derivative Designer  UC-23
+
+=============  ===================================================  ===================  =====
+
 Fully Dressed Use Cases
 -----------------------
 
