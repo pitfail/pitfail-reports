@@ -1352,6 +1352,17 @@ shares at market price by using the same input technique in the table row that
 corresponds to the stock that he or she wishes to sell (not pictured due to
 space constraints).
 
+.. figure:: ui-mockups/ui-derivative
+    :scale: 50%
+
+Alternatively the user could click the "add" button to begin creating a
+derivative. This stock is added to the table and the user can continue to add
+stocks until he or she is satisfied. Once the user is done adding stock(s), he
+or she "fills in the blanks" in a description of the derivative. Once the offer
+is complete the potential buyer is prompted to accept the offer. This
+interface is easy-to-use and gives the user a better understanding of how
+derivatives function on the real stock market.
+
 Users that are members of multiple portfolios (e.g. students, teachers) can
 switch between their portfolios using the tabs near the top of the page. All
 actions, including buying/selling securities, only apply to the currently
@@ -1392,6 +1403,29 @@ by teachers. League coordinators are presented with a comprehensive list of
 current members and a queue of pending join requests that are awaiting
 approval.
 
+Social Features
+...............
+One of the differentiating features of the Pitfail website is the tight
+integration of social features. The bottom of each page contains a league-specific
+newsfeed, similar to those found on Facebook or Github:
+
+.. figure:: ui-mockups/ui-newsfeed
+	:scale: 50%
+
+This displays a live, real-time stream of events presented sorted in
+reverse-chronological order. These events include when a league member (1)
+joins the league, (2) goes broke, (3) purchases a stock, (4) sells a stock, (5)
+creates a derivative, or (6) collects on an expiring derivative. Members of the
+league can post short comments in response to any of these events by clicking
+the "comment" button associated with the event
+
+Additionally, users may "up-vote" or "down-vote" transactions by clicking on
+the arrows associated with each trade or derivative creation. These votes are
+used to measure the predictive accuracy of the voter. Users that correctly and
+reliably predict the future performance of a stock purchases or derivatives are
+acknowledged on the league's leaderboard.
+
+
 User Effort Estimation
 ----------------------
 Several of the most common usage scenarios for the Pitfail website are
@@ -1403,6 +1437,7 @@ league):
 Usage Scenario                        Clicks  Keystrokes
 ====================================  ======  ==========
 purchase a stock                      5       7
+create a derivative                   2       27
 sell a stock                          5       2
 create a new league                   4       19
 modify an existing league             5       4
@@ -1426,11 +1461,39 @@ Global League portfolio. The user must:
 
  1. Click on the "enter a ticker symbol" text field.
  2. Press the keys "G", "O", "O", and "G".
- 3. Present "enter" to load the quote.
+ 3. Press "enter" to load the quote.
  4. Press the keys "1" and "0" to specify 10 shares.
  5. Click the "buy" button to confirm the purchase.
 
 Note that the user could press "enter" instead of clicking the "buy" button.
+
+Creating a Derivative
+.....................
+Assume the user wishes to offer a call option to Bucky that includes 10 shares
+of Google stock and expires on December 25, 2011. This option costs $1000 to
+begin active and one can buy the shares for $10,000 if and only if the market
+rate for Google stock is greater than $1000 per share. The user must:
+
+- **Navigation:** total of two clicks, as follows
+
+ 1. Click on "login".
+ 2. Click on the "Global League" tab.
+
+- **Data Entry:** total of 3 clicks and 27 keystrokes, as follows
+
+ 1. Click on the "enter a ticker symbol" text field.
+ 2. Press the keys "G", "O", "O", and "G".
+ 3. Press the "enter" key to load the quote.
+ 4. Press the keys "1" and "0" to specify 10 shares.
+ 5. Click the "add" button to begin creating a derivative.
+ 6. Press the "B", "u", "c", "k", and "y" keys to enter the recipient's name.
+ 7. Press "tab" to move to the "premium" field.
+ 8. Press the keys "1", "0", "0", and "0" to enter $1000.
+ 9. Press "tab" to move to the "expiration date" field.
+ 10. Press the "1", "2", "/", "2", and "5" keys to select December 25th of the current year.
+ 11. Press "tab" to move to the "strike price" field.
+ 12. Press the "1", "0", "0", "0", and "0" keys to enter $10000.
+ 13. Click on the "Propose Contract" button to complete the transaction.
 
 Sell a Stock
 ............
