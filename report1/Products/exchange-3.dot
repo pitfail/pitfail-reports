@@ -1,0 +1,8 @@
+
+digraph exchange {
+    a[label="Trader A"];
+    b[label="Trader B"];
+
+    a -> b [label="sells to"];
+}
+
