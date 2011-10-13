@@ -293,7 +293,7 @@ Below is the list of customer requirements:
 Representing Financial Products for Online Simulation
 =====================================================
 
-An example: Options
+Example: Options
 -------------------
 
 There are different kinds of options, but the basic form goes something like:
@@ -334,12 +334,12 @@ stocks *are* liquid, so it's safe to assume that, if trader B can't buy the
 promised X shares of XYZ, she'll be content with the corresponding value of
 those shares in dollars.
 
-Entering into a contract
+Entering into a Contract
 ------------------------
 
 Since trader B gets positive value from the option contract and trader A gets
 negative value, in order for the contract to come about trader B needs to pay
-trader A for the privelidge.
+trader A for the privilege.
 
 In the game, trader A can offer to "sell" the derivative to trader B -- meaning
 that, if trader B accepts, the derivative is created and they enter the
@@ -348,8 +348,8 @@ B accepts, trader B pays trader A $35 and they enter the contract. Importantly,
 the $35 is not part of the derivative -- it doesn't depend on the eventual
 execution of the derivative.
 
-A representation
-----------------
+Representation
+--------------
 
 The proposed representation of a derivative consists of:
 
@@ -373,7 +373,7 @@ The - in -350 indicates that the money is moving from the buyer to the seller.
 Representation of dates is clear, but the representation of the condition and
 the securities is not. It is described in the next section.
 
-A language for securities
+A Language for Securities
 -------------------------
 
 A security consists of two pieces of information:
@@ -387,7 +387,7 @@ the security is to be moved from the seller to the buyer (in the option
 example, trader A is the seller and trader B is the buyer). If it's -, it is to
 be moved from the buyer to the seller.
 
-Comparing securities
+Comparing Securities
 --------------------
 
 *Not all securities can be compared*. This is simply because in a world where
@@ -437,7 +437,7 @@ default. There is no reason that the buyer endpoint must have positive value --
 so it map be vulnerable to the same tricks, but that is a problem that occurs
 in real life as well, and is a natural aspect to the strategy of the game.
 
-Exercising trades
+Exercising Trades
 -----------------
 
 What happens when, on the exercise date, trader B goes to buy security XYZ from
@@ -472,7 +472,7 @@ and the exercise date of XYZ comes first. Since this can be detected at the
 time the user tries to create ABC, the error case can simply be presented to
 the user as not allowed, and the problem will never arise.
 
-Liquidating portfolios
+Liquidating Portfolios
 ----------------------
 
 When a user goes bankrupt (cannot pay all her debts) a portfolio will be
@@ -526,7 +526,7 @@ The game then does a hacky "pre-money evaluation" of the pools. Since one half
 of a trade is always cash (please let this be true), the game values XYZ at
 $100 and both pools are valued at $2.00.
 
-Casting votes
+Casting Votes
 .............
 
 Casting votes works exactly analogously to investing in a company. A vote costs
@@ -552,7 +552,7 @@ Mike also receives, as a bonus for voting, 25% of the current contents of the
 *common pool*. This gives users an incentive to vote and to vote early. Users can
 only vote once per trade.
 
-Showing the results
+Showing the Results
 ...................
 
 Vote tallies are displayed along with the announcement for a trade on the
@@ -584,7 +584,7 @@ amount of cash received from casting votes to date. A user with a high casting
 reputation is good at judging other people's trades.
 
 Casting or receiving reputation could be shown along with user names on the
-site to create a more competetive atmosphere.
+site to create a more competitive atmosphere.
 
 Interacting with a Trading Simulation over Twitter
 ==================================================
@@ -629,7 +629,7 @@ back to users.
 Syntax of the commands
 ......................
 
-View portfolio
+View Portfolio
 ``````````````
 
 ::
@@ -638,7 +638,7 @@ View portfolio
 
 PitFail will respond with assets and liabilities in a human-readable form.
 
-Buy a stock
+Buy a Stock
 ```````````
 
 ::
