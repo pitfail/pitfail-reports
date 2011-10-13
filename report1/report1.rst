@@ -382,7 +382,7 @@ Stakeholders
 Actors and Goals
 ----------------
 
-..- A *Player* is one who participates by buying and selling securities.
+..  - A *Player* is one who participates by buying and selling securities.
 
 ..  - Wants to increase the value of their portfolio, thereby proving competency
 ..    at security trading.
