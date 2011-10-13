@@ -484,13 +484,14 @@ Coordinator    Delete a league.                                     Delete Leagu
 Coordinator    Accept or decline requests to join a league.         Manage League       UC-16
 Coordinator    Invite players to a league.                          Invite to League    UC-17
 WebPlayer      Authenticates with the system.                       Authentication      UC-18
-WebPlayer      Has their initial account (portfolio tracking)       Create User         UC-19
-               created.
-TwitterPlayer  Has their initial account (portfolio tracking)       Create User via T.  UC-20
-               created.
-WebPlayer      Vote on trade.                                       Vote                UC-21
-TwitterPlayer  Vote on trade via a twitter repost.                  Vote by Tweet       UC-22
-WebPlayer      Create derivative.                                   Derivative Designer UC-23
+
+WebPlayer,     Has their initial account (portfolio tracking)       Create User         UC-19
+TwitterPlayer  created.
+
+WebPlayer      Vote on trade.                                       Vote                UC-20
+TwitterPlayer  Vote on trade via a twitter repost.                  Vote by Tweet       UC-21
+WebPlayer      Create derivative.                                   Derivative Designer UC-22
+WebPlayer      Accept offer of a derivative.                        Accept derivative   UC-23
 
 =============  ===================================================  ==================  =====
 
