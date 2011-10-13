@@ -260,8 +260,8 @@ Below is the list of customer requirements:
 12. **REQ-12** Advertisements: The website must contain appropriate and
     interesting advertisements relating to finance and stock
 
-13. **REQ-13** Coordinators for Supervision: A coordinator must be
-    available to answer questions and to supervise the game.
+13. **REQ-13** Coordinators for Supervision: Users must be able to create
+    their own leagues.
 
 14. **REQ-14** Summary Statistics: The website should provide users with a few
     summary statistics about their portfolio -- aggregate value over time,
@@ -279,7 +279,7 @@ Below is the list of customer requirements:
 17. **REQ-17** Moderation: There should be at least a minimal degree of comment
     moderation so blatantly offensive comments can be removed.
 
-18. **REQ-18** Designing derivatives: Players should be able to enter into
+18. **REQ-18** Designing Derivatives: Players should be able to enter into
     contracts with each other that will be enforced by the PitFail system.
 
 19. **REQ-19** Guided designing of derivatives: The website should guide
@@ -1210,40 +1210,32 @@ Use Case Diagram
 
 Use Case Tracability Matrix
 ---------------------------
+The following is the relationship between the use-cases defined above and the
+requirements discussed in the statement of requirements:
 
-
-.. raw:: latex
-
-        \begin{center}
-        \small
-
-=====  =====  =====  =====  =====  =====  =====  =====  =====  =====
-.      REQ-1  REQ-2  REQ-3  REQ-4  REQ-5  REQ-6  REQ-7  REQ-8  REQ-9
-=====  =====  =====  =====  =====  =====  =====  =====  =====  =====
-UC-1          x      x                    x
-UC-2          x      x                    x 
-UC-3          x                                         x      x
-UC-4   x                    x             x      x      x
-UC-5   x                    x      x
-UC-6   x                    x                    x      x
-UC-7   x                    x                           x
-UC-8   x                    x                           x      x
-UC-9                 x             x      x      x
-UC-10                x      x             x
-UC-11  x                                                x      x
-UC-12  x                                                x      x
-UC-13  x                                                x      x
-UC-14  x                                                x      x
-UC-15  x                                                x      x
-UC-16  x                                                x      x
-UC-17  x                                  x             x      x
-UC-18  x      x      x             x
-UC-19  x      x      x      x
-=====  =====  =====  =====  =====  =====  =====  =====  =====  =====
-
-.. raw:: latex
-
-	\end{center}
+- **UC-1:** REQ-1, REQ-2, REQ-6, REQ-7, REQ-8, REQ-9
+- **UC-2:** REQ-1, REQ-2, REQ-6, REQ-7, REQ-8, REQ-9
+- **UC-3:** REQ-1, REQ-20
+- **UC-4:** REQ-1, REQ-2, REQ-6, REQ-10, REQ-11, REQ-14
+- **UC-5:** REQ-1, REQ-6, REQ-9
+- **UC-6:** REQ-1, REQ-14, REQ-20
+- **UC-7:** REQ-3, REQ-6, REQ-7, REQ-8, REQ-9
+- **UC-8:** REQ-3, REQ-6, REQ-7, REQ-8, REQ-9
+- **UC-9:** REQ-3, REQ-6, REQ-10, REQ-11, REQ-14
+- **UC-10:** REQ-3, REQ-20
+- **UC-11:** REQ-1, REQ-13, REQ-17
+- **UC-12:** REQ-1, REQ-13, REQ-17
+- **UC-13:** REQ-1, REQ-13, REQ-17
+- **UC-14:** REQ-1, REQ-13, REQ-17
+- **UC-15:** REQ-1, REQ-13, REQ-17
+- **UC-16:** REQ-1, REQ-13
+- **UC-17:** REQ-1, REQ-13
+- **UC-18:** REQ-1, REQ-4, REQ-10, REQ-11, REQ-17
+- **UC-19:** REQ-1, REQ-4, REQ-5, REQ-10, REQ-11
+- **UC-20:** REQ-1, REQ-2, REQ-15, REQ-20
+- **UC-21:** REQ-3, REQ-15, REQ-20
+- **UC-22:** REQ-1, REQ-18, REQ-19
+- **UC-23:** REQ-1, REQ-2, REQ-18, REQ-19
 
 System Sequence Diagrams
 ------------------------
