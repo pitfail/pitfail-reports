@@ -382,19 +382,29 @@ Stakeholders
 Actors and Goals
 ----------------
 
-- A *Player* is one who participates by buying and selling securities.
+..- A *Player* is one who participates by buying and selling securities.
 
-  - Wants to increase the value of their portfolio, thereby proving competency
-    at security trading.
-  - Competes with other players for higher ranks in leagues.
+..  - Wants to increase the value of their portfolio, thereby proving competency
+..    at security trading.
+..  - Competes with other players for higher ranks in leagues.
 
-- A *Web Player* is a *player* who is interacting with the *game* via the web
-  browser interface. This actor contains all use cases of the *player*. It also
-  shares the goal of the *player*.
+- A *Web Player* is a *player* who interacts with the *game* via the web
+  browser interface. 
+  - Buys and Sell Stocks.
+  - View and Modify Portfolio.
+  - Create League.
+  - Participate in Leagues.
+  
+- A *Twitter Player* is a *player* who interacts with the *game* via the
+  twitter interface. This actor contains has limited use cases compared to a Web Player.
+  - Buys and Sells Stocks
+  - Participates in Leagues
 
-- A *Twitter Player* is a *player* who is interacting with the *game* via the
-  twitter interface. This actor contains all use cases of the *player*. It also
-  shares the goal of the *player*.
+- A *MobilePlayer* is a *player* who interacts with the *game* via the
+  twitter interface. This actor contains has limited use cases compared to a Web Player.
+  - Buys and Sells Stocks
+  - View Portfolio
+  - Participate in Leagues
 
 - A *Coordinator* is responsible for administering a *league*.
 
@@ -408,9 +418,6 @@ Actors and Goals
   *system*. It stores data regarding all user portfolios and the association of
   authentications with users.
 
-- *Yahoo!* is the source for all real market data which determines the actual
-  effect of purchasing and selling securities.
-  
 - A *stock information provider* is a supplier of stock pricing data for the present
   (within the margin of some minutes). They are queried for all data regarding
   actual market numbers. Currently, *Yahoo* is the *stock information provider*.
@@ -421,8 +428,6 @@ Actors and Goals
 - *Twitter* is utilized both as a authentication provider (for all *players* as
   well as a portion of the interface to the service.
 
-- *Yahoo* is the source for all real market data which determines the actual
-  effect of purchasing and selling securities.
 
 Casual Use-Case Description
 ---------------------------
@@ -439,12 +444,12 @@ changed at another point it time by the *player* as requested (UC-7).
 =============  ===================================================  ==================  =====
 Actor          Description                                          Short Name           UC#
 =============  ===================================================  ==================  =====
-Player         Purchases a security from the market at the price    Buy                 UC-1
+WebPlayer      Purchases a security from the market at the price    Buy                 UC-1
                the *stock price source* indicates is the market
                price for that security.
-Player         Sells a held security at the price indicated by the  Sell                UC-2
+WebPlayer      Sells a held security at the price indicated by the  Sell                UC-2
                *stock price source*.
-Player         Indicates that they wish to begin participating in   Join League         UC-3
+WebPlayer      Indicates that they wish to begin participating in   Join League         UC-3
                a particular league. Does not remove them from any
                league. Also note that leaveing a league is omitted
                to prevent people from gaming the system by
@@ -493,7 +498,7 @@ Related Requirements:
         - REQ6: Player Portfolio
 
 Initiating Actor:
-        Any of: Player, Webplayer, TwitterPlayer
+        Any of: Webplayer, TwitterPlayer, MobilePlayer
 
 Actor's Goal:
         To purchase a security from the market, to add it to his portfolio, and
@@ -556,7 +561,7 @@ Related Requirements:
         - REQ6: Player Portfolio
 
 Initiating Actor:
-        Any of: Player, Webplayer, TwitterPlayer
+        Any of: Webplayer, TwitterPlayer, MobilePlayer
 
 Actor's Goal:
         To purchase a security from the market, to add it to his portfolio, and
@@ -574,7 +579,7 @@ Postconditions:
         - The user's portfolio will reflect the quantity of securities sold.
 
 Flow of Events for Successful Sell:
-        1. → The *Player, Webplayer, or TwitterPlayer* determines a *Security*
+        1. → The *Player(ANY)* determines a *Security*
            and how much of it to "SELL".
         2. ←  *System* signals the *Stock Price Source* for the price of the
            security.
@@ -592,7 +597,7 @@ Flow of Events for Successful Sell:
         9. ←  *System* signals to the *Player* "Transaction Completed."
 
 Flow of Events for Unsuccessful Sell:
-        1. → The *Player, Webplayer, or TwitterPlayer* determines a *Security*
+        1. → The *Player(ANY)* determines a *Security*
            and how much of it to "SELL".
         2. ←  *System* signals the *Stock Price Source* for the price of the
            security.
