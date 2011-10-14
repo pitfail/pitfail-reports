@@ -1,12 +1,14 @@
 RST2LATEX = rst2latex.py
 PDFLATEX = pdflatex
+PS2PDF = ps2pdf
+INKSCAPE = inkscape
 CONVERT = convert
 
 DA := Overview.pdf Model.pdf PriceFetching.pdf WebTrading.pdf \
       TwitterTrading.pdf Login.pdf Schema.pdf
 DA := $(addprefix domain-analysis/,$(DA))
 
-SSD := BuyStocks_SD.png SellStocks_SD.jpg ModifyLeague_SD.jpg \
+SSD := BuyStocks_SD.pdf SellStocks_SD.jpg ModifyLeague_SD.jpg \
        ViewLeague_SD.jpg ViewPortfolio_SD.jpg
 SSD := $(addprefix ssd/,$(SSD))
 
@@ -34,10 +36,16 @@ all: $(TARGET).pdf
 clean:
 	$(RM) $(TRASH)
 
+%.pdf: %.eps
+	$(PS2PDF) $< $@
+
+%.pdf: %.ps
+	$(PS2PDF) $< $@
+
 %.pdf: %.svg
 	$(CONVERT) $< $@
 
-report1.pdf : report1.tex $(DA) $(SSD) $(POW)
+report1.pdf : report1.tex $(DA) $(SSD) $(POW) UseCaseDiagram.pdf
 
 %.pdf: %.tex
 	$(PDFLATEX) $<
