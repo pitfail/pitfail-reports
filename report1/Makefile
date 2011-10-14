@@ -43,7 +43,7 @@ clean:
 	$(PS2PDF) $< $@
 
 %.pdf: %.svg
-	$(CONVERT) $< $@
+	$(INKSCAPE) --export-pdf=$@ $<
 
 report1.pdf : report1.tex $(DA) $(SSD) $(POW) UseCaseDiagram.pdf
 
