@@ -143,7 +143,7 @@ There are many options for a player to choose from once he/she logs in:
    using collective portfolio of the team.
 
 2. Player can join a league (a group of already registered players) where the
-  members of a league compete with each other using their individual portfolio.
+   members of a league compete with each other using their individual portfolio.
 
 3. Player can play in the "Global League" which includes all players.
 
@@ -260,8 +260,8 @@ Below is the list of customer requirements:
 12. **REQ-12** Advertisements: The website must contain appropriate and
     interesting advertisements relating to finance and stock
 
-13. **REQ-13** Coordinators for Supervision: A coordinator must be
-    available to answer questions and to supervise the game.
+13. **REQ-13** Coordinators for Supervision: Users must be able to create
+    their own leagues.
 
 14. **REQ-14** Summary Statistics: The website should provide users with a few
     summary statistics about their portfolio -- aggregate value over time,
@@ -279,7 +279,7 @@ Below is the list of customer requirements:
 17. **REQ-17** Moderation: There should be at least a minimal degree of comment
     moderation so blatantly offensive comments can be removed.
 
-18. **REQ-18** Designing derivatives: Players should be able to enter into
+18. **REQ-18** Designing Derivatives: Players should be able to enter into
     contracts with each other that will be enforced by the PitFail system.
 
 19. **REQ-19** Guided designing of derivatives: The website should guide
@@ -939,11 +939,7 @@ Fully Dressed Use Cases
 UC-1: Buy
 .........
 Related Requirements:
-        - REQ1: Stock Market Simulator Website
-        - REQ2: Android Application
-        - REQ3: Access via Twitter/Facebook
-        - REQ5: Updated Stock Information
-        - REQ6: Player Portfolio
+        REQ-1, REQ-2, REQ-6, REQ-7, REQ-8, REQ-9
 
 Initiating Actor:
         Any of: Webplayer, TwitterPlayer, MobilePlayer
@@ -1002,11 +998,7 @@ Flow of Events for Unsuccessful Buy:
 UC-2: Sell
 ..........
 Related Requirements:
-        - REQ1: Stock Market Simulator Website
-        - REQ2: Android Application
-        - REQ3: Access via Twitter/Facebook
-        - REQ5: Updated Stock Information
-        - REQ6: Player Portfolio
+        REQ-1, REQ-2, REQ-6, REQ-7, REQ-8, REQ-9
 
 Initiating Actor:
         Any of: Webplayer, TwitterPlayer, MobilePlayer
@@ -1027,7 +1019,7 @@ Postconditions:
         - The user's portfolio will reflect the quantity of securities sold.
 
 Flow of Events for Successful Sell:
-        1. → The *Player(ANY)* determines a *Security*
+        1. → The *Player* determines a *Security*
            and how much of it to "SELL".
         2. ←  *System* signals the *Stock Price Source* for the price of the
            security.
@@ -1045,7 +1037,7 @@ Flow of Events for Successful Sell:
         9. ←  *System* signals to the *Player* "Transaction Completed."
 
 Flow of Events for Unsuccessful Sell:
-        1. → The *Player(ANY)* determines a *Security*
+        1. → The *Player* determines a *Security*
            and how much of it to "SELL".
         2. ←  *System* signals the *Stock Price Source* for the price of the
            security.
@@ -1063,10 +1055,7 @@ Flow of Events for Unsuccessful Sell:
 UC-4: View Portfolio
 ....................
 Related Requrements:
-        - REQ1: Stock Market Simulator Website
-        - REQ4: Simple User Interface
-        - REQ5: Updated Stock Information
-        - REQ6: Player Portfolio
+        REQ-1, REQ-2, REQ-6, REQ-10, REQ-11, REQ-14
 
 Initiating Actor:
         Only *WebPlayer*, the similar UC-9 is provided for the *Twitter player*.
@@ -1090,7 +1079,7 @@ Preconditions:
         None, note that authentication & account creation are handled within
         this use case.
 
-Postcondions:
+Postconditions:
         None, this is a stateless action. Information is displayed to the user
         but no internal actions are taken.
 
@@ -1118,7 +1107,7 @@ Additional Notes:
 UC-5: View League Statistics
 .............................
 Related Requirements:
-        - REQ-1: Shock Market Simulator Website
+        REQ-1, REQ-6, REQ-9
 
 Initiating Actor:
         WebPlayer
@@ -1158,8 +1147,7 @@ Flow of Events for league is invite-only and the user is not a member:
 UC-6: Modify League Settings
 ............................
 Related Requirements:
-        - REQ-1: Stock Market Simulator Website
-        - REQ-9: Coordinators for Supervision
+        REQ-1, REQ-14, REQ-20
 
 Initiating Actor:
         Coordinator
@@ -1210,40 +1198,32 @@ Use Case Diagram
 
 Use Case Tracability Matrix
 ---------------------------
+The following is the relationship between the use-cases defined above and the
+requirements discussed in the statement of requirements:
 
-
-.. raw:: latex
-
-        \begin{center}
-        \small
-
-=====  =====  =====  =====  =====  =====  =====  =====  =====  =====
-.      REQ-1  REQ-2  REQ-3  REQ-4  REQ-5  REQ-6  REQ-7  REQ-8  REQ-9
-=====  =====  =====  =====  =====  =====  =====  =====  =====  =====
-UC-1          x      x                    x
-UC-2          x      x                    x 
-UC-3          x                                         x      x
-UC-4   x                    x             x      x      x
-UC-5   x                    x      x
-UC-6   x                    x                    x      x
-UC-7   x                    x                           x
-UC-8   x                    x                           x      x
-UC-9                 x             x      x      x
-UC-10                x      x             x
-UC-11  x                                                x      x
-UC-12  x                                                x      x
-UC-13  x                                                x      x
-UC-14  x                                                x      x
-UC-15  x                                                x      x
-UC-16  x                                                x      x
-UC-17  x                                  x             x      x
-UC-18  x      x      x             x
-UC-19  x      x      x      x
-=====  =====  =====  =====  =====  =====  =====  =====  =====  =====
-
-.. raw:: latex
-
-	\end{center}
+- **UC-1:** REQ-1, REQ-2, REQ-6, REQ-7, REQ-8, REQ-9
+- **UC-2:** REQ-1, REQ-2, REQ-6, REQ-7, REQ-8, REQ-9
+- **UC-3:** REQ-1, REQ-20
+- **UC-4:** REQ-1, REQ-2, REQ-6, REQ-10, REQ-11, REQ-14
+- **UC-5:** REQ-1, REQ-6, REQ-9
+- **UC-6:** REQ-1, REQ-14, REQ-20
+- **UC-7:** REQ-3, REQ-6, REQ-7, REQ-8, REQ-9
+- **UC-8:** REQ-3, REQ-6, REQ-7, REQ-8, REQ-9
+- **UC-9:** REQ-3, REQ-6, REQ-10, REQ-11, REQ-14
+- **UC-10:** REQ-3, REQ-20
+- **UC-11:** REQ-1, REQ-13, REQ-17
+- **UC-12:** REQ-1, REQ-13, REQ-17
+- **UC-13:** REQ-1, REQ-13, REQ-17
+- **UC-14:** REQ-1, REQ-13, REQ-17
+- **UC-15:** REQ-1, REQ-13, REQ-17
+- **UC-16:** REQ-1, REQ-13
+- **UC-17:** REQ-1, REQ-13
+- **UC-18:** REQ-1, REQ-4, REQ-10, REQ-11, REQ-17
+- **UC-19:** REQ-1, REQ-4, REQ-5, REQ-10, REQ-11
+- **UC-20:** REQ-1, REQ-2, REQ-15, REQ-20
+- **UC-21:** REQ-3, REQ-15, REQ-20
+- **UC-22:** REQ-1, REQ-18, REQ-19
+- **UC-23:** REQ-1, REQ-2, REQ-18, REQ-19
 
 System Sequence Diagrams
 ------------------------
