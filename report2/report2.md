@@ -2,7 +2,7 @@ Progress Report and Plan of Work
 ================================
 
 Progress Report
-----------------------------------
+---------------
 
 All use cases still need more implementation to allow for increased funcitionaility. In 
 particular, Leagues and Teams need to be implemented while the actual interactions with the 
@@ -53,13 +53,33 @@ UC-22   Derivative Designer     25%           Partially implemented, but not lac
 UC-23   Accept derivative       75%           Basic functionality is present. Need to expand to
                                               allow counter-offers and to be updated for newer
                                               versions of the implemented derivatives.
-======  ======================  ============
+======  ======================  ============  ================================================
 
 Plan of Work
 ------------
+.. image:: Plan_of_Work/Plan_of_Work__Report2.pdf
 
-Use Cases Implemented
+Breakdown of Responsibilities
+-----------------------------
 
-What is functional?
+=====================  ======================  
+Modules                Owner                   
+=====================  ======================  
+Website                Michael, Owen           
+Android                Roma, Sonu              
+Facebook               Avanti                  
+Twitter                Cody                    
+Database               Brian                   
+Back-end Functions     Michael, Owen, Brian    
+=====================  ======================  
 
-What is being tackled?
+The integration of the system and testing will not require a primary coordinator. 
+Since each module relies on only the database and back-end functions and is independent 
+of the other modules, the chances of one module affecting the others are low. Each 
+auxiliary module developer is responsible for communicating with the database and 
+back-end functions developers to ensure their code is using the database and back-end 
+functions correctly. During team meetings, the features being employed on each 
+auxiliary module will be discussed to ensure that common features are being deployed 
+across all systems. Testing will be the responsibility of each module developer. 
+
+
