@@ -4,7 +4,7 @@ Progress Report and Plan of Work
 Progress Report
 ---------------
 
-All use cases still need more implementation to allow for increased funcitionaility. In 
+All use cases still need more implementation to allow for increased functionality. In 
 particular, Leagues and Teams need to be implemented while the actual interactions with the 
 stock exchange need to expand to address exceptions usability requirements. 
 
@@ -49,7 +49,7 @@ UC-19   Create User             75%           Users can be created only if they 
 UC-20   Vote                    0%            Voting has not been implemented yet.
 UC-21   Vote by Tweet           0%            Voting has not been implemented yet.
 UC-22   Derivative Designer     25%           Partially implemented, but not lacks important 
-                                              functionalities and an intuiative design.
+                                              functionalities and an intuitive design.
 UC-23   Accept derivative       75%           Basic functionality is present. Need to expand to
                                               allow counter-offers and to be updated for newer
                                               versions of the implemented derivatives.
