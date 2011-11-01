@@ -74,7 +74,52 @@ Data Structures
 
 User Interface Design and Implementation
 ========================================
+Pitfail's user interface closely resembles the original concepts with a large
+search bar dominating the page. This search bar is used to . For example
 
+Welcome Page for New User
+-------------------------
+TODO: removed guided purchase
+
+Portfolio Management
+--------------------
+Perhaps the largest change from the original mockups to the current
+implementation is the user's portfolio. This was planned to be displayed as a
+single large table containing the all of the user's assets: a combination of
+cash, stocks, and derivatives. This design made it difficult to visually
+differentiate between types of assets and to locate an asset of interest.
+
+Instead, the portfolio displayed as a "T"-chart, splitting assets and
+liabilities into two separate columns. The assets column is further subdivided
+by the type of asset: cash, stocks, and derivatives. These subdivisions allow
+the user to quickly locate an asset of interest, for example, when selling a
+stock. Each column is summarized with a "total" row that estimates the current
+value of his or her portfolio by approximating the value of derivatives as if
+they were immediately executed. While none of these changes dramatically alter
+user effort relative to the mockup, reformatting the portfolio as a "T"-chart
+and adding this additional information makes it much easier for a user to view
+his or her current assets at a glance:
+
+.. figure:: ui-portfolio.pdf
+    :height: 3 in
+
+.. figure:: actual-portfolio.png
+    :height: 3 in
+
+Besides the changes to the table of assets, there are clearly several features
+missing from the implementation: (1) historic portfolio performance, (2)
+multiple portfolios, and (3) league navigation. These missing interface
+elements will be restored after companies, leagues, and logging of historic
+prices are implemented in the next iteration of Pitfail.
+
+TODO: Buy Stock
+
+TODO: Build Derivative
+
+
+Social Features
+---------------
+TODO: newsfeed
 
 
 Progress Report and Plan of Work
