@@ -1,5 +1,41 @@
-Table of Contents
-=================
+.. raw:: latex
+
+	\begin{titlepage}
+	\centering
+	\singlespacing
+
+	\vspace*{2in}
+
+	\begin{center}
+		\Huge PitFail Report 2 \\
+		\Large An Online Financial Engineering Game
+	\end{center}
+
+	\vspace*{2in}
+
+	\large
+	November 4, 2011 \\
+
+	\vspace*{0.5in}
+
+	Software Engineering I, Group 3 \\
+	\href{https://github.com/pitfail/pitfail-reports/wiki}{https://github.com/pitfail/pitfail-reports/wiki} \\
+
+	\vspace*{0.5in}
+
+	Michael Koval, Cody Schafer, \\
+	Owen Healy, Brian Goodacre \\
+	Roma Mehta, Sonu Iqbal \\
+	Avanti Kulkarni \\
+	\end{titlepage}
+
+.. sectnum::
+
+.. contents:: Table of Contents
+
+.. raw:: latex
+
+	\pagebreak
 
 Interaction Diagrams
 ====================
