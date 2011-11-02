@@ -1,0 +1,17 @@
+
+LiftRules -> Portfolio: render
+
+Portfolio -> Schema.Portfolio: cash
+Schema.Portfolio --> Portfolio: (cash) Dollars
+
+Portfolio -> Schema.Portfolio: myStockAssets
+Schema.Portfolio --> Portfolio: (myStockAssets) Seq[StockAsset]
+
+Portfolio -> Schema.Portfolio: myDerivativeAssets
+Schema.Portfolio --> Portfolio: (myDerivativeAssets) Seq[DerivativeAsset]
+
+Portfolio -> Schema.Portfolio: myDerivativeLiabilities
+Schema.Portfolio --> Portfolio: (myDerivativeLiabilities) Seq[DerivativeLiability]
+
+Portfolio --> LiftRules: (render) HTML
+

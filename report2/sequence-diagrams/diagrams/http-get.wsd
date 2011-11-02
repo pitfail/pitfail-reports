@@ -1,0 +1,12 @@
+
+Jetty -> LiftServlet: doGet
+LiftServlet -> LiftRules: dispatch
+
+LiftRules -> Snippet: render
+Snippet -> Snippet: Rendering logic
+Snippet --> LiftRules: (render) HTML
+
+LiftRules --> LiftServlet: (dispatch)
+LiftServlet --> Jetty: (doPost)
+
+
