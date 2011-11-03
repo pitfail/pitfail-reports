@@ -314,6 +314,9 @@ that were included in the mockup: e.g. companies, leagues, and social
 interaction. These changes are grouped into general categories, described in
 detail, and justified in the following sections.
 
+.. figure:: ui/overview.png
+    :width: 6in
+
 Welcome Page for New User
 -------------------------
 Pitfail was originally described as having a "guided registration" process
