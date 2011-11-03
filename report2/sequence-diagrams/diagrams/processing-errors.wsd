@@ -1,0 +1,13 @@
+
+Submit -> BasicErrors: runWithErrors
+BasicErrors -> Callback: callback
+Callback -> Callback: [Actual processing]
+
+alt Success
+Callback --> BasicErrors: (callback)
+else Failed
+Callback --> BasicErrors: (callback) BadInput(message)
+end
+
+BasicErrors --> Submit: (runWithErrors)
+
