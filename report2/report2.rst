@@ -307,8 +307,12 @@ Data Structures
 
 User Interface Design and Implementation
 ========================================
-Pitfail's user interface closely resembles the original concepts with a large
-search bar dominating the page. This search bar is used to . For example
+Pitfail's overall user interface closely resembles the interface depicted in
+its mockups: most of the changes were merely cosmetic. Most of the functional
+changes are because the current implementation of Pitfail is missing features
+that were included in the mockup: e.g. companies, leagues, and social
+interaction. These changes are grouped into general categories, described in
+detail, and justified in the following sections.
 
 Welcome Page for New User
 -------------------------
