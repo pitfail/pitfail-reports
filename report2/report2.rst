@@ -348,12 +348,26 @@ prices are implemented in the next iteration of Pitfail.
 Buying Stocks
 -------------
 Purchasing stocks is one of the fundamental activities on Pitfail. The
-interface for buying stocks was directly implemented using the interface shown
-in the mockups with one small exception: the location of the fields. Instead
-of embedding these fields in the stock quote, merging the quantity
-selection and "buy" button in 
+interface for buying stocks is very similar to the interface shown in the
+original mockups: when the user enters a valid ticker symbol in the large
+search bar, a small stock quote expands below the search bar. This quote
+includes a few statistics about the stock's daily performance and a graph of
+the stock's performance over time.
 
-TODO: Buy Stock
+.. figure:: ui-buy.pdf
+    :height: 3 in
+
+.. figure:: actual-buy.png
+    :height: 3 in
+
+Unlike the original mockup, the options for interacting with the stock are not
+embedded in the stock quote. Instead, they are displayed in a dedicated section
+of the webpage. This extra space is used to display a short description of
+stock trading and helps guide new users through the process: something that
+will be even more important once options are supported. While the original
+mockups allowed the user to enter an amount in either shares or dollars, this
+was found to be confusing and was removed in the current version of the user
+interface.
 
 Trading Derivatives
 -------------------
