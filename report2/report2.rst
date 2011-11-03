@@ -312,7 +312,26 @@ search bar dominating the page. This search bar is used to . For example
 
 Welcome Page for New User
 -------------------------
-TODO: removed guided purchase
+Pitfail was originally described as having a "guided registration" process
+where the user registers as part of purchasing his or her first stock. While
+the user can still explore the stock purchasing interface before logging in,
+the current implementation of Pitfail does not support this "zero effort"
+registration because of a technical limitation. As such, guided messages no
+longer are displayed next to each step in the purchasing pipeline:
+
+.. raw:: latex
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[height=1.5in]{ui/ui-welcome2}
+        \includegraphics[height=1.5in]{ui/actual-welcome}
+    \end{figure}
+
+Note that the list of steps is not visible and the current step is not
+indicated with an arrow. Some form of guided registration will be implemented
+in the next version of Pitfail. Thankfully, this doesn't change user effort:
+the user simply must login *before* selecting a stock instead of *after*
+selecting a stock.
 
 Portfolio Management
 --------------------
