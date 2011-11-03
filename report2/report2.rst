@@ -369,13 +369,74 @@ mockups allowed the user to enter an amount in either shares or dollars, this
 was found to be confusing and was removed in the current version of the user
 interface.
 
+Neither of these changes do not considerably effect user effort.
+
 Trading Derivatives
 -------------------
-TODO: Build Derivative
+If the user clicks the "add to derivative" button instead of the "buy stock"
+button, he or she is presented with the derivative offering page. In the
+original mockups this was shown as a prose-like description of a derivative
+with a number of blanks. Originally intended to guide the user through the
+derivative creation process, this was found to be infeasible with the number of
+derivative configuration options supported in Pitfail. As such, this was
+redesigned to resemble a traditional form: a prose description followed by a
+table of input fields.
+
+.. figure:: ui-buy.pdf
+    :height: 3 in
+
+.. figure:: actual-buy.png
+    :height: 3 in
+
+Once the derivative has been created it can either be offered to a specific
+user or to a public auction. If a buyer is specified, that user is prompted to
+accept or decline the offer using a special form in his or her portfolio. If
+the derivative is offered to a public auction, a link to the auction page is
+added to the sidebar and other users have an opportunity to bid. These features
+were not included in the mockups, so see the User Effort Estimation section
+below for a detailed usability analysis.
 
 Social Features
 ---------------
+
 TODO: newsfeed
+
+User Effort Estimation
+----------------------
+Several of the most common usage scenarios for the PitFail website are
+evaluated below. In particular, note that common scenarios (e.g. buying a
+stock) are much easier to perform than rare scenarios (e.g. creating a new
+league):
+
+====================================  ======  ==========
+Usage Scenario                        Clicks  Keystrokes
+====================================  ======  ==========
+purchase a stock                      5       7
+create a derivative                   2       27
+act on a pending derivative offer     ?*      ?*
+bid on a derivative auction           ?*      ?*
+close a derivative auction            ?*      ?*
+sell a stock                          5       2
+create a new league                   -       -
+modify an existing league             -       -
+invite a user to a league             -       -
+====================================  ======  ==========
+
+Features that are not currently implemented are shown as empty rows and actions
+that have been modified since the original mockups are marked with asterisks and
+are analyzed in detail below.
+
+Act on Derivative Offer
+~~~~~~~~~~~~~~~~~~~~~~~
+TODO
+
+Bid on Derivative
+~~~~~~~~~~~~~~~~~
+TODO
+
+Close Derivative Auction
+~~~~~~~~~~~~~~~~~~~~~~~~
+TODO
 
 
 Progress Report and Plan of Work
