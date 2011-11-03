@@ -333,11 +333,13 @@ user effort relative to the mockup, reformatting the portfolio as a "T"-chart
 and adding this additional information makes it much easier for a user to view
 his or her current assets at a glance:
 
-.. figure:: ui-portfolio.pdf
-    :height: 3 in
+.. raw:: latex
 
-.. figure:: actual-portfolio.png
-    :height: 3 in
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=3in]{ui/ui-portfolio}
+        \includegraphics[width=3in]{ui/actual-portfolio}
+    \end{figure}
 
 Besides the changes to the table of assets, there are clearly several features
 missing from the implementation: (1) historic portfolio performance, (2)
@@ -354,11 +356,13 @@ search bar, a small stock quote expands below the search bar. This quote
 includes a few statistics about the stock's daily performance and a graph of
 the stock's performance over time.
 
-.. figure:: ui-buy.pdf
-    :height: 3 in
+.. raw:: latex
 
-.. figure:: actual-buy.png
-    :height: 3 in
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=3in]{ui/ui-buy}
+        \includegraphics[width=3in]{ui/actual-buy}
+    \end{figure}
 
 Unlike the original mockup, the options for interacting with the stock are not
 embedded in the stock quote. Instead, they are displayed in a dedicated section
@@ -382,11 +386,13 @@ derivative configuration options supported in Pitfail. As such, this was
 redesigned to resemble a traditional form: a prose description followed by a
 table of input fields.
 
-.. figure:: ui-buy.pdf
-    :height: 3 in
+.. raw:: latex
 
-.. figure:: actual-buy.png
-    :height: 3 in
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=3in]{ui/ui-derivative}
+        \includegraphics[width=3in]{ui/actual-derivative}
+    \end{figure}
 
 Once the derivative has been created it can either be offered to a specific
 user or to a public auction. If a buyer is specified, that user is prompted to
