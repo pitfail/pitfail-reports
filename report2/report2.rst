@@ -112,10 +112,19 @@ multiple portfolios, and (3) league navigation. These missing interface
 elements will be restored after companies, leagues, and logging of historic
 prices are implemented in the next iteration of Pitfail.
 
+Buying Stocks
+-------------
+Purchasing stocks is one of the fundamental activities on Pitfail. The
+interface for buying stocks was directly implemented using the interface shown
+in the mockups with one small exception: the location of the fields. Instead
+of embedding these fields in the stock quote, merging the quantity
+selection and "buy" button in 
+
 TODO: Buy Stock
 
+Trading Derivatives
+-------------------
 TODO: Build Derivative
-
 
 Social Features
 ---------------
