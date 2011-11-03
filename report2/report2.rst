@@ -427,15 +427,15 @@ that have been modified since the original mockups are marked with asterisks and
 are analyzed in detail below.
 
 Act on Derivative Offer
-~~~~~~~~~~~~~~~~~~~~~~~
+.......................
 TODO
 
 Bid on Derivative
-~~~~~~~~~~~~~~~~~
+.................
 TODO
 
 Close Derivative Auction
-~~~~~~~~~~~~~~~~~~~~~~~~
+........................
 TODO
 
 
