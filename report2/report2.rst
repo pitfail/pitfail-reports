@@ -404,8 +404,27 @@ below for a detailed usability analysis.
 
 Social Features
 ---------------
+Pitfail's original mockups included a real-time newsfeed at the bottom of every
+page. This newsfeed was a log of trading history and served as a hub for social
+interaction between users. A limited implementation of this newsfeed is
+included in the current version of Pitfail. Unlike the mockup, the newsfeed is
+included in every page's sidebar instead of the footer. This is similar to the
+real-time feed that was recently added to Facebook and will be familiar to the
+majority of Pitfail's users.
 
-TODO: newsfeed
+.. raw:: latex
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[height=2in]{ui/ui-newsfeed}
+        \includegraphics[height=2in]{ui/actual-newsfeed}
+    \end{figure}
+
+Besides the different location, much of the functionality displayed in the
+mockups has not yet been implemented. Notably, this includes: (1) user-specific
+newsfeeds, (2) voting, (3) commenting, (4) messages for derivative trades, and
+(5) messages for a users going broke. These features will be implemented in the
+next version of Pitfail and do not effect user effort.
 
 User Effort Estimation
 ----------------------
