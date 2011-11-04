@@ -4,13 +4,15 @@ PS2PDF = ps2pdf
 INKSCAPE = inkscape
 CONVERT = convert
 PDF90 = pdf90
+WSD   = ./wsd.py
 
 TARGET = report2
 TRASH  = $(TARGET).pdf \
          $(TARGET).tex $(TARGET).aux $(TARGET).log  $(TARGET).out \
          $(TARGET).maf $(TARGET).mtc $(TARGET).mtc0 $(PDF_OBJ)
 
-PDF_OBJ = plan_of_work/pow_report2-rotated90.pdf component_diagram.pdf
+PDF_OBJ = plan_of_work/pow_report2-rotated90.pdf component_diagram.pdf \
+	  sequence-diagrams/texttrading.pdf
 PDF_DEP = $(PDF_OBJ)
 
 
@@ -24,6 +26,9 @@ clean:
 plan_of_work/pow_report2.pdf : plan_of_work/pow_report2.mpp
 	echo "$@ depends on $< but $@ was not updated"
 	false
+
+%.pdf : %.wsd
+	$(WSD) $< $@
 
 %.pdf: %.eps
 	$(PS2PDF) $< $@
