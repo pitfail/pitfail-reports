@@ -65,7 +65,8 @@ Simple HTTP Interface - SHI
 Facebook text command interface - FTCI
         When a user posts to a particular Facebook wall, their posting is taken
         to be a request to the system and is processed in a manner similar to
-        TTCI.
+        TTCI. *Fixme: Where is the code? Does it run in the same context as
+        PWS, SHI, and TTCI? Does it interface via SHI?*
 
 Android Application - AA
         Presently, the only code which does not run in the "server" context.
