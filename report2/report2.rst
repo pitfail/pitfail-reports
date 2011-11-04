@@ -441,6 +441,7 @@ event/change or makes a request which runs a server side handler. None of the
 - Text Interface (TI). Provides a wrapper around the backend allowing for the
   execution of parsed text based commands which result in modifications or
   queries to the backend.
+
   - This addtionally encompasses the Twitter Text Command Interface (TTCI).
     TTCI utilizes the Text Interface code as a library, simply calling the
     Parser and Action Handler as possible commands are recieved via a
@@ -450,7 +451,9 @@ event/change or makes a request which runs a server side handler. None of the
   requests by the Android and Facebook(?) interfaces, neither of which run in
   the same context as the other subsystems.
 
-*Insert big UML diagram HERE*
+.. figure:: component_diagram.pdf
+
+        Major Subsystem Diagram of PitFail
 
 Mapping Subsystems to Hardware
 ------------------------------
@@ -470,7 +473,7 @@ ported Android to in the last hour or so. No control over this hardware is to
 be had, and as such the application must run flawlessly on all possible
 configurations.
 
-*FIXME: where is FACEBOOK???*
+.. error:: FIXME: where is FACEBOOK???
 
 Persistent Data Storage
 -----------------------
