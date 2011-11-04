@@ -381,6 +381,40 @@ Persistent Data Storage
 Network Protocol
 ----------------
 
+PitFail has multiple clients like Website, Twitter, Android and Facebook. All these clients
+communicate with the PitFail server via HTTP (Hyper Text Transfer Protocol) over TCP/IP sockets. 
+Another network protocol which Pitfail uses is JDBC (Java Database Connectivity) to communicate 
+with the H2 database which is a Open Source Java based database.
+Following is a brief description of both the protocols.
+
+
+HTTP (Hyper Text Transfer Protocol):
+HTTP is well known internet protocol and is used by most of systems communicating over the internet. 
+HTTP defines how messages should be defined, packaged and transmitted over the internet. 
+HTTP is a stateless protocol and does not maintain any state of messages sent over it. 
+HTTP makes use of "Request" and "Response" headers to transfer data. 
+
+Message format:
+The request message consists of the following:
+a.Request line, such as GET /pitfail/index.html HTTP/1.1, which requests a resource called /pitfail/index.html from server.
+b.Headers such as Accept-Language: en
+c.An empty line.
+d.An optional message body.
+
+HTTP defines nine methods indicating the desired action to be performed on the identified 
+resource out of which PitFail uses its POST method for almost all its communication with the server. 
+
+
+JDBC (Java Database Connectivity):
+JDBC provides methods for querying and updating data in a database. JDBC is oriented towards 
+relational databases. JDBC allows multiple implementations to exist and be used by the same application. 
+The API provides a mechanism for dynamically loading the correct Java packages and registering them 
+with the JDBC Driver Manager.The Driver Manager is used as a connection factory for creating JDBC connections.
+JDBC connections support creating and executing statements. These may be update statements such as SQL's CREATE, 
+INSERT, UPDATE and DELETE, or they may be query statements such as SELECT. 
+
+
+
 Global Control Flow
 -------------------
 
@@ -771,7 +805,7 @@ Modules                Owner
 =====================  ======================  
 Website                Michael, Owen           
 Android                Roma, Sonu              
-Facebook               Avanti                  
+Facebook               Avanti, Sonu                  
 Twitter                Cody                    
 Database               Brian                   
 Back-end Functions     Michael, Owen, Brian    
