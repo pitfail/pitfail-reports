@@ -651,6 +651,31 @@ Algorithms and Data Structures
 Algorithms
 ----------
 
+Buying on Margin
+................
+All Pitfail users will start with a predetermined amount of capital cash that is their money to use. In order to trade for more stocks, Pitfail users can buy/sell on margin, which is performing stock actions with money on loan. This money will require the user to pay interest on the loaned money each day until it is returned and paid in full, including total interest. 
+
+Pitfail uses the Simple Interest Formula to compute the money users owe due to interest. The loan will cost the user a predetermined cost per day:
+	Interest/Day = Principal * Rate
+	where Rate is determined by the going market rate
+
+The amount of margin for a user is also an algorithm. Since a user owns the capital money he starts with and can borrow additional money from lenders, a user should be able to pay back his lenders at any moment. Therefore, the margin offered per user will be no more than the total capital cash the user would have if he liquidated all of his assets at current market value. For example, if a user owns 500 shares of stock ABC @ $25 and has $10,000 unused capital cash, the user is able to buy 1,000 shares of stock BCD @ $22.5, resulting in $0 capital cash and $0 for margin buying. Therefore, if stock ABC's price increases to $30 a share, this user would now have $2,500 available on margin. 
+
+High Frequency Trading and Automatic Drone Traders
+..................................................
+
+High Frequency Trading is a power player in today's current stock market. As a side project, Pitfail will try to implement such a system that is automated and performs many transcations (in our case) per minute. To allow for a productive experiment, brokerage fees will be turned off for high frequency trading accounts. The goal of such a system will be to break even. These will be called Automatic Drones Traders and can be programmed to be high frequency traders. They will be created to simulate additional buying and selling. They will be based on the following:
+* buying a rising stock
+* selling a stinking stock
+* buying a random stock and holding it until the stock moves by +/- 1% and then selling it
+* buying the stocks of the top performers on Pitfail
+* buying recently bought stocks on Pitfail
+* etc...
+
+Cover's Universal Algorithm
+...........................
+This algorithm will be impemented by an Automatic Drone. It begins by buying nearly all the stocks available in the stock exchange and creating ratios amongst the stocks (in Pitfail's case, constant). By the end of the day, some stocks will increase and some stocks will decrease in price, changing the ratio between the stocks. This drone will sell/buy stocks to rebalance the ratios in the portfolio for the start of the next day. 
+
 Data Structures
 ---------------
 
