@@ -493,131 +493,133 @@ Database Schema
 ...............
 Below is the database schema for a MySQL implementation of the database, which is a possibiltiy in the future depending on the ability of H2 and Squeryl to model leagues, companies, auctions, orders, and other new uses.
 
-CREATE TABLE user (
-        userid INTEGER  AUTO_INCREMENT,
-        PRIMARY KEY (userid),
-        
-        #leagueid INTEGER , #redundant. can get through Company entitiy
-        #FOREIGN KEY (leagueid) REFERENCES league, #update on delete, on update
-        companyid INTEGER ,
-        FOREIGN KEY (companyid) REFERENCES company, ##update on delete, on update
-        
-        twitter VARCHAR(25), #currently not required
-        username VARCHAR(25), #could make not null
-        password VARCHAR(25), #could make not null
-        
-        registration_date DATETIME,
-        first_name VARCHAR(30), 
-        last_name VARCHAR(30), 
-        email VARCHAR(50)
-        );
+Schema Follows::
 
-CREATE TABLE company(
-        companyid INTEGER  AUTO_INCREMENT,
-        PRIMARY KEY (companyid),
-        
-        #portfolioid INTEGER , # not needed since portfolioid == companyid
-        #FOREIGN KEY (portfolioid) REFERENCES portfolio,
-        leagueid INTEGER,
-        FOREIGN KEY (leagueid) REFERENCES league,
-        #Relation - User - Stored in the User table
-        
-        name VARCHAR(25),
-        slogan VARCHAR(100),
-        registration_date DATETIME
-        );
-        
-CREATE TABLE league(
-        leagueid INTEGER AUTO_INCREMENT,
-        PRIMARY KEY(leagueid),
-        
-        admin INTEGER ,
-        #FOREIGN KEY(admin) REFERENCES user,
-        #Relation - Company - Stored in the Company table
-        #Relation - User - Stored in the User table
-        
-        name VARCHAR(25),
-        description VARCHAR(500),
-        slogan VARCHAR(100),
-        
-        start_date DATETIME,
-        end_date DATETIME,
-        start_cash DOUBLE(20,4),
-        margin_limit DOUBLE(20,4)
-        #more league options can be included here
-        );
-        
-CREATE TABLE portfolio(
-        portfolioid INTEGER , #the portfolio id == company id
-        PRIMARY KEY (portfolioid),
-        FOREIGN KEY (portfolioid) REFERENCES company,
-        
-        cash DOUBLE(20,4)
-        
-        #Relation - Asset - Stored in Asset Table#
-        );
-
-CREATE TABLE asset(
-        ticker VARCHAR(25) ,
-        FOREIGN KEY (ticker) REFERENCES stocks_derivatives,
-        
-        portfolioid INTEGER ,
-        FOREIGN KEY(portfolioid) REFERENCES portfolio,
-        
-        #need to say if it is a stock or derivative and then what type of derivative
-        typed VARCHAR(10), 
-        
-        shares DOUBLE(10,4), #NOT NULL,
-        purchase_value DOUBLE(20,4), #NOT NULL,
-        purchase_date DATETIME,
-        sold_value DOUBLE(20,4),
-        sold_date DATETIME,
-        
-        PRIMARY KEY (ticker, portfolioid, purchase_date) #this allows multiple purchases of the same asset
-        );
-		
-CREATE TABLE auction(
-		auctionid INTEGER AUTO_INCREMENT,
-		PRIMARY KEY(auctionid),
-		portfolioid INTEGER,
-		FOREIGN KEY (portfolioid) REFERENCES portfolio,
-		ticker VARCHAR(25),
-		FOREIGN KEY (ticker) REFERENCES stocks_derivatives,
-		winning_offer INTEGER,
-		FOREIGN KEY (winning_offer) REFERENCES auction_offers,
-		price_start DOUBLE(20,4),
-		price_close DOUBLE(20,4),
-		time_open DATETIME,
-		time_closeDATETIME
-		);
-		
-CREATE TABLE auction_offers(
-		auctionid INTEGER,
-		FOREIGN KEY (auctionid) REFERENCES auction,
-		portfolioid INTEGER,
-		FOREIGN KEY (portfolioid) REFERENCES portfolio,
-		offer DOUBLE(20,4),
-		time_offer DATETIME,
-		
-		PRIMARY KEY(auctionid,portfolioid, time_offer)
-		);
-
-CREATE TABLE stocks_derivatives( 
-        ticker VARCHAR(25) ,
-        PRIMARY KEY (ticker),
-        
-        num_holders INTEGER #optional increment/decrement this. If this == 0, then do not update since no one holds this assest
-        );
-
-CREATE TABLE historical_price(
-        ticker VARCHAR(25),
-        FOREIGN KEY (ticker) REFERENCES stocks_derivatives,
+        CREATE TABLE user (
+                userid INTEGER  AUTO_INCREMENT,
+                PRIMARY KEY (userid),
                 
-        date_time DATETIME,
-        price DOUBLE (10,4),
-        
-        PRIMARY KEY(ticker,date_time)
-        );
+                #leagueid INTEGER , #redundant. can get through Company entitiy
+                #FOREIGN KEY (leagueid) REFERENCES league, #update on delete, on update
+                companyid INTEGER ,
+                FOREIGN KEY (companyid) REFERENCES company, ##update on delete, on update
+                
+                twitter VARCHAR(25), #currently not required
+                username VARCHAR(25), #could make not null
+                password VARCHAR(25), #could make not null
+                
+                registration_date DATETIME,
+                first_name VARCHAR(30), 
+                last_name VARCHAR(30), 
+                email VARCHAR(50)
+                );
+
+        CREATE TABLE company(
+                companyid INTEGER  AUTO_INCREMENT,
+                PRIMARY KEY (companyid),
+                
+                #portfolioid INTEGER , # not needed since portfolioid == companyid
+                #FOREIGN KEY (portfolioid) REFERENCES portfolio,
+                leagueid INTEGER,
+                FOREIGN KEY (leagueid) REFERENCES league,
+                #Relation - User - Stored in the User table
+                
+                name VARCHAR(25),
+                slogan VARCHAR(100),
+                registration_date DATETIME
+                );
+                
+        CREATE TABLE league(
+                leagueid INTEGER AUTO_INCREMENT,
+                PRIMARY KEY(leagueid),
+                
+                admin INTEGER ,
+                #FOREIGN KEY(admin) REFERENCES user,
+                #Relation - Company - Stored in the Company table
+                #Relation - User - Stored in the User table
+                
+                name VARCHAR(25),
+                description VARCHAR(500),
+                slogan VARCHAR(100),
+                
+                start_date DATETIME,
+                end_date DATETIME,
+                start_cash DOUBLE(20,4),
+                margin_limit DOUBLE(20,4)
+                #more league options can be included here
+                );
+                
+        CREATE TABLE portfolio(
+                portfolioid INTEGER , #the portfolio id == company id
+                PRIMARY KEY (portfolioid),
+                FOREIGN KEY (portfolioid) REFERENCES company,
+                
+                cash DOUBLE(20,4)
+                
+                #Relation - Asset - Stored in Asset Table#
+                );
+
+        CREATE TABLE asset(
+                ticker VARCHAR(25) ,
+                FOREIGN KEY (ticker) REFERENCES stocks_derivatives,
+                
+                portfolioid INTEGER ,
+                FOREIGN KEY(portfolioid) REFERENCES portfolio,
+                
+                #need to say if it is a stock or derivative and then what type of derivative
+                typed VARCHAR(10), 
+                
+                shares DOUBLE(10,4), #NOT NULL,
+                purchase_value DOUBLE(20,4), #NOT NULL,
+                purchase_date DATETIME,
+                sold_value DOUBLE(20,4),
+                sold_date DATETIME,
+                
+                PRIMARY KEY (ticker, portfolioid, purchase_date) #this allows multiple purchases of the same asset
+                );
+                        
+        CREATE TABLE auction(
+                        auctionid INTEGER AUTO_INCREMENT,
+                        PRIMARY KEY(auctionid),
+                        portfolioid INTEGER,
+                        FOREIGN KEY (portfolioid) REFERENCES portfolio,
+                        ticker VARCHAR(25),
+                        FOREIGN KEY (ticker) REFERENCES stocks_derivatives,
+                        winning_offer INTEGER,
+                        FOREIGN KEY (winning_offer) REFERENCES auction_offers,
+                        price_start DOUBLE(20,4),
+                        price_close DOUBLE(20,4),
+                        time_open DATETIME,
+                        time_closeDATETIME
+                        );
+                        
+        CREATE TABLE auction_offers(
+                        auctionid INTEGER,
+                        FOREIGN KEY (auctionid) REFERENCES auction,
+                        portfolioid INTEGER,
+                        FOREIGN KEY (portfolioid) REFERENCES portfolio,
+                        offer DOUBLE(20,4),
+                        time_offer DATETIME,
+                        
+                        PRIMARY KEY(auctionid,portfolioid, time_offer)
+                        );
+
+        CREATE TABLE stocks_derivatives( 
+                ticker VARCHAR(25) ,
+                PRIMARY KEY (ticker),
+                
+                num_holders INTEGER #optional increment/decrement this. If this == 0, then do not update since no one holds this assest
+                );
+
+        CREATE TABLE historical_price(
+                ticker VARCHAR(25),
+                FOREIGN KEY (ticker) REFERENCES stocks_derivatives,
+                        
+                date_time DATETIME,
+                price DOUBLE (10,4),
+                
+                PRIMARY KEY(ticker,date_time)
+                );
 
 
 Network Protocol
