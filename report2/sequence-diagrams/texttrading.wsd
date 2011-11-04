@@ -1,0 +1,79 @@
+TwitterFrontend->dispatch.twitter.UserStream:open
+dispatch.twitter.UserStream-->TwitterFrontend:(open)
+
+TwitterFrontend->nio.Http:apply
+note over TwitterFrontend,nio.Http: "apply" spawns a new thread for the HTTP process from which all the "json handler call"s are made.
+
+
+loop Each Tweet
+
+alt Json Parsed properly
+ nio.Http->TwitterFrontend:json handler call
+ TwitterFrontend->TextTrader:runCommand
+ TextTrader->parser:parseAction
+ parser-->TextTrader:(parseAction)
+ 
+ alt Text command successfully parsed
+  TextTrader->PitFailBackend:preform request
+
+  PitFailBackend->model.byUsername:get username
+  model.byUsername-->PitFailBackend:return username
+
+  opt
+   PitFailBackend->model.ensureUser:
+   model.ensureUser-->PitFailBackend:
+  end
+
+  alt  Action = Buy
+   PitFailBackend->WithUser:buy
+
+   WithUser->model.schema.Portfolio:buyStock
+   model.schema.Portfolio-->WithUser:(buyStock)
+
+   WithUser-->PitFailBackend:(buy)
+  else Action = Sell
+   PitFailBackend->WithUser:sell
+
+   WithUser->model.schema.Portfolio:sellStock
+   model.schema.Portfolio-->WithUser:(sellStock)
+
+   WithUser-->PitFailBackend:(sell)
+  else Action = SellAll
+   PitFailBackend->WithUser:sellAll
+
+   WithUser->model.schema.Portfolio:sellAll
+   model.schema.Portfolio-->WithUser:(sellAll)
+
+   WithUser-->PitFailBackend:(sellAll)
+  else Action = Portfolio
+   PitFailBackend->WithUser:portfolio
+
+   WithUser->model.schema.Portfolio:cash
+   model.schema.Portfolio-->WithUser:(cash)
+
+   WithUser->model.schema.Portfolio:myStockAssets
+   model.schema.Portfolio-->WithUser:(myStockAssets)
+
+   WithUser-->PitFailBackend:(portfolio)
+  else Action = GetInfo
+   PitFailBackend->WithUser:stockInfo
+   
+   WithUser->model.schema.Portfolio:haveTicker
+   model.schema.Portfolio-->WithUser:(haveTicker)
+
+   WithUser-->PitFailBackend:(stockInfo)
+  end
+
+
+  PitFailBackend-->TextTrader:return request results
+  TextTrader-->TwitterFrontend:return success/info message
+
+ else Could not parse text command
+  TextTrader-->TwitterFrontend:return help message
+ end
+
+else Some exception occured
+ nio.Http->TwitterFrontend:exception handler call
+ TwitterFrontend->Schedule:schedule a new connection attempt
+ note over TwitterFrontend,Schedule: This actually returns imediately, but causes the "loop" to continue via another thread.
+end
