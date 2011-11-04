@@ -472,9 +472,147 @@ configurations.
 Persistent Data Storage
 -----------------------
 
-We utilize the classical persistent data storage model for large, over
-engineered web applications: the relational database. Our particular choice for
-the demonstration was H2, which is described elsewhere in this report.
+Pitfail does need to store data to outlast a single execution of the system since users will be playing Pitfail for months or years at a time. 
+
+The persistent objects are the users' accounts, the users' transcations, and stocks' performances, and portfolios' performances over time. Each user will be associated with numerous buys, sells, and derivatives and these will all need to be stored in a medium for quick and reliable access. For each transcation, this data will increase. Each stock and portfolio will represent the true test of the data storage. These objects require performance data that the users require a visual graph for and statistics on. Depending on the sampling frequency of stock prices, this data can grow every five to thirty minutes. 
+
+As an example to explain the data storage requirements, for a system with 50 users each holding 15 unique assets, a five minute sampling frequency over one year storing records as doubles would yield:
+(50 users) * (15 assets/user) * 260 working days * 6.5 hours/day * (60 minutes/hour) * (1/5 samples/(asset* minute)) * (8 bytes/sample) = 121.7 megabytes. 
+
+Since any of these figures can be increased to make the performance data more precise, storing this information can easily become overwhelming. 
+
+Pitfail is stored in a light-weight and portable H2 relational database that takes advantage of the relations between users, portfolios, stocks, assets, leagues, companies, etc. It is scalable to handle the large amount of information needed to create performance charts and statistics. 
+
+Database Schema
+...............
+Below is the database schema for a MySQL implementation of the database, which is a possibiltiy in the future depending on the ability of H2 and Squeryl to model leagues, companies, auctions, orders, and other new uses.
+
+CREATE TABLE user (
+        userid INTEGER  AUTO_INCREMENT,
+        PRIMARY KEY (userid),
+        
+        #leagueid INTEGER , #redundant. can get through Company entitiy
+        #FOREIGN KEY (leagueid) REFERENCES league, #update on delete, on update
+        companyid INTEGER ,
+        FOREIGN KEY (companyid) REFERENCES company, ##update on delete, on update
+        
+        twitter VARCHAR(25), #currently not required
+        username VARCHAR(25), #could make not null
+        password VARCHAR(25), #could make not null
+        
+        registration_date DATETIME,
+        first_name VARCHAR(30), 
+        last_name VARCHAR(30), 
+        email VARCHAR(50)
+        );
+
+CREATE TABLE company(
+        companyid INTEGER  AUTO_INCREMENT,
+        PRIMARY KEY (companyid),
+        
+        #portfolioid INTEGER , # not needed since portfolioid == companyid
+        #FOREIGN KEY (portfolioid) REFERENCES portfolio,
+        leagueid INTEGER,
+        FOREIGN KEY (leagueid) REFERENCES league,
+        #Relation - User - Stored in the User table
+        
+        name VARCHAR(25),
+        slogan VARCHAR(100),
+        registration_date DATETIME
+        );
+        
+CREATE TABLE league(
+        leagueid INTEGER AUTO_INCREMENT,
+        PRIMARY KEY(leagueid),
+        
+        admin INTEGER ,
+        #FOREIGN KEY(admin) REFERENCES user,
+        #Relation - Company - Stored in the Company table
+        #Relation - User - Stored in the User table
+        
+        name VARCHAR(25),
+        description VARCHAR(500),
+        slogan VARCHAR(100),
+        
+        start_date DATETIME,
+        end_date DATETIME,
+        start_cash DOUBLE(20,4),
+        margin_limit DOUBLE(20,4)
+        #more league options can be included here
+        );
+        
+CREATE TABLE portfolio(
+        portfolioid INTEGER , #the portfolio id == company id
+        PRIMARY KEY (portfolioid),
+        FOREIGN KEY (portfolioid) REFERENCES company,
+        
+        cash DOUBLE(20,4)
+        
+        #Relation - Asset - Stored in Asset Table#
+        );
+
+CREATE TABLE asset(
+        ticker VARCHAR(25) ,
+        FOREIGN KEY (ticker) REFERENCES stocks_derivatives,
+        
+        portfolioid INTEGER ,
+        FOREIGN KEY(portfolioid) REFERENCES portfolio,
+        
+        #need to say if it is a stock or derivative and then what type of derivative
+        typed VARCHAR(10), 
+        
+        shares DOUBLE(10,4), #NOT NULL,
+        purchase_value DOUBLE(20,4), #NOT NULL,
+        purchase_date DATETIME,
+        sold_value DOUBLE(20,4),
+        sold_date DATETIME,
+        
+        PRIMARY KEY (ticker, portfolioid, purchase_date) #this allows multiple purchases of the same asset
+        );
+		
+CREATE TABLE auction(
+		auctionid INTEGER AUTO_INCREMENT,
+		PRIMARY KEY(auctionid),
+		portfolioid INTEGER,
+		FOREIGN KEY (portfolioid) REFERENCES portfolio,
+		ticker VARCHAR(25),
+		FOREIGN KEY (ticker) REFERENCES stocks_derivatives,
+		winning_offer INTEGER,
+		FOREIGN KEY (winning_offer) REFERENCES auction_offers,
+		price_start DOUBLE(20,4),
+		price_close DOUBLE(20,4),
+		time_open DATETIME,
+		time_closeDATETIME
+		);
+		
+CREATE TABLE auction_offers(
+		auctionid INTEGER,
+		FOREIGN KEY (auctionid) REFERENCES auction,
+		portfolioid INTEGER,
+		FOREIGN KEY (portfolioid) REFERENCES portfolio,
+		offer DOUBLE(20,4),
+		time_offer DATETIME,
+		
+		PRIMARY KEY(auctionid,portfolioid, time_offer)
+		);
+
+CREATE TABLE stocks_derivatives( 
+        ticker VARCHAR(25) ,
+        PRIMARY KEY (ticker),
+        
+        num_holders INTEGER #optional increment/decrement this. If this == 0, then do not update since no one holds this assest
+        );
+
+CREATE TABLE historical_price(
+        ticker VARCHAR(25),
+        FOREIGN KEY (ticker) REFERENCES stocks_derivatives,
+                
+        date_time DATETIME,
+        price DOUBLE (10,4),
+        
+        PRIMARY KEY(ticker,date_time)
+        );
+
 
 Network Protocol
 ----------------
@@ -555,6 +693,31 @@ Algorithms and Data Structures
 
 Algorithms
 ----------
+
+Buying on Margin
+................
+All Pitfail users will start with a predetermined amount of capital cash that is their money to use. In order to trade for more stocks, Pitfail users can buy/sell on margin, which is performing stock actions with money on loan. This money will require the user to pay interest on the loaned money each day until it is returned and paid in full, including total interest. 
+
+Pitfail uses the Simple Interest Formula to compute the money users owe due to interest. The loan will cost the user a predetermined cost per day:
+	Interest/Day = Principal * Rate
+	where Rate is determined by the going market rate
+
+The amount of margin for a user is also an algorithm. Since a user owns the capital money he starts with and can borrow additional money from lenders, a user should be able to pay back his lenders at any moment. Therefore, the margin offered per user will be no more than the total capital cash the user would have if he liquidated all of his assets at current market value. For example, if a user owns 500 shares of stock ABC @ $25 and has $10,000 unused capital cash, the user is able to buy 1,000 shares of stock BCD @ $22.5, resulting in $0 capital cash and $0 for margin buying. Therefore, if stock ABC's price increases to $30 a share, this user would now have $2,500 available on margin. 
+
+High Frequency Trading and Automatic Drone Traders
+..................................................
+
+High Frequency Trading is a power player in today's current stock market. As a side project, Pitfail will try to implement such a system that is automated and performs many transcations (in our case) per minute. To allow for a productive experiment, brokerage fees will be turned off for high frequency trading accounts. The goal of such a system will be to break even. These will be called Automatic Drones Traders and can be programmed to be high frequency traders. They will be created to simulate additional buying and selling. They will be based on the following:
+* buying a rising stock
+* selling a stinking stock
+* buying a random stock and holding it until the stock moves by +/- 1% and then selling it
+* buying the stocks of the top performers on Pitfail
+* buying recently bought stocks on Pitfail
+* etc...
+
+Cover's Universal Algorithm
+...........................
+This algorithm will be impemented by an Automatic Drone. It begins by buying nearly all the stocks available in the stock exchange and creating ratios amongst the stocks (in Pitfail's case, constant). By the end of the day, some stocks will increase and some stocks will decrease in price, changing the ratio between the stocks. This drone will sell/buy stocks to rebalance the ratios in the portfolio for the start of the next day. 
 
 Data Structures
 ---------------
@@ -923,9 +1086,11 @@ across all systems. Testing will be the responsibility of each module developer.
 
 References
 ==========
+Marsic, Ivan. *Software Engineering*. Piscataway: Rutgers University, 2011. PDF.
+Miles,  Russ  and  Kim  Hamilton.  *Learning  UML  2.0*.  Ed.  Eric  McLaughlin  and  Mary  O'Brien. Sebastopol: O'Reilly, 2006.
+
 
 http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
 
 http://en.wikipedia.org/wiki/Java_Database_Connectivity
-
 
