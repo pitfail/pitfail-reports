@@ -413,7 +413,13 @@ results, various forms of rate limiting, and fallback between different
 pipelines of SDBs.
 
 Within the website, implimented via the Lift Webframework, View First MVC is
-utilized. Lift provides a "View First" interface for those devolping via it.
+utilized. Lift provides a "View First" interface for those devolping via it,
+meaning that control of the program's execution is in the hands of the View
+code, and can be passed off to other portions as needed. In the case of
+PitFail's website, model code is independent of the website itself (and thus
+Lift). Control code is specific bound to Lift's framework but clearly split
+from the view code. The control component within the website provides
+information such as authorization info to the view for processing.
 
 Identifying Subsystems
 ----------------------
