@@ -404,19 +404,16 @@ of other portions to the degree that they can be viewed as libraries. This is
 particularly the case with the Stock Database code, which presents itself as a
 library from which different querying archetectures may be constructed.
 
-*TODO: REWORK THE FOLLOWING*
+The Stock Database library heavily follows the pipe and filter achitectural
+style. Each class (also called a Stock Database, SDB) either links other SDBs
+together or communicates with a concrete SDB. In practice, many more of the
+SDBs form the interior "filtering" functions rather than the endpoint "driving"
+functions. The filtering SDBs impliment collating of requests, caching of
+results, various forms of rate limiting, and fallback between different
+pipelines of SDBs.
 
-* Lift, the web framework used as th core of PitFail's server, uses a View
-  First achitecture.
-* Stock Database, the portion of PitFail's code dedicated to interaction with a
-  `Stock Data Source`, is designed using the Pipeline architectural style. In
-  querying various `Stock Data Sources`, it is desirable to issue as few
-  requests as possible, limit the number of requests, and allow for some of the
-  `Stock Data Sources` to fail to reply to requests. Acheiving the first of
-  these goals required collating and caching requests. The second was
-  implimented via a general rate limiting Stock Database. The third presents a
-  single Stock Database which in reality queries multiple Stock Databases.
-
+Within the website, implimented via the Lift Webframework, View First MVC is
+utilized. Lift provides a "View First" interface for those devolping via it.
 
 Identifying Subsystems
 ----------------------
