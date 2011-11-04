@@ -1,0 +1,16 @@
+
+participant "A View component" as View
+participant "A Model component" as Model
+
+View -> Model: doSomething(args)
+
+alt Success
+	Model --> View: (doSomething)
+else Error1
+	Model --> View: (doSomething) Error1
+else Error2
+	Model --> View: (doSomething) Error2
+else ...
+	Model --> View: (doSomething) ...
+end
+	

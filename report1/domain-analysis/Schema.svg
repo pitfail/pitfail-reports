@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg height="245" version="1.1" width="554" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#ffffff" height="64" stroke="#ffffff" stroke-width="1" width="71" x="116" y="31"/>
+<rect fill="none" height="64" stroke="#000000" stroke-width="1" width="71" x="116" y="31"/>
+<text font-family="Dialog" font-size="12" x="137" y="44">
+User</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="71" x="116" y="54"/>
+<text font-family="Dialog" font-size="12" x="120" y="68">
+name</text>
+<text font-family="Dialog" font-size="12" x="120" y="84">
+username</text>
+<rect fill="#ffffff" height="48" stroke="#ffffff" stroke-width="1" width="66" x="292" y="31"/>
+<rect fill="none" height="48" stroke="#000000" stroke-width="1" width="66" x="292" y="31"/>
+<text font-family="Dialog" font-size="12" x="299" y="44">
+Portfolio</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="66" x="292" y="54"/>
+<text font-family="Dialog" font-size="12" x="296" y="68">
+cash</text>
+<rect fill="#ffffff" height="48" stroke="#ffffff" stroke-width="1" width="107" x="116" y="175"/>
+<rect fill="none" height="48" stroke="#000000" stroke-width="1" width="107" x="116" y="175"/>
+<text font-family="Dialog" font-size="12" x="146" y="188">
+League</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="107" x="116" y="198"/>
+<text font-family="Dialog" font-size="12" x="120" y="212">
+startingBalance</text>
+<rect fill="#ffffff" height="64" stroke="#ffffff" stroke-width="1" width="113" x="292" y="167"/>
+<rect fill="none" height="64" stroke="#000000" stroke-width="1" width="113" x="292" y="167"/>
+<text font-family="Dialog" font-size="12" x="304" y="180">
+HistoricalPrice</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="113" x="292" y="190"/>
+<text font-family="Dialog" font-size="12" x="296" y="204">
+ticker</text>
+<text font-family="Dialog" font-size="12" x="296" y="220">
+price</text>
+<rect fill="#ffffff" height="64" stroke="#ffffff" stroke-width="1" width="80" x="460" y="31"/>
+<rect fill="none" height="64" stroke="#000000" stroke-width="1" width="80" x="460" y="31"/>
+<text font-family="Dialog" font-size="12" x="465" y="44">
+StockAsset</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="80" x="460" y="54"/>
+<text font-family="Dialog" font-size="12" x="464" y="68">
+ticker</text>
+<text font-family="Dialog" font-size="12" x="464" y="84">
+shares</text>
+<polyline fill="none" points="187,47 292,47" stroke="#000000" stroke-width="1"/>
+<text font-family="Dialog" font-size="12" x="198" y="42">
+1</text>
+<text font-family="Dialog" font-size="12" x="273" y="42">
+1</text>
+<polyline fill="none" points="358,47 460,47" stroke="#000000" stroke-width="1"/>
+<text font-family="Dialog" font-size="12" x="369" y="42">
+1</text>
+<text font-family="Dialog" font-size="12" x="434" y="42">
+0..*</text>
+<polyline fill="none" points="124,95 124,175" stroke="#000000" stroke-width="1"/>
+<text font-family="Dialog" font-size="12" x="15" y="138">
+member</text>
+<text font-family="Dialog" font-size="12" x="90" y="116">
+0..*</text>
+<text font-family="Dialog" font-size="12" x="96" y="167">
+1</text>
+<polyline fill="none" points="172,95 172,175" stroke="#000000" stroke-width="1"/>
+<text font-family="Dialog" font-size="12" x="175" y="140">
+owner</text>
+<text font-family="Dialog" font-size="12" x="190" y="120">
+1</text>
+<text font-family="Dialog" font-size="12" x="190" y="162">
+1</text>
+</svg>

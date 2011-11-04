@@ -1,0 +1,295 @@
+
+> In your Section 2 Customer Statement of Requirements, on page 4
+> you say that "The application provides every player with
+> portfolio to view/modify his/her history"
+> I'm not sure if this is what you really meant -- how can a
+> player modify his/her history ?? That sounds revisionist
+> and/or cheating?!?
+
+> On the same page, I'm not sure how useful is to evaluate
+> one's performance by measureing his/her net worth.
+> An aggregate value may hide some good decisions and
+> some bad ones. Would it be better to split the portfolio
+> in two groups: those that are performing and those that
+> aren't)?  If you think differently, please tell me your
+> reasoning.
+
+OWEN
+
+- Hedging
+- But it might be nice anyway
+- A plot over time looks sexy anyway
+
+> Same page, will traders be able to see *all* friends' or
+> enemies' activities? Why do you think this is OK?
+> On Facebook, one can choose what his/her friends/enemies
+> can see. I'm not saying that you're wrong, I'd just like
+> to know your reasoning behind this decision.
+
+OWEN
+
+Well, it's not like it's personal information -- it's all fake. We were hoping
+to make it more competetive.
+
+> Your feature of "upvote" and "downvote" seems very
+> interesting and novel!
+> But I have one question for you. What if someone is
+> great at predicting how other players' trades will fare,
+> but his own portfolio is doing bad and he is low on
+> the leaderboard?!
+> I guess this is unlikely, but can happen. Again,
+> I'm not saying that you're wrong, I'd just like
+> to know your arguments. Should we perhaps show
+> simultaneously player's standing on prediction list
+> as well as how his/her own portfolio is performing?!?
+
+OWEN
+
+Well yes, this is a good point. I suggest we have two rankings.
+
+> I'm worried that your list of requirements is very skimpy
+> and omits many of the features you mentioned before in
+> the narrative. Sounds like you ignored the customer's
+> demands and came up with a highly narrowed down list
+> of req'ts. For example, you say that Pitfail allows users
+> to design their own securities (i.e. futures or options).
+> Or, you say that PitFail will let users trade non-liquid
+> assets such as derivatives.
+> I don't see any of this in your REQ'ts list.
+
+OWEN
+
+Yes. We should add all of them to the list:
+
+ - Designing
+ - Trading
+ - Rankings
+ - Votings
+ - Buying + Selling
+
+> And there are many other features you mentions that don't
+> appear in your REQ'ts list.
+> That may be OK, but at least you need to explain why
+> such a rich list of demands was reduced to a relatively
+> poor list of requirements.
+> I also suspect that some of your requiremnts are very
+> complex and should be split into several smaller ones...
+
+OWEN
+
+Yeah we should... Website, FB, Twitter... and Portfolio...
+
+Reqs 1, 2, 3, 6
+
+> As much as your REQ'ts list is short, it is missing
+> the most important REQ't -- the ability to trade stocks,
+> where I was hoping to see mention of the trading orders that
+> you'll handle. Examples include: market order, limit order,
+> stop order, trailing stop orders, sell, sell short and
+> buy to cover -- whatever, just state explicitly what your
+> system will support.
+
+OWEN
+
+Huge and liquid.
+
+Wizards for derivatives.
+
+> In your section 4.2 Actors and Goals, I don't like that
+> you name your actor "Yahoo!" -- that happens to be your
+> current provider, but you should give it some conceptual
+> name, derived from the service that this actor provides.
+> (such as you did for "stock info provider", which also
+> happens to be Yahoo!)
+
+CODY
+
+Fix this.
+
+> I guess in case of Twitter it's ok to keep the actor's
+> name as Twiter, because that's a unique service and
+> unlikely to be substitutable with a similar system.
+
+> You listed Yahoo twice as the source of real market data,
+> as the 6th actor, and then as the last one -- I guess this
+> is a mistake?!
+
+CODY
+
+No duh this is a mistake.
+
+> I'm trying to understand the difference between these 3 actors:
+> Player, WebPlayer, TwitterPlayer.
+> When introducing new actors, there should be a clear motivation
+> or need for doing so. It is either:
+
+> 1. The new actor can work with a new use case or with a
+>   different combination of existing use cases
+
+> 2. Two actors may have the same goals but the mechanics of
+>   their interaction with the system may be different.
+>   For example, one is using keyboard, and the other is
+>   using speech recognition.
+> 3. The new actor initiates an existing use case, which then
+>   engages a different participating actor than a similar
+>   old actor.
+
+> You say that all your player actors work with the same set
+> of use cases.
+> I guess in the case of Player vs. TwitterPlayer
+> the differentiating reason is #3, because it engages
+> the Twitter participating actor. Factor #2 may also be
+> at play, because the Twitter player interacts differently
+> with your system than a regular player.
+> I'm not sure that your WebPlayer meets either of the above
+> criteria. I may be missing something, so please elaborate
+> on this decision.
+
+CODY
+
+Yo Marsic, it's inheritance. Sorry, it was the cleanest way to present the
+information, in our opinion. But we're getting rid of the inheritance.
+
+> In Section 4.3 Casual Use-Case Description, your table of
+> use cases says that UC-8 Portfolio Settings
+> "Changes some settings regarding a portfolio".
+> I have no idea what this might mean -- you never explained
+> this. Does it mean that the user will buy new stocks and
+> sell some of the old ones?
+> Please explain what it means to "change portfolio settings".
+
+CODY
+
+Get rid of it. We don't have settings.
+
+> My main worry about your use cases is that you focus on
+> supporting activities, such as joining different leagues,
+> viewing different tables, managing leagues, etc.
+> But you give short shrift to the main purpose of this
+> software, which is trading.
+
+CODY -- maybe BRIAN?
+
+For all the same things we are adding requirements, we should add use cases:
+
+ - Designing (derivatives)
+ - Trading (stocks + derivatives)
+ - Rankings
+ - Votings
+ - Buying + Selling
+ 
+And flesh out Twitter, split everything entirely between web and Twitter.
+
+> Your two use cases UC-1 and UC-2 seem to be basic,
+> they just allow to trade at the market price.
+> I urge you to consider more sophisticated trading orders,
+> such as limit order, stop order, trailing stop orders,
+> sell short and buy to cover.
+> These should be your priority, and supporting activities
+> are just that and should be secondary.
+
+> In Section 4.4.1 UC-1: Buy, under Participating Actors,
+> I guess Twitter should be there as well?!
+> You don't mention TwitterPlayer at all, but I'd think
+> that the mechanics of how TwitterPlayer interacts with
+> your system is quite different than how a regular Player
+> interacts with your system.
+> This should be shown in a fully dressed UC-2 and UC-2,
+> because different stsps are required and different
+> supporting actors are needed.
+> Perhaps you should introduce different use case for
+> Buy or Sell using Twitter ??
+> By the way, I noticed that in Section 6.1 Domain Model,
+> you show different domain models for The Web trading
+> front-end and The Twitter trading front-end,
+> so I guess it makes sense to have different use cases
+> for them?!?
+
+CODY
+
+See previous.
+
+> Again, your UC-1 covers only the basics, and that makes
+> me nervous. I hope you can allow more sophisticated
+> trading orders.
+> Also, your Alternative scenarios are also very basic.
+> I'd like to see that you consider more sophisticated
+> issues.
+> For example, what happens if a Market Order is made
+> after close of market?
+
+OWEN
+
+Tell Marsic -- the market is always open.
+
+> I was very excited to read your Customer Statement of
+> Requirements, but now I see that very little of it
+> will actually be implememnted, and your main focus seems
+> to be on supporting activities.
+
+> Your Section 4.5 Use Case Diagram doesn't show all
+> the actors you listed in Section 4.2.
+> I guess Twitter should be shown or should be removed from
+> Sec 4.2 ?!?
+
+CODY
+
+It should be added.
+
+> Your system sequence diagrams will have to be modified
+> after you improve your detailed use case as I suggested
+> above.
+> Your domain model says that the concept "Trader" is
+> "in change of the logic of making trades"
+> (I guess you mean "charge").
+> I guess that may be OK if you consider only the basic
+> trading order, although you never specified what the
+> "logic of making trades" entails, so I'm not sure.
+> It'd be nice that you are more specific about what
+> the "logic of making trades" means.
+
+OWEN
+
+Email Marsic about this. Also explain what the logic of making trades. But I
+have an issue with this being procedural.
+
+Put the definitions first -- it's a lot nicer.
+
+Take out "receives requests from the web framework". And clean it up in
+general.
+
+> In any case, as I indicated above, I urge you to consider
+> other types of orders, such as limit order,
+> stop order, trailing stop orders, sell short and
+> buy to cover. Furtehrmore, I guess your Trader should also
+> be responsible to validate the stock order by considering
+> factors like buying power, daily average volume,
+> and market delay.
+
+> If you start addining more sophistication to your
+> "logic of making trades", then I think your Trader will
+> end up with too many responsibilities for a single concept.
+
+> I'm affraid that you didn't think carefuly about the
+> mechanics of these different types of trading (see my
+> comments above for your use cases), so you think this
+> is simple and only one concept can do it all.
+> Please reconsider.
+
+> I hope that you will support more sophisticated forms
+> of trading orders, in which case your user interface
+> design will change, as well.
+
+> My key recommendation is that you shift your focus from
+> supporting activities to the central activity of trading.
+> You can keep supporting activities, they are a nice
+> extra feature, but they should not be at the center
+> of your attention.
+
+MICHAEL
+
+Add UI mockups for:
+
+- Recent history
+- Derivative trading
+
