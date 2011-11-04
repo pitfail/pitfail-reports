@@ -50,18 +50,18 @@ Individual Contributions
 	:widths: 15, 6, 6, 6, 6, 6, 6, 6
     Interaction Diagrams (35),     ,  10%,  30%,     ,     ,  20%,  30%
     Classes and Specs (13),        ,     ,     ,     ,     ,     ,
-    â†’ Class Diagram (8),       100%,     ,     ,     ,     ,     ,
-    â†’ Signatures (5),          100%,     ,     ,     ,     ,     ,
+    ¿ Class Diagram (8),       100%,     ,     ,     ,     ,     ,
+    ¿ Signatures (5),          100%,     ,     ,     ,     ,     ,
     Arch. and Design (22),
-    â†’ Arch. Styles (5),            , 100%,     ,     ,     ,     ,
-    â†’ Package Diagram (5),         , 100%,     ,     ,     ,     ,
-    â†’ Map. Hardware (2),           , 100%,     ,     ,     ,     ,
-    â†’ Database (5),                ,     ,     , 100%,     ,     ,
-    â†’ Other (5),                   ,     ,  30%,     ,     ,  70%,
+    ¿ Arch. Styles (5),            , 100%,     ,     ,     ,     ,
+    ¿ Package Diagram (5),         , 100%,     ,     ,     ,     ,
+    ¿ Map. Hardware (2),           , 100%,     ,     ,     ,     ,
+    ¿ Database (5),                ,     ,     , 100%,     ,     ,
+    ¿ Other (5),                   ,     ,  30%,     ,     ,  70%,
     Algos. and Structures (4),     ,     ,     , 100%,     ,     ,
     User Interface (10),           ,     ,     ,     ,     ,     ,
-    â†’ Appearance (5),          100%,     ,     ,     ,     ,     ,
-    â†’ Prose Description (5),   100%,     ,     ,     ,     ,     ,
+    ¿ Appearance (5),          100%,     ,     ,     ,     ,     ,
+    ¿ Prose Description (5),   100%,     ,     ,     ,     ,     ,
     Plan of Work (4),              ,     ,     , 100%,     ,     ,
     References (2),                ,     ,     ,  50%,     ,  50%,
 
@@ -355,7 +355,7 @@ If a player wants to access PitFail via Facebook, he or she can post the request
 The request has to be in format:
 Username: Operation(Buy/Sell):[volume]:Ticker
 
-Currently Facebook interface only supports two operations Â¿ Buy or Sell securities.
+Currently Facebook interface only supports two operations ¿ Buy or Sell securities.
 
 To process this request :
 1.This request should be listened to and Facebook app should be notified of the wall post
@@ -434,7 +434,7 @@ instead of a method. Any methods or attributes that contain symbols or
 punctuation, such as "$", are prefixed with <<operator>>. Keep these conventions
 in mind when reading the following section.
 
-As a financial simulator, Pitfail requires interacting with several types of
+As a financial simulator, PitFail requires interacting with several types of
 quantities: (1) volume of stock, (2) stock prices, (3) cash, and (4) fractional
 ownership of an asset. These concepts are represented by, respectively, the
 *Shares*, *Price*, *Dollars*, and *Scale* classes:
@@ -449,7 +449,7 @@ are useful, while others are meaningless. The process of switching from a
 unilateral use of BigDecimal caught several bugs that would have otherwise gone
 
 The next most important classes are those that represent individual stocks and
-stock quotes. In Pitfail's object model, *Stock* is a something that can be
+stock quotes. In PitFail's object model, *Stock* is a something that can be
 purchased on a market, a *Quote* is a stock paired with it's current price, and
 a *StockAsset* is the number of shares of a stock owned by a particular user:
 
@@ -587,7 +587,7 @@ configurations.
 Persistent Data Storage
 -----------------------
 
-Pitfail does need to store data to outlast a single execution of the system since users will be playing Pitfail for months or years at a time. 
+PitFail does need to store data to outlast a single execution of the system since users will be playing PitFail for months or years at a time. 
 
 The persistent objects are the users' accounts, the users' transactions, and stocks' performances, and portfolios' performances over time. Each user will be associated with numerous buys, sells, and derivatives and these will all need to be stored in a medium for quick and reliable access. For each transaction, this data will increase. Each stock and portfolio will represent the true test of the data storage. These objects require performance data that the users require a visual graph for and statistics on. Depending on the sampling frequency of stock prices, this data can grow every five to thirty minutes. 
 
@@ -596,7 +596,7 @@ As an example to explain the data storage requirements, for a system with 50 use
 
 Since any of these figures can be increased to make the performance data more precise, storing this information can easily become overwhelming. 
 
-Pitfail is stored in a light-weight and portable H2 relational database that takes advantage of the relations between users, portfolios, stocks, assets, leagues, companies, etc. It is scalable to handle the large amount of information needed to create performance charts and statistics. 
+PitFail is stored in a light-weight and portable H2 relational database that takes advantage of the relations between users, portfolios, stocks, assets, leagues, companies, etc. It is scalable to handle the large amount of information needed to create performance charts and statistics. 
 
 Database Schema
 ...............
@@ -736,7 +736,7 @@ Network Protocol
 
 PitFail has multiple clients like Website, Twitter, Android and Facebook. All these clients
 communicate with the PitFail server via HTTP (Hyper Text Transfer Protocol) over TCP/IP sockets. 
-Another network protocol which Pitfail uses is JDBC (Java Database Connectivity) to communicate 
+Another network protocol which PitFail uses is JDBC (Java Database Connectivity) to communicate 
 with the H2 database which is a Open Source Java based database.
 Following is a brief description of both the protocols.
 
@@ -813,9 +813,9 @@ Algorithms
 
 Buying on Margin
 ................
-All Pitfail users will start with a predetermined amount of capital cash that is their money to use. In order to trade for more stocks, Pitfail users can buy/sell on margin, which is performing stock actions with money on loan. This money will require the user to pay interest on the loaned money each day until it is returned and paid in full, including total interest. 
+All PitFail users will start with a predetermined amount of capital cash that is their money to use. In order to trade for more stocks, PitFail users can buy/sell on margin, which is performing stock actions with money on loan. This money will require the user to pay interest on the loaned money each day until it is returned and paid in full, including total interest. 
 
-Pitfail uses the Simple Interest Formula to compute the money users owe due to interest. The loan will cost the user a predetermined cost per day:
+PitFail uses the Simple Interest Formula to compute the money users owe due to interest. The loan will cost the user a predetermined cost per day:
 	Interest/Day = Principal * Rate
 	where Rate is determined by the going market rate
 
@@ -824,26 +824,26 @@ The amount of margin for a user is also an algorithm. Since a user owns the capi
 High Frequency Trading and Automatic Drone Traders
 ..................................................
 
-High Frequency Trading is a power player in today's current stock market. As a side project, Pitfail will try to implement such a system that is automated and performs many transactions (in our case) per minute. To allow for a productive experiment, brokerage fees will be turned off for high frequency trading accounts. The goal of such a system will be to break even. These will be called Automatic Drones Traders and can be programmed to be high frequency traders. They will be created to simulate additional buying and selling. They will be based on the following:
+High Frequency Trading is a power player in today's current stock market. As a side project, PitFail will try to implement such a system that is automated and performs many transactions (in our case) per minute. To allow for a productive experiment, brokerage fees will be turned off for high frequency trading accounts. The goal of such a system will be to break even. These will be called Automatic Drones Traders and can be programmed to be high frequency traders. They will be created to simulate additional buying and selling. They will be based on the following:
 * buying a rising stock
 * selling a stinking stock
 * buying a random stock and holding it until the stock moves by +/- 1% and then selling it
-* buying the stocks of the top performers on Pitfail
-* buying recently bought stocks on Pitfail
+* buying the stocks of the top performers on PitFail
+* buying recently bought stocks on PitFail
 * etc...
 
 Cover's Universal Algorithm
 ...........................
-This algorithm will be implemented by an Automatic Drone. It begins by buying nearly all the stocks available in the stock exchange and creating ratios amongst the stocks (in Pitfail's case, constant). By the end of the day, some stocks will increase and some stocks will decrease in price, changing the ratio between the stocks. This drone will sell/buy stocks to re-balance the ratios in the portfolio for the start of the next day. 
+This algorithm will be implemented by an Automatic Drone. It begins by buying nearly all the stocks available in the stock exchange and creating ratios amongst the stocks (in PitFail's case, constant). By the end of the day, some stocks will increase and some stocks will decrease in price, changing the ratio between the stocks. This drone will sell/buy stocks to re-balance the ratios in the portfolio for the start of the next day. 
 
 Data Structures
 ---------------
 
 User Interface Design and Implementation
 ========================================
-Pitfail's overall user interface closely resembles the interface depicted in
+PitFail's overall user interface closely resembles the interface depicted in
 its mockups: most of the changes were merely cosmetic. Most of the functional
-changes are because the current implementation of Pitfail is missing features
+changes are because the current implementation of PitFail is missing features
 that were included in the mockup: e.g. companies, leagues, and social
 interaction. These changes are grouped into general categories, described in
 detail, and justified in the following sections.
@@ -853,10 +853,10 @@ detail, and justified in the following sections.
 
 Welcome Page for New User
 -------------------------
-Pitfail was originally described as having a "guided registration" process
+PitFail was originally described as having a "guided registration" process
 where the user registers as part of purchasing his or her first stock. While
 the user can still explore the stock purchasing interface before logging in,
-the current implementation of Pitfail does not support this "zero effort"
+the current implementation of PitFail does not support this "zero effort"
 registration because of a technical limitation. As such, guided messages no
 longer are displayed next to each step in the purchasing pipeline:
 
@@ -870,7 +870,7 @@ longer are displayed next to each step in the purchasing pipeline:
 
 Note that the list of steps is not visible and the current step is not
 indicated with an arrow. Some form of guided registration will be implemented
-in the next version of Pitfail. Thankfully, this doesn't change user effort:
+in the next version of PitFail. Thankfully, this doesn't change user effort:
 the user simply must login *before* selecting a stock instead of *after*
 selecting a stock.
 
@@ -905,11 +905,11 @@ Besides the changes to the table of assets, there are clearly several features
 missing from the implementation: (1) historic portfolio performance, (2)
 multiple portfolios, and (3) league navigation. These missing interface
 elements will be restored after companies, leagues, and logging of historic
-prices are implemented in the next iteration of Pitfail.
+prices are implemented in the next iteration of PitFail.
 
 Buying Stocks
 -------------
-Purchasing stocks is one of the fundamental activities on Pitfail. The
+Purchasing stocks is one of the fundamental activities on PitFail. The
 interface for buying stocks is very similar to the interface shown in the
 original mockups: when the user enters a valid ticker symbol in the large
 search bar, a small stock quote expands below the search bar. This quote
@@ -942,7 +942,7 @@ button, he or she is presented with the derivative offering page. In the
 original mockups this was shown as a prose-like description of a derivative
 with a number of blanks. Originally intended to guide the user through the
 derivative creation process, this was found to be unfeasible with the number of
-derivative configuration options supported in Pitfail. As such, this was
+derivative configuration options supported in PitFail. As such, this was
 redesigned to resemble a traditional form: a prose description followed by a
 table of input fields.
 
@@ -964,13 +964,13 @@ below for a detailed usability analysis.
 
 Social Features
 ---------------
-Pitfail's original mockups included a real-time newsfeed at the bottom of every
+PitFail's original mockups included a real-time newsfeed at the bottom of every
 page. This news feed was a log of trading history and served as a hub for social
 interaction between users. A limited implementation of this newsfeed is
-included in the current version of Pitfail. Unlike the mockup, the newsfeed is
+included in the current version of PitFail. Unlike the mockup, the newsfeed is
 included in every page's sidebar instead of the footer. This is similar to the
 real-time feed that was recently added to Facebook and will be familiar to the
-majority of Pitfail's users.
+majority of PitFail's users.
 
 .. raw:: latex
 
@@ -984,7 +984,7 @@ Besides the different location, much of the functionality displayed in the
 mockups has not yet been implemented. Notably, this includes: (1) user-specific
 newsfeeds, (2) voting, (3) commenting, (4) messages for derivative trades, and
 (5) messages for a users going broke. These features will be implemented in the
-next version of Pitfail and do not effect user effort.
+next version of PitFail and do not effect user effort.
 
 User Effort Estimation
 ----------------------
@@ -1011,7 +1011,7 @@ Features that are not currently implemented are shown as empty rows and actions
 that have been added since the original mockups are marked with asterisks. Both
 these new usage scenarios and existing usage scenarios that were modified are
 analyzed in detail below. This includes buying and selling stocks because of
-the lack of league support in the current version of Pitfail.
+the lack of league support in the current version of PitFail.
 
 Purchase a Stock
 ................
