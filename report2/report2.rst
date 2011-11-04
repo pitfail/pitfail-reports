@@ -229,16 +229,17 @@ View Portfolio
 Viewing a portfolio is essentially a task of pulling information out of the
 model and converting it to HTML:
 
-.. image:: sequence-diagrams/diagrams/view-portfolio-web.pdf
+.. figure:: sequence-diagrams/diagrams/view-portfolio-web.pdf
     :width: 90%
 
 
 BUY/SELL via the Android Cleint
 --------------------------------
-.. image:: sequence-diagrams/android/BuyStock.png
+
+.. figure:: sequence-diagrams/android/BuyStock.png
     :width: 90%
 
-		Buy Stocks via Android Client
+    Buy Stocks via Android Client
 
 The diagram above is the interaction sequence diagram for UC Buy Stocks from an Android Mobile Client.
 As shown, first the search action is initiated by the Android Controller which requested by the Android user.
@@ -251,11 +252,10 @@ from Scala classes.  The reason for choosing Java for Android client is for its 
 internally makes use of the Portfolio class the extract the user info from the Database. If the Volume to be 
 bought is correct, user's portfolio is updated and results are sent back to the user.
 
-
-.. image:: sequence-diagrams/android/SellStock.png
+.. figure:: sequence-diagrams/android/SellStock.png
     :width: 90%
 
-		Sell Stocks via Android Client
+    Sell Stocks via Android Client
 
 The diagram above is the interaction sequence diagram for UC Sell Stocks from an Android Mobile Client.
 The user initiates the action by creating a request by providing the Stock ticker name he intends to sell off.
@@ -266,8 +266,6 @@ there can be another asynchronous call from some other client interface by the s
 Such a situation is handled by throwing back an exception message "You dont own this stock" and  
 corresponding appropriate message back to the user.Currently, we sell off all the corresponding stocks. 
 In the future, we do plan to give user an option of amount of volume he wants to sell off. 
-
-
 
 Buy/Sell Operations via FaceBook Interface
 ------------------------------------------
@@ -289,7 +287,6 @@ To process this request :
 4.The player should be notified of the status of the request (successful/failed)
 Here is a description in detail:
 
-
 Parse Message:
 ..............
 
@@ -300,7 +297,6 @@ The first step is to read the wall post and parse it to a request that a server 
 
 FBListener listens to the wall post of our account and notifies pitFail FB app of any new wall post.  We use RestFB APIs  that access Facebook account of PitFail using the unique access token provided by FaceBook.  API fetchConnection(User) reads the new wall post and passes it to ParseMessage module. ParseMessage processes the wall post, extracts the information required to process the request. It also checks for the right number of arguments and the data type (e.g. Volume has to be a number).
 If the message is good enough to be processed (no errors), the parsed request is sent to server , otherwise the player is notified of the error by commenting on player's wall post. 
-
 
 Ensure User:
 ............
@@ -315,21 +311,20 @@ If the user exists, the request is processed further otherwise the player is not
 
 The Operations (Buy/Sell)
 .........................
-Once the wall post is parsed into a trade request  and the existence of user is checked, the actual operation takes place.
 
+Once the wall post is parsed into a trade request  and the existence of user is checked, the actual operation takes place.
 
 Buy Stock:
 ``````````
 
-.. image:: sequence-diagrams/FB/buy.png
+.. figure:: sequence-diagrams/FB/buy.png
     :width: 90%
-
 
 Sell Stock:
 ```````````
 
 
-.. image:: sequence-diagrams/FB/sell.png
+.. figure:: sequence-diagrams/FB/sell.png
     :width: 90%
 
 The  working of a server is explained in detail in website section.
@@ -337,8 +332,6 @@ When the server receives a valid request from a legitimate user, it accesses
 the portfolio of the user to perform the operation.  Based on the value
 returned by user, FB App posts comment on the player's wall post saying
 "Successful" or "failed <reason>"
-
-
 
 
 Class Diagram and Interface Specification
