@@ -281,14 +281,18 @@ Currently FaceBook interface only supports two operations – Buy or Sell securiti
 
 To process this request :
 1.This request should be listened to and FB app should be notified of the wall post
+
 2.The wall post should be read and parsed.
+
 3.The request should  invoke appropriate module from server to get the operation done
+
 4.The player should be notified of the status of the request (successful/failed)
 Here is a description in detail:
 
 
-ParseMessage:
--------------
+Parse Message:
+..............
+
 The first step is to read the wall post and parse it to a request that a server can handle.
 
 .. image:: sequence-diagrams/FB/parseMessage.png
@@ -298,8 +302,8 @@ FBListener listens to the wall post of our account and notifies pitFail FB app o
 If the message is good enough to be processed (no errors), the parsed request is sent to server , otherwise the player is notified of the error by commenting on player’s wall post. 
 
 
-EnsureUser:
------------
+Ensure User:
+............
 
 Now that the message is parsed, we need to check the authenticity of the user. Facebook interface of PitFail does not (for now) support registration.  The player has to be already registered to the system to play the game via FB interface.
 
@@ -309,19 +313,21 @@ Now that the message is parsed, we need to check the authenticity of the user. F
 ensureUser ensures the existence of a user before the user’s request tries to access portfolio. 
 If the user exists, the request is processed further otherwise the player is notified of the error occurred by posting a comment on his wall post.
 
-The Operations (Buy/Sell):
---------------------------
+The Operations (Buy/Sell)
+.........................
 Once the wall post is parsed into a trade request  and the existence of user is checked, the actual operation takes place.
 
 
-Buy operation:
---------------
+Buy Stock:
+``````````
+
 .. image:: sequence-diagrams/FB/buy.png
     :width: 90%
 
 
-Sell operation:
----------------
+Sell Stock:
+```````````
+
 
 .. image:: sequence-diagrams/FB/sell.png
     :width: 90%
