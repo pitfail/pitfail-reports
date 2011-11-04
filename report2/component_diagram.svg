@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="171.097mm" height="105.833mm"
+ xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  version="1.2" baseProfile="tiny">
+<title>Qt Svg Document</title>
+<desc>Generated with Qt</desc>
+<defs>
+</defs>
+<g fill="none" stroke="black" stroke-width="1" fill-rule="evenodd" stroke-linecap="square" stroke-linejoin="bevel" >
+
+<g fill="none" stroke="#ff0000" stroke-opacity="1" stroke-dasharray="4,2" stroke-dashoffset="0" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,-13,-21)"
+font-family="Sans Serif" font-size="9" font-weight="700" font-style="italic" 
+>
+<polyline fill="none" vector-effect="non-scaling-stroke" points="297,102 297,81 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="44,192 44,78 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="168,81 168,114 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="168,242 168,166 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="242,151 242,81 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="357,270 303,270 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="104,192 104,166 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="103,244 103,269 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="104,114 104,78 " />
+</g>
+
+<g fill="none" stroke="#ff0000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,-13,-21)"
+font-family="Sans Serif" font-size="9" font-weight="700" font-style="italic" 
+>
+<polyline fill="none" vector-effect="non-scaling-stroke" points="297,81 304,92 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="44,78 37,89 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="168,114 175,103 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="104,166 97,177 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="242,81 249,92 " />
+</g>
+
+<g fill="#ffff00" fill-opacity="1" stroke="#ff0000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,-13,-21)"
+font-family="Sans Serif" font-size="9" font-weight="700" font-style="italic" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M357,241 L407,241 L407,251 L357,251 L357,241"/>
+<polyline fill="none" vector-effect="non-scaling-stroke" points="395,246 395,249 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="403,246 403,249 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="395,246 403,246 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="399,246 399,243 " />
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M357,250 L498,250 L498,292 L357,292 L357,250"/>
+</g>
+
+<g fill="#ffff00" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,-13,-21)"
+font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="395.5" y="264" font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+ >«subsystem»</text>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="379.5" y="274" font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+ >Android Application</text>
+</g>
+
+<g fill="none" stroke="#ff0000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,-13,-21)"
+font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+>
+<polyline fill="none" vector-effect="non-scaling-stroke" points="103,269 96,258 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="303,270 314,277 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="242,81 235,92 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="104,78 97,89 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="104,166 111,177 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="168,114 161,103 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="103,269 110,258 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="168,166 161,177 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="168,166 175,177 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="104,78 111,89 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="297,81 290,92 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="44,78 51,89 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="303,270 314,263 " />
+</g>
+
+<g fill="#ffff00" fill-opacity="1" stroke="#ff0000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,-13,-21)"
+font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M17,192 L67,192 L67,202 L17,202 L17,192"/>
+<polyline fill="none" vector-effect="non-scaling-stroke" points="55,197 55,200 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="63,197 63,200 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="55,197 63,197 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="59,197 59,194 " />
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M17,201 L117,201 L117,243 L17,243 L17,201"/>
+</g>
+
+<g fill="#ffff00" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,-13,-21)"
+font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="35" y="215" font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+ >«subsystem»</text>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="45" y="225" font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+ >Lift View</text>
+</g>
+
+<g fill="#ffff00" fill-opacity="1" stroke="#ff0000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,-13,-21)"
+font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M144,242 L194,242 L194,252 L144,252 L144,242"/>
+<polyline fill="none" vector-effect="non-scaling-stroke" points="182,247 182,250 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="190,247 190,250 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="182,247 190,247 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="186,247 186,244 " />
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M144,251 L303,251 L303,293 L144,293 L144,251"/>
+</g>
+
+<g fill="#ffff00" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,-13,-21)"
+font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="191.5" y="265" font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+ >«subsystem»</text>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="169" y="275" font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+ >Simple HTTP Interface</text>
+</g>
+
+<g fill="#ffff00" fill-opacity="1" stroke="#ff0000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,-13,-21)"
+font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M18,269 L68,269 L68,279 L18,279 L18,269"/>
+<polyline fill="none" vector-effect="non-scaling-stroke" points="56,274 56,277 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="64,274 64,277 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="56,274 64,274 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="60,274 60,271 " />
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M18,278 L122,278 L122,320 L18,320 L18,278"/>
+</g>
+
+<g fill="#ffff00" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,-13,-21)"
+font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="38" y="292" font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+ >«subsystem»</text>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="35.5" y="302" font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+ >Lift Controller</text>
+</g>
+
+<g fill="#ffff00" fill-opacity="1" stroke="#ff0000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,-13,-21)"
+font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M276,102 L326,102 L326,112 L276,112 L276,102"/>
+<polyline fill="none" vector-effect="non-scaling-stroke" points="314,107 314,110 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="322,107 322,110 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="314,107 322,107 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="318,107 318,104 " />
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M276,111 L485,111 L485,153 L276,153 L276,111"/>
+</g>
+
+<g fill="#ffff00" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,-13,-21)"
+font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="348.5" y="125" font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+ >«subsystem»</text>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="308" y="135" font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+ >Facebook Command Interface</text>
+</g>
+
+<g fill="#ffff00" fill-opacity="1" stroke="#ff0000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,-13,-21)"
+font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M210,151 L260,151 L260,161 L210,161 L210,151"/>
+<polyline fill="none" vector-effect="non-scaling-stroke" points="248,156 248,159 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="256,156 256,159 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="248,156 256,156 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="252,156 252,153 " />
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M210,160 L403,160 L403,202 L210,202 L210,160"/>
+</g>
+
+<g fill="#ffff00" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,-13,-21)"
+font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="274.5" y="174" font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+ >«subsystem»</text>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="240" y="184" font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+ >Twitter Command Interface</text>
+</g>
+
+<g fill="#ffff00" fill-opacity="1" stroke="#ff0000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,-13,-21)"
+font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M13,26 L63,26 L63,36 L13,36 L13,26"/>
+<polyline fill="none" vector-effect="non-scaling-stroke" points="51,31 51,34 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="59,31 59,34 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="51,31 59,31 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="55,31 55,28 " />
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M13,35 L129,35 L129,77 L13,77 L13,35"/>
+</g>
+
+<g fill="#ffff00" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,-13,-21)"
+font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="39" y="49" font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+ >«subsystem»</text>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="33" y="59" font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+ >Stock Database</text>
+</g>
+
+<g fill="#ffff00" fill-opacity="1" stroke="#ff0000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,-13,-21)"
+font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M153,21 L203,21 L203,31 L153,31 L153,21"/>
+<polyline fill="none" vector-effect="non-scaling-stroke" points="191,26 191,29 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="199,26 199,29 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="191,26 199,26 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="195,26 195,23 " />
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M153,30 L313,30 L313,80 L153,80 L153,30"/>
+</g>
+
+<g fill="#ffff00" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,-13,-21)"
+font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="201" y="44" font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+ >«subsystem»</text>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="177.5" y="54" font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+ >Text Command Runner</text>
+</g>
+
+<g fill="#ffff00" fill-opacity="1" stroke="#ff0000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,-13,-21)"
+font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M86,114 L136,114 L136,124 L86,124 L86,114"/>
+<polyline fill="none" vector-effect="non-scaling-stroke" points="124,119 124,122 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="132,119 132,122 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="124,119 132,119 " />
+<polyline fill="none" vector-effect="non-scaling-stroke" points="128,119 128,116 " />
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M86,123 L185,123 L185,165 L86,165 L86,123"/>
+</g>
+
+<g fill="#ffff00" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,-13,-21)"
+font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="103.5" y="137" font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+ >«subsystem»</text>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="121" y="147" font-family="Sans Serif" font-size="9" font-weight="700" font-style="normal" 
+ >Model</text>
+</g>
+</g>
+</svg>
