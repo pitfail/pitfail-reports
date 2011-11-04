@@ -50,18 +50,18 @@ Individual Contributions
 	:widths: 15, 6, 6, 6, 6, 6, 6, 6
     Interaction Diagrams (35),     ,  10%,  30%,     ,     ,  20%,  30%
     Classes and Specs (13),        ,     ,     ,     ,     ,     ,
-    ¿ Class Diagram (8),       100%,     ,     ,     ,     ,     ,
-    ¿ Signatures (5),          100%,     ,     ,     ,     ,     ,
+    â†’ Class Diagram (8),       100%,     ,     ,     ,     ,     ,
+    â†’ Signatures (5),          100%,     ,     ,     ,     ,     ,
     Arch. and Design (22),
-    ¿ Arch. Styles (5),            , 100%,     ,     ,     ,     ,
-    ¿ Package Diagram (5),         , 100%,     ,     ,     ,     ,
-    ¿ Map. Hardware (2),           , 100%,     ,     ,     ,     ,
-    ¿ Database (5),                ,     ,     , 100%,     ,     ,
-    ¿ Other (5),                   ,     ,  30%,     ,     ,  70%,
+    â†’ Arch. Styles (5),            , 100%,     ,     ,     ,     ,
+    â†’ Package Diagram (5),         , 100%,     ,     ,     ,     ,
+    â†’ Map. Hardware (2),           , 100%,     ,     ,     ,     ,
+    â†’ Database (5),                ,     ,     , 100%,     ,     ,
+    â†’ Other (5),                   ,     ,  30%,     ,     ,  70%,
     Algos. and Structures (4),     ,     ,     , 100%,     ,     ,
     User Interface (10),           ,     ,     ,     ,     ,     ,
-    ¿ Appearance (5),          100%,     ,     ,     ,     ,     ,
-    ¿ Prose Description (5),   100%,     ,     ,     ,     ,     ,
+    â†’ Appearance (5),          100%,     ,     ,     ,     ,     ,
+    â†’ Prose Description (5),   100%,     ,     ,     ,     ,     ,
     Plan of Work (4),              ,     ,     , 100%,     ,     ,
     References (2),                ,     ,     ,  50%,     ,  50%,
 
@@ -355,7 +355,7 @@ If a player wants to access PitFail via Facebook, he or she can post the request
 The request has to be in format:
 Username: Operation(Buy/Sell):[volume]:Ticker
 
-Currently Facebook interface only supports two operations ¿ Buy or Sell securities.
+Currently Facebook interface only supports two operations Â¿ Buy or Sell securities.
 
 To process this request :
 1.This request should be listened to and Facebook app should be notified of the wall post
