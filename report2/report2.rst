@@ -427,6 +427,17 @@ Types and Operation Signatures`_.
 .. figure:: class-diagrams/class-diagram.pdf
     :width: 100%
 
+
+.. image:: class-diagrams/android-fb/android-class-diagram.png
+    :width: 90%
+
+		Class Diagram for Android Client
+
+.. image:: class-diagrams/android-fb/fb-class-diagram.png
+
+		Class Diagram for FB Client
+
+
 Data Types and Operation Signatures
 -----------------------------------
 
@@ -865,7 +876,7 @@ Memory:  1GB or more of RAM
 
 System type: 32 or 64 bit Operating System
 
-Disk Space: Minimum 100 MB for complete installation 		
+Disk Space: Minimum 150 MB for complete installation 		
 
 Network: Network bandwidth > 56kbps
 
