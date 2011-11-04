@@ -37,6 +37,41 @@
 
 	\pagebreak
 
+Glossary
+========
+
+PitFail Website - PWS
+        An interface to pitfail composed of HTML, Javascript, CSS, and images
+        which is designed to be rendered and accessed from within a modern
+        webbrowser. This provides the most common interface for user
+        interaction with the system.
+
+Twitter text command interface - TTCI
+        A system whereby a user of PitFail (or one who desires to become a user
+        thereof) sends a message limited in size by the entity known as Twitter
+        (pressently, the author notes this size to be 140 8bit characters)
+        directed towards an account fully contolled by the PitFail software.
+        PitFail then processes the text contained within this message via a
+        deterministic non-backtracking parser to determine the user's
+        intention. PitFail then exectutes the action it anticipates the user
+        desired, possibly returning some acknowledgment or additionaly
+        information to the user via the very same mechanize the user utilized
+        to contact PitFail.
+
+Simple HTTP Interface - SHI
+        Presently utilized by the Android client. Provides bare-bones access to
+        allow a workable beta.
+
+Facebook text command interface - FTCI
+        When a user posts to a particular Facebook wall, their posting is taken
+        to be a request to the system and is processed in a manner similar to
+        TTCI. *Fixme: Where is the code? Does it run in the same context as
+        PWS, SHI, and TTCI? Does it interface via SHI?*
+
+Android Application - AA
+        Presently, the only code which does not run in the "server" context.
+        Provides a simplistic interface to pitfail.
+
 Interaction Diagrams
 ====================
 
@@ -229,16 +264,17 @@ View Portfolio
 Viewing a portfolio is essentially a task of pulling information out of the
 model and converting it to HTML:
 
-.. image:: sequence-diagrams/diagrams/view-portfolio-web.pdf
+.. figure:: sequence-diagrams/diagrams/view-portfolio-web.pdf
     :width: 90%
 
 
 BUY/SELL via the Android Cleint
 --------------------------------
-.. image:: sequence-diagrams/android/BuyStock.png
+
+.. figure:: sequence-diagrams/android/BuyStock.png
     :width: 90%
 
-		Buy Stocks via Android Client
+    Buy Stocks via Android Client
 
 The diagram above is the interaction sequence diagram for UC Buy Stocks from an Android Mobile Client.
 As shown, first the search action is initiated by the Android Controller which requested by the Android user.
@@ -251,11 +287,10 @@ from Scala classes.  The reason for choosing Java for Android client is for its 
 internally makes use of the Portfolio class the extract the user info from the Database. If the Volume to be 
 bought is correct, user's portfolio is updated and results are sent back to the user.
 
-
-.. image:: sequence-diagrams/android/SellStock.png
+.. figure:: sequence-diagrams/android/SellStock.png
     :width: 90%
 
-		Sell Stocks via Android Client
+    Sell Stocks via Android Client
 
 The diagram above is the interaction sequence diagram for UC Sell Stocks from an Android Mobile Client.
 The user initiates the action by creating a request by providing the Stock ticker name he intends to sell off.
@@ -266,8 +301,6 @@ there can be another asynchronous call from some other client interface by the s
 Such a situation is handled by throwing back an exception message "You dont own this stock" and  
 corresponding appropriate message back to the user.Currently, we sell off all the corresponding stocks. 
 In the future, we do plan to give user an option of amount of volume he wants to sell off. 
-
-
 
 Buy/Sell Operations via FaceBook Interface
 ------------------------------------------
@@ -289,7 +322,6 @@ To process this request :
 4.The player should be notified of the status of the request (successful/failed)
 Here is a description in detail:
 
-
 Parse Message:
 ..............
 
@@ -300,7 +332,6 @@ The first step is to read the wall post and parse it to a request that a server 
 
 FBListener listens to the wall post of our account and notifies pitFail FB app of any new wall post.  We use RestFB APIs  that access Facebook account of PitFail using the unique access token provided by FaceBook.  API fetchConnection(User) reads the new wall post and passes it to ParseMessage module. ParseMessage processes the wall post, extracts the information required to process the request. It also checks for the right number of arguments and the data type (e.g. Volume has to be a number).
 If the message is good enough to be processed (no errors), the parsed request is sent to server , otherwise the player is notified of the error by commenting on player's wall post. 
-
 
 Ensure User:
 ............
@@ -315,21 +346,20 @@ If the user exists, the request is processed further otherwise the player is not
 
 The Operations (Buy/Sell)
 .........................
-Once the wall post is parsed into a trade request  and the existence of user is checked, the actual operation takes place.
 
+Once the wall post is parsed into a trade request  and the existence of user is checked, the actual operation takes place.
 
 Buy Stock:
 ``````````
 
-.. image:: sequence-diagrams/FB/buy.png
+.. figure:: sequence-diagrams/FB/buy.png
     :width: 90%
-
 
 Sell Stock:
 ```````````
 
 
-.. image:: sequence-diagrams/FB/sell.png
+.. figure:: sequence-diagrams/FB/sell.png
     :width: 90%
 
 The  working of a server is explained in detail in website section.
@@ -337,8 +367,6 @@ When the server receives a valid request from a legitimate user, it accesses
 the portfolio of the user to perform the operation.  Based on the value
 returned by user, FB App posts comment on the player's wall post saying
 "Successful" or "failed <reason>"
-
-
 
 
 Class Diagram and Interface Specification
@@ -359,18 +387,41 @@ Architectural Styles
 PitFail is composed of a large number of pieces of code which provide a wide range of functionality. This necessitated using different achitectural styles for various portions of the program
 
 * Lift, the web framework used as th core of PitFail's server, uses a View First achitecture.
-* Stock Database, the portion of PitFail's code dedicated to interaction with a `Stock Data Source`, is 
+* Stock Database, the portion of PitFail's code dedicated to interaction with a
+  `Stock Data Source`, is designed using the Pipeline architectural style. In
+  querying various `Stock Data Sources`, it is desirable to issue as few
+  requests as possible, limit the number of requests, and allow for some of the
+  `Stock Data Sources` to fail to reply to requests. Acheiving the first of
+  these goals required collating and caching requests. The second was
+  implimented via a general rate limiting Stock Database. The third presents a
+  single Stock Database which in reality queries multiple Stock Databases.
 
 
 Identifying Subsystems
 ----------------------
+
+The majority of the code for PitFail falls under the "server side" category.
+All code for controlling the WebPage, Twitter Iterface, Backend, General Text
+Command Interface, and what shall be refered to as the Simple HTTP Request
+interface (a Java Servlet presently used for Android interaction) run within a
+single contexed on the server.
+
+Key "client side" portions of the code are the Android application and the
+Javascript code generated by Lift which notifies server side handlers of some
+event/change or makes a request which runs a server side handler. None of the
+`WebPage` Javascript code should be considered a subsystem of PitFail
+
 
 - Backend. This includes database interactions. It is divoriced from any of the frontend code, which simply makes calls into it.
 - Main Webpage. Written using Lift. Is itself split into view and controll portions.
 - Text Interface (TI). Provides a wrapper around the backend allowing for the
   execution of parsed text based commands which result in modifications or
   queries to the backend.
-  - This addtionally encompasses the Twitter Text Command Interface (TTCI). TTCI utilizes the Text Interface code as a library.
+  - This addtionally encompasses the Twitter Text Command Interface (TTCI).
+    TTCI utilizes the Text Interface code as a library, simply calling the
+    Parser and Action Handler as possible commands are recieved via a
+    continuous Twitter stream.
+- Simple Request Handler. Implimented as a Java Servlet which runs within the same server as Lift. Accesses the backend directly via the backend code. Is called via HTTP requests by the Android and Facebook(?) interfaces, neither of which run in the same context as the 
 
 Mapping Subsystems to Hardware
 ------------------------------
@@ -522,6 +573,40 @@ CREATE TABLE historical_price(
 
 Network Protocol
 ----------------
+
+PitFail has multiple clients like Website, Twitter, Android and Facebook. All these clients
+communicate with the PitFail server via HTTP (Hyper Text Transfer Protocol) over TCP/IP sockets. 
+Another network protocol which Pitfail uses is JDBC (Java Database Connectivity) to communicate 
+with the H2 database which is a Open Source Java based database.
+Following is a brief description of both the protocols.
+
+
+HTTP (Hyper Text Transfer Protocol):
+HTTP is well known internet protocol and is used by most of systems communicating over the internet. 
+HTTP defines how messages should be defined, packaged and transmitted over the internet. 
+HTTP is a stateless protocol and does not maintain any state of messages sent over it. 
+HTTP makes use of "Request" and "Response" headers to transfer data. 
+
+Message format:
+The request message consists of the following:
+a.Request line, such as GET /pitfail/index.html HTTP/1.1, which requests a resource called /pitfail/index.html from server.
+b.Headers such as Accept-Language: en
+c.An empty line.
+d.An optional message body.
+
+HTTP defines nine methods indicating the desired action to be performed on the identified 
+resource out of which PitFail uses its POST method for almost all its communication with the server. 
+
+
+JDBC (Java Database Connectivity):
+JDBC provides methods for querying and updating data in a database. JDBC is oriented towards 
+relational databases. JDBC allows multiple implementations to exist and be used by the same application. 
+The API provides a mechanism for dynamically loading the correct Java packages and registering them 
+with the JDBC Driver Manager.The Driver Manager is used as a connection factory for creating JDBC connections.
+JDBC connections support creating and executing statements. These may be update statements such as SQL's CREATE, 
+INSERT, UPDATE and DELETE, or they may be query statements such as SELECT. 
+
+
 
 Global Control Flow
 -------------------
@@ -913,7 +998,7 @@ Modules                Owner
 =====================  ======================  
 Website                Michael, Owen           
 Android                Roma, Sonu              
-Facebook               Avanti                  
+Facebook               Avanti, Sonu                  
 Twitter                Cody                    
 Database               Brian                   
 Back-end Functions     Michael, Owen, Brian    
@@ -934,5 +1019,10 @@ References
 ==========
 Marsic, Ivan. *Software Engineering*. Piscataway: Rutgers University, 2011. PDF.
 Miles,  Russ  and  Kim  Hamilton.  *Learning  UML  2.0*.  Ed.  Eric  McLaughlin  and  Mary  O'Brien. Sebastopol: O'Reilly, 2006.
+
+
+http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
+
+http://en.wikipedia.org/wiki/Java_Database_Connectivity
 
 
