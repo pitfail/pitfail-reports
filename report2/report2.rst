@@ -428,17 +428,18 @@ Types and Operation Signatures`_.
     :width: 100%
 
 
-
 .. figure:: class-diagrams/android-fb/android-class-diagram.png
-    :width: 90%
+    :width: 100%
+
 
 		Class Diagram for Android Client
 
 
 
 .. figure:: class-diagrams/android-fb/fb-class-diagram.png
-    :width: 90%
+    :width: 100%
 
+		
 		Class Diagram for FB Client
 
 
