@@ -390,6 +390,79 @@ Class Diagram
 
 Data Types and Operation Signatures
 -----------------------------------
+Mapping between Scala and UML is more difficult than mapping between a
+"traditional" object-oriented language such as C++ or Java and UML class
+diagrams. In particular, methods and attributes in Scala are often
+interchangeable and both may use symbols for their names. As such, any method
+that accepts zero parameters and has no side-affects is written as an attribute
+instead of a method. Any methods or attributes that contain symbols or
+punctuation, such as "$", are prefixed with <<operator>>. Keep these conventions
+in mind when reading the following section.
+
+As a financial simulator, Pitfail requires interacting with several types of
+quantities: (1) volume of stock, (2) stock prices, (3) cash, and (4) fractional
+ownership of an asset. These concepts are represented by, respectively, the
+*Shares*, *Price*, *Dollars*, and *Scale* classes:
+
+.. figure:: class-diagrams/sigs-wrappers.pdf
+    :width: 80%
+
+Using these special-purpose classes provides much more type safety than storing
+all four of these quantities as BigDecimals. This is especially important when
+performing mathematical operations on these types: some combinations of types
+are useful, while others are meaningless. The process of switching from a
+unilateral use of BigDecimal caught several bugs that would have otherwise gone
+
+The next most important classes are those that represent individual stocks and
+stock quotes. In Pitfail's object model, *Stock* is a something that can be
+purchased on a market, a *Quote* is a stock paired with it's current price, and
+a *StockAsset* is the number of shares of a stock owned by a particular user:
+
+.. figure:: class-diagrams/sigs-stocks.pdf
+    :width: 80%
+
+Immediately one is drawn to the peculiar decision of splitting *QuoteInfo* from
+*Quote*. This is intentionally done to isolate optional information about a stock,
+which may not always be available, from the information that is necessary to make
+a trade. By isolating this superfluous information it is possible to change its
+in-memory representation from an object to a sparse data structure if necessary.
+
+Given a *Stock*, a *Quote* must be generated using a stock data provider such as
+Yahoo! Finance. This is encapsulated in the *StockDatabase* interface and its
+concrete implementations:
+
+.. figure:: class-diagrams/sigs-stocks-db.pdf
+    :width: 80%
+
+Most importantly, the *YahooCSVStockDatabase* and *YahooYQLStockDatabase*
+classes query Yahoo! Finance for updated stock quotes. These two classes are
+combined using the *CachingStockDatabase*, a in-memory cache that uses a hash
+table to memoize repeated queries for the same quotes. Finally, the
+*FailoverStockDatabase* tries a list of stock providers in series until one
+query succeeds: this is important because Yahoo! Finance's YQL interface
+provides the richest interface to stock data, but is notoriously unreliable.
+
+Once a stock has been purchased by a user it is wrapped in a *StockAsset* and
+added to the user's portfolio. As the *User*, *Portfolio*, and *StockAsset*
+classes contain persistent data, all of these classes interact with the
+database using Squeryl:
+
+.. figure:: class-diagrams/sigs-portfolio.pdf
+    :width: 80%
+
+Similarly, a variety of database-wrapper classes are defined for derivatives:
+
+.. figure:: class-diagrams/sigs-derivatives.pdf
+    :width: 80%
+
+This set of classes is the primary interaction between the view, the model, and
+the database. Calling one of these methods, e.g. *buyStock()* on a *Portfolio*,
+causes Squeryl to accordingly update the database and to generate a new entry
+in the newsfeed (when appropriate). These entries are stored in the *Newsfeed*
+class, which is a simple chronological log:
+
+.. figure:: class-diagrams/sigs-news.pdf
+    :width: 2.5in
 
 System Architecutre and System Design
 =====================================
@@ -404,7 +477,7 @@ of other portions to the degree that they can be viewed as libraries. This is
 particularly the case with the Stock Database code, which presents itself as a
 library from which different querying archetectures may be constructed.
 
-*TODO: REWORK THE FOLLOWING*
+.. *TODO: REWORK THE FOLLOWING*
 
 * Lift, the web framework used as th core of PitFail's server, uses a View
   First achitecture.
