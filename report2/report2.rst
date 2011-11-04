@@ -269,6 +269,66 @@ In the future, we do plan to give user an option of amount of volume he wants to
 
 
 
+Buy/Sell Operations via FaceBook Interface
+------------------------------------------
+
+If a player wants to access PitFail via Facebook, he or she can post the request on PitFail’s wall.
+
+The request has to be in format:
+Username: Operation(Buy/Sell):[volume]:Ticker
+
+Currently FaceBook interface only supports two operations – Buy or Sell securities.
+
+To process this request :
+1.This request should be listened to and FB app should be notified of the wall post
+2.The wall post should be read and parsed.
+3.The request should  invoke appropriate module from server to get the operation done
+4.The player should be notified of the status of the request (successful/failed)
+Here is a description in detail:
+
+
+ParseMessage:
+-------------
+The first step is to read the wall post and parse it to a request that a server can handle.
+
+.. image:: sequence-diagrams/FB/parseMessage.png
+    :width: 90%
+
+FBListener listens to the wall post of our account and notifies pitFail FB app of any new wall post.  We use RestFB APIs  that access Facebook account of PitFail using the unique access token provided by FaceBook.  API fetchConnection(User) reads the new wall post and passes it to ParseMessage module. ParseMessage processes the wall post, extracts the information required to process the request. It also checks for the right number of arguments and the data type (e.g. Volume has to be a number).
+If the message is good enough to be processed (no errors), the parsed request is sent to server , otherwise the player is notified of the error by commenting on player’s wall post. 
+
+
+EnsureUser:
+-----------
+
+Now that the message is parsed, we need to check the authenticity of the user. Facebook interface of PitFail does not (for now) support registration.  The player has to be already registered to the system to play the game via FB interface.
+
+.. image:: sequence-diagrams/FB/ensureUser.png
+    :width: 90%
+
+ensureUser ensures the existence of a user before the user’s request tries to access portfolio. 
+If the user exists, the request is processed further otherwise the player is notified of the error occurred by posting a comment on his wall post.
+
+The Operations (Buy/Sell):
+--------------------------
+Once the wall post is parsed into a trade request  and the existence of user is checked, the actual operation takes place.
+
+
+Buy operation:
+--------------
+.. image:: sequence-diagrams/FB/buy.png
+    :width: 90%
+
+
+Sell operation:
+---------------
+
+.. image:: sequence-diagrams/FB/sell.png
+    :width: 90%
+
+The  working of a server is explained in detail in website section.
+When the server receives a valid request from a legitimate user, it accesses the portfolio of the user to perform the operation.  Based on the value returned by user, FB App posts comment on the player’s wall post saying “Successful” or “failed <reason>”
+
 
 
 
