@@ -610,8 +610,6 @@ ported Android to in the last hour or so. No control over this hardware is to
 be had, and as such the application must run flawlessly on all possible
 configurations.
 
-.. error:: FIXME: where is FACEBOOK???
-
 Persistent Data Storage
 -----------------------
 
