@@ -3,11 +3,16 @@ PDFLATEX = pdflatex
 PS2PDF = ps2pdf
 INKSCAPE = inkscape
 CONVERT = convert
+PDF90 = pdf90
 
 TARGET = report2
 TRASH  = $(TARGET).pdf \
          $(TARGET).tex $(TARGET).aux $(TARGET).log  $(TARGET).out \
-         $(TARGET).maf $(TARGET).mtc $(TARGET).mtc0
+         $(TARGET).maf $(TARGET).mtc $(TARGET).mtc0 $(PDF_OBJ)
+
+PDF_OBJ = plan_of_work/pow_report2-rotated90.pdf
+PDF_DEP = $(PDF_OBJ)
+
 
 .PHONY: all clean
 .SECONDARY:
@@ -17,16 +22,23 @@ all: $(TARGET).pdf
 clean:
 	$(RM) $(TRASH)
 
+plan_of_work/pow_report2.pdf : plan_of_work/pow_report2.mpp
+	echo "$@ depends on $< but $@ was not updated"
+	false
+
 %.pdf: %.eps
 	$(PS2PDF) $< $@
 
 %.pdf: %.ps
 	$(PS2PDF) $< $@
 
+%-rotated90.pdf: %.pdf
+	cd `dirname $<` && $(PDF90) `basename $<`
+
 %.pdf: %.svg
 	$(INKSCAPE) --export-pdf=$@ $<
 
-%.pdf: %.tex
+%.pdf: %.tex $(PDF_DEP)
 	$(PDFLATEX) $<
 	$(PDFLATEX) $<
 

@@ -893,7 +893,8 @@ UC-23   Accept derivative       75%           Basic functionality is present. Ne
 
 Plan of Work
 ------------
-.. image:: Plan_of_Work/Plan_of_Work__Report2.pdf
+.. figure:: plan_of_work/pow_report2-rotated90.pdf
+        :scale: 80%
 
 Breakdown of Responsibilities
 -----------------------------
