@@ -51,7 +51,7 @@ Individual Contributions
     
     Interaction Diagrams (35),     ,  10%,  30%,     ,  10%,  10%,  30%
     Classes and Specs (13),        ,     ,     ,     ,     ,     ,
-    ¿ Class Diagram (8),        60%,     ,     ,     ,  20%,  20%,
+    ¿ Class Diagram (8),        50%,     ,     ,     ,  25%,  25%,
     ¿ Signatures (5),          100%,     ,     ,     ,     ,     ,
     Arch. and Design (22),
     ¿ Arch. Styles (5),            , 100%,     ,     ,     ,     ,
@@ -434,9 +434,14 @@ Types and Operation Signatures`_.
     Class Diagram for Android Client
 
 .. figure:: class-diagrams/android-fb/fb-class-diagram.png
+    :width: 90%
 
     Class Diagram for FB Client
 
+.. figure:: class-diagrams/android-fb/fb-class-diagram.png
+    :width: 100%
+    
+    Class Diagram for FB Client
 
 Data Types and Operation Signatures
 -----------------------------------
