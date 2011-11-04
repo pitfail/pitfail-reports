@@ -232,6 +232,46 @@ model and converting it to HTML:
 .. image:: sequence-diagrams/diagrams/view-portfolio-web.pdf
     :width: 90%
 
+
+BUY/SELL via the Android Cleint
+--------------------------------
+.. image:: sequence-diagrams/android/BuyStock.png
+    :width: 90%
+
+		Buy Stocks via Android Client
+
+The diagram above is the interaction sequence diagram for UC Buy Stocks from an Android Mobile Client.
+As shown, first the search action is initiated by the Android Controller which requested by the Android user.
+The Android controller sends an HTTP Post request to Yahoo Stock Source. This request specifically asks
+for the Stock Value of the stock ticker by sending the corresponding tag with the request. Once the response
+is received, the Mobile Client creates the Buy request. The Android controller calls the BuyServlet using an
+HTTP Post request via the Jetty Server.The Jetty server has capability to support both Scala and Java sources
+as it runs on a JVM. All the servlets for Android are written in Java which internally calls functions
+from Scala classes.  The reason for choosing Java for Android client is for its compatibility.The BuySerlvlet
+internally makes use of the Portfolio class the extract the user info from the Database. If the Volume to be 
+bought is correct, user’s portfolio is updated and results are sent back to the user.
+
+
+.. image:: sequence-diagrams/android/SellStock.png
+    :width: 90%
+
+		Sell Stocks via Android Client
+
+The diagram above is the interaction sequence diagram for UC Sell Stocks from an Android Mobile Client.
+The user initiates the action by creating a request by providing the Stock ticker name he intends to sell off.
+The Android controller sends an HTTP Post request to SellServlet via the Jetty Server. The BuyServlet 
+makes use of portfolio class and call the function to update the user profile.Because we expect 
+asynchronous requests there is a possibility that by the time a SellStock is completely executed 
+there can be another asynchronous call from some other client interface by the same user. 
+Such a situation is handled by throwing back an exception message “You dont own this stock” and  
+corresponding appropriate message back to the user.Currently, we sell off all the corresponding stocks. 
+In the future, we do plan to give user an option of amount of volume he wants to sell off. 
+
+
+
+
+
+
 Class Diagram and Interface Specification
 =========================================
 
