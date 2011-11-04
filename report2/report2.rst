@@ -51,7 +51,7 @@ Individual Contributions
     
     Interaction Diagrams (35),     ,  10%,  30%,     ,  10%,  10%,  30%
     Classes and Specs (13),        ,     ,     ,     ,     ,     ,
-    ¿ Class Diagram (8),       100%,     ,     ,     ,     ,     ,
+    ¿ Class Diagram (8),        60%,     ,     ,     ,  20%,  20%,
     ¿ Signatures (5),          100%,     ,     ,     ,     ,     ,
     Arch. and Design (22),
     ¿ Arch. Styles (5),            , 100%,     ,     ,     ,     ,
