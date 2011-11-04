@@ -232,6 +232,115 @@ model and converting it to HTML:
 .. image:: sequence-diagrams/diagrams/view-portfolio-web.pdf
     :width: 90%
 
+
+BUY/SELL via the Android Cleint
+--------------------------------
+.. image:: sequence-diagrams/android/BuyStock.png
+    :width: 90%
+
+		Buy Stocks via Android Client
+
+The diagram above is the interaction sequence diagram for UC Buy Stocks from an Android Mobile Client.
+As shown, first the search action is initiated by the Android Controller which requested by the Android user.
+The Android controller sends an HTTP Post request to Yahoo Stock Source. This request specifically asks
+for the Stock Value of the stock ticker by sending the corresponding tag with the request. Once the response
+is received, the Mobile Client creates the Buy request. The Android controller calls the BuyServlet using an
+HTTP Post request via the Jetty Server.The Jetty server has capability to support both Scala and Java sources
+as it runs on a JVM. All the servlets for Android are written in Java which internally calls functions
+from Scala classes.  The reason for choosing Java for Android client is for its compatibility.The BuySerlvlet
+internally makes use of the Portfolio class the extract the user info from the Database. If the Volume to be 
+bought is correct, user's portfolio is updated and results are sent back to the user.
+
+
+.. image:: sequence-diagrams/android/SellStock.png
+    :width: 90%
+
+		Sell Stocks via Android Client
+
+The diagram above is the interaction sequence diagram for UC Sell Stocks from an Android Mobile Client.
+The user initiates the action by creating a request by providing the Stock ticker name he intends to sell off.
+The Android controller sends an HTTP Post request to SellServlet via the Jetty Server. The BuyServlet 
+makes use of portfolio class and call the function to update the user profile.Because we expect 
+asynchronous requests there is a possibility that by the time a SellStock is completely executed 
+there can be another asynchronous call from some other client interface by the same user. 
+Such a situation is handled by throwing back an exception message "You dont own this stock" and  
+corresponding appropriate message back to the user.Currently, we sell off all the corresponding stocks. 
+In the future, we do plan to give user an option of amount of volume he wants to sell off. 
+
+
+
+Buy/Sell Operations via FaceBook Interface
+------------------------------------------
+
+If a player wants to access PitFail via Facebook, he or she can post the request on PitFail's wall.
+
+The request has to be in format:
+Username: Operation(Buy/Sell):[volume]:Ticker
+
+Currently FaceBook interface only supports two operations ¿ Buy or Sell securities.
+
+To process this request :
+1.This request should be listened to and FB app should be notified of the wall post
+
+2.The wall post should be read and parsed.
+
+3.The request should  invoke appropriate module from server to get the operation done
+
+4.The player should be notified of the status of the request (successful/failed)
+Here is a description in detail:
+
+
+Parse Message:
+..............
+
+The first step is to read the wall post and parse it to a request that a server can handle.
+
+.. image:: sequence-diagrams/FB/parseMessage.png
+    :width: 90%
+
+FBListener listens to the wall post of our account and notifies pitFail FB app of any new wall post.  We use RestFB APIs  that access Facebook account of PitFail using the unique access token provided by FaceBook.  API fetchConnection(User) reads the new wall post and passes it to ParseMessage module. ParseMessage processes the wall post, extracts the information required to process the request. It also checks for the right number of arguments and the data type (e.g. Volume has to be a number).
+If the message is good enough to be processed (no errors), the parsed request is sent to server , otherwise the player is notified of the error by commenting on player's wall post. 
+
+
+Ensure User:
+............
+
+Now that the message is parsed, we need to check the authenticity of the user. Facebook interface of PitFail does not (for now) support registration.  The player has to be already registered to the system to play the game via FB interface.
+
+.. image:: sequence-diagrams/FB/ensureUser.png
+    :width: 90%
+
+ensureUser ensures the existence of a user before the user's request tries to access portfolio. 
+If the user exists, the request is processed further otherwise the player is notified of the error occurred by posting a comment on his wall post.
+
+The Operations (Buy/Sell)
+.........................
+Once the wall post is parsed into a trade request  and the existence of user is checked, the actual operation takes place.
+
+
+Buy Stock:
+``````````
+
+.. image:: sequence-diagrams/FB/buy.png
+    :width: 90%
+
+
+Sell Stock:
+```````````
+
+
+.. image:: sequence-diagrams/FB/sell.png
+    :width: 90%
+
+The  working of a server is explained in detail in website section.
+When the server receives a valid request from a legitimate user, it accesses
+the portfolio of the user to perform the operation.  Based on the value
+returned by user, FB App posts comment on the player's wall post saying
+"Successful" or "failed <reason>"
+
+
+
+
 Class Diagram and Interface Specification
 =========================================
 
@@ -247,8 +356,21 @@ System Architecutre and System Design
 Architectural Styles
 --------------------
 
+PitFail is composed of a large number of pieces of code which provide a wide range of functionality. This necessitated using different achitectural styles for various portions of the program
+
+* Lift, the web framework used as th core of PitFail's server, uses a View First achitecture.
+* Stock Database, the portion of PitFail's code dedicated to interaction with a `Stock Data Source`, is 
+
+
 Identifying Subsystems
 ----------------------
+
+- Backend. This includes database interactions. It is divoriced from any of the frontend code, which simply makes calls into it.
+- Main Webpage. Written using Lift. Is itself split into view and controll portions.
+- Text Interface (TI). Provides a wrapper around the backend allowing for the
+  execution of parsed text based commands which result in modifications or
+  queries to the backend.
+  - This addtionally encompasses the Twitter Text Command Interface (TTCI). TTCI utilizes the Text Interface code as a library.
 
 Mapping Subsystems to Hardware
 ------------------------------
@@ -307,8 +429,278 @@ Data Structures
 
 User Interface Design and Implementation
 ========================================
+Pitfail's overall user interface closely resembles the interface depicted in
+its mockups: most of the changes were merely cosmetic. Most of the functional
+changes are because the current implementation of Pitfail is missing features
+that were included in the mockup: e.g. companies, leagues, and social
+interaction. These changes are grouped into general categories, described in
+detail, and justified in the following sections.
+
+Welcome Page for New User
+-------------------------
+Pitfail was originally described as having a "guided registration" process
+where the user registers as part of purchasing his or her first stock. While
+the user can still explore the stock purchasing interface before logging in,
+the current implementation of Pitfail does not support this "zero effort"
+registration because of a technical limitation. As such, guided messages no
+longer are displayed next to each step in the purchasing pipeline:
+
+.. raw:: latex
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[height=1.5in]{ui/ui-welcome2}
+        \includegraphics[height=1.5in]{ui/actual-welcome}
+    \end{figure}
+
+Note that the list of steps is not visible and the current step is not
+indicated with an arrow. Some form of guided registration will be implemented
+in the next version of Pitfail. Thankfully, this doesn't change user effort:
+the user simply must login *before* selecting a stock instead of *after*
+selecting a stock.
+
+Portfolio Management
+--------------------
+Perhaps the largest change from the original mockups to the current
+implementation is the user's portfolio. This was planned to be displayed as a
+single large table containing the all of the user's assets: a combination of
+cash, stocks, and derivatives. This design made it difficult to visually
+differentiate between types of assets and to locate an asset of interest.
+
+Instead, the portfolio displayed as a "T"-chart, splitting assets and
+liabilities into two separate columns. The assets column is further subdivided
+by the type of asset: cash, stocks, and derivatives. These subdivisions allow
+the user to quickly locate an asset of interest, for example, when selling a
+stock. Each column is summarized with a "total" row that estimates the current
+value of his or her portfolio by approximating the value of derivatives as if
+they were immediately executed. While none of these changes dramatically alter
+user effort relative to the mockup, reformatting the portfolio as a "T"-chart
+and adding this additional information makes it much easier for a user to view
+his or her current assets at a glance:
+
+.. raw:: latex
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=3in]{ui/ui-portfolio}
+        \includegraphics[width=3in]{ui/actual-portfolio}
+    \end{figure}
+
+Besides the changes to the table of assets, there are clearly several features
+missing from the implementation: (1) historic portfolio performance, (2)
+multiple portfolios, and (3) league navigation. These missing interface
+elements will be restored after companies, leagues, and logging of historic
+prices are implemented in the next iteration of Pitfail.
+
+Buying Stocks
+-------------
+Purchasing stocks is one of the fundamental activities on Pitfail. The
+interface for buying stocks is very similar to the interface shown in the
+original mockups: when the user enters a valid ticker symbol in the large
+search bar, a small stock quote expands below the search bar. This quote
+includes a few statistics about the stock's daily performance and a graph of
+the stock's performance over time.
+
+.. raw:: latex
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=3in]{ui/ui-buy}
+        \includegraphics[width=3in]{ui/actual-buy}
+    \end{figure}
+
+Unlike the original mockup, the options for interacting with the stock are not
+embedded in the stock quote. Instead, they are displayed in a dedicated section
+of the webpage. This extra space is used to display a short description of
+stock trading and helps guide new users through the process: something that
+will be even more important once options are supported. While the original
+mockups allowed the user to enter an amount in either shares or dollars, this
+was found to be confusing and was removed in the current version of the user
+interface.
+
+Neither of these changes do not considerably effect user effort.
+
+Trading Derivatives
+-------------------
+If the user clicks the "add to derivative" button instead of the "buy stock"
+button, he or she is presented with the derivative offering page. In the
+original mockups this was shown as a prose-like description of a derivative
+with a number of blanks. Originally intended to guide the user through the
+derivative creation process, this was found to be infeasible with the number of
+derivative configuration options supported in Pitfail. As such, this was
+redesigned to resemble a traditional form: a prose description followed by a
+table of input fields.
+
+.. raw:: latex
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=3in]{ui/ui-derivative}
+        \includegraphics[width=3in]{ui/actual-derivative}
+    \end{figure}
+
+Once the derivative has been created it can either be offered to a specific
+user or to a public auction. If a buyer is specified, that user is prompted to
+accept or decline the offer using a special form in his or her portfolio. If
+the derivative is offered to a public auction, a link to the auction page is
+added to the sidebar and other users have an opportunity to bid. These features
+were not included in the mockups, so see the User Effort Estimation section
+below for a detailed usability analysis.
+
+Social Features
+---------------
+Pitfail's original mockups included a real-time newsfeed at the bottom of every
+page. This newsfeed was a log of trading history and served as a hub for social
+interaction between users. A limited implementation of this newsfeed is
+included in the current version of Pitfail. Unlike the mockup, the newsfeed is
+included in every page's sidebar instead of the footer. This is similar to the
+real-time feed that was recently added to Facebook and will be familiar to the
+majority of Pitfail's users.
+
+.. raw:: latex
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[height=2in]{ui/ui-newsfeed}
+        \includegraphics[height=2in]{ui/actual-newsfeed}
+    \end{figure}
+
+Besides the different location, much of the functionality displayed in the
+mockups has not yet been implemented. Notably, this includes: (1) user-specific
+newsfeeds, (2) voting, (3) commenting, (4) messages for derivative trades, and
+(5) messages for a users going broke. These features will be implemented in the
+next version of Pitfail and do not effect user effort.
+
+User Effort Estimation
+----------------------
+Several of the most common usage scenarios for the PitFail website are
+evaluated below. In particular, note that common scenarios (e.g. buying a
+stock) are much easier to perform than rare scenarios (e.g. creating a new
+league):
+
+====================================  ======  ==========
+Usage Scenario                        Clicks  Keystrokes
+====================================  ======  ==========
+purchase a stock                      3       7
+create a derivative                   4       27
+act on a pending derivative offer*    1       1
+bid on a derivative auction*          4       5
+close a derivative auction*           1       1
+sell a stock                          3       2
+create a new league                   n/a     n/a
+modify an existing league             n/a     n/a
+invite a user to a league             n/a     n/a
+====================================  ======  ==========
+
+Features that are not currently implemented are shown as empty rows and actions
+that have been added since the original mockups are marked with asterisks. Both
+these new usage scenarios and existing usage scenarios that were modified are
+analyzed in detail below. This includes buying and selling stocks because of
+the lack of league support in the current version of Pitfail.
+
+Purchase a Stock
+................
+Assume the user wishes to purchase 10 shares of Google stock. The user must:
+
+- **Navigation:** total of one click, as follows
+
+ 1. Click on "login".
+
+- **Data Entry:** total of two clicks and seven keystrokes, as follows
+
+ 1. Click on the "enter a ticker symbol" text field.
+ 2. Press the keys "G", "O", "O", and "G".
+ 3. Press "enter" to load the quote.
+ 4. Press the keys "1" and "0" to specify 10 shares.
+ 5. Click the "buy" button to confirm the purchase.
+
+Note that the user could press "enter" instead of clicking the "buy" button.
+
+Creating a Derivative
+.....................
+Assume the user wishes to offer a call option to Bucky that includes 10 shares
+of Google stock and expires on December 25, 2011. This option costs $1000 to
+begin active and one can buy the shares for $10,000 if and only if the market
+rate for Google stock is greater than $1000 per share. The user must:
+
+- **Navigation:** total of one click, as follows
+
+ 1. Click on "login".
+
+- **Data Entry:** total of 3 clicks and 27 keystrokes, as follows
+
+ 1. Click on the "enter a ticker symbol" text field.
+ 2. Press the keys "G", "O", "O", and "G".
+ 3. Press the "enter" key to load the quote.
+ 4. Press the keys "1" and "0" to specify 10 shares.
+ 5. Click the "add" button to begin creating a derivative.
+ 6. Press the "B", "u", "c", "k", and "y" keys to enter the recipient's name.
+ 7. Press "tab" to move to the "premium" field.
+ 8. Press the keys "1", "0", "0", and "0" to enter $1000.
+ 9. Press "tab" to move to the "expiration date" field.
+ 10. Press the "1", "2", "/", "2", and "5" keys to select December 25th of the current year.
+ 11. Press "tab" to move to the "strike price" field.
+ 12. Press the "1", "0", "0", "0", and "0" keys to enter $10000.
+ 13. Click on the "Propose Contract" button to complete the transaction.
+
+Sell a Stock
+............
+Assume the user wishes to sell 10 shares of Google stock from his or her Global
+League. The user must:
+
+- **Navigation:** total of one clicks, as follows
+
+ 1. Click on "login".
+
+- **Data Entry:** total of two clicks and two keystrokes, as follows
+
+ 1. Click on the text input in the row corresponding to Google.
+ 2. Press the keys "1" and "0" to specify 10 shares.
+ 3. Click the "sell" button to confirm the purchase.
+
+Note that the user could press "enter" instead of clicking the "sell" button.
 
 
+Act on Derivative Offer
+.......................
+Assume the user wishes to accept a derivative that was directly offered to him
+or her:
+
+- **Navigation:** total of one click, as follows
+
+ 1. Click on "login".
+
+- **Data Entry:** total of one click, as follows
+
+ 1. Click on the "accept" button next to the correct derivative.
+
+Bid on Derivative
+.................
+Assume the user wishes to bid $50,000 on a derivative that is being sold in a
+public auction:
+
+- **Navigation:** total of two clicks, as follows
+
+ 1. Click on "login".
+ 2. Click on the correct derivative link in the sidebar.
+
+- **Data Entry:** total of two clicks and five keystrokes, as follows
+
+ 1. Click on the "your bid" field.
+ 2. Press the keys "5", "0", "0", 0", and "0".
+ 3. Click the "Cast Bid" button.
+
+Close Derivative Auction
+........................
+Assume the user wishes to close an auction that he or she posted:
+
+- **Navigation:** total of one click, as follows
+
+ 1. Click on "login".
+
+- **Data Entry:** total of one click, as follows
+
+ 1. Click on the "close" button next to the correct auction.
 
 Progress Report and Plan of Work
 ================================
