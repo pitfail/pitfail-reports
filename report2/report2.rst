@@ -46,8 +46,8 @@ Individual Contributions
 	\small
 
 .. csv-table::
-	:header: "Responsibility", "Michal Koval", "Cody Schafer", "Owen Healy", "Brian Good-acre", "Roma Mehta", "Sonu Iqbal", "Avanti Kulkarni"
-	:widths: 15, 6, 6, 6, 6, 6, 6, 6
+    :header: "Responsibility", "Michal Koval", "Cody Schafer", "Owen Healy", "Brian Good-acre", "Roma Mehta", "Sonu Iqbal", "Avanti Kulkarni"
+    :widths: 15, 6, 6, 6, 6, 6, 6, 6
     
     Interaction Diagrams (35),     ,  10%,  30%,     ,  10%,  10%,  30%
     Classes and Specs (13),        ,     ,     ,     ,     ,     ,
@@ -441,13 +441,8 @@ Types and Operation Signatures`_.
     Class Diagram for Android Client
 
 .. figure:: class-diagrams/android-fb/fb-class-diagram.png
-    :width: 90%
+    :width: 60%
 
-    Class Diagram for FB Client
-
-.. figure:: class-diagrams/android-fb/fb-class-diagram.png
-    :width: 100%
-    
     Class Diagram for FB Client
 
 Data Types and Operation Signatures
