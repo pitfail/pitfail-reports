@@ -48,27 +48,22 @@ Individual Contributions
 .. csv-table::
 	:header: "Responsibility", "Michal Koval", "Cody Schafer", "Owen Healy", "Brian Good-acre", "Roma Mehta", "Sonu Iqbal", "Avanti Kulkarni"
 	:widths: 15, 6, 6, 6, 6, 6, 6, 6
-
-	Customer Reqs. (6),                ,     ,     ,     ,     ,     , 100%
-	Glossary of Terms (4),          40%,  10%,  10%,  10%,  10%,  10%,  10%
-	Functional Reqs.,                  ,     ,     ,     ,     ,     ,
-	¿ Stakeholders (2),                , 100%,     ,     ,     ,     ,
-	¿ Actors (2),                      , 100%,     ,     ,     ,     ,
-	¿ Goals (4),                    50%,  50%,     ,     ,     ,     ,
-	¿ Casual UC (5),                   , 100%,     ,     ,     ,     ,
-	¿ Dressed UC (11),              40%,  20%,     ,  40%,     ,     ,
-	¿ UC Diagram (4),                  , 100%,     ,     ,     ,     ,
-	¿ UC Tracability,              100%,     ,     ,     ,     ,
-	Seq. Diagrams (9),                 ,     ,     ,     ,     , 100%,
-	Nonfunc. Reqs. (6),                ,     ,     ,     ,     , 100%,
-	Domain Analysis,                   ,     ,     ,     ,     ,     ,
-	¿ Concepts (12),                   ,     , 100%,     ,     ,     ,
-	¿ Associations (4),                ,     , 100%,     ,     ,     ,
-	¿ Attributes (3),                  ,     , 100%,     ,     ,     ,
-	Contracts (6),                     ,     ,     ,     , 100%,     ,
-	User Interface (8),            100%,     ,     ,     ,     ,     ,
-	Plan of Work (3),                  ,     ,     , 100%,     ,     ,
-	References (1),                 14%,  14%,  14%,  14%,  14%,  15%,  14%
+    Interaction Diagrams (35),     ,  10%,  30%,     ,     ,  20%,  30%
+    Classes and Specs (13),        ,     ,     ,     ,     ,     ,
+    ¿ Class Diagram (8),       100%,     ,     ,     ,     ,     ,
+    ¿ Signatures (5),          100%,     ,     ,     ,     ,     ,
+    Arch. and Design (22),
+    ¿ Arch. Styles (5),            , 100%,     ,     ,     ,     ,
+    ¿ Package Diagram (5),         , 100%,     ,     ,     ,     ,
+    ¿ Map. Hardware (2),           , 100%,     ,     ,     ,     ,
+    ¿ Database (5),                ,     ,     , 100%,     ,     ,
+    ¿ Other (5),                   ,     ,  30%,     ,     ,  70%,
+    Algos. and Structures (4),     ,     ,     , 100%,     ,     ,
+    User Interface (10),           ,     ,     ,     ,     ,     ,
+    ¿ Appearance (5),          100%,     ,     ,     ,     ,     ,
+    ¿ Prose Description (5),   100%,     ,     ,     ,     ,     ,
+    Plan of Work (4),              ,     ,     , 100%,     ,     ,
+    References (2),                ,     ,     ,  50%,     ,  50%,
 
 .. raw:: latex
 
