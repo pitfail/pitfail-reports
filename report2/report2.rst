@@ -249,7 +249,7 @@ HTTP Post request via the Jetty Server.The Jetty server has capability to suppor
 as it runs on a JVM. All the servlets for Android are written in Java which internally calls functions
 from Scala classes.  The reason for choosing Java for Android client is for its compatibility.The BuySerlvlet
 internally makes use of the Portfolio class the extract the user info from the Database. If the Volume to be 
-bought is correct, user’s portfolio is updated and results are sent back to the user.
+bought is correct, user's portfolio is updated and results are sent back to the user.
 
 
 .. image:: sequence-diagrams/android/SellStock.png
@@ -263,7 +263,7 @@ The Android controller sends an HTTP Post request to SellServlet via the Jetty S
 makes use of portfolio class and call the function to update the user profile.Because we expect 
 asynchronous requests there is a possibility that by the time a SellStock is completely executed 
 there can be another asynchronous call from some other client interface by the same user. 
-Such a situation is handled by throwing back an exception message “You dont own this stock” and  
+Such a situation is handled by throwing back an exception message "You dont own this stock" and  
 corresponding appropriate message back to the user.Currently, we sell off all the corresponding stocks. 
 In the future, we do plan to give user an option of amount of volume he wants to sell off. 
 
@@ -272,12 +272,12 @@ In the future, we do plan to give user an option of amount of volume he wants to
 Buy/Sell Operations via FaceBook Interface
 ------------------------------------------
 
-If a player wants to access PitFail via Facebook, he or she can post the request on PitFail’s wall.
+If a player wants to access PitFail via Facebook, he or she can post the request on PitFail's wall.
 
 The request has to be in format:
 Username: Operation(Buy/Sell):[volume]:Ticker
 
-Currently FaceBook interface only supports two operations – Buy or Sell securities.
+Currently FaceBook interface only supports two operations ¿ Buy or Sell securities.
 
 To process this request :
 1.This request should be listened to and FB app should be notified of the wall post
@@ -299,7 +299,7 @@ The first step is to read the wall post and parse it to a request that a server 
     :width: 90%
 
 FBListener listens to the wall post of our account and notifies pitFail FB app of any new wall post.  We use RestFB APIs  that access Facebook account of PitFail using the unique access token provided by FaceBook.  API fetchConnection(User) reads the new wall post and passes it to ParseMessage module. ParseMessage processes the wall post, extracts the information required to process the request. It also checks for the right number of arguments and the data type (e.g. Volume has to be a number).
-If the message is good enough to be processed (no errors), the parsed request is sent to server , otherwise the player is notified of the error by commenting on player’s wall post. 
+If the message is good enough to be processed (no errors), the parsed request is sent to server , otherwise the player is notified of the error by commenting on player's wall post. 
 
 
 Ensure User:
@@ -310,7 +310,7 @@ Now that the message is parsed, we need to check the authenticity of the user. F
 .. image:: sequence-diagrams/FB/ensureUser.png
     :width: 90%
 
-ensureUser ensures the existence of a user before the user’s request tries to access portfolio. 
+ensureUser ensures the existence of a user before the user's request tries to access portfolio. 
 If the user exists, the request is processed further otherwise the player is notified of the error occurred by posting a comment on his wall post.
 
 The Operations (Buy/Sell)
@@ -333,7 +333,10 @@ Sell Stock:
     :width: 90%
 
 The  working of a server is explained in detail in website section.
-When the server receives a valid request from a legitimate user, it accesses the portfolio of the user to perform the operation.  Based on the value returned by user, FB App posts comment on the player’s wall post saying “Successful” or “failed <reason>”
+When the server receives a valid request from a legitimate user, it accesses
+the portfolio of the user to perform the operation.  Based on the value
+returned by user, FB App posts comment on the player's wall post saying
+"Successful" or "failed <reason>"
 
 
 
@@ -353,8 +356,21 @@ System Architecutre and System Design
 Architectural Styles
 --------------------
 
+PitFail is composed of a large number of pieces of code which provide a wide range of functionality. This necessitated using different achitectural styles for various portions of the program
+
+* Lift, the web framework used as th core of PitFail's server, uses a View First achitecture.
+* Stock Database, the portion of PitFail's code dedicated to interaction with a `Stock Data Source`, is 
+
+
 Identifying Subsystems
 ----------------------
+
+- Backend. This includes database interactions. It is divoriced from any of the frontend code, which simply makes calls into it.
+- Main Webpage. Written using Lift. Is itself split into view and controll portions.
+- Text Interface (TI). Provides a wrapper around the backend allowing for the
+  execution of parsed text based commands which result in modifications or
+  queries to the backend.
+  - This addtionally encompasses the Twitter Text Command Interface (TTCI). TTCI utilizes the Text Interface code as a library.
 
 Mapping Subsystems to Hardware
 ------------------------------
