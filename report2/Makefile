@@ -10,7 +10,7 @@ TRASH  = $(TARGET).pdf \
          $(TARGET).tex $(TARGET).aux $(TARGET).log  $(TARGET).out \
          $(TARGET).maf $(TARGET).mtc $(TARGET).mtc0 $(PDF_OBJ)
 
-PDF_OBJ = plan_of_work/pow_report2-rotated90.pdf component_diagram.pdf
+PDF_OBJ = plan_of_work/pow_report2-rotated90.pdf component_diagram.pdf schema/Schema.pdf
 PDF_DEP = $(PDF_OBJ)
 
 

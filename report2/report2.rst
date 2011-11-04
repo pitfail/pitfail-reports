@@ -47,20 +47,20 @@ Stock information provider
         its Yahoo Finance API).
 
 PitFail Website - PWS
-        An interface to PitFail composed of HTML, Javascript, CSS, and images
+        An interface to pitfail composed of HTML, Javascript, CSS, and images
         which is designed to be rendered and accessed from within a modern
-        web browser. This provides the most common interface for user
+        webbrowser. This provides the most common interface for user
         interaction with the system.
 
 Twitter text command interface - TTCI
         A system whereby a user of PitFail (or one who desires to become a user
         thereof) sends a message limited in size by the entity known as Twitter
-        (presently, the author notes this size to be 140 8bit characters)
-        directed towards an account fully controlled by the PitFail software.
+        (pressently, the author notes this size to be 140 8bit characters)
+        directed towards an account fully contolled by the PitFail software.
         PitFail then processes the text contained within this message via a
         deterministic non-backtracking parser to determine the user's
-        intention. PitFail then executes the action it anticipates the user
-        desired, possibly returning some acknowledgment or additionally
+        intention. PitFail then exectutes the action it anticipates the user
+        desired, possibly returning some acknowledgment or additionaly
         information to the user via the very same mechanize the user utilized
         to contact PitFail.
 
@@ -76,19 +76,19 @@ Facebook text command interface - FTCI
 
 Android Application - AA
         Presently, the only code which does not run in the "server" context.
-        Provides a simplistic interface to PitFail.
+        Provides a simplistic interface to pitfail.
 
 Stock Database - SD
-        A library of code which provides featureful access to `Stock Information
-        Providers`. It allows for simplified implementations of caching,
-        collating, quota enforcement, and fallback to be applied to incoming
+        A library of code which provides featurful access to `Stock Information
+        Providers`. It allows for simplified implimentations of caching,
+        collating, quota enforcment, and fallback to be applied to incomming
         stock information from a variety of sources which provide heterogeneous
         APIs to access the `Stock Information`.
 
 Interaction Diagrams
 ====================
 
-Performing actions (Buy/Sell/...) via the Web front-end
+Performing actions (Buy/Sell/...) via the Web frontend
 ------------------------------------------------------
 
 Suppose the user has filled out a form like this one:
@@ -142,7 +142,7 @@ Checking for Consistency
 ........................
 
 Scala is a statically typed functional language that has a lot in common with
-ML, where the philosophy is that you should use the type system to prove the
+ML, where the philosphy is that you should use the type system to prove the
 consistency of your data at compile-time, eliminating the need for run-time
 checks.
 
@@ -211,7 +211,7 @@ comparatively simple. Unfortunately part of the reason for that is that they
 are comparatively incomplete.
 
 The operations below are shown only from the side of the View; they also have
-corresponding Model operations, but because these are common to all front-ends
+corresponding Model operations, but because these are common to all frontends
 they are shown later.
 
 Buy Stock
@@ -281,7 +281,7 @@ model and converting it to HTML:
     :width: 90%
 
 
-BUY/SELL via the Android Client
+BUY/SELL via the Android Cleint
 --------------------------------
 
 .. figure:: sequence-diagrams/android/BuyStock.png
@@ -296,7 +296,7 @@ for the Stock Value of the stock ticker by sending the corresponding tag with th
 is received, the Mobile Client creates the Buy request. The Android controller calls the BuyServlet using an
 HTTP Post request via the Jetty Server.The Jetty server has capability to support both Scala and Java sources
 as it runs on a JVM. All the servlets for Android are written in Java which internally calls functions
-from Scala classes.  The reason for choosing Java for Android client is for its compatibility.The BuyServlet
+from Scala classes.  The reason for choosing Java for Android client is for its compatibility.The BuySerlvlet
 internally makes use of the Portfolio class the extract the user info from the Database. If the Volume to be 
 bought is correct, user's portfolio is updated and results are sent back to the user.
 
@@ -311,11 +311,11 @@ The Android controller sends an HTTP Post request to SellServlet via the Jetty S
 makes use of portfolio class and call the function to update the user profile.Because we expect 
 asynchronous requests there is a possibility that by the time a SellStock is completely executed 
 there can be another asynchronous call from some other client interface by the same user. 
-Such a situation is handled by throwing back an exception message "You don't own this stock" and  
+Such a situation is handled by throwing back an exception message "You dont own this stock" and  
 corresponding appropriate message back to the user.Currently, we sell off all the corresponding stocks. 
 In the future, we do plan to give user an option of amount of volume he wants to sell off. 
 
-Buy/Sell Operations via Facebook Interface
+Buy/Sell Operations via FaceBook Interface
 ------------------------------------------
 
 If a player wants to access PitFail via Facebook, he or she can post the request on PitFail's wall.
@@ -323,10 +323,10 @@ If a player wants to access PitFail via Facebook, he or she can post the request
 The request has to be in format:
 Username: Operation(Buy/Sell):[volume]:Ticker
 
-Currently Facebook interface only supports two operations ¿ Buy or Sell securities.
+Currently FaceBook interface only supports two operations ¿ Buy or Sell securities.
 
 To process this request :
-1.This request should be listened to and Facebook app should be notified of the wall post
+1.This request should be listened to and FB app should be notified of the wall post
 
 2.The wall post should be read and parsed.
 
@@ -343,7 +343,7 @@ The first step is to read the wall post and parse it to a request that a server 
 .. image:: sequence-diagrams/FB/parseMessage.png
     :width: 90%
 
-FBListener listens to the wall post of our account and notifies PitFail Facebook app of any new wall post.  We use RestFB APIs  that access Facebook account of PitFail using the unique access token provided by Facebook.  API fetchConnection(User) reads the new wall post and passes it to ParseMessage module. ParseMessage processes the wall post, extracts the information required to process the request. It also checks for the right number of arguments and the data type (e.g. Volume has to be a number).
+FBListener listens to the wall post of our account and notifies pitFail FB app of any new wall post.  We use RestFB APIs  that access Facebook account of PitFail using the unique access token provided by FaceBook.  API fetchConnection(User) reads the new wall post and passes it to ParseMessage module. ParseMessage processes the wall post, extracts the information required to process the request. It also checks for the right number of arguments and the data type (e.g. Volume has to be a number).
 If the message is good enough to be processed (no errors), the parsed request is sent to server , otherwise the player is notified of the error by commenting on player's wall post. 
 
 Ensure User:
@@ -378,7 +378,7 @@ Sell Stock:
 The  working of a server is explained in detail in website section.
 When the server receives a valid request from a legitimate user, it accesses
 the portfolio of the user to perform the operation.  Based on the value
-returned by user, Facebook App posts comment on the player's wall post saying
+returned by user, FB App posts comment on the player's wall post saying
 "Successful" or "failed <reason>"
 
 
@@ -390,6 +390,7 @@ Class Diagram
 
 Data Types and Operation Signatures
 -----------------------------------
+
 Mapping between Scala and UML is more difficult than mapping between a
 "traditional" object-oriented language such as C++ or Java and UML class
 diagrams. In particular, methods and attributes in Scala are often
@@ -464,29 +465,29 @@ class, which is a simple chronological log:
 .. figure:: class-diagrams/sigs-news.pdf
     :width: 2.5in
 
-System Architecture and System Design
+System Architecutre and System Design
 =====================================
 
 Architectural Styles
 --------------------
 
 PitFail is composed of a large number of pieces of code which provide a wide
-range of functionality. This necessitated using different architectural styles
+range of functionality. This necessitated using different achitectural styles
 for various portions of the program. Some sections of the code are independent
 of other portions to the degree that they can be viewed as libraries. This is
 particularly the case with the Stock Database code, which presents itself as a
-library from which different querying architectures may be constructed.
+library from which different querying archetectures may be constructed.
 
-The Stock Database library heavily follows the pipe and filter architectural
+The Stock Database library heavily follows the pipe and filter achitectural
 style. Each class (also called a Stock Database, SDB) either links other SDBs
 together or communicates with a concrete SDB. In practice, many more of the
 SDBs form the interior "filtering" functions rather than the endpoint "driving"
-functions. The filtering SDBs implement collating of requests, caching of
+functions. The filtering SDBs impliment collating of requests, caching of
 results, various forms of rate limiting, and fallback between different
 pipelines of SDBs.
 
-Within the website, implemented via the Lift web framework, View First MVC is
-utilized. Lift provides a "View First" interface for those developing via it,
+Within the website, implimented via the Lift Webframework, View First MVC is
+utilized. Lift provides a "View First" interface for those devolping via it,
 meaning that control of the program's execution is in the hands of the View
 code, and can be passed off to other portions as needed. In the case of
 PitFail's website, model code is independent of the website itself (and thus
@@ -498,29 +499,29 @@ Identifying Subsystems
 ----------------------
 
 The majority of the code for PitFail falls under the "server side" category.
-All code for controlling the WebPage, Twitter Interface, Model, General Text
-Command Interface, and what shall be referred to as the Simple HTTP Request
+All code for controlling the WebPage, Twitter Iterface, Model, General Text
+Command Interface, and what shall be refered to as the Simple HTTP Request
 interface (a Java Servlet presently used for Android interaction) run within a
-single context on the server.
+single contexed on the server.
 
 Key "client side" portions of the code are the Android application and the
 Javascript code generated by Lift which notifies server side handlers of some
 event/change or makes a request which runs a server side handler. None of the
 `WebPage` Javascript code should be considered a subsystem of PitFail
 
-- Model. This includes database interactions. It is divorced from any of the
-  various front-end/interface subsystems, each of which make calls into it
+- Model. This includes database interactions. It is divoriced from any of the
+  various frontend/interface subsystems, each of which make calls into it
   rather than modifying the DB directly.
-- Main Webpage. Written using Lift. Is itself split into view and control portions.
+- Main Webpage. Written using Lift. Is itself split into view and controll portions.
 - Text Interface (TI). Provides a wrapper around the backend allowing for the
   execution of parsed text based commands which result in modifications or
   queries to the backend.
 
-  - This additionally encompasses the Twitter Text Command Interface (TTCI).
+  - This addtionally encompasses the Twitter Text Command Interface (TTCI).
     TTCI utilizes the Text Interface code as a library, simply calling the
-    Parser and Action Handler as possible commands are received via a
+    Parser and Action Handler as possible commands are recieved via a
     continuous Twitter stream.
-- SHI. Implemented as a Java Servlet which runs within the same server as Lift.
+- SHI. Implimented as a Java Servlet which runs within the same server as Lift.
   Accesses the backend directly via the backend code. Is called via HTTP
   requests by the Android and Facebook(?) interfaces, neither of which run in
   the same context as the other subsystems.
@@ -537,9 +538,9 @@ they all occupy the same Jetty server, and thus can directly access methods
 provided by the other subsystems. The subsystems which are in this unified
 group are the Backend, Lift webpage, TTCI, and SHI.
 
-The Lift client side helpers (Javascript which provides a link between user
-interaction with webpage via a web browser and the backing Lift web page code)
-run within a connecting user's web browser, thus on their own hardware.
+The Lift client side helpers (javascript which provides a link between user
+interaction with webpage via a webbrowser and the backing Lift webpage code)
+run within a connecting user's webbrowser, thus on their own hardware.
 
 The Android client is running on a variety of platforms, including Cellular
 Telephones, Touchscreen tablets, emulators, and whatever the modding community
@@ -554,7 +555,7 @@ Persistent Data Storage
 
 Pitfail does need to store data to outlast a single execution of the system since users will be playing Pitfail for months or years at a time. 
 
-The persistent objects are the users' accounts, the users' transactions, and stocks' performances, and portfolios' performances over time. Each user will be associated with numerous buys, sells, and derivatives and these will all need to be stored in a medium for quick and reliable access. For each transaction, this data will increase. Each stock and portfolio will represent the true test of the data storage. These objects require performance data that the users require a visual graph for and statistics on. Depending on the sampling frequency of stock prices, this data can grow every five to thirty minutes. 
+The persistent objects are the users' accounts, the users' transcations, and stocks' performances, and portfolios' performances over time. Each user will be associated with numerous buys, sells, and derivatives and these will all need to be stored in a medium for quick and reliable access. For each transcation, this data will increase. Each stock and portfolio will represent the true test of the data storage. These objects require performance data that the users require a visual graph for and statistics on. Depending on the sampling frequency of stock prices, this data can grow every five to thirty minutes. 
 
 As an example to explain the data storage requirements, for a system with 50 users each holding 15 unique assets, a five minute sampling frequency over one year storing records as doubles would yield:
 (50 users) * (15 assets/user) * 260 working days * 6.5 hours/day * (60 minutes/hour) * (1/5 samples/(asset* minute)) * (8 bytes/sample) = 121.7 megabytes. 
@@ -565,7 +566,18 @@ Pitfail is stored in a light-weight and portable H2 relational database that tak
 
 Database Schema
 ...............
-Below is the database schema for a MySQL implementation of the database, which is a possibility in the future depending on the ability of H2 and Squeryl to model leagues, companies, auctions, orders, and other new uses.
+
+The current version of PitFail does not have a model representation for
+leagues, companies, historical prices, or saving information about how or when
+an asset was purchased. The following Schema suggests how this could be
+augmented:
+
+.. figure:: schema/Schema.pdf
+    :width: 80%
+
+Below is the database schema for a MySQL implementation of the database, which
+is a possibiltiy in the future depending on the ability of H2 and Squeryl to
+model leagues, companies, auctions, orders, and other new uses.
 
 Schema Follows::
 
@@ -695,6 +707,40 @@ Schema Follows::
                 PRIMARY KEY(ticker,date_time)
                 );
 
+ORM
+---
+
+PitFail uses the Squeryl ORM to access the database. Squeryl works by
+implementing a domain-specific language (DSL) to build literal SQL queries.
+This means that Squeryl code has Scala syntax, but SQL semantics. For example::
+
+    from(users) (u =>
+        where(u.username === name)
+        select(u)
+    ) headOption
+
+PitFail opted for an ORM for two reasons:
+
+- This ensures consistency between our in-memory model objects and their
+  on-disk counterparts.
+  
+- This makes our model code database agnostic.
+
+However, now that we have actual experience with the Squeryl ORM, we realize
+there are some pitfalls that have to be weighed against the benefits. First,
+because an ORM makes it so easy to get actual Scala objects out of our table
+rows, it encourage most of the logic to be written in Scala. At first sight
+this might seem to be a benefit, as we enjoy writing Scala more than we enjoy
+writing SQL. But what we did not realize was that by making the transition from
+SQL to Scala as painful as it is with raw JBDC, it forces you to put more of
+your logic in stored procedures, where importantly *everything is in sync*. The
+instant you bring a table row into the program, you risk forgetting that it
+might not be in sync anymore. And even if you wrap your code in database
+transactions, it doesn't help, because transactions have no control over what
+goes on in memory.
+
+PitFail will probably continue to use the Squeryl ORM, but with these caveats
+in mind.
 
 Network Protocol
 ----------------
@@ -778,18 +824,42 @@ Algorithms
 
 Buying on Margin
 ................
-All Pitfail users will start with a predetermined amount of capital cash that is their money to use. In order to trade for more stocks, Pitfail users can buy/sell on margin, which is performing stock actions with money on loan. This money will require the user to pay interest on the loaned money each day until it is returned and paid in full, including total interest. 
 
-Pitfail uses the Simple Interest Formula to compute the money users owe due to interest. The loan will cost the user a predetermined cost per day:
+All Pitfail users will start with a predetermined amount of capital cash that
+is their money to use. In order to trade for more stocks, Pitfail users can
+buy/sell on margin, which is performing stock actions with money on loan. This
+money will require the user to pay interest on the loaned money each day until
+it is returned and paid in full, including total interest. 
+
+Pitfail uses the Simple Interest Formula to compute the money users owe due to
+interest. The loan will cost the user a predetermined cost per day::
+
 	Interest/Day = Principal * Rate
 	where Rate is determined by the going market rate
 
-The amount of margin for a user is also an algorithm. Since a user owns the capital money he starts with and can borrow additional money from lenders, a user should be able to pay back his lenders at any moment. Therefore, the margin offered per user will be no more than the total capital cash the user would have if he liquidated all of his assets at current market value. For example, if a user owns 500 shares of stock ABC @ $25 and has $10,000 unused capital cash, the user is able to buy 1,000 shares of stock BCD @ $22.5, resulting in $0 capital cash and $0 for margin buying. Therefore, if stock ABC's price increases to $30 a share, this user would now have $2,500 available on margin. 
+The amount of margin for a user is also an algorithm. Since a user owns the
+capital money he starts with and can borrow additional money from lenders, a
+user should be able to pay back his lenders at any moment. Therefore, the
+margin offered per user will be no more than the total capital cash the user
+would have if he liquidated all of his assets at current market value. For
+example, if a user owns 500 shares of stock ABC @ $25 and has $10,000 unused
+capital cash, the user is able to buy 1,000 shares of stock BCD @ $22.5,
+resulting in $0 capital cash and $0 for margin buying. Therefore, if stock
+ABC's price increases to $30 a share, this user would now have $2,500 available
+on margin. 
 
 High Frequency Trading and Automatic Drone Traders
 ..................................................
 
-High Frequency Trading is a power player in today's current stock market. As a side project, Pitfail will try to implement such a system that is automated and performs many transactions (in our case) per minute. To allow for a productive experiment, brokerage fees will be turned off for high frequency trading accounts. The goal of such a system will be to break even. These will be called Automatic Drones Traders and can be programmed to be high frequency traders. They will be created to simulate additional buying and selling. They will be based on the following:
+High Frequency Trading is a power player in today's current stock market. As a
+side project, Pitfail will try to implement such a system that is automated and
+performs many transcations (in our case) per minute. To allow for a productive
+experiment, brokerage fees will be turned off for high frequency trading
+accounts. The goal of such a system will be to break even. These will be called
+Automatic Drones Traders and can be programmed to be high frequency traders.
+They will be created to simulate additional buying and selling. They will be
+based on the following:
+
 * buying a rising stock
 * selling a stinking stock
 * buying a random stock and holding it until the stock moves by +/- 1% and then selling it
@@ -799,13 +869,36 @@ High Frequency Trading is a power player in today's current stock market. As a s
 
 Cover's Universal Algorithm
 ...........................
-This algorithm will be implemented by an Automatic Drone. It begins by buying nearly all the stocks available in the stock exchange and creating ratios amongst the stocks (in Pitfail's case, constant). By the end of the day, some stocks will increase and some stocks will decrease in price, changing the ratio between the stocks. This drone will sell/buy stocks to re-balance the ratios in the portfolio for the start of the next day. 
+
+This algorithm will be impemented by an Automatic Drone. It begins by buying
+nearly all the stocks available in the stock exchange and creating ratios
+amongst the stocks (in Pitfail's case, constant). By the end of the day, some
+stocks will increase and some stocks will decrease in price, changing the ratio
+between the stocks. This drone will sell/buy stocks to rebalance the ratios in
+the portfolio for the start of the next day. 
+
+Concurrency
+-----------
+
+PitFail is built on the Lift web framework, which uses Erlang's Actor model to
+provide concurrency. An Actor is essentially an event loop witha synchronized
+queue: actors can respond to messages on their own queue, or send messages to
+other queues.
+
+PitFail makes real use of actors in a small handful of places. Background tasks
+are run in an actor because Lift actors run in a threadpool; that way
+background tasks don't hog a whole thread and can merely pull one off the
+thread pool periodically. The other place PitFail uses an actor is to send
+notification emails, because the operation can block for a long period of time
+and the rest of the page request (updating the model, responding with a repyl
+page) needs to be able to continue without waiting for the email to be sent.
 
 Data Structures
 ---------------
 
 User Interface Design and Implementation
 ========================================
+
 Pitfail's overall user interface closely resembles the interface depicted in
 its mockups: most of the changes were merely cosmetic. Most of the functional
 changes are because the current implementation of Pitfail is missing features
@@ -813,11 +906,9 @@ that were included in the mockup: e.g. companies, leagues, and social
 interaction. These changes are grouped into general categories, described in
 detail, and justified in the following sections.
 
-.. figure:: ui/overview.png
-    :width: 6in
-
 Welcome Page for New User
 -------------------------
+
 Pitfail was originally described as having a "guided registration" process
 where the user registers as part of purchasing his or her first stock. While
 the user can still explore the stock purchasing interface before logging in,
@@ -841,6 +932,7 @@ selecting a stock.
 
 Portfolio Management
 --------------------
+
 Perhaps the largest change from the original mockups to the current
 implementation is the user's portfolio. This was planned to be displayed as a
 single large table containing the all of the user's assets: a combination of
@@ -874,6 +966,7 @@ prices are implemented in the next iteration of Pitfail.
 
 Buying Stocks
 -------------
+
 Purchasing stocks is one of the fundamental activities on Pitfail. The
 interface for buying stocks is very similar to the interface shown in the
 original mockups: when the user enters a valid ticker symbol in the large
@@ -902,11 +995,12 @@ Neither of these changes do not considerably effect user effort.
 
 Trading Derivatives
 -------------------
+
 If the user clicks the "add to derivative" button instead of the "buy stock"
 button, he or she is presented with the derivative offering page. In the
 original mockups this was shown as a prose-like description of a derivative
 with a number of blanks. Originally intended to guide the user through the
-derivative creation process, this was found to be unfeasible with the number of
+derivative creation process, this was found to be infeasible with the number of
 derivative configuration options supported in Pitfail. As such, this was
 redesigned to resemble a traditional form: a prose description followed by a
 table of input fields.
@@ -929,8 +1023,9 @@ below for a detailed usability analysis.
 
 Social Features
 ---------------
+
 Pitfail's original mockups included a real-time newsfeed at the bottom of every
-page. This news feed was a log of trading history and served as a hub for social
+page. This newsfeed was a log of trading history and served as a hub for social
 interaction between users. A limited implementation of this newsfeed is
 included in the current version of Pitfail. Unlike the mockup, the newsfeed is
 included in every page's sidebar instead of the footer. This is similar to the
@@ -980,6 +1075,7 @@ the lack of league support in the current version of Pitfail.
 
 Purchase a Stock
 ................
+
 Assume the user wishes to purchase 10 shares of Google stock. The user must:
 
 - **Navigation:** total of one click, as follows
@@ -998,6 +1094,7 @@ Note that the user could press "enter" instead of clicking the "buy" button.
 
 Creating a Derivative
 .....................
+
 Assume the user wishes to offer a call option to Bucky that includes 10 shares
 of Google stock and expires on December 25, 2011. This option costs $1000 to
 begin active and one can buy the shares for $10,000 if and only if the market
@@ -1025,6 +1122,7 @@ rate for Google stock is greater than $1000 per share. The user must:
 
 Sell a Stock
 ............
+
 Assume the user wishes to sell 10 shares of Google stock from his or her Global
 League. The user must:
 
@@ -1043,6 +1141,7 @@ Note that the user could press "enter" instead of clicking the "sell" button.
 
 Act on Derivative Offer
 .......................
+
 Assume the user wishes to accept a derivative that was directly offered to him
 or her:
 
@@ -1056,6 +1155,7 @@ or her:
 
 Bid on Derivative
 .................
+
 Assume the user wishes to bid $50,000 on a derivative that is being sold in a
 public auction:
 
@@ -1072,6 +1172,7 @@ public auction:
 
 Close Derivative Auction
 ........................
+
 Assume the user wishes to close an auction that he or she posted:
 
 - **Navigation:** total of one click, as follows
