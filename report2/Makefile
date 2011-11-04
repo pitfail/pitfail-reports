@@ -12,7 +12,8 @@ TRASH  = $(TARGET).pdf \
          $(TARGET).maf $(TARGET).mtc $(TARGET).mtc0 $(PDF_OBJ)
 
 PDF_OBJ = plan_of_work/pow_report2-rotated90.pdf component_diagram.pdf \
-	  sequence-diagrams/texttrading.pdf
+	  sequence-diagrams/texttrading.pdf \
+	  schema/Schema.pdf
 PDF_DEP = $(PDF_OBJ)
 
 

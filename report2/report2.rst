@@ -37,6 +37,39 @@
 
 	\pagebreak
 
+Individual Contributions
+========================
+
+.. raw:: latex
+
+	\begin{center}
+	\small
+
+.. csv-table::
+	:header: "Responsibility", "Michal Koval", "Cody Schafer", "Owen Healy", "Brian Good-acre", "Roma Mehta", "Sonu Iqbal", "Avanti Kulkarni"
+	:widths: 15, 6, 6, 6, 6, 6, 6, 6
+    
+    Interaction Diagrams (35),     ,  10%,  30%,     ,  10%,  10%,  30%
+    Classes and Specs (13),        ,     ,     ,     ,     ,     ,
+    ¿ Class Diagram (8),        50%,     ,     ,     ,  25%,  25%,
+    ¿ Signatures (5),          100%,     ,     ,     ,     ,     ,
+    Arch. and Design (22),
+    ¿ Arch. Styles (5),            , 100%,     ,     ,     ,     ,
+    ¿ Package Diagram (5),         , 100%,     ,     ,     ,     ,
+    ¿ Map. Hardware (2),           , 100%,     ,     ,     ,     ,
+    ¿ Database (5),                ,     ,     , 100%,     ,     ,
+    ¿ Other (5),                   ,     ,  20%,     ,  40%,  40%,
+    Algos. and Structures (4),     ,     ,     , 100%,     ,     ,
+    User Interface (10),           ,     ,     ,     ,     ,     ,
+    ¿ Appearance (5),          100%,     ,     ,     ,     ,     ,
+    ¿ Prose Description (5),   100%,     ,     ,     ,     ,     ,
+    Plan of Work (4),              ,     ,     , 100%,     ,     ,
+    References (2),                ,     ,     ,  50%, 25% ,  25%,
+
+.. raw:: latex
+
+	\end{center}
+
 Glossary
 ========
 
@@ -381,6 +414,13 @@ the portfolio of the user to perform the operation.  Based on the value
 returned by user, FB App posts comment on the player's wall post saying
 "Successful" or "failed <reason>"
 
+Interaction via the texttrading interface (Twitter)
+---------------------------------------------------
+
+.. figure:: sequence-diagrams/texttrading.pdf
+        :width: 90%
+
+        All use cases within text trading proceed along the same path initially, only to split later. Accordingly, this interaction diagram covers all the use cases interacting with the Twitter interface.
 
 Class Diagram and Interface Specification
 =========================================
@@ -388,8 +428,104 @@ Class Diagram and Interface Specification
 Class Diagram
 -------------
 
+The core class diagram for PitFail is shown below. It is discussed in `Data
+Types and Operation Signatures`_.
+
+.. figure:: class-diagrams/class-diagram.pdf
+    :width: 100%
+
+
+.. figure:: class-diagrams/android-fb/android-class-diagram.png
+    :width: 90%
+
+    Class Diagram for Android Client
+
+.. figure:: class-diagrams/android-fb/fb-class-diagram.png
+    :width: 90%
+
+    Class Diagram for FB Client
+
+.. figure:: class-diagrams/android-fb/fb-class-diagram.png
+    :width: 100%
+    
+    Class Diagram for FB Client
+
 Data Types and Operation Signatures
 -----------------------------------
+
+Mapping between Scala and UML is more difficult than mapping between a
+"traditional" object-oriented language such as C++ or Java and UML class
+diagrams. In particular, methods and attributes in Scala are often
+interchangeable and both may use symbols for their names. As such, any method
+that accepts zero parameters and has no side-affects is written as an attribute
+instead of a method. Any methods or attributes that contain symbols or
+punctuation, such as "$", are prefixed with <<operator>>. Keep these conventions
+in mind when reading the following section.
+
+As a financial simulator, PitFail requires interacting with several types of
+quantities: (1) volume of stock, (2) stock prices, (3) cash, and (4) fractional
+ownership of an asset. These concepts are represented by, respectively, the
+*Shares*, *Price*, *Dollars*, and *Scale* classes:
+
+.. figure:: class-diagrams/sigs-wrappers.pdf
+    :width: 80%
+
+Using these special-purpose classes provides much more type safety than storing
+all four of these quantities as BigDecimals. This is especially important when
+performing mathematical operations on these types: some combinations of types
+are useful, while others are meaningless. The process of switching from a
+unilateral use of BigDecimal caught several bugs that would have otherwise gone
+
+The next most important classes are those that represent individual stocks and
+stock quotes. In PitFail's object model, *Stock* is a something that can be
+purchased on a market, a *Quote* is a stock paired with it's current price, and
+a *StockAsset* is the number of shares of a stock owned by a particular user:
+
+.. figure:: class-diagrams/sigs-stocks.pdf
+    :width: 80%
+
+Immediately one is drawn to the peculiar decision of splitting *QuoteInfo* from
+*Quote*. This is intentionally done to isolate optional information about a stock,
+which may not always be available, from the information that is necessary to make
+a trade. By isolating this superfluous information it is possible to change its
+in-memory representation from an object to a sparse data structure if necessary.
+
+Given a *Stock*, a *Quote* must be generated using a stock data provider such as
+Yahoo! Finance. This is encapsulated in the *StockDatabase* interface and its
+concrete implementations:
+
+.. figure:: class-diagrams/sigs-stocks-db.pdf
+    :width: 80%
+
+Most importantly, the *YahooCSVStockDatabase* and *YahooYQLStockDatabase*
+classes query Yahoo! Finance for updated stock quotes. These two classes are
+combined using the *CachingStockDatabase*, a in-memory cache that uses a hash
+table to memoize repeated queries for the same quotes. Finally, the
+*FailoverStockDatabase* tries a list of stock providers in series until one
+query succeeds: this is important because Yahoo! Finance's YQL interface
+provides the richest interface to stock data, but is notoriously unreliable.
+
+Once a stock has been purchased by a user it is wrapped in a *StockAsset* and
+added to the user's portfolio. As the *User*, *Portfolio*, and *StockAsset*
+classes contain persistent data, all of these classes interact with the
+database using Squeryl:
+
+.. figure:: class-diagrams/sigs-portfolio.pdf
+    :width: 80%
+
+Similarly, a variety of database-wrapper classes are defined for derivatives:
+
+.. figure:: class-diagrams/sigs-derivatives.pdf
+    :width: 80%
+
+This set of classes is the primary interaction between the view, the model, and
+the database. Calling one of these methods, e.g. *buyStock()* on a *Portfolio*,
+causes Squeryl to accordingly update the database and to generate a new entry
+in the news feed (when appropriate). These entries are stored in the *Newsfeed*
+class, which is a simple chronological log:
+
+.. figure:: class-diagrams/sigs-news.pdf
+    :width: 2.5in
 
 System Architecutre and System Design
 =====================================
@@ -479,7 +615,7 @@ configurations.
 Persistent Data Storage
 -----------------------
 
-Pitfail does need to store data to outlast a single execution of the system since users will be playing Pitfail for months or years at a time. 
+PitFail does need to store data to outlast a single execution of the system since users will be playing PitFail for months or years at a time. 
 
 The persistent objects are the users' accounts, the users' transcations, and stocks' performances, and portfolios' performances over time. Each user will be associated with numerous buys, sells, and derivatives and these will all need to be stored in a medium for quick and reliable access. For each transcation, this data will increase. Each stock and portfolio will represent the true test of the data storage. These objects require performance data that the users require a visual graph for and statistics on. Depending on the sampling frequency of stock prices, this data can grow every five to thirty minutes. 
 
@@ -488,11 +624,22 @@ As an example to explain the data storage requirements, for a system with 50 use
 
 Since any of these figures can be increased to make the performance data more precise, storing this information can easily become overwhelming. 
 
-Pitfail is stored in a light-weight and portable H2 relational database that takes advantage of the relations between users, portfolios, stocks, assets, leagues, companies, etc. It is scalable to handle the large amount of information needed to create performance charts and statistics. 
+PitFail is stored in a light-weight and portable H2 relational database that takes advantage of the relations between users, portfolios, stocks, assets, leagues, companies, etc. It is scalable to handle the large amount of information needed to create performance charts and statistics. 
 
 Database Schema
 ...............
-Below is the database schema for a MySQL implementation of the database, which is a possibiltiy in the future depending on the ability of H2 and Squeryl to model leagues, companies, auctions, orders, and other new uses.
+
+The current version of PitFail does not have a model representation for
+leagues, companies, historical prices, or saving information about how or when
+an asset was purchased. The following Schema suggests how this could be
+augmented:
+
+.. figure:: schema/Schema.pdf
+    :width: 80%
+
+Below is the database schema for a MySQL implementation of the database, which
+is a possibiltiy in the future depending on the ability of H2 and Squeryl to
+model leagues, companies, auctions, orders, and other new uses.
 
 Schema Follows::
 
@@ -622,13 +769,47 @@ Schema Follows::
                 PRIMARY KEY(ticker,date_time)
                 );
 
+ORM
+---
+
+PitFail uses the Squeryl ORM to access the database. Squeryl works by
+implementing a domain-specific language (DSL) to build literal SQL queries.
+This means that Squeryl code has Scala syntax, but SQL semantics. For example::
+
+    from(users) (u =>
+        where(u.username === name)
+        select(u)
+    ) headOption
+
+PitFail opted for an ORM for two reasons:
+
+- This ensures consistency between our in-memory model objects and their
+  on-disk counterparts.
+  
+- This makes our model code database agnostic.
+
+However, now that we have actual experience with the Squeryl ORM, we realize
+there are some pitfalls that have to be weighed against the benefits. First,
+because an ORM makes it so easy to get actual Scala objects out of our table
+rows, it encourage most of the logic to be written in Scala. At first sight
+this might seem to be a benefit, as we enjoy writing Scala more than we enjoy
+writing SQL. But what we did not realize was that by making the transition from
+SQL to Scala as painful as it is with raw JBDC, it forces you to put more of
+your logic in stored procedures, where importantly *everything is in sync*. The
+instant you bring a table row into the program, you risk forgetting that it
+might not be in sync anymore. And even if you wrap your code in database
+transactions, it doesn't help, because transactions have no control over what
+goes on in memory.
+
+PitFail will probably continue to use the Squeryl ORM, but with these caveats
+in mind.
 
 Network Protocol
 ----------------
 
 PitFail has multiple clients like Website, Twitter, Android and Facebook. All these clients
 communicate with the PitFail server via HTTP (Hyper Text Transfer Protocol) over TCP/IP sockets. 
-Another network protocol which Pitfail uses is JDBC (Java Database Connectivity) to communicate 
+Another network protocol which PitFail uses is JDBC (Java Database Connectivity) to communicate 
 with the H2 database which is a Open Source Java based database.
 Following is a brief description of both the protocols.
 
@@ -697,6 +878,26 @@ design.
 Hardware Requirements
 ---------------------
 
+PitFail requires Jetty server to be running which does not pose any strict hardware requirements. 
+However, having a following hardware specification is recommended for a better and smooth 
+experience for the user.
+
+Processor: Intel Pentium III with 1GHZ or above (or an equivalent configuration). We used machines with Intel.  
+
+Memory:  1GB or more of RAM 
+
+System type: 32 or 64 bit Operating System
+
+Disk Space: Minimum 150 MB for complete installation 		
+
+Network: Network bandwidth > 56kbps
+
+The three client interface of Pitfail which are Website, Twitter and Facebook can be 
+accessed from any device which has web browsing capabilities. For the Android Application for 
+Pitfail, any mobile device running android and connected to the internet can execute the application.
+
+
+
 Algorithms and Data Structures
 ==============================
 
@@ -705,47 +906,78 @@ Algorithms
 
 Buying on Margin
 ................
-All Pitfail users will start with a predetermined amount of capital cash that is their money to use. In order to trade for more stocks, Pitfail users can buy/sell on margin, which is performing stock actions with money on loan. This money will require the user to pay interest on the loaned money each day until it is returned and paid in full, including total interest. 
+All PitFail users will start with a predetermined amount of capital cash that is their money to use. In order to trade for more stocks, PitFail users can buy/sell on margin, which is performing stock actions with money on loan. This money will require the user to pay interest on the loaned money each day until it is returned and paid in full, including total interest. 
 
-Pitfail uses the Simple Interest Formula to compute the money users owe due to interest. The loan will cost the user a predetermined cost per day:
+PitFail uses the Simple Interest Formula to compute the money users owe due to interest. The loan will cost the user a predetermined cost per day:
 	Interest/Day = Principal * Rate
 	where Rate is determined by the going market rate
 
-The amount of margin for a user is also an algorithm. Since a user owns the capital money he starts with and can borrow additional money from lenders, a user should be able to pay back his lenders at any moment. Therefore, the margin offered per user will be no more than the total capital cash the user would have if he liquidated all of his assets at current market value. For example, if a user owns 500 shares of stock ABC @ $25 and has $10,000 unused capital cash, the user is able to buy 1,000 shares of stock BCD @ $22.5, resulting in $0 capital cash and $0 for margin buying. Therefore, if stock ABC's price increases to $30 a share, this user would now have $2,500 available on margin. 
+The amount of margin for a user is also an algorithm. Since a user owns the
+capital money he starts with and can borrow additional money from lenders, a
+user should be able to pay back his lenders at any moment. Therefore, the
+margin offered per user will be no more than the total capital cash the user
+would have if he liquidated all of his assets at current market value. For
+example, if a user owns 500 shares of stock ABC @ $25 and has $10,000 unused
+capital cash, the user is able to buy 1,000 shares of stock BCD @ $22.5,
+resulting in $0 capital cash and $0 for margin buying. Therefore, if stock
+ABC's price increases to $30 a share, this user would now have $2,500 available
+on margin. 
 
 High Frequency Trading and Automatic Drone Traders
 ..................................................
 
-High Frequency Trading is a power player in today's current stock market. As a side project, Pitfail will try to implement such a system that is automated and performs many transcations (in our case) per minute. To allow for a productive experiment, brokerage fees will be turned off for high frequency trading accounts. The goal of such a system will be to break even. These will be called Automatic Drones Traders and can be programmed to be high frequency traders. They will be created to simulate additional buying and selling. They will be based on the following:
+High Frequency Trading is a power player in today's current stock market. As a side project, PitFail will try to implement such a system that is automated and performs many transactions (in our case) per minute. To allow for a productive experiment, brokerage fees will be turned off for high frequency trading accounts. The goal of such a system will be to break even. These will be called Automatic Drones Traders and can be programmed to be high frequency traders. They will be created to simulate additional buying and selling. They will be based on the following:
 * buying a rising stock
 * selling a stinking stock
 * buying a random stock and holding it until the stock moves by +/- 1% and then selling it
-* buying the stocks of the top performers on Pitfail
-* buying recently bought stocks on Pitfail
+* buying the stocks of the top performers on PitFail
+* buying recently bought stocks on PitFail
 * etc...
 
 Cover's Universal Algorithm
 ...........................
-This algorithm will be impemented by an Automatic Drone. It begins by buying nearly all the stocks available in the stock exchange and creating ratios amongst the stocks (in Pitfail's case, constant). By the end of the day, some stocks will increase and some stocks will decrease in price, changing the ratio between the stocks. This drone will sell/buy stocks to rebalance the ratios in the portfolio for the start of the next day. 
+
+This algorithm will be impemented by an Automatic Drone. It begins by buying
+nearly all the stocks available in the stock exchange and creating ratios
+amongst the stocks (in Pitfail's case, constant). By the end of the day, some
+stocks will increase and some stocks will decrease in price, changing the ratio
+between the stocks. This drone will sell/buy stocks to rebalance the ratios in
+the portfolio for the start of the next day. 
+
+Concurrency
+-----------
+
+PitFail is built on the Lift web framework, which uses Erlang's Actor model to
+provide concurrency. An Actor is essentially an event loop witha synchronized
+queue: actors can respond to messages on their own queue, or send messages to
+other queues.
+
+PitFail makes real use of actors in a small handful of places. Background tasks
+are run in an actor because Lift actors run in a threadpool; that way
+background tasks don't hog a whole thread and can merely pull one off the
+thread pool periodically. The other place PitFail uses an actor is to send
+notification emails, because the operation can block for a long period of time
+and the rest of the page request (updating the model, responding with a repyl
+page) needs to be able to continue without waiting for the email to be sent.
 
 Data Structures
 ---------------
 
 User Interface Design and Implementation
 ========================================
-Pitfail's overall user interface closely resembles the interface depicted in
+PitFail's overall user interface closely resembles the interface depicted in
 its mockups: most of the changes were merely cosmetic. Most of the functional
-changes are because the current implementation of Pitfail is missing features
+changes are because the current implementation of PitFail is missing features
 that were included in the mockup: e.g. companies, leagues, and social
 interaction. These changes are grouped into general categories, described in
 detail, and justified in the following sections.
 
 Welcome Page for New User
 -------------------------
-Pitfail was originally described as having a "guided registration" process
+PitFail was originally described as having a "guided registration" process
 where the user registers as part of purchasing his or her first stock. While
 the user can still explore the stock purchasing interface before logging in,
-the current implementation of Pitfail does not support this "zero effort"
+the current implementation of PitFail does not support this "zero effort"
 registration because of a technical limitation. As such, guided messages no
 longer are displayed next to each step in the purchasing pipeline:
 
@@ -759,12 +991,13 @@ longer are displayed next to each step in the purchasing pipeline:
 
 Note that the list of steps is not visible and the current step is not
 indicated with an arrow. Some form of guided registration will be implemented
-in the next version of Pitfail. Thankfully, this doesn't change user effort:
+in the next version of PitFail. Thankfully, this doesn't change user effort:
 the user simply must login *before* selecting a stock instead of *after*
 selecting a stock.
 
 Portfolio Management
 --------------------
+
 Perhaps the largest change from the original mockups to the current
 implementation is the user's portfolio. This was planned to be displayed as a
 single large table containing the all of the user's assets: a combination of
@@ -794,11 +1027,11 @@ Besides the changes to the table of assets, there are clearly several features
 missing from the implementation: (1) historic portfolio performance, (2)
 multiple portfolios, and (3) league navigation. These missing interface
 elements will be restored after companies, leagues, and logging of historic
-prices are implemented in the next iteration of Pitfail.
+prices are implemented in the next iteration of PitFail.
 
 Buying Stocks
 -------------
-Purchasing stocks is one of the fundamental activities on Pitfail. The
+Purchasing stocks is one of the fundamental activities on PitFail. The
 interface for buying stocks is very similar to the interface shown in the
 original mockups: when the user enters a valid ticker symbol in the large
 search bar, a small stock quote expands below the search bar. This quote
@@ -826,12 +1059,13 @@ Neither of these changes do not considerably effect user effort.
 
 Trading Derivatives
 -------------------
+
 If the user clicks the "add to derivative" button instead of the "buy stock"
 button, he or she is presented with the derivative offering page. In the
 original mockups this was shown as a prose-like description of a derivative
 with a number of blanks. Originally intended to guide the user through the
-derivative creation process, this was found to be infeasible with the number of
-derivative configuration options supported in Pitfail. As such, this was
+derivative creation process, this was found to be unfeasible with the number of
+derivative configuration options supported in PitFail. As such, this was
 redesigned to resemble a traditional form: a prose description followed by a
 table of input fields.
 
@@ -853,13 +1087,13 @@ below for a detailed usability analysis.
 
 Social Features
 ---------------
-Pitfail's original mockups included a real-time newsfeed at the bottom of every
-page. This newsfeed was a log of trading history and served as a hub for social
+PitFail's original mockups included a real-time newsfeed at the bottom of every
+page. This news feed was a log of trading history and served as a hub for social
 interaction between users. A limited implementation of this newsfeed is
-included in the current version of Pitfail. Unlike the mockup, the newsfeed is
+included in the current version of PitFail. Unlike the mockup, the newsfeed is
 included in every page's sidebar instead of the footer. This is similar to the
 real-time feed that was recently added to Facebook and will be familiar to the
-majority of Pitfail's users.
+majority of PitFail's users.
 
 .. raw:: latex
 
@@ -873,7 +1107,7 @@ Besides the different location, much of the functionality displayed in the
 mockups has not yet been implemented. Notably, this includes: (1) user-specific
 newsfeeds, (2) voting, (3) commenting, (4) messages for derivative trades, and
 (5) messages for a users going broke. These features will be implemented in the
-next version of Pitfail and do not effect user effort.
+next version of PitFail and do not effect user effort.
 
 User Effort Estimation
 ----------------------
@@ -900,10 +1134,11 @@ Features that are not currently implemented are shown as empty rows and actions
 that have been added since the original mockups are marked with asterisks. Both
 these new usage scenarios and existing usage scenarios that were modified are
 analyzed in detail below. This includes buying and selling stocks because of
-the lack of league support in the current version of Pitfail.
+the lack of league support in the current version of PitFail.
 
 Purchase a Stock
 ................
+
 Assume the user wishes to purchase 10 shares of Google stock. The user must:
 
 - **Navigation:** total of one click, as follows
@@ -922,6 +1157,7 @@ Note that the user could press "enter" instead of clicking the "buy" button.
 
 Creating a Derivative
 .....................
+
 Assume the user wishes to offer a call option to Bucky that includes 10 shares
 of Google stock and expires on December 25, 2011. This option costs $1000 to
 begin active and one can buy the shares for $10,000 if and only if the market
@@ -949,6 +1185,7 @@ rate for Google stock is greater than $1000 per share. The user must:
 
 Sell a Stock
 ............
+
 Assume the user wishes to sell 10 shares of Google stock from his or her Global
 League. The user must:
 
@@ -967,6 +1204,7 @@ Note that the user could press "enter" instead of clicking the "sell" button.
 
 Act on Derivative Offer
 .......................
+
 Assume the user wishes to accept a derivative that was directly offered to him
 or her:
 
@@ -980,6 +1218,7 @@ or her:
 
 Bid on Derivative
 .................
+
 Assume the user wishes to bid $50,000 on a derivative that is being sold in a
 public auction:
 
@@ -996,6 +1235,7 @@ public auction:
 
 Close Derivative Auction
 ........................
+
 Assume the user wishes to close an auction that he or she posted:
 
 - **Navigation:** total of one click, as follows
