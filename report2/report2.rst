@@ -818,3 +818,7 @@ across all systems. Testing will be the responsibility of each module developer.
 References
 ==========
 
+http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
+http://en.wikipedia.org/wiki/Java_Database_Connectivity
+
+
