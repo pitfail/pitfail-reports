@@ -805,6 +805,26 @@ design.
 Hardware Requirements
 ---------------------
 
+PitFail requires Jetty server to be running which does not pose any strict hardware requirements. 
+However, having a following hardware specification is recommended for a better and smooth 
+experience for the user.
+
+Processor: Intel Pentium III with 1GHZ or above (or an equivalent configuration). We used machines with Intel.  
+
+Memory:  1GB or more of RAM 
+
+System type: 32 or 64 bit Operating System
+
+Disk Space: Minimum 100 MB for complete installation 		
+
+Network: Network bandwidth > 56kbps
+
+The three client interface of Pitfail which are Website, Twitter and Facebook can be 
+accessed from any device which has web browsing capabilities. For the Android Application for 
+Pitfail, any mobile device running android and connected to the internet can execute the application.
+
+
+
 Algorithms and Data Structures
 ==============================
 
