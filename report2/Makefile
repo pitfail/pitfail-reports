@@ -10,17 +10,16 @@ TRASH  = $(TARGET).pdf \
          $(TARGET).tex $(TARGET).aux $(TARGET).log  $(TARGET).out \
          $(TARGET).maf $(TARGET).mtc $(TARGET).mtc0 $(PDF_OBJ)
 
-PDF_OBJ = plan_of_work/pow_report2-rotated90.pdf
+PDF_OBJ = plan_of_work/pow_report2-rotated90.pdf component_diagram.pdf
 PDF_DEP = $(PDF_OBJ)
 
 
 .PHONY: all clean
-.SECONDARY:
 
 all: $(TARGET).pdf
 
 clean:
-	$(RM) $(TRASH)
+	$(RM) $(TRASH) $(PDF_OBJ)
 
 plan_of_work/pow_report2.pdf : plan_of_work/pow_report2.mpp
 	echo "$@ depends on $< but $@ was not updated"
