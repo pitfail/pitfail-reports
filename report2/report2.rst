@@ -324,7 +324,8 @@ BUY/SELL via the Android Cleint
 
     Buy Stocks via Android Client
 
-The diagram above is the interaction sequence diagram for UC Buy Stocks from an Android Mobile Client.
+The diagram above is the interaction sequence diagram for UC Buy Stocks from an Android Mobile Client. This 
+Interaction diagram is the extension of System sequence Diagram for UC-1 Buy Stocks. 
 As shown, first the search action is initiated by the Android Controller which requested by the Android user.
 The Android controller sends an HTTP Post request to Yahoo Stock Source. This request specifically asks
 for the Stock Value of the stock ticker by sending the corresponding tag with the request. Once the response
