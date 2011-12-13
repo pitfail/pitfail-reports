@@ -2,9 +2,10 @@
 Overall Architecture
 ====================
 
-PitFail follows roughly an MVC [MVC]_ architecture. David Pollak believes that
-Lift is a "View First" architecture [View]_, but since none of use are familiar
-with "View First", nor do we really know what it means, we stuck to MVC.
+PitFail follows roughly an MVC [MVC]_ architecture. David Pollak (Lift's
+author) believes that Lift is a "View First" architecture [View]_, but since
+none of use are familiar with "View First", nor do we really know what it
+means, we stuck to MVC.
 
 Model
 -----
@@ -101,7 +102,7 @@ code is structured*).
   
 * `SLF4J <http://www.slf4j.org/>`_ for logging.
   
-* `Scalaz Library <http://code.google.com/p/scalaz/>`_ for miscellaneous function
+* `Scalaz Library <http://code.google.com/p/scalaz/>`_ for miscellaneous functional
   programming features.
   
 * `Scalatest <http://scalatest.org/>`_ for unit testing.
@@ -224,7 +225,7 @@ We like this system because:
 
 1. The Model (``Portfolio``, ``StockAsset``, ...) do not have to duplicate the
    checks made in the view. For example, the model never needs to check that a
-   string is formatted correctly like a number.
+   string is formatted correctly like a number [Dry]_.
    
 2. The Model does not have to provide human-readable error mesages; it mearly
    throws exceptions, which the View then decides an appropriate message for.
