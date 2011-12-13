@@ -50,7 +50,7 @@ perform actions.
   
 * Twitter view in ``texttrading/twitter.scala``
   
-* Android view in ??????
+* Android view in ``android/Pitfail_Android_Cleint/src/com/pitfail/``
   
 * Facebook view in ??????
 
@@ -244,9 +244,10 @@ and other information or to the PitFail server, to update the database informati
 about the user and also to retrieve user information according to the flow.
 
 Android Frameworks used:
-------------------------
+.........................
 
 Activities: 
+.............
 
 An Activity is an application component that provides a screen with 
 which users can interact in order to do something. We created activities to perform 
@@ -254,6 +255,7 @@ different tasks like Sell Stock, LeaderBoard, New Team. Each activity is given a
 in which to draw its user interface.
 
 Services:
+............
 
 A Service is an application component that can perform long-running operations in the 
 background and does not provide a user interface. Android provided two types of services. 
@@ -264,6 +266,7 @@ recieve stock updates on any of the stocks held by user. Our Polling service sta
 as the User starts the PitFail Application on his device.
 
 Notifications: 
+................
 
 Notification is a special feature of the Android smart phones, where the user can receive 
 important updates about the account even when the application is not in the front screen. 
