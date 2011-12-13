@@ -1,0 +1,4 @@
+
+View -> Portfolio: myStockAssets()
+Portfolio --> View: List[StockAsset]
+

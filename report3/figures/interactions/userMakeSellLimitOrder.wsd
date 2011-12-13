@@ -1,0 +1,12 @@
+
+participant "Portfolio (seller)" as Portfolio
+
+View -> Portfolio: userMakeSellLimitOrder(ticker: String, shares: Shares, limit: Price)
+
+Portfolio -> StockSchema: buyersFor(ticker)
+StockSchema --> Portfolio: List[Tradeable]\nNow filter buy price>limit.\nsum to produce availableShares
+Portfolio -> Portfolio: sellStock(ticker, availableShares)\nsell those available that\nare over the limit right now
+Portfolio -> SellLimitOrder: insert()
+Portfolio -> SellOrdered: report()\nfor news
+Portfolio -> StockAsset: update (shares <- shares-setAside)\nset aside shares to be sold
+

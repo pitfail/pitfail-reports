@@ -1,0 +1,4 @@
+
+View -> Portfolio: myAutoTrades
+Portfolio -> View: List[AutoTrade]
+

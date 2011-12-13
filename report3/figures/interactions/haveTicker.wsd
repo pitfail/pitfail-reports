@@ -1,0 +1,9 @@
+
+View -> Portfolio: haveTicker(ticker: String)
+
+alt We have it
+	Portfolio --> View: Some[StockAsset]
+else
+	Portfolio --> View: None
+end
+

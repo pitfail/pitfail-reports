@@ -1,0 +1,4 @@
+
+View -> Portfolio: myDerivativeAssets()
+Portfolio -> View: List[DerivativeAsset]
+

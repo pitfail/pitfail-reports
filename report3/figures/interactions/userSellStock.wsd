@@ -1,0 +1,19 @@
+
+participant "Portfolio (seller)" as Portfolio
+
+View -> Portfolio: userSellStock(ticker: String, shares: Shares)
+
+alt have enough shares
+	alt enough available buyers
+		Portfolio -> Portfolio: update(cash <- cash+dollars)
+		Portfolio -> Sold: insert() (for news)
+		Portfolio -> StockSellHistory: insert()
+		Portfolio -> StockAsset update(shares <- shares-newShares)
+	else not enough available buyers
+		Portfolio --> View: NoBidders
+	end
+else not enough shares
+	
+end
+
+

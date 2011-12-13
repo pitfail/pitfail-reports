@@ -1,0 +1,13 @@
+
+Controller -> DividendSchema: systemCheckForDividends()
+
+loop all stock assets
+	DividendSchema -> Stocks: recentDividends(ticker: String)
+	
+	alt there is a dividend to be paid
+		DividendSchema -> Portfolio: update (cash<-cash+dividend)
+		DividendSchema -> StockAsset: update (totalDividends<-totalDividends+dividend)
+		DividendSchema -> DividendPayment: insert()
+	end
+end
+

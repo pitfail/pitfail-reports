@@ -1,0 +1,7 @@
+
+participant "Portfolio (buyer)" as Buyer
+
+View -> Buyer: userDeclineOffer(id: String)
+Buyer -> Declined: insert()\nfor news
+Buyer -> DerivativeOffer: delete()
+

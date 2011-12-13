@@ -1,0 +1,4 @@
+
+View -> NewsEvent: comments()
+NewsEvent -> View: List[EventComment]
+

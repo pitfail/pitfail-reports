@@ -1,0 +1,4 @@
+
+View -> NewsEvent: sellerVotes()
+NewsEvent -> View: List[DerivativeSellerVote]
+

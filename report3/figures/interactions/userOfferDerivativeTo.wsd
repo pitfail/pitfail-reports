@@ -1,0 +1,5 @@
+
+View -> Portfolio: userOfferDerivativeTo(recip: Portfolio, deriv: Derivative, price: Dollars)
+Portfolio -> DerivativeOffer: insert()
+Portfolio -> Offered: insert()\nfor news
+

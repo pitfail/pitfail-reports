@@ -1,0 +1,5 @@
+
+View -> Portfolio: userCastBid()
+Portfolio -> AuctionBid: insert()
+Portfolio -> Bid: report()\nfor news
+

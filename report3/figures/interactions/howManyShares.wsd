@@ -1,0 +1,4 @@
+
+View -> Portfolio: howManyShares(ticker: String)
+Portfolio --> View: Shares
+

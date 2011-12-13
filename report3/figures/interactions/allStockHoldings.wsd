@@ -1,0 +1,4 @@
+
+View -> StockSchema: allStockHoldings()
+StockSchema --> View: List[StockHolding]
+

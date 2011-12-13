@@ -1,0 +1,5 @@
+
+View -> Portfolio: userOfferDerivativeAtAuction(deriv: Derivative, price: Dollars, expires: DateTime)
+Portfolio -> AuctionOffer: insert()
+Portfolio -> Auctioned: insert()\nfor news
+

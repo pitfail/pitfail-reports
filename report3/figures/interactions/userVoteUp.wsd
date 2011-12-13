@@ -1,0 +1,10 @@
+
+participant "Portfolio (buyer)" as Buyer
+participant "Portfolio (seller)" as Seller
+participant "Portfolio (voter)" as Voter
+
+View -> Voter: userVoteUp(ev: NewsEvent, aside: DerivativeBuyerSetAside)
+Voter -> Voter: enterContract
+Voter -> Seller: enterContract
+Voter -> DerivativeBuyerVote: insert()
+

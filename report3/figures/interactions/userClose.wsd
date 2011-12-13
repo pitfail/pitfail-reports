@@ -1,0 +1,15 @@
+
+View -> AuctionOffer: userClose()
+
+AuctionOffer -> AuctionOffer: highBid()
+
+alt there is at least 1 bid
+	AuctionOffer -> Portfolio: enterContract()
+else
+end
+
+AuctionOffer -> ActionOffer: delete()
+loop all bids
+	AuctionOffer -> ActionBid: delete()
+end
+

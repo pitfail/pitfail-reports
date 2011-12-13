@@ -1,0 +1,4 @@
+
+View -> Portfolio: howManyDollars(ticker: String)
+Portfolio -> View: Dollars
+

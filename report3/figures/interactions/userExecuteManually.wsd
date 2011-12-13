@@ -1,0 +1,13 @@
+
+View -> DerivativeAsset: userExecuteManually
+
+alt this.early
+	DerivativeAsset -> DerivativeLiability: deduct remaining
+	DerivativeAsset -> DerivativeAsset: delete()
+	DerivativeAsset -> Portfolio: transferCash()
+	DerivativeAsset -> Portfolio: transferStock()
+	DerivativeAsset -> Portfolio: transferDerivative()
+else
+	DerivativeAsset --> View: NotExecutable
+end
+

@@ -1,0 +1,4 @@
+
+View -> DerivativeAsset: spotValue()
+DerivativeAsset --> View: Dollars
+

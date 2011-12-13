@@ -1,0 +1,9 @@
+
+View -> AuctionOffer: highBid()
+
+alt there is at least 1 bid
+	AuctionOffer -> View: Some[AuctionBid]
+else
+	AuctionOffer -> View: None
+end
+

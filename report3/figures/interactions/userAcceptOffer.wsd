@@ -1,0 +1,12 @@
+
+participant "Portfolio (buyer)" as Buyer
+participant "Portfolio (seller)" as Seller
+
+View -> Buyer: userAcceptOffer(id: String)
+Buyer -> Buyer: update(cash <- cash-price)
+Buyer -> Seller: udpate(cash <- cash+price)
+Buyer -> Accepted: insert()\nfor news
+Buyer -> DerivativeAsset: insert()
+Buyer -> DerivativeLiability: insert()
+Buyer -> DerivativeOffer: delete()
+

@@ -1,0 +1,5 @@
+
+View -> Portfolio: margin()
+Portfolio -> Portfolio: myBuyLimitOrders()
+Portfolio --> View: Dollars
+

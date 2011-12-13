@@ -1,0 +1,8 @@
+
+participant "Portfolio (seller)" as Portfolio
+
+View -> Portfolio: userSellAll(ticker: String)
+
+Portfolio -> Portfolio: howManyShares(ticker)
+Portfolio -> Portfolio: userSellStock(ticker, shares)
+

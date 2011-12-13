@@ -1,0 +1,7 @@
+
+participant "" as Someone
+
+Someone -> Action: report()
+Action -> NewsEvent: insert()
+
+

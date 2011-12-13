@@ -1,0 +1,4 @@
+
+View -> AutoTrade: userModify(title: String, code: String)
+AutoTrade -> AutoTrade: update(title<-title, code<-code)
+

@@ -1,0 +1,4 @@
+
+View -> User: userPostComment(event: NewsEvent, text: String)
+User -> EventComment: insert()
+

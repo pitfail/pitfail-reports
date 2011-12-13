@@ -1,0 +1,4 @@
+
+View -> AutoTrade: userDelete()
+AutoTrade -> AutoTrade: delete()
+

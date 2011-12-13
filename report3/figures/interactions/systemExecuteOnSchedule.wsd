@@ -1,0 +1,12 @@
+
+View -> DerivativeAsset: userExecuteManually
+
+DerivativeAsset -> Derivative: check that condition is true
+alt condition holds
+	DerivativeAsset -> DerivativeLiability: deduct remaining
+	DerivativeAsset -> DerivativeAsset: delete()
+	DerivativeAsset -> Portfolio: transferCash()
+	DerivativeAsset -> Portfolio: transferStock()
+	DerivativeAsset -> Portfolio: transferDerivative()
+end
+

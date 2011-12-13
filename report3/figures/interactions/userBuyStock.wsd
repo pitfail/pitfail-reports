@@ -1,0 +1,34 @@
+
+participant "Portfolio (buyer)" as Portfolio
+
+View -> Portfolio: userBuyStock(ticker: String, shares: Shares)
+
+alt enough available sellers
+
+	alt have enough cash
+		Portfolio -> Portfolio: update(cash <- cash-spent)
+
+		Portfolio -> Portfolio: haveTicker(ticker)
+		alt already have an asset
+			Portfolio --> Portfolio: Some[StockAsset]
+			Portfolio -> StockAsset: update(shares <- shares+newShares)
+		else make a new asset
+			Portfolio --> Portfolio: None
+			Portfolio -> StockAsset: insert()
+		end
+		
+		Portfolio -> Bought: report()
+		Portfolio -> StockBuyHistory: insert()
+		
+		Portfolio --> View: StockPurchase
+		
+	else not enough cash
+		Portfolio --> View: NotEnoughCash
+	end
+
+else not enough available sellers
+	
+	Portfolio --> View: NoBidders
+	
+end
+
