@@ -231,7 +231,7 @@ We like this system because:
    This keeps our code to the MVC pattern.
 
 
-OVerall Android Client Architecture:
+Overall Android Client Architecture:
 --------------------------------------
 
 The Android client runs on the Android phones (Android version 2.2 and above). 
