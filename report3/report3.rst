@@ -210,4 +210,11 @@ Conclusions and Future Work
 
 References
 ==========
+Marsic, Ivan. *Software Engineering*. Piscataway: Rutgers University, 2011. PDF.
+Miles,  Russ  and  Kim  Hamilton.  *Learning  UML  2.0*.  Ed.  Eric  McLaughlin  and  Mary  O'Brien. Sebastopol: O'Reilly, 2006.
+
+
+http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
+
+http://en.wikipedia.org/wiki/Java_Database_Connectivity
 ..TODO
