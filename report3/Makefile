@@ -16,8 +16,8 @@ TRASH  = $(TARGET).pdf \
          $(TARGET).maf $(TARGET).mtc $(TARGET).mtc0 $(PDF_OBJ) $(SVG_OBJ)
 
 PNG_IN = $(wildcard figures/FB/*.png)
-WSD_IN = $(shell find -name '*.wsd')
-DIA_IN = $(shell find -name '*.dia')
+WSD_IN = $(shell find . -name '*.wsd')
+DIA_IN = $(shell find . -name '*.dia')
 SVG_IN = use_case_diagram.svg figures/domain/original-domain.svg
 
 SVG_OBJ = $(DIA_IN:.dia=.svg)
