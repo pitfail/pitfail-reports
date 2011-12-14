@@ -80,30 +80,30 @@ Listing of Use Cases
    Information regarding their current assets and liabilities as well as how
    they have been progressing over time may be displayed.
 
-4. Create League, Actor: WebPlayer.
+4. View League stats, Actor: WebPlayer.
+   Display information regarding the entire league including a listing of all
+   portfolios, graphs of the top portfolios, and the distribution of stocks
+   held by the top portfolios
+
+5. Create League, Actor: WebPlayer.
    Create a new *league* with the creator as the administrator.
 
-5. Invite to League, Actor: WebPlayer.
+6. Invite to League, Actor: WebPlayer.
    Send an invitation to a *player* to join a *league* of which the actor is an
    administrator.
 
-6. Accept or Decline League Invitation, Actor: WebPlayer.
+7. Accept or Decline League Invitation, Actor: WebPlayer.
    Acceptance of an outstanding invitation allows the initiating actor to
    create *portfolios* within the *league* the invite was dispatched from.
 
-7. Create Portfolio, Actor: WebPlayer, MobilePlayer
+8. Create Portfolio, Actor: WebPlayer, MobilePlayer
    Creates a new *portfolio* associated with a particular *league*. This
    *portfolio* is created with the cash value indicated by the *league* in
    which it is created.
 
-8. Get Security Details, Actor: WebPlayer, TwitterPlayer.
+9. Get Security Details, Actor: WebPlayer, TwitterPlayer.
    Display information regarding a particular security (stock or bond) such as
    historical trends and statistics.
-
-9. View League stats, Actor: WebPlayer.
-   Display information regarding the entire league including a listing of all
-   portfolios, graphs of the top portfolios, and the distribution of stocks
-   held by the top portfolios
 
 10. View Portfolio, Actor: WebPlayer.
     Display the contents of one of the initiating actor's portfolios. This
