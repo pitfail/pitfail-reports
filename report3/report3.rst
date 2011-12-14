@@ -44,41 +44,13 @@
 
 Individual Contributions
 ########################
-//TODO
+
+All team members contributed in ways which are too layered and interlinked to
+quantify.
 
 .. raw:: latex
 
-	\begin{center}
-	\small
-
-.. csv-table::
-	:header: "Responsibility", "Michal Koval", "Cody Schafer", "Owen Healy", "Brian Good-acre", "Roma Mehta", "Sonu Iqbal", "Avanti Kulkarni"
-	:widths: 15, 6, 6, 6, 6, 6, 6, 6
-
-	Customer Reqs. (6),                ,     ,     ,     ,     ,     , 100%
-	Glossary of Terms (4),          %,  10%,  10%,  10%,  10%,  10%,  10%
-	Functional Reqs.,                  ,     ,     ,     ,     ,     ,
-	? Stakeholders (2),                , 100%,     ,     ,     ,     ,
-	? Actors (2),                      , 100%,     ,     ,     ,     ,
-	? Goals (4),                    %,  50%,     ,     ,     ,     ,
-	? Casual UC (5),                   , 100%,     ,     ,     ,     ,
-	? Dressed UC (11),              %,  20%,     ,  40%,     ,     ,
-	? UC Diagram (4),                  , 100%,     ,     ,     ,     ,
-	? UC Tracability,              %,     ,     ,     ,     ,
-	Seq. Diagrams (9),                 ,     ,     ,     ,     , 100%,
-	Nonfunc. Reqs. (6),                ,     ,     ,     ,     , 100%,
-	Domain Analysis,                   ,     ,     ,     ,     ,     ,
-	? Concepts (12),                   ,     , 100%,     ,     ,     ,
-	? Associations (4),                ,     , 100%,     ,     ,     ,
-	? Attributes (3),                  ,     , 100%,     ,     ,     ,
-	Contracts (6),                     ,     ,     ,     , 100%,     ,
-	User Interface (8),            %,     ,     ,     ,     ,     ,
-	Plan of Work (3),                  ,     ,     , 100%,     ,     ,
-	References (1),                 14%,  14%,  14%,  14%,  14%,  15%,  14%
-
-.. raw:: latex
-
-	\end{center}
+	\pagebreak
 
 Summary of Changes
 ##################
@@ -153,11 +125,12 @@ Effort Estimation using Use Case Points
 
 Class Diagram and Interface Specification
 #########################################
-..TODO
 
-Object Constraint Language (OCL) Contracts 
-##########################################
-..TODO
+.. include:: uml-comments.rst
+
+.. raw:: latex
+
+    \includepdf[fitpaper=true]{figures/class-diagrams/diagrams.pdf}
 
 History of Work & Current Status of Implemenation 
 #################################################
