@@ -80,21 +80,21 @@ Individual Contributions
 
 	\end{center}
 
-General Information
-###################
-
-.. include:: general.rst
-
-Glossary
-########
-
-.. include:: glossary.rst
-
 Summary of Changes
 ##################
 
 .. include:: changes.rst
 	
+Glossary
+########
+
+.. include:: glossary.rst
+
+General Information
+###################
+
+.. include:: general.rst
+
 Architecture
 ############
 
@@ -138,14 +138,18 @@ Nonfunctional Requirements
 
 .. include:: nonfunc.rst
 
-User Interface Design and Implementation
-########################################
+User Interface
+##############
 
-.. include:: ui_design.rst
+User Interface Design and Implementation
+========================================
+
+.. include:: ui-design.rst
 
 Effort Estimation using Use Case Points
-#######################################
-.. include:: ui_estimation
+=======================================
+
+.. include:: ui-estimation.rst
 
 Class Diagram and Interface Specification
 #########################################
@@ -252,5 +256,5 @@ References
     
     \clearpage
 
-.. [Android]"Developers Guide". http://developer.android.com/guide/index.html
+.. [Android] "Developers Guide". http://developer.android.com/guide/index.html
 
