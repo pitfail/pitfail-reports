@@ -176,7 +176,7 @@ Actor's Goal:
         see his updated portfolio.
 
 Participating Actors:
-        Database, Stock Price Source.
+        Database, Stock Information Provider.
 
 Preconditions:
         The user should have logged in.
@@ -189,9 +189,9 @@ Postconditions:
 Flow of Events for Successful Buy:
         1. → The *Player, WebPlayer, or TwitterPlayer* determines a *Security*
                    and how much of it to "BUY". This is sent to the *System*
-        2. → *System* signals the *Stock Price Source* for the price of the
+        2. → *System* signals the *Stock Information Provider* for the price of the
                    security.
-        3. ← *Stock Price Source* sends the price of the *Security* to the
+        3. ← *Stock Information Provider* sends the price of the *Security* to the
                    *System.*
         4. → *System* requests the amount of cash the *Player* has from the
                    *Database*.
@@ -207,9 +207,9 @@ Flow of Events for Successful Buy:
 Flow of Events for Unsuccessful Buy:
         1. → The *Player, WebPlayer, or TwitterPlayer* determines a *Security*
                    and how much of it to "BUY". This is sent to the *System*
-        2. → *System* signals the *Stock Price Source* for the price of the
+        2. → *System* signals the *Stock Information Provider* for the price of the
                    security.
-        3. ← *Stock Price Source* sends the price of the *Security* to the
+        3. ← *Stock Information Provider* sends the price of the *Security* to the
                    *System.*
         4. → *System* requests the amount of cash the *Player* has from the
                    *Database*.
@@ -233,10 +233,10 @@ Actor's Goal:
         see the updated portfolio
 
 Participating Actors:
-        Database, Stock Price Source
+        Database, Stock Information Provider
 
 Preconditions:
-        - User is logged in
+        - User is authenticated (logged in).
         - Contain in his portfolio at least the quantity of securities his is
           requesting to sell.
 
@@ -247,8 +247,8 @@ Flow of Events for Successful Sell:
         1. → The *Player* determines a *Security* and how much of it to "SELL".
                    They send this information to the *System*.
         2. →  *System* requests the price of the
-                   security from the *Stock Price Source*
-        3. ←  *Stock Price Source* sends the price of the *Security* to the
+                   security from the *Stock Information Provider*
+        3. ←  *Stock Information Provider* sends the price of the *Security* to the
                    *System.*
         4. →  *System* requests the amount of the *Security*
                    the *Player* owns from the *Database*.
@@ -266,8 +266,8 @@ Flow of Events for Unsuccessful Sell:
         1. → The *Player* determines a *Security* and how much of it to "SELL".
                    They send this information to the *System*.
         2. →  *System* requests the price of the
-                   security from the *Stock Price Source*
-        3. ←  *Stock Price Source* sends the price of the *Security* to the
+                   security from the *Stock Information Provider*
+        3. ←  *Stock Information Provider* sends the price of the *Security* to the
                    *System.*
         4. →  *System* requests the amount of the *Security*
                    the *Player* owns from the *Database*.
@@ -299,36 +299,27 @@ Actor's Goal:
         stock they have).
 
 Participating Actors:
-        *Stock information provider*, *Database*
+        *Stock Information Provider*, *Database*
 
 Preconditions:
-        None, note that authentication & account creation are handled within
-        this use case.
+        - User is authenticated.
 
 Postconditions:
-        None, this is a stateless action. Information is displayed to the user
-        but no internal actions are taken.
+        Information is displayed to the user, but no internal actions are
+        taken.  Nothing about the users portfolio will be modified by this
+        action.
 
 Flow of Events for Main Success Scenario:
         1. → *Player* requests a view of their *portfolio*.
-        2. ← *System* checks for authentication and when it does not exist (a)
-           runs the authentication (UC-18). Checks for a associated *user* in
-           the system and when there is none runs (b) user creation (UC-19).
-        3. ← *System* requests the information about the user's portfolio for
-           this particular league from the *Database*.
-        4. → *Database* returns the information regarding the portfolio.
-        5. ← *System* forms a query regarding all the currently held securities
-           within the portfolio and dispatches it to the *stock info provider*.
-        6. → *Stock info provider* returns the requested data.
-        7. ← *System* forms a web view of the portfolio information and returns
-           it to the *web player*
-
-Additional Notes:
-        When this use case is running the other contained use cases (UC-18 and
-        UC-19), each of these perform their own sequence of interactions with
-        the user. In the case of a failure in one of the included use cases,
-        the users remains in the control of that included use case until the
-        failure is resolved or another use case is initiated.
+        3. → *System* requests the information about the user's portfolio for
+                   this particular league from the *Database*.
+        4. ← *Database* returns the information regarding the portfolio.
+        5. → *System* forms a query regarding all the currently held securities
+                   within the portfolio and dispatches it to the *Stock
+                   Information Provider*.
+        6. ← *Stock Information Provider* returns the requested data.
+        7. ← *System* forms a view of the portfolio information and returns
+                   it to the *Player*
 
 UC-4: View League Statistics
 .............................
@@ -363,12 +354,6 @@ Flow of Events for league does not exist:
 	2. ← *System* signals the *Database* for authentication and the league's leaderboard.
 	3. ← *Database* signals the *System* that the league does not exist.
         4. ← *System* returns "page not found" error.
-
-Flow of Events for league is invite-only and the user is not a member:
-	1. → *Player* requests the league statistics page.
-	2. ← *System* signals the *Database* for authentication and the league's leaderboard.
-	3. ← *Database* signals the *System* that the league is invite-only and the *Player* is not a member.
-        4. ← *System* returns "access denied" error.
 
 UC-5: Invite to League
 ......................
