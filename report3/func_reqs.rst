@@ -101,20 +101,15 @@ Listing of Use Cases
    *portfolio* is created with the cash value indicated by the *league* in
    which it is created.
 
-9. Get Security Details, Actor: WebPlayer, TwitterPlayer.
+9. Get Security Details, Actor: WebPlayer, TwitterPlayer, MobilePlayer
    Display information regarding a particular security (stock or bond) such as
    historical trends and statistics.
 
-10. View Portfolio, Actor: WebPlayer.
-    Display the contents of one of the initiating actor's portfolios. This
-    includes a listing of assets and liabilities, and graphs showing the change
-    in portfolio value over time.
-
-11. Create Initial Portfolio, Actor: WebPlayer, TwitterPlayer.
+10. Create Initial Portfolio, Actor: WebPlayer, TwitterPlayer.
     On the initiation of an action by the *player*, a default *portfolio* is
     created for them within the default *league*.
 
-12. Authentication, Actor: WebPlayer.
+11. Authentication, Actor: WebPlayer.
     The initiating actor authenticates to the server via an external
     *authentication provider*. *Twitter* is the current supported
     *authentication provider*. Authentication for the *TwitterPlayer* is
@@ -129,36 +124,48 @@ Listing of Use Cases
     (a trade occurred, a derivative was offered, et c.) within the system.
 
 14. Create Derivative, Actor: WebPlayer
+    Make a new contractual asset transfer for open auction or to offer directly
+    to a particular portfolio.
 
 15. Bid on Derivative, Actor: WebPlayer
     This is a part of the public auction system. The initiating actor places a
     particular cash value bid on a derivative currently in public auction.
 
-17. Execute Derivative, Actor: WebPlayer
+16. Execute Derivative, Actor: WebPlayer
     On derivatives that allow it, this causes the early evaluation of the
     derivative's terms.
 
-18. Close an Offer, Actor: WebPlayer
+17. Close an Offer, Actor: WebPlayer
     Close an offer at auction, confirming the sale to the highest bidder.
 
-19. Accept or Decline a pending offer, Actor: WebPlayer
+18. Accept or Decline a pending offer, Actor: WebPlayer
     When a direct offer of a derivative is made to a *portfolio* controlled by
     the initiating actor, the actor must accept or reject this offer (or leave
     it outstanding, cluttering the interface to some extent).
 
-20. Open Buy Order, Actor: WebPlayer
+19. Open Buy Order, Actor: WebPlayer
     Create an order for the purchase of a particular amount of a particular
     *security* at a particular dollar value per share (a limit order).
 
-21. Open Sell Order, Actor: WebPlayer
+20. Open Sell Order, Actor: WebPlayer
     Create an order for the sale of a particular amount of a particular *asset*
     (a held *security*) at a particular dollar value per share (another limit
     order).
 
-22. Cancel a Buy or Sell Order, Actor: WebPlayer
+21. Cancel a Buy or Sell Order, Actor: WebPlayer
     When a Buy or Sell order is placed via the Buy or Sell use case, the orders
     are kept alive indefinitely unless canceled. A user who wishes to remove
     orders which they no longer want active will cancel the order.
+
+22. Change Default Portfolio, Actor: WebPlayer
+    Adjusts the portfolio which is opened on initial login & viewing the main
+    page. Changing the default portfolio also allows the user as a
+    *TwitterPlayer* to trade stocks in a different profile (the *TwitterPlayer*
+    always interacts with a user's defaul league.
+
+23. Invite to Portfolio, Actor: WebPlayer
+    Request other join the portfolio creator in managing a portfolio, allowing
+    the creation of Teams.
 
 Fully Dressed Use Cases
 -----------------------
