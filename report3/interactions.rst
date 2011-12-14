@@ -495,3 +495,61 @@ ref_870).
     :width: 90%
 
 
+Buy Via Android Cleint
+------------------------
+
+.. figure:: sequence-diagrams/android/BuyStock.png
+    :width: 90%
+
+    Buy Stocks via Android Client
+
+The diagram above is the interaction sequence diagram for UC Buy Stocks from an Android Mobile Client. This 
+Interaction diagram is the extension of System sequence Diagram for UC-1 Buy Stocks. 
+As shown, first the search action is initiated by the Android Controller which requested by the Android user.
+The Android controller sends an HTTP Post request to Yahoo Stock Source. This request specifically asks
+for the Stock Value of the stock ticker by sending the corresponding tag with the request. Once the response
+is received, the Mobile Client creates the Buy request. The Android controller calls the BuyServlet using an
+HTTP Post request via the Jetty Server.The Jetty server has capability to support both Scala and Java sources
+as it runs on a JVM. All the servlets for Android are written in Java which internally calls functions
+from Scala classes.  The reason for choosing Java for Android client is for its compatibility.The BuySerlvlet
+internally makes use of the Portfolio class the extract the user info from the Database. If the Volume to be 
+bought is correct, user's portfolio is updated and results are sent back to the user.
+
+
+
+Sell Via Android Cleint
+-----------------------
+
+.. figure:: sequence-diagrams/android/SellStock.png
+    :width: 90%
+
+    Sell Stocks via Android Client
+
+The diagram above is the interaction sequence diagram for UC Sell Stocks from an Android Mobile Client.
+The user initiates the action by creating a request by providing the Stock ticker name he intends to sell off.
+The Android controller sends an HTTP Post request to SellServlet via the Web Server. The BuyServlet 
+makes use of portfolio class and call the function to update the user profile.Because we expect 
+asynchronous requests there is a possibility that by the time a SellStock is completely executed 
+there can be another asynchronous call from some other client interface by the same user. 
+Such a situation is handled by throwing back an exception message "You dont own this stock" and  
+corresponding appropriate message back to the user.Currently, we sell off all the corresponding stocks. 
+ 
+
+
+Notifications for Android Client
+---------------------------------
+
+
+.. figure:: sequence-diagrams/android/Notifications.png
+    :width: 90%
+
+    Sell Stocks via Android Client
+
+
+When the user starts the Pitfail Application for the first time, a background service is started with it 
+which is not bounded to the application. This is a Polling service which polls the Web Server periodically. On 
+receiving the request from the service, the server executes the Stocuupdates Servelet which collect information
+on any change in the price of all the stocks the user owns. If the margin of change is equal to more than 1 dollar,
+the corresponding updates are sent to the polling service. The Polling service then sends those messages to the 
+Android Notification manager. The Notification manager then display new notifications as Stock updates for the 
+user.
