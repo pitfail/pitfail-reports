@@ -654,7 +654,7 @@ Now once the message is retrieved and parsed at the client side, the server func
 Before processing any request, we always check if the username that is requesting this operation is valid or not. Therefore before invoking any other method client invokes EnsureUser method to enusure the authenticity of the user. 
 
 Ensure User:
-``````````
+............
 
 Facebook interface of PitFail does not (for now) support registration.  The player has to be already registered to the system to play the game via FB interface.
 
@@ -668,7 +668,7 @@ Once the user is checked for his/her authenticity, we can proceed further with t
 Below are the operations user can execute.
 
 Buy Stock:
-``````````
+..........
 for all the operations below, once the ensureUser confirms the authenticity of the user, FaceBook client invokes a Java servlet on Jetty server. The main task handled by this java servlet is to accept arguments from Facebook client and invoke appropriate scala mothods to perform task requested by facebook client
 Here the servlet is: FBBuyServlet(Username)
   
@@ -676,7 +676,7 @@ Here the servlet is: FBBuyServlet(Username)
     :width: 90%
 
 Sell Stock:
-```````````
+...........
 
 In sell stock , FBSellServlet() is the Java servlet that accepts arguments from Facebook client and invokes scala  method to sell stocks.
  
@@ -684,7 +684,7 @@ In sell stock , FBSellServlet() is the Java servlet that accepts arguments from 
     :width: 90%
 
 View Portfolio:
-```````````````
+...............
 Before processing any request , we make sure (by invoking ensureUser) that the username exists. Therefore there is no failure flow (alternate flow) for portfolio view. 
 We will invoke this funtion only if the ensureUser confirms that the user exists. 
 
@@ -694,7 +694,7 @@ We will invoke this funtion only if the ensureUser confirms that the user exists
 Once client receives response (portfolio for the username) from server, client prettifies the response make it look better as FaceBook wall post. 
 
 View Leaderboard:
-`````````````````
+.................
 Apart from the leagues created by different users, we have a global league. Players playing via facebook can view the leaders of global league by using operation - view leaderboard.
 
 Here too, we dont have a alternate (failure) flow, as this method will be invoked only once ensureUser confirms that the username exists. 

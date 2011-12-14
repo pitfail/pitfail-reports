@@ -257,9 +257,9 @@ Flow of Events for Successful Sell:
         6. →  *System* checks that there are enough *Securities* to complete the
                    transaction. *System* signals the *Database* to complete the
                    transaction for a *Player*, *Security*, and the quantity.
-        8. ←  *Database* returns an indicator of transaction completion to the
+        7. ←  *Database* returns an indicator of transaction completion to the
                    *System*.
-        9. ←  *System* signals the transaction successfully completed to the
+        8. ←  *System* signals the transaction successfully completed to the
                    *Player*.
 
 Flow of Events for Unsuccessful Sell:
@@ -371,7 +371,7 @@ Flow of Events for league is invite-only and the user is not a member:
         4. ← *System* returns "access denied" error.
 
 UC-5: Invite to League
-............................
+......................
 Related Requirements:
         REQ-1, REQ-14, REQ-20
 
@@ -419,7 +419,7 @@ Flow of Events for user is not a coordinator of the league:
 
 
 Use Case Traceability Matrix
----------------------------
+----------------------------
 The following is the relationship between the use-cases defined above and the
 requirements discussed in the statement of requirements:
 
