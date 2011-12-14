@@ -70,16 +70,15 @@ Listing of Use Cases
 
 1. Buy, Actor: WebPlayer, TwitterPlayer, MobilePlayer
    Purchases a security from the market at the price listed by the designated
-   market makers.  Alternately, place an order for a particular price level to
-   be fulfilled later.
+   market makers.
 
 2. Sell, Actor: WebPlayer, TwitterPlayer, MobilePlayer
-   Sells a held security at the price listed by the *DMMs*.
+   Sells a held security at the price listed by the designated market makers.
 
-3. View Portfolio, Actor: WebPlayer.
+3. View Portfolio, Actor: WebPlayer, TwitterPlayer, MobilePlayer
    Allow the initiating actor to examine the contents of their portfolio.
    Information regarding their current assets and liabilities as well as how
-   they have been progressing over time is displayed.
+   they have been progressing over time may be displayed.
 
 4. Create League, Actor: WebPlayer.
    Create a new *league* with the creator as the administrator.
@@ -147,11 +146,19 @@ Listing of Use Cases
     the initiating actor, the actor must accept or reject this offer (or leave
     it outstanding, cluttering the interface to some extent).
 
-20. Cancel a Buy or Sell Order, Actor: WebPlayer
+20. Open Buy Order, Actor: WebPlayer
+    Create an order for the purchase of a particular amount of a particular
+    *security* at a particular dollar value per share (a limit order).
+
+21. Open Sell Order, Actor: WebPlayer
+    Create an order for the sale of a particular amount of a particular *asset*
+    (a held *security*) at a particular dollar value per share (another limit
+    order).
+
+22. Cancel a Buy or Sell Order, Actor: WebPlayer
     When a Buy or Sell order is placed via the Buy or Sell use case, the orders
     are kept alive indefinitely unless canceled. A user who wishes to remove
     orders which they no longer want active will cancel the order.
-
 
 Fully Dressed Use Cases
 -----------------------
@@ -169,7 +176,7 @@ Actor's Goal:
         see his updated portfolio.
 
 Participating Actors:
-        Database, Stock Price Source
+        Database, Stock Price Source.
 
 Preconditions:
         The user should have created an account, be in a league  with settings
@@ -183,37 +190,37 @@ Postconditions:
 
 Flow of Events for Successful Buy:
         1. → The *Player, Webplayer, or TwitterPlayer* determines a *Security*
-           and how much of it to "BUY".
-        2. ← *System* signals the *Stock Price Source* for the price of the
-           security.
+                   and how much of it to "BUY". This is sent to the *System*
+        2. → *System* signals the *Stock Price Source* for the price of the
+                   security.
         3. ← *Stock Price Source* sends the price of the *Security* to the
-           *System.*
-        4. ← *System* signals the *Database* for the amount of money the
-           *Player* has.
-        5. ← *Database* sends the amount of money for the *Player* to the
-           System.
-        6. ← *System* checks that there is enough money for compelete the
-           transcation.
-        7. ← *System* signals the *Database* to complete the transcation for a
-           *Player*, *Security*, and the quantity.
-        8. ← *Database* signals the *System* the transcation is complete.
-        9. ← *System* signals to the *Player* "Transcation Completed."
+                   *System.*
+        4. → *System* requests the amount of cash the *Player* has from the
+                   *Database*.
+        5. ← *Database* returns the amount of cash for the *Player* to the
+                   *System*.
+        6. → *System* checks that there is enough money for compelete the
+                   transcation and sends the complete transcation for a
+                   *Player*, *Security*, and the quantity to the *Database*.
+        7. ← *Database* signals the *System* the transcation is complete.
+        8. ← *System* signals to the *Player* that the Buy opperation was
+                   completed successfully.
 
 Flow of Events for Unsuccessful Buy:
         1. → The *Player, Webplayer, or TwitterPlayer* determines a *Security*
-           and how much of it to "BUY".
-        2. ← *System* signals the *Stock Price Source* for the price of the
-           security.
+                   and how much of it to "BUY". This is sent to the *System*
+        2. → *System* signals the *Stock Price Source* for the price of the
+                   security.
         3. ← *Stock Price Source* sends the price of the *Security* to the
-           *System.*
-        4. ← *System* signals the *Database* for the amount of money the
-           *Player* has.
-        5. ← *Database* sends the amount of money for the *Player* to the
-           System.
+                   *System.*
+        4. → *System* requests the amount of cash the *Player* has from the
+                   *Database*.
+        5. ← *Database* returns the amount of cash for the *Player* to the
+                   *System*.
         6. ← *System* checks that there is enough money for compelete the
-           transcation.
-        7. ← There is not enough money. *System* signals to the *Player*
-           "Transcation Not Completed: Insufficient Funds."
+                   transcation. There is not enough money. *System* signals to
+                   the *Player* "Transcation Not Completed: Insufficient
+                   Funds."
 
 UC-2: Sell
 ..........
@@ -278,7 +285,7 @@ Related Requrements:
         REQ-1, REQ-2, REQ-6, REQ-10, REQ-11, REQ-14
 
 Initiating Actor:
-        Only *WebPlayer*, the similar UC-9 is provided for the *Twitter player*.
+        Web Player, Mobile Player, or Twitter Player.
 
 Actor's Goal:
         To view information regarding their portfolio. This information
