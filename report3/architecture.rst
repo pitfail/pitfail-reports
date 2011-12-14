@@ -133,7 +133,7 @@ Performing actions (Buy/Sell/...) via the Web frontend
 
 Suppose the user has filled out a form like this one (Figure :ref:`buyform`):
 
-.. figure:: figures/architecture/buy-form.png
+.. figure:: figures/architecture/buy-form
     :width: 30%
     
     :label:`buyform` A form for buying stock.
@@ -327,7 +327,7 @@ Facebook client includes mainly two operations:
    checks if the message follows the required syntax and decides if the message
    is good enough to be processed. Figure :ref:`parseMessage`.
    
-.. figure:: figures/FB/parseMessage.png
+.. figure:: figures/FB/parseMessage
     :width: 90%
     
     :label:`parseMessage`
@@ -363,7 +363,7 @@ Facebook interface of PitFail does not (for now) support registration.  The
 player has to be already registered to the system to play the game via FB
 interface. Figure :ref:`ensureUser`
 
-.. figure:: figures/FB/ensureUser.png
+.. figure:: figures/FB/ensureUser
     :width: 90%
     
     :label:`ensureUser`
@@ -387,7 +387,7 @@ arguments from Facebook client and invoke appropriate scala mothods to perform
 task requested by facebook client Here the servlet is: FBBuyServlet(Username).
 Figure :ref:`fbbuy`
   
-.. figure:: figures/FB/buy.png
+.. figure:: figures/FB/buy
     :width: 90%
     
     :label:`fbbuy`
@@ -398,7 +398,7 @@ Sell Stock:
 In sell stock , FBSellServlet() is the Java servlet that accepts arguments from
 Facebook client and invokes scala  method to sell stocks. Figure :ref:`fbsell`
  
-.. figure:: figures/FB/sell.png
+.. figure:: figures/FB/sell
     :width: 90%
     
     :label:`fbsell`
@@ -411,7 +411,7 @@ username exists. Therefore there is no failure flow (alternate flow) for
 portfolio view. We will invoke this funtion only if the ensureUser confirms
 that the user exists. Figure :ref:`fbport`
 
-.. figure:: figures/FB/port.png
+.. figure:: figures/FB/port
     :width: 90%
     
     :label:`fbport`
@@ -429,9 +429,96 @@ operation - view leaderboard.
 Here too, we dont have a alternate (failure) flow, as this method will be
 invoked only once ensureUser confirms that the username exists. :ref:`fbleader`
 
-.. figure:: figures/FB/leader.png
+.. figure:: figures/FB/leader
     :width: 90%
     
     :label:`fbleader`
 
+Interacting with a Trading Simulation over Twitter
+==================================================
+
+Motivation
+----------
+
+Twitter is a service that is already widely used by many people, so there is a
+lower threshold of learning and discovery to play a game over Twitter than to
+use a dedicated website. It is not expected that the Twitter interface will
+duplicate all features of the website; rather users will be able to perform
+their most common tasks from an interface they are familiar with.
+
+The bulk of the proposal is a syntax that represents the operations of the
+game. This syntax could integrate into any system that allows sending brief
+messages from named accounts. However, since Twitter is already well integrated
+this extra flexibility may be unnecessary.
+
+Implementation
+--------------
+
+Accounts
+........
+
+The game has an account, tentatively named ``pitfail``, and will listen for
+user tweets sent to ``@pitfail``.
+
+A user may *start* playing PitFail over Twitter. This lets the user start
+playing faster and with no setup -- the first message they send to ``@pitfail``
+creates an account. There's no way to automatically associate this with an
+OpenID login (that I know of) -- if the user later wants to use the PitFail
+website
+
+The program may respond to tweets that require a response by sending tweets
+back to users.
+
+Syntax of the commands
+......................
+
+View Portfolio
+``````````````
+
+::
+
+    @pitfail portfolio
+
+PitFail will respond with assets and liabilities in a human-readable form.
+
+Buy a Stock
+```````````
+
+::
+
+    @pitfail buy 100 shares of HP
+
+or::
+
+    @pitfail buy HP * 100
+
+(See [[Products # A language for securities]])
+
+or::
+
+    @pitfail buy $250 of HP
+
+PitFail will respond with an ACK if successful, or an error if the trade
+failed.
+
+This implicitly places a market order. PitFail currently does not support setting
+limits on the price at which the trade is executed.
+
+Sell a stock
+````````````
+
+::
+
+    @pitfail sell 100 shares of HP
+
+    @pitfail sell HP * 100
+
+    @pitfail sell $250 of HP
+
+Reflections, now that we have tried it
+--------------------------------------
+
+Being able to specify trades as text commands is *very* convenient. Yes, you
+have to learn the syntax of the commands, but once you do, it is much faster,
+clearer, less awkward, and generally more pleasant than using a website.
 

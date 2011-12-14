@@ -433,7 +433,7 @@ Running an Auto Trade
 I'm hoping the following diagram is clearer than it would be as a sequence
 diagram Figure :ref:`runauto1`:
 
-.. figure:: figures/interactions/auto1.png
+.. figure:: figures/interactions/auto1
     :width: 90%
     
     :label:`runauto1` The full sequence of running an auto-trade.
