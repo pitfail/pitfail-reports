@@ -642,7 +642,7 @@ corresponding appropriate message back to the user.Currently, we sell off all th
 
 
 Notifications for Android Client
----------------------------------
+================================
 
 
 .. figure:: sequence-diagrams/android/Notifications.png
@@ -660,7 +660,6 @@ Android Notification manager. The Notification manager then display new notifica
 user. If there is a previous notification which is not yet viewed by the user, the previous notification is updated and there is just one latest notification available for the user to view.
 
 
-=======
 FaceBook Operations:
 ====================
 

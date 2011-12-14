@@ -20,7 +20,7 @@ Bid Price
 Client
 
     A system that is not running on PitFail's server. An example is a
-    webbrowser, or the Android phone.
+    webbrowser, the Android phone, or the Facebook connector.
     
 Company
 
@@ -101,7 +101,8 @@ Stock
     
 Team
 
-    A synonym for Portfolio.
+    A synonym for Portfolio, specifically used in the case where more than one
+    user is in control of said portfolio.
 
 User
 
