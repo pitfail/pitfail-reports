@@ -115,13 +115,13 @@ Perturbations and Interactions
 System Architecutre and System Design
 #####################################
 
-.. include:: spser.rst
-
-.. include:: cohesion.rst
-
 .. include:: templating.rst
 
 .. include:: intform.rst
+
+.. include:: spser.rst
+
+.. include:: cohesion.rst
 
 Customer Statement of Requirements
 ##################################
@@ -136,7 +136,7 @@ Functional Requirements Specification
 Nonfunctional Requirements
 ##########################
 
-.. include:: nunfunc.rst
+.. include:: nonfunc.rst
 
 User Interface Design and Implementation
 ########################################
@@ -172,6 +172,7 @@ References
 .. [Applicative1] Haskell Wikibook - Applicative Functors. http://en.wikibooks.org/wiki/Haskell/Applicative_Functors
 .. [Ask] Investopedia - Ask price http://www.investopedia.com/terms/a/ask.asp
 .. [Bid] Investopedia - Bid price http://www.investopedia.com/terms/b/bidprice.asp#axzz1gTt8rHSo
+.. [Browse] Mark Harrah's Browse Plugin https://github.com/harrah/browse
 .. [CAMC] Steven Counsell, Stephen Swift. "The Interpretation and Utility of Three Cohesion Metrics for Object-Oriented Design". ACM Trans. Softw. Eng. Methodol. 15, 2 (April 2006), 123-149. DOI=10.1145/1131421.1131422 http://doi.acm.org/10.1145/1131421.1131422 
 .. [CC] Challa Bonja and Eyob Kidanmariam. 2006. Metrics for class cohesion and similarity between methods. In Proceedings of the 44th annual Southeast regional conference (ACM-SE 44). ACM, New York, NY, USA, 91-95. DOI=10.1145/1185448.1185469 http://doi.acm.org/10.1145/1185448.1185469 
 .. [Controllers] Paul Oldfield. "Domain Modelling" http://www.aptprocess.com/whitepapers/DomainModelling.pdf

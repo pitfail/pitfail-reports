@@ -363,6 +363,8 @@ margin is restored (Figure :ref:`trading4`):
     
     :label:`trading4` Cancelling and order and restoring margin.
 
+.. _dividendmotive:
+
 Dividends
 =========
 

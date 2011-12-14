@@ -30,7 +30,7 @@
    
    #. The ability to receive an email newsletter about one's portfolio.
    
-   #. Dividends are now paid to users' portfolios (This is important. See `Dividends`_).
+   #. Dividends are now paid to users' portfolios (This is important. See dividendmotive_).
    
    #. The ability to trade stocks directly with other players.
    

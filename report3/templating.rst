@@ -1,6 +1,6 @@
 
 Templating
-----------
+==========
 
 David Pollak, who developed Lift, believed that it was better not to mix code
 and HTML[Pollak]_. This is because code is too powerful -- you may initially
