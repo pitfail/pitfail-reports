@@ -115,15 +115,10 @@ In the actual code, some of the "many-to-many" relationships acquired an extra
 class (the association class). Such as (model/users.scala) (Figure
 :ref:`association`):
 
-<<<<<<< HEAD
 .. figure:: figures/domain/association
-    :width: 90%
-=======
-.. figure:: figures/domain/association.png
     :width: 60%
     
     :label:`association` Some association classes.
->>>>>>> 44362d0db29865176e74e24d7b108f3264c949a2
 
 But this is a detail of the implementation and not part of the domain model; no
 meaningful attributes are stored with Ownership and Administration.
@@ -176,15 +171,10 @@ liability this asset has a claim on. A DerivativeLiability has an attribute
 ``remaining`` which is the fraction of the contract that has *not* been
 exercised (Figure :ref:`remaining`):
 
-<<<<<<< HEAD
 .. figure:: figures/domain/scale
-    :width: 90%
-=======
-.. figure:: figures/domain/scale.png
     :width: 70%
     
     :label:`remaining` The relationship between the sizes of DerivativeAssets and DerivativeLiabilities.
->>>>>>> 44362d0db29865176e74e24d7b108f3264c949a2
 
 Every time a DerivativeAsset is exercised, it is deleted, and the ``remaining``
 of the corresponding DerivativeLiability is reduced by the ``scale`` of the
@@ -239,15 +229,10 @@ Many aspects of PitFail require that derivatives be scaled. That is, given one
 derivative, create a new one with identical terms, but "smaller" or "larger"
 (Figure :ref:`scaling`):
 
-<<<<<<< HEAD
-.. figure:: figures/domain/scale
-    :width: 90%
-=======
-.. figure:: figures/domain/scaling.png
+.. figure:: figures/domain/scaling
     :width: 70%
     
     :label:`scaling`
->>>>>>> 44362d0db29865176e74e24d7b108f3264c949a2
 
 Scaling is done by scaling each security promised:
 
@@ -301,29 +286,19 @@ not have a limit price. First, all existing orders for the same stock are
 collected, and sorted by desirability (ie, best price to worst price) Figure
 :ref:`available1`:
 
-<<<<<<< HEAD
 .. figure:: figures/domain/available1
-    :width: 90%
-=======
-.. figure:: figures/domain/available1.png
     :width: 20%
     
     :label:`available1` Comparing available with desired shares.
->>>>>>> 44362d0db29865176e74e24d7b108f3264c949a2
 
 The incoming order is matched up against the best orders possible (that are
 below its limit price, if any). Those orders are then completely or partially
 executed (Figure :ref:`execution`):
 
-<<<<<<< HEAD
 .. figure:: figures/domain/execution
-    :width: 90%
-=======
-.. figure:: figures/domain/execution.png
     :width: 100%
     
     :label:`execution` Which orders are partially or fully executed.
->>>>>>> 44362d0db29865176e74e24d7b108f3264c949a2
 
 In this example, 10 shares will be purchased at 30/sh, and 2 shares at 33/sh.
 
@@ -407,15 +382,10 @@ players have paid dividends. If they have, the system will pay dividends to the
 player, in what is represented here (though not in the code) as a
 ``DividendEvent`` (Figure :ref:`dividends1`):
 
-<<<<<<< HEAD
 .. figure:: figures/domain/dividends1
-    :width: 90%
-=======
-.. figure:: figures/domain/dividends1.png
     :width: 70%
     
     :label:`dividends1` When dividends are paid.
->>>>>>> 44362d0db29865176e74e24d7b108f3264c949a2
 
 The ``DividendPayment`` object is created only to allow the user to view the
 history of their dividend payments.
@@ -434,15 +404,10 @@ derivative was traded.
 
 The basic concept domain for News is (Figure :ref:`news1`):
 
-<<<<<<< HEAD
 .. figure:: figures/domain/news1
-    :width: 90%
-=======
-.. figure:: figures/domain/news1.png
     :width: 80%
     
     :label:`news1` The news Domain.
->>>>>>> 44362d0db29865176e74e24d7b108f3264c949a2
 
 only two actions are shown here; there are a lot so they are split up across
 multiple diagrams.
@@ -454,15 +419,10 @@ will generate another kind of an event.
 
 Derivative Trading has the following kinds of events (Figure :ref:`news2`):
 
-<<<<<<< HEAD
 .. figure:: figures/domain/news2
-    :width: 90%
-=======
-.. figure:: figures/domain/news2.png
     :width: 80%
     
     :label:`news2` News for derivative trading.
->>>>>>> 44362d0db29865176e74e24d7b108f3264c949a2
 
 ``from`` and ``to`` are shown as separate concepts even though they are
 instances of the same class, because they play a different role in these
@@ -481,28 +441,19 @@ are described in the section on voting.
 
 Placing orders that get delayed are described by (Figure :ref:`news4`):
 
-<<<<<<< HEAD
 .. figure:: figures/domain/news4
-    :width: 90%
-=======
-.. figure:: figures/domain/news4.png
     :width: 70%
     
     :label:`news4` News for orders.
->>>>>>> 44362d0db29865176e74e24d7b108f3264c949a2
 
 Where the associated portfolio is the one who performed the buy or sell.
 
 There is one more event for exercising derivatives (Figure :ref:`news5`):
 
-<<<<<<< HEAD
-.. .. figure:: news5
-=======
-.. figure:: figures/domain/news5.png
+.. figure:: figures/domain/news5
     :width: 70%
     
     :label:`news5` News for exercising derivatives.
->>>>>>> 44362d0db29865176e74e24d7b108f3264c949a2
 
 Where the associated portfolio is the one who did the exercising.
 
@@ -578,15 +529,10 @@ Now if another player votes, they will realize 0.75% of the original trade (Figu
 Votes are recorded and associated with the origanal NewsEvent, so that a score
 of buyer-votes and seller votes can be calculated (Figure :ref:`voting6`):
 
-<<<<<<< HEAD
 .. figure:: figures/domain/voting6
-    :width: 90%
-=======
-.. figure:: figures/domain/voting6.png
     :width: 80%
     
     :label:`voting6` Scoring events.
->>>>>>> 44362d0db29865176e74e24d7b108f3264c949a2
 
 Comments
 ========
@@ -596,43 +542,28 @@ Compared to voting, comments are refreshingly simple.
 Users, not portfolios, cast comments. A comment is associated with a news
 event (Figure :ref:`comments1`):
 
-<<<<<<< HEAD
 .. figure:: figures/domain/comments1
-    :width: 90%
-=======
-.. figure:: figures/domain/comments1.png
     :width: 70%
     
     :label:`comments1` Comments on a news event.
->>>>>>> 44362d0db29865176e74e24d7b108f3264c949a2
 
 Auto Trades
 ===========
 
 While the system is idle, an auto-trade is represented as (Figure :ref:`auto1`):
 
-<<<<<<< HEAD
 .. figure:: figures/domain/auto1
-    :width: 90%
-=======
-.. figure:: figures/domain/auto1.png
     :width: 70%
     
     :label:`auto1` An auto trade while the system is idle.
->>>>>>> 44362d0db29865176e74e24d7b108f3264c949a2
 
 When a player runs an AutoTrade, we have what we conceptually (though not in
 the code) call an AutoTradeEvent (Figure :ref:`auto2`):
 
-<<<<<<< HEAD
 .. figure:: figures/domain/auto2
-    :width: 90%
-=======
-.. figure:: figures/domain/auto2.png
     :width: 70%
     
     :label:`auto2` An auto trade being run.
->>>>>>> 44362d0db29865176e74e24d7b108f3264c949a2
 
 The ``JSAPI`` is a set of JavaScript functions and corresponding server-side
 handlers that allow the Auto Trade to actually perform actions. See `Running an
