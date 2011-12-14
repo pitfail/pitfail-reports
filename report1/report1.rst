@@ -882,7 +882,7 @@ is always accomplished implicitly. Third party services are used for
 authorization, and all other setup is accomplished with defaults that may be
 changed at another point it time by the *player* as requested.
 
-.. include:: ../use_case_table.rst
+.. include:: use_case_table.rst
 
 Fully Dressed Use Cases
 -----------------------
