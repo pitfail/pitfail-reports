@@ -80,21 +80,21 @@ Individual Contributions
 
 	\end{center}
 
-General Information
-###################
-
-.. include:: general.rst
-
-Glossary
-########
-
-.. include:: glossary.rst
-
 Summary of Changes
 ##################
 
 .. include:: changes.rst
 	
+Glossary
+########
+
+.. include:: glossary.rst
+
+General Information
+###################
+
+.. include:: general.rst
+
 Architecture
 ############
 
@@ -141,9 +141,7 @@ Nonfunctional Requirements
 User Interface Design and Implementation
 ########################################
 
-Effort Estimation using Use Case Points
-#######################################
-..TODO
+.. include:: ui.rst
 
 Class Diagram and Interface Specification
 #########################################
