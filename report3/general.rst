@@ -6,6 +6,13 @@ References into the code are given with a filename and an id such as ref_254,
 which appears in the code as a comment. line numbers can change but these
 should be constant.
 
+Browsable Source Code
+=====================
+
+We used Mark Harrah's "browse" plugin [Browse]_ to generate HTML hyperlinked
+doc for the Scala code. The doc resides under the main source tree in
+``browsable-doc``. Hopefully this will make the code easier to follow.
+
 Some general points about the code
 ==================================
 

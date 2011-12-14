@@ -434,4 +434,91 @@ invoked only once ensureUser confirms that the username exists. :ref:`fbleader`
     
     :label:`fbleader`
 
+Interacting with a Trading Simulation over Twitter
+==================================================
+
+Motivation
+----------
+
+Twitter is a service that is already widely used by many people, so there is a
+lower threshold of learning and discovery to play a game over Twitter than to
+use a dedicated website. It is not expected that the Twitter interface will
+duplicate all features of the website; rather users will be able to perform
+their most common tasks from an interface they are familiar with.
+
+The bulk of the proposal is a syntax that represents the operations of the
+game. This syntax could integrate into any system that allows sending brief
+messages from named accounts. However, since Twitter is already well integrated
+this extra flexibility may be unnecessary.
+
+Implementation
+--------------
+
+Accounts
+........
+
+The game has an account, tentatively named ``pitfail``, and will listen for
+user tweets sent to ``@pitfail``.
+
+A user may *start* playing PitFail over Twitter. This lets the user start
+playing faster and with no setup -- the first message they send to ``@pitfail``
+creates an account. There's no way to automatically associate this with an
+OpenID login (that I know of) -- if the user later wants to use the PitFail
+website
+
+The program may respond to tweets that require a response by sending tweets
+back to users.
+
+Syntax of the commands
+......................
+
+View Portfolio
+``````````````
+
+::
+
+    @pitfail portfolio
+
+PitFail will respond with assets and liabilities in a human-readable form.
+
+Buy a Stock
+```````````
+
+::
+
+    @pitfail buy 100 shares of HP
+
+or::
+
+    @pitfail buy HP * 100
+
+(See [[Products # A language for securities]])
+
+or::
+
+    @pitfail buy $250 of HP
+
+PitFail will respond with an ACK if successful, or an error if the trade
+failed.
+
+This implicitly places a market order. PitFail currently does not support setting
+limits on the price at which the trade is executed.
+
+Sell a stock
+````````````
+
+::
+
+    @pitfail sell 100 shares of HP
+
+    @pitfail sell HP * 100
+
+    @pitfail sell $250 of HP
+
+Reflections, now that we have tried it
+--------------------------------------
+
+Being able to specify trades as text commands is *very* convenient. Yes, you
+have to learn the syntax of the commands, but once you do, it is much faster,
+clearer, less awkward, and generally more pleasant than using a website.
 
