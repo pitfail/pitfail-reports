@@ -1,4 +1,3 @@
-
 Stocks
 ======
 
@@ -654,11 +653,11 @@ Notifications for Android Client
 
 When the user starts the Pitfail Application for the first time, a background service is started with it 
 which is not bounded to the application. This is a Polling service which polls the Web Server periodically. On 
-receiving the request from the service, the server executes the Stocuupdates Servelet which collect information
+receiving the request from the service, the server executes the Stock updates Servlet which collects information
 on any change in the price of all the stocks the user owns. If the margin of change is equal to more than 1 dollar,
 the corresponding updates are sent to the polling service. The Polling service then sends those messages to the 
 Android Notification manager. The Notification manager then display new notifications as Stock updates for the 
-user.
+user. If there is a previous notification which is not yet viewed by the user, the previous notification is updated and there is just one latest notification available for the user to view.
 
 
 =======
