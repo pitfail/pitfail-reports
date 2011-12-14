@@ -1,3 +1,8 @@
+
+.. role:: ref
+
+.. role:: label
+
 .. raw:: latex
 
 	\begin{titlepage}
@@ -28,7 +33,7 @@
 	Roma Mehta, Sonu Iqbal \\
 	Avanti Kulkarni \\
 	\end{titlepage}
-
+    
 .. sectnum::
 
 .. contents:: Table of Contents
@@ -130,7 +135,8 @@ Customer Statement of Requirements
 
 Functional Requirements Specification
 #####################################
-..TODO
+
+.. include:: func_reqs.rst
 
 Nonfunctional Requirements
 ##########################
@@ -179,6 +185,8 @@ References
 .. [American] Investopedia. "How do you tell whether an option is American or European style?" http://www.investopedia.com/ask/answers/06/americanvseuropean.asp#axzz1gFsL9Mp8
 .. [Anemic] StackOverflow "Anemic Domain Model: Pros/Cons" http://stackoverflow.com/questions/258534/anemic-domain-model-pros-cons
 .. [Applicative1] Haskell Wikibook - Applicative Functors. http://en.wikibooks.org/wiki/Haskell/Applicative_Functors
+.. [CAMC] Steven Counsell, Stephen Swift. "The Interpretation and Utility of Three Cohesion Metrics for Object-Oriented Design". ACM Trans. Softw. Eng. Methodol. 15, 2 (April 2006), 123-149. DOI=10.1145/1131421.1131422 http://doi.acm.org/10.1145/1131421.1131422 
+.. [CC] Challa Bonja and Eyob Kidanmariam. 2006. Metrics for class cohesion and similarity between methods. In Proceedings of the 44th annual Southeast regional conference (ACM-SE 44). ACM, New York, NY, USA, 91-95. DOI=10.1145/1185448.1185469 http://doi.acm.org/10.1145/1185448.1185469 
 .. [Controllers] Paul Oldfield. "Domain Modelling" http://www.aptprocess.com/whitepapers/DomainModelling.pdf
 .. [CurryHoward] Haskell Wikibook - The Curry-Howard Isomorphism. http://en.wikibooks.org/wiki/Haskell/The_Curry-Howard_isomorphism
 .. [Currying] HaskellWiki - Currying. http://www.haskell.org/haskellwiki/Currying
@@ -216,6 +224,7 @@ References
 .. [Lift1] Lift Web Framework. http://liftweb.net/
 .. [Lift2] Lift Forms. http://exploring.liftweb.net/master/index-6.html
 .. [Loop] StackOverflow. "How to iterate through a heterogeneous recursive value in Haskell". http://stackoverflow.com/questions/5024148/how-to-iterate-through-a-heterogeneous-recursive-value-in-haskell
+.. [LSCC] J Al Dallal, Lionel C. Briand. "A Precise Method-Method Interaction-Based Cohesion Metric for Object-Oriented Classes". ACM Transactions on Software 2010.
 .. [Makers] Wikipedia. "Market Maker". http://en.wikipedia.org/wiki/Market_maker
 .. [Marsic] Marsic, Ivan. *Software Engineering*. Piscataway: Rutgers University, 2011. PDF. 
 .. [ML] The Standard ML Basis Library - The Option Structure. http://www.standardml.org/Basis/option.html
@@ -240,6 +249,7 @@ References
 
 .. [Squeryl2] Squeryl source code, showing where it fails at inner classes. https://github.com/max-l/Squeryl/blob/master/src/main/scala/org/squeryl/internals/PosoMetaData.scala
 .. [Stop] Investopedia - Stop Order. http://www.investopedia.com/terms/s/stoporder.asp#axzz1g4pXxPbD
+.. [Struct] Steven Schmidt. "Scala Goodness: Structural Typing". http://codemonkeyism.com/scala-goodness-structural-typing/
 .. [Traits] "A Tour Of Scala: Traits". http://www.scala-lang.org/node/126
 .. [Typing] Haskell Wiki - Typing. http://www.haskell.org/haskellwiki/Typing
 .. [UML] Miles,  Russ  and  Kim  Hamilton.  *Learning  UML  2.0*.

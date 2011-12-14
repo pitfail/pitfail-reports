@@ -4,11 +4,12 @@ from urllib import urlopen, urlencode, urlretrieve
 import re
 from sys import argv, exit
 
-def getSequenceDiagram( text, outputFile, style = 'default' ):
+def getSequenceDiagram( text, outputFile, fmt, style = 'default' ):
     request = {}
     request["message"] = text
     request["style"] = style
     request["apiVersion"] = "1"
+    request["format"] = fmt
 
     url = urlencode(request)
 
@@ -32,10 +33,11 @@ if len(argv) != 3:
 	exit(2)
 
 style = "qsd"
-text = open(argv[1],'r').read()
-pngFile = argv[2]
+fmt = argv[1]
+text = open(argv[2],'r').read()
+pngFile = argv[3]
 
-if getSequenceDiagram(text, pngFile, style):
+if getSequenceDiagram(text, pngFile, fmt, style):
 	exit(0)
 else:
 	exit(-1)
