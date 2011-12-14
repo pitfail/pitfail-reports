@@ -179,9 +179,7 @@ Participating Actors:
         Database, Stock Price Source.
 
 Preconditions:
-        The user should have created an account, be in a league  with settings
-        that allows the "BUY", and have enough money to perform the BUY of the
-        security.
+        The user should have logged in.
 
 Postconditions:
         The user needs to be able to see his purchased security in his
@@ -246,38 +244,39 @@ Postconditions:
         - The user's portfolio will reflect the quantity of securities sold.
 
 Flow of Events for Successful Sell:
-        1. → The *Player* determines a *Security*
-           and how much of it to "SELL".
-        2. ←  *System* signals the *Stock Price Source* for the price of the
-           security.
+        1. → The *Player* determines a *Security* and how much of it to "SELL".
+                   They send this information to the *System*.
+        2. →  *System* requests the price of the
+                   security from the *Stock Price Source*
         3. ←  *Stock Price Source* sends the price of the *Security* to the
-           *System.*
-        4. ←  *System* signals the *Database* for the amount of the *Security*
-           the *Player* has.
-        5. ←  *Database* sends the amount of the *Security* the *Player* has to
-           the System.
-        6. ←  *System* checks that there is enough *Securities* to complete the
-           transaction.
-        7. ←  *System* signals the *Database* to complete the transcation for a
-           *Player*, *Security*, and the quantity.
-        8. ←  *Database* signals the *System* the transaction is complete.
-        9. ←  *System* signals to the *Player* "Transaction Completed."
+                   *System.*
+        4. →  *System* requests the amount of the *Security*
+                   the *Player* owns from the *Database*.
+        5. ←  *Database* returns the amount of the *Security* the *Player* has to
+                   the *System*.
+        6. →  *System* checks that there are enough *Securities* to complete the
+                   transaction. *System* signals the *Database* to complete the
+                   transcation for a *Player*, *Security*, and the quantity.
+        8. ←  *Database* returns an indicator of transation completion to the
+                   *System*.
+        9. ←  *System* signals the transaction successfully completed to the
+                   *Player*.
 
 Flow of Events for Unsuccessful Sell:
-        1. → The *Player* determines a *Security*
-           and how much of it to "SELL".
-        2. ←  *System* signals the *Stock Price Source* for the price of the
-           security.
+        1. → The *Player* determines a *Security* and how much of it to "SELL".
+                   They send this information to the *System*.
+        2. →  *System* requests the price of the
+                   security from the *Stock Price Source*
         3. ←  *Stock Price Source* sends the price of the *Security* to the
-           *System.*
-        4. ←  *System* signals the *Database* for the amount of the *Security*
-           the *Player* has.
-        5. ←  *Database* sends the amount of the *Security* the *Player* has to
-           the System.
-        6. ←  *System* checks that there is enough *Securities* to complete the
-           transaction. There is not.
-        7. ←  *System* signals to the *Player* "Transaction Not Completed:
-           Insufficient Securities."
+                   *System.*
+        4. →  *System* requests the amount of the *Security*
+                   the *Player* owns from the *Database*.
+        5. ←  *Database* returns the amount of the *Security* the *Player* has to
+                   the *System*.
+        6. ← *System* checks that there is enough *Securities* to complete the
+                   transaction. There is not. *System* signals that the
+                   transaction was not successfully completed due to
+                   insufficient funds to the *Player*.
 
 UC-3: View Portfolio
 ....................
@@ -285,7 +284,7 @@ Related Requrements:
         REQ-1, REQ-2, REQ-6, REQ-10, REQ-11, REQ-14
 
 Initiating Actor:
-        Web Player, Mobile Player, or Twitter Player.
+        Any of: Web Player, Mobile Player, Twitter Player.
 
 Actor's Goal:
         To view information regarding their portfolio. This information
@@ -311,7 +310,7 @@ Postconditions:
         but no internal actions are taken.
 
 Flow of Events for Main Success Scenario:
-        1. → *Web player* browses to a page which will display his portfolio.
+        1. → *Player* requests a view of their *portfolio*.
         2. ← *System* checks for authentication and when it does not exsist (a)
            runs the authentication (UC-18). Checks for a associated *user* in
            the system and when there is none runs (b) user creation (UC-19).
