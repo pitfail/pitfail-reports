@@ -1,9 +1,4 @@
 
-Gantt Chart
-============
-
-include pdf for the *Plan of Work*
-
 Comparison to Planned Milestones
 ================================
 
