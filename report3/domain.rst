@@ -116,7 +116,7 @@ class (the association class). Such as (model/users.scala) (Figure
 :ref:`association`):
 
 .. figure:: figures/domain/association.png
-    :width: 90%
+    :width: 60%
     
     :label:`association` Some association classes.
 
@@ -172,10 +172,9 @@ liability this asset has a claim on. A DerivativeLiability has an attribute
 exercised (Figure :ref:`remaining`):
 
 .. figure:: figures/domain/scale.png
-    :width: 90%
+    :width: 70%
     
-    :label:`remaining` The relationship between the sizes of DerivativeAssets
-        and DerivativeLiabilities.
+    :label:`remaining` The relationship between the sizes of DerivativeAssets and DerivativeLiabilities.
 
 Every time a DerivativeAsset is exercised, it is deleted, and the ``remaining``
 of the corresponding DerivativeLiability is reduced by the ``scale`` of the
@@ -228,10 +227,10 @@ Scaling Derivatives
 
 Many aspects of PitFail require that derivatives be scaled. That is, given one
 derivative, create a new one with identical terms, but "smaller" or "larger"
-(Figure :ref:`scacling`):
+(Figure :ref:`scaling`):
 
 .. figure:: figures/domain/scaling.png
-    :width: 90%
+    :width: 70%
     
     :label:`scaling`
 
@@ -288,16 +287,16 @@ collected, and sorted by desirability (ie, best price to worst price) Figure
 :ref:`available1`:
 
 .. figure:: figures/domain/available1.png
-    :width: 90%
+    :width: 20%
     
-    :label:`available` Comparing available with desired shares.
+    :label:`available1` Comparing available with desired shares.
 
 The incoming order is matched up against the best orders possible (that are
 below its limit price, if any). Those orders are then completely or partially
 executed (Figure :ref:`execution`):
 
 .. figure:: figures/domain/execution.png
-    :width: 90%
+    :width: 100%
     
     :label:`execution` Which orders are partially or fully executed.
 
@@ -347,7 +346,7 @@ model that deals with cash and margin (Figure :ref:`trading3`):
 .. figure:: figures/domain/trading3.png
     :width: 90%
     
-    :label: How cash moves when trading.
+    :label:`trading3` How cash moves when trading.
 
 (In the code, there is no object called Cash, rather it is an attribute of
 Portfloio; but it is helpful to show it as such for the domain model).
@@ -384,7 +383,7 @@ player, in what is represented here (though not in the code) as a
 ``DividendEvent`` (Figure :ref:`dividends1`):
 
 .. figure:: figures/domain/dividends1.png
-    :width: 90%
+    :width: 70%
     
     :label:`dividends1` When dividends are paid.
 
@@ -406,7 +405,7 @@ derivative was traded.
 The basic concept domain for News is (Figure :ref:`news1`):
 
 .. figure:: figures/domain/news1.png
-    :width: 90%
+    :width: 80%
     
     :label:`news1` The news Domain.
 
@@ -421,7 +420,7 @@ will generate another kind of an event.
 Derivative Trading has the following kinds of events (Figure :ref:`news2`):
 
 .. figure:: figures/domain/news2.png
-    :width: 90%
+    :width: 80%
     
     :label:`news2` News for derivative trading.
 
@@ -443,7 +442,7 @@ are described in the section on voting.
 Placing orders that get delayed are described by (Figure :ref:`news4`):
 
 .. figure:: figures/domain/news4.png
-    :width: 90%
+    :width: 70%
     
     :label:`news4` News for orders.
 
@@ -451,8 +450,8 @@ Where the associated portfolio is the one who performed the buy or sell.
 
 There is one more event for exercising derivatives (Figure :ref:`news5`):
 
-.. figure:: news5.png
-    :width: 90%
+.. figure:: figures/domain/news5.png
+    :width: 70%
     
     :label:`news5` News for exercising derivatives.
 
@@ -525,15 +524,15 @@ Now if another player votes, they will realize 0.75% of the original trade (Figu
 .. figure:: figures/domain/voting5.png
     :width: 90%
     
-    :ref:`voting5` Another voter casts a vote.
+    :label:`voting5` Another voter casts a vote.
 
 Votes are recorded and associated with the origanal NewsEvent, so that a score
 of buyer-votes and seller votes can be calculated (Figure :ref:`voting6`):
 
 .. figure:: figures/domain/voting6.png
-    :width: 90%
+    :width: 80%
     
-    :ref:`voting6` Scoring events.
+    :label:`voting6` Scoring events.
 
 Comments
 ========
@@ -544,7 +543,7 @@ Users, not portfolios, cast comments. A comment is associated with a news
 event (Figure :ref:`comments1`):
 
 .. figure:: figures/domain/comments1.png
-    :width: 90%
+    :width: 70%
     
     :label:`comments1` Comments on a news event.
 
@@ -554,7 +553,7 @@ Auto Trades
 While the system is idle, an auto-trade is represented as (Figure :ref:`auto1`):
 
 .. figure:: figures/domain/auto1.png
-    :width: 90%
+    :width: 70%
     
     :label:`auto1` An auto trade while the system is idle.
 
@@ -562,7 +561,7 @@ When a player runs an AutoTrade, we have what we conceptually (though not in
 the code) call an AutoTradeEvent (Figure :ref:`auto2`):
 
 .. figure:: figures/domain/auto2.png
-    :width: 90%
+    :width: 70%
     
     :label:`auto2` An auto trade being run.
 

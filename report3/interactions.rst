@@ -8,9 +8,9 @@ Stocks
 Gets all stocks held in PitFail (model/stocks.scala ref_158) Figure :ref:`allStockHoldings`.
 
 .. figure:: figures/interactions/allStockHoldings.pdf
-    :width: 90%
+    :width: 60%
     
-    :label:`allStockHolings` allStockHoldings
+    :label:`allStockHoldings` allStockHoldings
 
 ``Portfolio.myStockAssets``
 ---------------------------
@@ -18,7 +18,7 @@ Gets all stocks held in PitFail (model/stocks.scala ref_158) Figure :ref:`allSto
 Gets stock assets from this portfolio (model/stocks.scala ref_937) Figure :ref:`myStockAssets`.
 
 .. figure:: figures/interactions/myStockAssets.pdf
-    :width: 90%
+    :width: 60%
     
     :label:`myStockAssets` myStockAssets
 
@@ -29,7 +29,7 @@ Gets an asset for this stock if we have one, None otherwise (model/stocks.scala
 ref_407) Figure :ref:`haveTicker`.
 
 .. figure:: figures/interactions/haveTicker.pdf
-    :width: 90%
+    :width: 60%
     
     :label:`haveTicker` haveTicker
 
@@ -40,7 +40,7 @@ Gets how many shares of this stock do we have (model/stocks.scala ref_666)
 Figure :ref:`howManyShares`.
 
 .. figure:: figures/interactions/howManyShares.pdf
-    :width: 90%
+    :width: 60%
     
     :label:`howManyShares` howManyShares
 
@@ -51,7 +51,7 @@ Gets how many dollars (at last traded price) of this stock we have
 (model/stocks.scala ref_873) Figure :ref:`howManyDollars`.
 
 .. figure:: figures/interactions/howManyDollars.pdf
-    :width: 90%
+    :width: 60%
     
     :label:`howManyDollars` howManyDollars
 
@@ -70,7 +70,7 @@ ref_850) Figure :ref:`userBuyStock`.
 ---------------------------
 
 Makes a sell market order for a stock (model/stocks.scala ref_620) Figure
-:userSellStock:`userSellStock`.
+:ref:`userSellStock`.
 
 .. figure:: figures/interactions/userSellStock.pdf
     :width: 90%
@@ -84,7 +84,7 @@ Sells all of the shares we own (with a market order)(model/stocks.scala
 ref_306) Figure :ref:`userSellAll`.
 
 .. figure:: figures/interactions/userSellAll.pdf
-    :width: 90%
+    :width: 60%
     
     :label:`userSellAll` userSellAll
 
@@ -120,9 +120,9 @@ Gets all pending buy limit orders (model/stocks.scala ref_734) Figure
 :ref:`myBuyLimitOrders`.
 
 .. figure:: figures/interactions/myBuyLimitOrders.pdf
-    :width: 90%
+    :width: 60%
     
-    :label:`userMakeBuyLimitOrder` userMakeBuyLimitOrder
+    :label:`myBuyLimitOrders` myBuyLimitOrders
 
 ``Portfolio.mySellLimitOrders``
 -------------------------------
@@ -131,7 +131,7 @@ Gets all pending sell limit orders (model/stocks.scala ref_680) Figure
 :ref:`mySellLimitOrders`.
 
 .. figure:: figures/interactions/mySellLimitOrders.pdf
-    :width: 90%
+    :width: 60%
     
     :label:`mySellLimitOrders` mySellLimitOrders
 
@@ -139,12 +139,12 @@ Gets all pending sell limit orders (model/stocks.scala ref_680) Figure
 --------------------
 
 Calculates the current margin that has been set aside (model/stocks.scala
-ref_224) Figure :ref:`margin`.
+ref_224) Figure :ref:`imargin`.
 
 .. figure:: figures/interactions/margin.pdf
-    :width: 90%
+    :width: 60%
     
-    :label:`margin` margin
+    :label:`imargin` margin
 
 Derivatives
 ===========
@@ -219,7 +219,7 @@ Gets all derivative assets we own (model/derivatives.scala ref_74) Figure
 :ref:`myDerivativeAssets`.
 
 .. figure:: figures/interactions/myDerivativeAssets.pdf
-    :width: 90%
+    :width: 60%
     
     :label:`myDerivativeAssets` myDerivativeAssets
 
@@ -230,7 +230,7 @@ Gets all deriavtive liabilities we own (model/derivaives.scala ref_484)
 :ref:`myDerivativeLiabilities`.
 
 .. figure:: figures/interactions/myDerivativeLiabilities.pdf
-    :width: 90%
+    :width: 60%
     
     :label:`myDerivativeLiabilities` myDerivativeLiabilities
 
@@ -241,7 +241,7 @@ Gets all derivative offers that have been sent to us and not yet
 accepted/rejected (model/derivatives.scala ref_462) :ref:`myDerivativeOffers`.
 
 .. figure:: figures/interactions/myDerivativeOffers.pdf
-    :width: 90%
+    :width: 60%
     
     :label:`myDerivativeOffers` myDerivativeOffers
 
@@ -319,7 +319,7 @@ Gets how much a derivative would be worth should it be exercised today
 (model/derivatives.scala ref_319) Figure :ref:`spotValue`.
 
 .. figure:: figures/interactions/spotValue.pdf
-    :width: 90%
+    :width: 60%
     
     :label:`spotValue` spotValue
 
@@ -333,7 +333,7 @@ Checks for new dividends, and credits them if there are
 (model/dividends.scala ref_789) Figure :ref:`systemCheckForDividends`.
 
 .. figure:: figures/interactions/systemCheckForDividends.pdf
-    :width: 90%
+    :width: 80%
     
     :label:`systemCheckForDividends` systemCheckForDividends
 
@@ -344,7 +344,7 @@ Gets a list of dividend payments that we have received (model/dividends.scala
 ref_489) Figure :ref:`myDividendPayments`.
 
 .. figure:: figures/interactions/myDividendPayments.pdf
-    :width: 90%
+    :width: 60%
     
     :label:`myDividendPayments` myDividendPayments
 
@@ -355,12 +355,12 @@ Voting
 ------------------------
 
 Casts an up-vote on a trade (model/voting.scala ref_805) Figure
-:userVoteUp:`userVoteUp`.
+:ref:`userVoteUp`.
 
 .. figure:: figures/interactions/userVoteUp.pdf
-    :width: 90%
+    :width: 80%
     
-    :labe:`userVoteUp` userVoteUp
+    :label:`userVoteUp` userVoteUp
 
 ``Portfolio.userVoteDown``
 --------------------------
@@ -369,7 +369,7 @@ Casts a down-vote on a trade (model/voting.scala ref_940) Figure
 :ref:`userVoteDown`.
 
 .. figure:: figures/interactions/userVoteDown.pdf
-    :width: 90%
+    :width: 80%
     
     :label:`userVoteDown` userVoteDown
 
@@ -380,7 +380,7 @@ Gets all for-buyer votes on this event (model/voting.scala ref_146) Figure
 :ref:`buyerVotes`.
 
 .. figure:: figures/interactions/buyerVotes.pdf
-    :width: 90%
+    :width: 60%
     
     :label:`buyerVotes` buyerVotes
     
@@ -391,7 +391,7 @@ Gets all for-seller votes on this event (model/voting.scala ref_405) Figure
 :ref:`sellerVotes`.
 
 .. figure:: figures/interactions/sellerVotes.pdf
-    :width: 90%
+    :width: 60%
     
     :label:`sellerVotes` sellerVotes
 
@@ -401,10 +401,11 @@ Comments
 ``User.userPostComment``
 ------------------------
 
-Posts a comment on an event (model/comments.scala ref_494) Figure :userPostComment:`userPostComment`.
+Posts a comment on an event (model/comments.scala ref_494) Figure
+:ref:`userPostComment`.
 
 .. figure:: figures/interactions/userPostComment.pdf
-    :width: 90%
+    :width: 60%
     
     :label:`userPostComment` userPostComment
 
@@ -415,7 +416,7 @@ Get comments associated with this event (model/comments.scala ref_449) Figure
 :ref:`getcomments`.
 
 .. figure:: figures/interactions/comments.pdf
-    :width: 90%
+    :width: 60%
     
     :label:`getcomments` comments
 
@@ -485,7 +486,7 @@ Creating
 This creates a new (blank) auto trade (model/auto.scala ref_168) :ref:`userMakeNewAutoTrade`.
 
 .. figure:: figures/interactions/userMakeNewAutoTrade.pdf
-    :width: 90%
+    :width: 60%
     
     :label:`userMakeNewAutoTrade` userMakeNewAutoTrade
 
@@ -496,7 +497,7 @@ This updates the stored information about an auto-trade (model/auto.scala
 ref_337) Figure :ref:`userModify`.
 
 .. figure:: figures/interactions/userModify.pdf
-    :width: 90%
+    :width: 60%
     
     :label:`userModify` userModify
 
@@ -506,7 +507,7 @@ Deleting
 This deletes an auto trade (model/auto.scala ref_309) Figure :ref:`userDelete`.
 
 .. figure:: figures/interactions/userDelete.pdf
-    :width: 90%
+    :width: 60%
     
     :label:`userDelete` userDelete
 
@@ -518,7 +519,7 @@ associated with portfolios, not users (see the domain model)) (model/auto.scala
 ref_900) Figure :ref:`myAutoTrades`.
 
 .. figure:: figures/interactions/myAutoTrades.pdf
-    :width: 90%
+    :width: 60%
 
     :label:`myAutoTrades` myAutoTrades
 
@@ -532,7 +533,7 @@ This gets the most recent events that have been reported (model/news.scala
 ref_531) Figure :ref:`recentEvents`.
 
 .. figure:: figures/interactions/recentEvents.pdf
-     :width: 90%
+     :width: 60%
      
      :label:`recentEvents` recentEvents
 
@@ -545,7 +546,7 @@ to the list of all events that have occurred (model/news.scala ref_121) Figure
 :ref:`nereport`.
 
 .. figure:: figures/interactions/report.pdf
-    :width: 90%
+    :width: 60%
     
     :label:`nereport` Reporting a news event.
 
@@ -556,12 +557,12 @@ Offering a derivative at auction
 --------------------------------
 
 This creates a new auctioned item (model/derivatives.scala ref_674) Figure
-:ref:`userOfferDerivativeAtAuction`.
+:ref:`userOfferDerivativeAtAuction2`.
 
 .. figure:: figures/interactions/userOfferDerivativeAtAuction.pdf
-    :width: 90%
+    :width: 80%
     
-    :label:`userOfferDerivativeAtAuction` userOfferDerivativeAtAuction
+    :label:`userOfferDerivativeAtAuction2` userOfferDerivativeAtAuction
 
 Bidding on an auction
 ---------------------
@@ -570,7 +571,7 @@ This casts a bid on an auction item (model/auctions.scala ref_861) Figure
 :ref:`userCastBid`.
 
 .. figure:: figures/interactions/userCastBid.pdf
-    :width: 90%
+    :width: 60%
     
     :label:`userCastBid` userCastBid
 
@@ -582,7 +583,7 @@ there will be no high bid) (model/auctions.scala ref_188) Figure
 :ref:`highBid`.
 
 .. figure:: figures/interactions/highBid.pdf
-    :width: 90%
+    :width: 60%
     
     :label:`highBid` highBid
 
@@ -594,7 +595,7 @@ on derivatives for an explanation of what this means (model/auctions.scala
 ref_870) Figure :ref:`userClose`.
 
 .. figure:: figures/interactions/userClose.pdf
-    :width: 90%
+    :width: 60%
     
     :label:`userClose` userClose
 
