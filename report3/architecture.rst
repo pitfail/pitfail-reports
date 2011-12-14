@@ -131,11 +131,13 @@ Jetty Web Server [Jetty1]_.
 Performing actions (Buy/Sell/...) via the Web frontend
 ......................................................
 
-Suppose the user has filled out a form like this one:
+Suppose the user has filled out a form like this one (Figure :ref:`buyform`):
 
 .. figure:: figures/architecture/buy-form.png
     :width: 30%
-
+    
+    :label:`buyform` A form for buying stock.
+    
 and presses "Buy".
 
 In order to process that request, the following must happen:
@@ -150,8 +152,12 @@ These steps are described in more detail below.
 When Lift gets an HTTP POST
 ...........................
 
+The sequence of messages for an HTTP Post are (Figure :ref:`formsubmission`):
+
 .. figure:: figures/architecture/form-submission.pdf
     :width: 90%
+    
+    :label:`formsubmission` Form submission
 
 PitFail is currently using jQuery to submit forms
 (website/html/templates-hidden/default.html ref_325). Ideally we'd like our
@@ -205,10 +211,13 @@ each of the fields in the form for errors; if there are any errors these are
 reported to the user, and if all are consistent, it builds a single object
 containing all the form data (which is elaborated in `Improving Lift Forms`_).
 
-The process of structuring data and checking for input errors looks like this:
+The process of structuring data and checking for input errors looks like this
+(Figure :ref:`inputerrors`):
 
 .. figure:: figures/architecture/input-errors.pdf
-    :width: 90%
+    :width: 70%
+    
+    :label:`inputerrors` Checking for input errors
 
 If the data makes it past input checking, the operation must be sent to the
 domain-specific parts of the code, such as ``Portfolio`` or ``StockAsset``.

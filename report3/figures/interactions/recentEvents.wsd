@@ -1,0 +1,4 @@
+
+View -> NewsSchema: recentEvents(howMany: Int)
+NewsSchema --> View: List[NewsEvent]
+

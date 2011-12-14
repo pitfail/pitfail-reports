@@ -48,6 +48,7 @@ clean:
 %.pdf: %.tex $(PDF_OBJ) $(PNG_OBJ)
 	$(PDFLATEX) $<
 	$(PDFLATEX) $<
+	$(PDFLATEX) $<
 
 %.tex: %.rst $(RSTS) Makefile docutils.conf stylesheet.tex
 	$(RST2LATEX) --traceback --config=docutils.conf --stylesheet-path=stylesheet.tex $< > $@
