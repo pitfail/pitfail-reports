@@ -130,7 +130,8 @@ Customer Statement of Requirements
 
 Functional Requirements Specification
 #####################################
-..TODO
+
+.. include:: func_reqs.rst
 
 Nonfunctional Requirements
 ##########################

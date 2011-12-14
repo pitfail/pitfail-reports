@@ -133,7 +133,7 @@ Performing actions (Buy/Sell/...) via the Web frontend
 
 Suppose the user has filled out a form like this one (Figure :ref:`buyform`):
 
-.. figure:: figures/architecture/buy-form.png
+.. figure:: figures/architecture/buy-form
     :width: 30%
     
     :label:`buyform` A form for buying stock.
@@ -327,7 +327,7 @@ Facebook client includes mainly two operations:
    checks if the message follows the required syntax and decides if the message
    is good enough to be processed. Figure :ref:`parseMessage`.
    
-.. figure:: figures/FB/parseMessage.png
+.. figure:: figures/FB/parseMessage
     :width: 90%
     
     :label:`parseMessage`
@@ -363,7 +363,7 @@ Facebook interface of PitFail does not (for now) support registration.  The
 player has to be already registered to the system to play the game via FB
 interface. Figure :ref:`ensureUser`
 
-.. figure:: figures/FB/ensureUser.png
+.. figure:: figures/FB/ensureUser
     :width: 90%
     
     :label:`ensureUser`
@@ -387,7 +387,7 @@ arguments from Facebook client and invoke appropriate scala mothods to perform
 task requested by facebook client Here the servlet is: FBBuyServlet(Username).
 Figure :ref:`fbbuy`
   
-.. figure:: figures/FB/buy.png
+.. figure:: figures/FB/buy
     :width: 90%
     
     :label:`fbbuy`
@@ -398,7 +398,7 @@ Sell Stock:
 In sell stock , FBSellServlet() is the Java servlet that accepts arguments from
 Facebook client and invokes scala  method to sell stocks. Figure :ref:`fbsell`
  
-.. figure:: figures/FB/sell.png
+.. figure:: figures/FB/sell
     :width: 90%
     
     :label:`fbsell`
@@ -411,7 +411,7 @@ username exists. Therefore there is no failure flow (alternate flow) for
 portfolio view. We will invoke this funtion only if the ensureUser confirms
 that the user exists. Figure :ref:`fbport`
 
-.. figure:: figures/FB/port.png
+.. figure:: figures/FB/port
     :width: 90%
     
     :label:`fbport`
@@ -429,7 +429,7 @@ operation - view leaderboard.
 Here too, we dont have a alternate (failure) flow, as this method will be
 invoked only once ensureUser confirms that the username exists. :ref:`fbleader`
 
-.. figure:: figures/FB/leader.png
+.. figure:: figures/FB/leader
     :width: 90%
     
     :label:`fbleader`
