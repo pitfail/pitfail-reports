@@ -353,7 +353,7 @@ Running an Auto Trade
 I'm hoping the following diagram is clearer than it would be as a sequence
 diagram:
 
-.. figure:: figures/interactions/auto1.png
+.. figure:: figures/interactions/auto1
     :width: 90%
 
 This corresponds to the following Auto-Trade code (in JavaScript -- what the

@@ -4,11 +4,12 @@ import urllib
 import re
 from sys import argv
 
-def getSequenceDiagram( text, outputFile, style = 'default' ):
+def getSequenceDiagram( text, outputFile, fmt, style = 'default' ):
     request = {}
     request["message"] = text
     request["style"] = style
     request["apiVersion"] = "1"
+    request["format"] = fmt
 
     url = urllib.urlencode(request)
 
@@ -29,7 +30,8 @@ def getSequenceDiagram( text, outputFile, style = 'default' ):
 
 
 style = "qsd"
-text = open(argv[1],'r').read()
-pngFile = argv[2]
+fmt = argv[1]
+text = open(argv[2],'r').read()
+pngFile = argv[3]
 
-getSequenceDiagram(text, pngFile, style)
+getSequenceDiagram(text, pngFile, fmt, style)
