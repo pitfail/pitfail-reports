@@ -311,14 +311,14 @@ Postconditions:
 
 Flow of Events for Main Success Scenario:
         1. → *Player* requests a view of their *portfolio*.
-        3. → *System* requests the information about the user's portfolio for
+        2. → *System* requests the information about the user's portfolio for
            this particular league from the *Database*.
-        4. ← *Database* returns the information regarding the portfolio.
-        5. → *System* forms a query regarding all the currently held securities
+        3. ← *Database* returns the information regarding the portfolio.
+        4. → *System* forms a query regarding all the currently held securities
            within the portfolio and dispatches it to the *Stock
            Information Provider*.
-        6. ← *Stock Information Provider* returns the requested data.
-        7. ← *System* forms a view of the portfolio information and returns
+        5. ← *Stock Information Provider* returns the requested data.
+        6. ← *System* forms a view of the portfolio information and returns
            it to the *Player*
 
 UC-4: View League Statistics
