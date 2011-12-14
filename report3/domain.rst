@@ -86,12 +86,30 @@ a stock. If we want to refer to a real human being we will use the word
 The User-Portfolio-League domain model
 --------------------------------------
 
-The basic concepts and relationships for the idle system are (Figure :ref:`userdomain`):
+The basic concepts and relationships for the system in its idle state are
+(Figure :ref:`userdomain`):
 
 .. figure:: figures/domain/users
     :width: 90%
     
     :label:`userdomain` User/Portfolio/League concepts
+
+Precisely what assets are indicated by "Assets..." will be described later
+(`Assets and Liabilities`_). The relationships between these concepts are:
+
+* *User controls Portfolio*: When a user controls a portfolio, a player who is
+  logged in as that user can perform actions with that portfolio. e.g. if user
+  Mike controls portfolio Mike1, then when human Mike is logged in as user
+  Mike, he can buy stock with portfolio Mike1.
+  
+* *User administers League* The administrator(s) of a league can invite people
+  to the league, and set the starting cash.
+  
+* *Portfolio belongs to League* Portfolios in the same league are roughly
+  playing "against" each other, in that rankings are done per-league. But PitFail
+  is not really an adversarial game.
+  
+* *Portfolio owns assets* See `Assets and Liabilities`_.
 
 Adding some of the creation/joining operations, this becomes (Figure :ref:`userdomain2`):
 

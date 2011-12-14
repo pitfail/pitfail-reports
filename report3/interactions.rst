@@ -1,4 +1,3 @@
-
 Stocks
 ======
 
@@ -598,5 +597,225 @@ ref_870) Figure :ref:`userClose`.
     :width: 60%
     
     :label:`userClose` userClose
+
+Buy Via Android Cleint
+------------------------
+
+.. figure:: sequence-diagrams/android/BuyStock.png
+    :width: 90%
+
+    :label:`abuy` Buy Stocks via Android Client
+
+The diagram above (Figure :ref:`abuy`) is the interaction sequence diagram for
+UC Buy Stocks from an Android Mobile Client. This Interaction diagram is the
+extension of System sequence Diagram for UC-1 Buy Stocks. As shown, first the
+search action is initiated by the Android Controller which requested by the
+Android user. The Android controller sends an HTTP Post request to Yahoo Stock
+Source. This request specifically asks for the Stock Value of the stock ticker
+by sending the corresponding tag with the request. Once the response is
+received, the Mobile Client creates the Buy request. The Android controller
+calls the BuyServlet using an HTTP Post request via the Jetty Server.The Jetty
+server has capability to support both Scala and Java sources as it runs on a
+JVM. All the servlets for Android are written in Java which internally calls
+functions from Scala classes.  The reason for choosing Java for Android client
+is for its compatibility.The BuySerlvlet internally makes use of the Portfolio
+class the extract the user info from the Database. If the Volume to be bought
+is correct, user's portfolio is updated and results are sent back to the user.
+
+Sell Via Android Cleint
+-----------------------
+
+.. figure:: sequence-diagrams/android/SellStock.png
+    :width: 90%
+
+    :label:`asell` Sell Stocks via Android Client
+
+The diagram above (:ref:`asell`) is the interaction sequence diagram for UC
+Sell Stocks from an Android Mobile Client. The user initiates the action by
+creating a request by providing the Stock ticker name he intends to sell off.
+The Android controller sends an HTTP Post request to SellServlet via the Web
+Server. The BuyServlet makes use of portfolio class and call the function to
+update the user profile.Because we expect asynchronous requests there is a
+possibility that by the time a SellStock is completely executed there can be
+another asynchronous call from some other client interface by the same user.
+Such a situation is handled by throwing back an exception message "You dont own
+this stock" and  corresponding appropriate message back to the user.Currently,
+we sell off all the corresponding stocks. 
+
+Notifications for Android Client
+---------------------------------
+
+.. figure:: sequence-diagrams/android/Notifications.png
+    :width: 90%
+
+    :label:`anotify` Sell Stocks via Android Client
+
+When the user starts the Pitfail Application for the first time, a background
+service is started with it which is not bounded to the application. This is a
+Polling service which polls the Web Server periodically. On receiving the
+request from the service, the server executes the Stock updates Servlet which
+collects information on any change in the price of all the stocks the user
+owns. If the margin of change is equal to more than 1 dollar, the corresponding
+updates are sent to the polling service. The Polling service then sends those
+messages to the Android Notification manager. The Notification manager (Figure
+:ref:`anotify`) then display new notifications as Stock updates for the user.
+If there is a previous notification which is not yet viewed by the user, the
+previous notification is updated and there is just one latest notification
+available for the user to view.
+
+FaceBook Operations:
+====================
+
+Facebook interface currently supports 4 operations:
+
+1. Buy Stocks.
+   
+2. Sell stocks.
+   
+3. View Portfolio.
+   
+4. View Leaderboard.
+
+If a player wants to access PitFail via Facebook, he or she can post the
+request on PitFail's wall in the following format:
+
+    Username: Operation(Buy/Sell):[volume]:[Ticker]
+
+Arguments in square brackets are optional. For example, View portfolio and view
+leaderboard operations do not take volume and ticker as arguments. 
+
+The request posted on the wall needs to be processed. To process this request :
+
+1.This request should be listened to and FB app should be notified of the wall post
+
+2.The wall post should be read and parsed.
+
+3.The request should  invoke appropriate module from server to get the operation done
+
+4.The player should be notified of the status of the request (successful/failed)
+
+The operations takes place partly at Facebook client side and partly at server side. 
+
+Here is a description in detail:
+
+FaceBook Client:
+----------------
+
+Facebook client includes mainly two operations:
+
+1. FBListener -- FBListener listens to our facebook page pitfail and notifies
+   the app controller of any incoming request (a wall post) to be processed.
+   
+2. ParseMessage -- ParseMessage parses user's wall post to multiple token ,
+   checks if the message follows the required syntax and decides if the message
+   is good enough to be processed. Figure :ref:`fbparse`
+   
+.. figure:: sequence-diagrams/FB/parseMessage.png
+    :width: 90%
+    
+    :label:`fbparse`
+
+FBListener listens to the wall post of our account and notifies pitFail FB app
+of any new wall post.  We use RestFB APIs  that access Facebook account of
+PitFail using the unique access token provided by FaceBook.  API
+fetchConnection(User) reads the new wall post and passes it to ParseMessage
+module. ParseMessage processes the wall post, extracts the information required
+to process the request. It also checks for the right number of arguments and
+the data type (e.g. Volume has to be a number, a request to view portfolio does
+not take more than two arguments).
+
+If the message is good enough to be processed (no errors), client controller
+calls appropriate functions from the server, otherwise the player is notified
+of the error by commenting on player's wall post. 
+
+
+Server Operations:
+------------------
+
+Now once the message is retrieved and parsed at the client side, the server
+functions are invoked with the parsed tokens as arguments. 
+
+Before processing any request, we always check if the username that is
+requesting this operation is valid or not. Therefore before invoking any other
+method client invokes EnsureUser method to enusure the authenticity of the
+user. 
+
+Ensure User:
+............
+
+Facebook interface of PitFail does not (for now) support registration.  The
+player has to be already registered to the system to play the game via FB
+interface. Figure :ref:`fbensure`
+
+.. figure:: sequence-diagrams/FB/ensureUser.png
+    :width: 90%
+    
+    :label:`fbensure`
+
+ensureUser ensures the existence of a user before the user's request tries to
+access portfolio. If the user exists, the request is processed further
+otherwise the player is notified of the error occurred by posting a comment on
+his wall post.
+
+Once the user is checked for his/her authenticity, we can proceed further with
+the actual operation requested by the user. Below are the operations user can
+execute.
+
+Buy Stock:
+..........
+
+for all the operations below, once the ensureUser confirms the authenticity of
+the user, FaceBook client invokes a Java servlet on Jetty server. The main task
+handled by this java servlet is to accept arguments from Facebook client and
+invoke appropriate scala mothods to perform task requested by facebook client
+Here the servlet is: FBBuyServlet(Username) Figure :ref:`fbbuy`
+  
+.. figure:: sequence-diagrams/FB/buy.png
+    :width: 90%
+    
+    :label:`fbbuy`
+
+Sell Stock:
+...........
+
+In sell stock , FBSellServlet() is the Java servlet that accepts arguments from
+Facebook client and invokes scala  method to sell stocks. Figure :ref:`fbsell`
+ 
+.. figure:: sequence-diagrams/FB/sell.png
+    :width: 90%
+    
+    :label:`fbsell`
+
+View Portfolio:
+...............
+
+Before processing any request , we make sure (by invoking ensureUser) that the
+username exists. Therefore there is no failure flow (alternate flow) for
+portfolio view. We will invoke this funtion only if the ensureUser confirms
+that the user exists. Figure :ref:`fbport`
+
+.. figure:: sequence-diagrams/FB/port.png
+    :width: 90%
+    
+    :label:`fbport`
+
+Once client receives response (portfolio for the username) from server, client
+prettifies the response make it look better as FaceBook wall post. 
+
+View Leaderboard:
+.................
+
+Apart from the leagues created by different users, we have a global league.
+Players playing via facebook can view the leaders of global league by using
+operation - view leaderboard.
+
+Here too, we dont have a alternate (failure) flow, as this method will be
+invoked only once ensureUser confirms that the username exists. Figure
+:ref:`fbleader`
+
+.. figure:: sequence-diagrams/FB/leader.png
+    :width: 90%
+    
+    :label:`fbleader`
 
 

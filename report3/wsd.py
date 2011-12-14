@@ -28,7 +28,7 @@ def getSequenceDiagram( text, outputFile, fmt, style = 'default' ):
             outputFile )
     return True
 
-if len(argv) != 3:
+if len(argv) != 4:
 	print "usage: wst.py <input.wsd> <output.{pdf,svg,png}>"
 	exit(2)
 

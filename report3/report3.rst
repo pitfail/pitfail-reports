@@ -1,4 +1,4 @@
-
+﻿
 .. role:: ref
 
 .. role:: label
@@ -138,10 +138,18 @@ Nonfunctional Requirements
 
 .. include:: nonfunc.rst
 
-User Interface Design and Implementation
-########################################
+User Interface
+##############
 
-.. include:: ui.rst
+User Interface Design and Implementation
+========================================
+
+.. include:: ui-design.rst
+
+Effort Estimation using Use Case Points
+=======================================
+
+.. include:: ui-estimation.rst
 
 Class Diagram and Interface Specification
 #########################################
@@ -243,4 +251,10 @@ References
 .. [Unit] Wikipedia - "Unit Type". http://en.wikipedia.org/wiki/Unit_type
 .. [View] Lift - "View First". http://www.assembla.com/wiki/show/liftweb/View_First
 .. [XML] "A Tour of Scala: XML Processing". http://www.scala-lang.org/node/131
+
+.. raw:: latex
+    
+    \clearpage
+
+.. [Android] "Developers Guide". http://developer.android.com/guide/index.html
 
