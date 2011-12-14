@@ -26,7 +26,7 @@
    
    #. The ability to vote on trades.
    
-   #. The ability to receive notifications about stocks one cares about.
+   #. The ability to receive notifications about stocks one cares about via the android client.
    
    #. The ability to receive an email newsletter about one's portfolio.
    
@@ -40,6 +40,7 @@
    
    #. Execution of market orders is now more realistic -- orders are executed at the asking
       price, not the last traded price.
+   
       
       
  

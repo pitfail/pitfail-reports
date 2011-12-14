@@ -1,4 +1,4 @@
-
+﻿
 .. role:: ref
 
 .. role:: label
@@ -245,4 +245,10 @@ References
 .. [Unit] Wikipedia - "Unit Type". http://en.wikipedia.org/wiki/Unit_type
 .. [View] Lift - "View First". http://www.assembla.com/wiki/show/liftweb/View_First
 .. [XML] "A Tour of Scala: XML Processing". http://www.scala-lang.org/node/131
+
+.. raw:: latex
+    
+    \clearpage
+
+.. [Android]"Developers Guide". http://developer.android.com/guide/index.html
 
