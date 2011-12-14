@@ -7,9 +7,9 @@ Actors and Goals
 ..    at security trading.
 ..  - Competes with other players for higher ranks in leagues.
 
-- A *Web Player* is a *player* who interacts with the *game* via the web
-  browser interface. The web interface also provides access to the command based
-  interface.
+- A *Web Player* (or *WebPlayer*) is a *player* who interacts with the *game*
+  via the web browser interface. The web interface also provides access to the
+  command based interface.
 
   - Buys and Sell Stocks.
   - View and Modify Portfolio.
@@ -18,12 +18,18 @@ Actors and Goals
   - Wants to effectively administer the tournament to provide either a learning
     experience to the *players*, or, alternately, an enjoyable experience to
     the *players*.
-  - Desires a construct in which to effectively challenge others interested in
-    security trading.
+
+- An *Administrator* is a *WebPlayer* who is designated as having administrator
+  control of a *league*. This control allows the *Administrator* to invite
+  addition *players* to the league.
+
+  - Invites players to a *league*.
+  - Wants to increase participation in their *league* or add the set of
+    *players* the *league* is intended for.
 
 - A *Twitter Player* (or *TwitterPlayer*) is an indirect *player* who interacts
   with the *game* via the *Twitter* actor. They are the originator of the
-  commands recieved from the *Twitter* actor.
+  commands received from the *Twitter* actor.
 
   - Buys and Sells Stocks
   - Examines their portfolio
@@ -47,9 +53,9 @@ Actors and Goals
 - *Authentication providers* allow us to uniquely identify users and associate
   some stored state with their unique identification.
 
-- *Twitter* is utilized both as a authentication provider (for all *players* as
-  well as a portion of the interface to the service. This actor provides a
-  stream of text based commands from the indirect actor *Twitter Player*.
+- *Twitter* is utilized both as a authentication provider (for all *players*) as
+  well as an interface to the service. This actor provides a stream of text
+  based commands from the indirect actor *Twitter Player*.
 
 Use Cases
 =========
@@ -62,57 +68,97 @@ Use Cases
 Listing of Use Cases
 --------------------
 
-1. Buy, Actor: WebPlayer
-   Purchases a security from the market at the price listed by the designated market makers.
+1. Buy, Actor: WebPlayer, TwitterPlayer, MobilePlayer
+   Purchases a security from the market at the price listed by the designated
+   market makers.
 
-2. Sell, Actor: WebPlayer
-   Sells a held security at the price listed by the *DMMs*.
+2. Sell, Actor: WebPlayer, TwitterPlayer, MobilePlayer
+   Sells a held security at the price listed by the designated market makers.
 
-.. ===========  ===================================================  ===================  =====
-.. Actor        Description                                          Short Name            UC#
-.. ===========  ===================================================  ===================  =====
-.. WebPlayer        Buy                  UC-1
-..              
-.. WebPlayer    Sells a held security at the price indicated by the  Sell                 UC-2
-..              *stock price source*.
-.. WebPlayer    Indicates that they wish to begin participating in   Join League          UC-3
-..              a particular league. Does not remove them from any
-..              league. Also note that leaveing a league is omitted
-..              to prevent people from gaming the system by
-..              joining a league, doing poorly, and leaving to
-..              essentially have a "clean record".
-.. WebPlayer    Examine the contrents of his or her portfolio,       View Portfolio       UC-4
-..              displaying information regarding their current
-..              assets and liabilities as well as how they have
-..              been progressing over time
-.. WebPlayer    Examines details of a particular security.           Get Security         UC-5
-..                                                                   Details
-.. WebPlayer    Checks league statistics. Provide a clear view of    View League Stats    UC-6
-.. TwitterPlayer  the leaderboard as well as changes over time.
-.. WebPlayer      Purchases a security from the market at the price    Buy via Cmd          UC-7
-..                the *stock price source* indicates is the market
-..                price for that security.
-.. WebPlayer      Sells a held security at the price indicated by the  Sell via Cmd         UC-8
-..                *stock price source*.
-.. WebPlayer      Query portfolio value & other details.               Portfolio Info       UC-9
-.. Coordinator    Creates a league.                                    Make League          UC-11
-.. Coordinator    Modifies a league's settings. A coordinator will     League Settings      UC-12
-..                need to manage a league via changing settings
-..                regarding the league.
-.. Coordinator    Add an additional Coordinator to a league.           Add Coordinator      UC-13
-.. Coordinator    Remove a coordinator from the league.                Remove Coordinator   UC-14
-.. Coordinator  Delete a league.                                     Delete League        UC-15
-.. Coordinator  Accept or decline requests to join a league.         Manage League        UC-16
-.. Coordinator  Invite players to a league.                          Invite to League     UC-17
-.. WebPlayer    Authenticates with the system.                       Authentication       UC-18
-.. WebPlayer,   Has their initial account (portfolio tracking)       Create User          UC-19
-.. CmdPlayer    created.
-.. WebPlayer    Vote on trade.                                       Vote                 UC-20
-.. CmdPlayer    Vote on trade via a Twitter repost.                  Vote by Tweet        UC-21
-.. WebPlayer    Create derivative.                                   Derivative Designer  UC-22
-.. WebPlayer    Accept offer of a derivative.                        Accept derivative    UC-23
-.. 
-.. ===========  ===================================================  ===================  =====
+3. View Portfolio, Actor: WebPlayer, TwitterPlayer, MobilePlayer
+   Allow the initiating actor to examine the contents of their portfolio.
+   Information regarding their current assets and liabilities as well as how
+   they have been progressing over time may be displayed.
+
+4. View League stats, Actor: WebPlayer.
+   Display information regarding the entire league including a listing of all
+   portfolios, graphs of the top portfolios, and the distribution of stocks
+   held by the top portfolios
+
+5. Invite to League, Actor: WebPlayer.
+   Send an invitation to a *player* to join a *league* of which the actor is an
+   administrator.
+
+6. Create League, Actor: WebPlayer.
+   Create a new *league* with the creator as the administrator.
+
+7. Accept or Decline League Invitation, Actor: WebPlayer.
+   Acceptance of an outstanding invitation allows the initiating actor to
+   create *portfolios* within the *league* the invite was dispatched from.
+
+8. Create Portfolio, Actor: WebPlayer, MobilePlayer
+   Creates a new *portfolio* associated with a particular *league*. This
+   *portfolio* is created with the cash value indicated by the *league* in
+   which it is created.
+
+9. Get Security Details, Actor: WebPlayer, TwitterPlayer.
+   Display information regarding a particular security (stock or bond) such as
+   historical trends and statistics.
+
+10. View Portfolio, Actor: WebPlayer.
+    Display the contents of one of the initiating actor's portfolios. This
+    includes a listing of assets and liabilities, and graphs showing the change
+    in portfolio value over time.
+
+11. Create Initial Portfolio, Actor: WebPlayer, TwitterPlayer.
+    On the initiation of an action by the *player*, a default *portfolio* is
+    created for them within the default *league*.
+
+12. Authentication, Actor: WebPlayer.
+    The initiating actor authenticates to the server via an external
+    *authentication provider*. *Twitter* is the current supported
+    *authentication provider*. Authentication for the *TwitterPlayer* is
+    provided external to our system.
+
+12. Vote, Actor: WebPlayer
+    The initiating actor votes on a particular trade, investing from a
+    portfolio in that trade being successful or unsuccessful.
+
+13. Comment, Actor: WebPlayer
+    The initiating actor adds a globally visible snippet of text to an 'event'
+    (a trade occurred, a derivative was offered, et c.) within the system.
+
+14. Create Derivative, Actor: WebPlayer
+
+15. Bid on Derivative, Actor: WebPlayer
+    This is a part of the public auction system. The initiating actor places a
+    particular cash value bid on a derivative currently in public auction.
+
+17. Execute Derivative, Actor: WebPlayer
+    On derivatives that allow it, this causes the early evaluation of the
+    derivative's terms.
+
+18. Close an Offer, Actor: WebPlayer
+    Close an offer at auction, confirming the sale to the highest bidder.
+
+19. Accept or Decline a pending offer, Actor: WebPlayer
+    When a direct offer of a derivative is made to a *portfolio* controlled by
+    the initiating actor, the actor must accept or reject this offer (or leave
+    it outstanding, cluttering the interface to some extent).
+
+20. Open Buy Order, Actor: WebPlayer
+    Create an order for the purchase of a particular amount of a particular
+    *security* at a particular dollar value per share (a limit order).
+
+21. Open Sell Order, Actor: WebPlayer
+    Create an order for the sale of a particular amount of a particular *asset*
+    (a held *security*) at a particular dollar value per share (another limit
+    order).
+
+22. Cancel a Buy or Sell Order, Actor: WebPlayer
+    When a Buy or Sell order is placed via the Buy or Sell use case, the orders
+    are kept alive indefinitely unless canceled. A user who wishes to remove
+    orders which they no longer want active will cancel the order.
 
 Fully Dressed Use Cases
 -----------------------
@@ -123,19 +169,17 @@ Related Requirements:
         REQ-1, REQ-2, REQ-6, REQ-7, REQ-8, REQ-9
 
 Initiating Actor:
-        Any of: Webplayer, TwitterPlayer, MobilePlayer
+        Any of: WebPlayer, TwitterPlayer, MobilePlayer
 
 Actor's Goal:
         To purchase a security from the market, to add it to his portfolio, and
         see his updated portfolio.
 
 Participating Actors:
-        Database, Securities, Stock Price Source, Yahoo!
+        Database, Stock Information Provider.
 
 Preconditions:
-        The user should have created an account, be in a league  with settings
-        that allows the "BUY", and have enough money to perform the BUY of the
-        security.
+        The user should have logged in.
 
 Postconditions:
         The user needs to be able to see his purchased security in his
@@ -143,38 +187,38 @@ Postconditions:
         he "SELLS" it.
 
 Flow of Events for Successful Buy:
-        1. → The *Player, Webplayer, or TwitterPlayer* determines a *Security*
-           and how much of it to "BUY".
-        2. ← *System* signals the *Stock Price Source* for the price of the
+        1. → The *Player, WebPlayer, or TwitterPlayer* determines a *Security*
+           and how much of it to "BUY". This is sent to the *System*
+        2. → *System* signals the *Stock Information Provider* for the price of the
            security.
-        3. ← *Stock Price Source* sends the price of the *Security* to the
+        3. ← *Stock Information Provider* sends the price of the *Security* to the
            *System.*
-        4. ← *System* signals the *Database* for the amount of money the
-           *Player* has.
-        5. ← *Database* sends the amount of money for the *Player* to the
-           System.
-        6. ← *System* checks that there is enough money for compelete the
-           transcation.
-        7. ← *System* signals the *Database* to complete the transcation for a
-           *Player*, *Security*, and the quantity.
-        8. ← *Database* signals the *System* the transcation is complete.
-        9. ← *System* signals to the *Player* "Transcation Completed."
+        4. → *System* requests the amount of cash the *Player* has from the
+           *Database*.
+        5. ← *Database* returns the amount of cash for the *Player* to the
+           *System*.
+        6. → *System* checks that there is enough money for complete the
+           transaction and sends the complete transaction for a
+           *Player*, *Security*, and the quantity to the *Database*.
+        7. ← *Database* signals the *System* the transaction is complete.
+        8. ← *System* signals to the *Player* that the Buy operation was
+           completed successfully.
 
 Flow of Events for Unsuccessful Buy:
-        1. → The *Player, Webplayer, or TwitterPlayer* determines a *Security*
-           and how much of it to "BUY".
-        2. ← *System* signals the *Stock Price Source* for the price of the
+        1. → The *Player, WebPlayer, or TwitterPlayer* determines a *Security*
+           and how much of it to "BUY". This is sent to the *System*
+        2. → *System* signals the *Stock Information Provider* for the price of the
            security.
-        3. ← *Stock Price Source* sends the price of the *Security* to the
+        3. ← *Stock Information Provider* sends the price of the *Security* to the
            *System.*
-        4. ← *System* signals the *Database* for the amount of money the
-           *Player* has.
-        5. ← *Database* sends the amount of money for the *Player* to the
-           System.
-        6. ← *System* checks that there is enough money for compelete the
-           transcation.
-        7. ← There is not enough money. *System* signals to the *Player*
-           "Transcation Not Completed: Insufficient Funds."
+        4. → *System* requests the amount of cash the *Player* has from the
+           *Database*.
+        5. ← *Database* returns the amount of cash for the *Player* to the
+           *System*.
+        6. ← *System* checks that there is enough money for complete the
+           transaction. There is not enough money. *System* signals to
+           the *Player* "Transaction Not Completed: Insufficient
+           Funds."
 
 UC-2: Sell
 ..........
@@ -182,17 +226,17 @@ Related Requirements:
         REQ-1, REQ-2, REQ-6, REQ-7, REQ-8, REQ-9
 
 Initiating Actor:
-        Any of: Webplayer, TwitterPlayer, MobilePlayer
+        Any of: WebPlayer, TwitterPlayer, MobilePlayer
 
 Actor's Goal:
         To purchase a security from the market, to add it to his portfolio, and
         see the updated portfolio
 
 Participating Actors:
-        Database, Securities, Stock Price Source, Yahoo!
+        Database, Stock Information Provider
 
 Preconditions:
-        - User is logged in
+        - User is authenticated (logged in).
         - Contain in his portfolio at least the quantity of securities his is
           requesting to sell.
 
@@ -200,52 +244,53 @@ Postconditions:
         - The user's portfolio will reflect the quantity of securities sold.
 
 Flow of Events for Successful Sell:
-        1. → The *Player* determines a *Security*
-           and how much of it to "SELL".
-        2. ←  *System* signals the *Stock Price Source* for the price of the
-           security.
-        3. ←  *Stock Price Source* sends the price of the *Security* to the
+        1. → The *Player* determines a *Security* and how much of it to "SELL".
+           They send this information to the *System*.
+        2. →  *System* requests the price of the
+           security from the *Stock Information Provider*
+        3. ←  *Stock Information Provider* sends the price of the *Security* to the
            *System.*
-        4. ←  *System* signals the *Database* for the amount of the *Security*
-           the *Player* has.
-        5. ←  *Database* sends the amount of the *Security* the *Player* has to
-           the System.
-        6. ←  *System* checks that there is enough *Securities* to complete the
-           transaction.
-        7. ←  *System* signals the *Database* to complete the transcation for a
-           *Player*, *Security*, and the quantity.
-        8. ←  *Database* signals the *System* the transaction is complete.
-        9. ←  *System* signals to the *Player* "Transaction Completed."
+        4. →  *System* requests the amount of the *Security*
+           the *Player* owns from the *Database*.
+        5. ←  *Database* returns the amount of the *Security* the *Player* has to
+           the *System*.
+        6. →  *System* checks that there are enough *Securities* to complete the
+           transaction. *System* signals the *Database* to complete the
+           transaction for a *Player*, *Security*, and the quantity.
+        7. ←  *Database* returns an indicator of transaction completion to the
+           *System*.
+        8. ←  *System* signals the transaction successfully completed to the
+           *Player*.
 
 Flow of Events for Unsuccessful Sell:
-        1. → The *Player* determines a *Security*
-           and how much of it to "SELL".
-        2. ←  *System* signals the *Stock Price Source* for the price of the
-           security.
-        3. ←  *Stock Price Source* sends the price of the *Security* to the
+        1. → The *Player* determines a *Security* and how much of it to "SELL".
+           They send this information to the *System*.
+        2. →  *System* requests the price of the
+           security from the *Stock Information Provider*
+        3. ←  *Stock Information Provider* sends the price of the *Security* to the
            *System.*
-        4. ←  *System* signals the *Database* for the amount of the *Security*
-           the *Player* has.
-        5. ←  *Database* sends the amount of the *Security* the *Player* has to
-           the System.
-        6. ←  *System* checks that there is enough *Securities* to complete the
-           transaction. There is not.
-        7. ←  *System* signals to the *Player* "Transaction Not Completed:
-           Insufficient Securities."
+        4. →  *System* requests the amount of the *Security*
+           the *Player* owns from the *Database*.
+        5. ←  *Database* returns the amount of the *Security* the *Player* has to
+           the *System*.
+        6. ← *System* checks that there is enough *Securities* to complete the
+           transaction. There is not. *System* signals that the
+           transaction was not successfully completed due to
+           insufficient funds to the *Player*.
 
-UC-4: View Portfolio
+UC-3: View Portfolio
 ....................
-Related Requrements:
+Related Requirements:
         REQ-1, REQ-2, REQ-6, REQ-10, REQ-11, REQ-14
 
 Initiating Actor:
-        Only *WebPlayer*, the similar UC-9 is provided for the *Twitter player*.
+        Any of: Web Player, Mobile Player, Twitter Player.
 
 Actor's Goal:
         To view information regarding their portfolio. This information
         includes the currently owned securities, minimal statistics regarding
         those securities (as they relate to the current and past value of the
-        portfolio), current avaliable capital (and similar minimal information
+        portfolio), current available capital (and similar minimal information
         regarding its change), and the overall value of the portfolio (also
         with some statistical information regarding changes over time). The
         actor desires this information to make decisions regarding what their
@@ -254,38 +299,29 @@ Actor's Goal:
         stock they have).
 
 Participating Actors:
-        *Stock information provider*, *Database*
+        *Stock Information Provider*, *Database*
 
 Preconditions:
-        None, note that authentication & account creation are handled within
-        this use case.
+        - User is authenticated.
 
 Postconditions:
-        None, this is a stateless action. Information is displayed to the user
-        but no internal actions are taken.
+        Information is displayed to the user, but no internal actions are
+        taken.  Nothing about the users portfolio will be modified by this
+        action.
 
 Flow of Events for Main Success Scenario:
-        1. → *Web player* browses to a page which will display his portfolio.
-        2. ← *System* checks for authentication and when it does not exsist (a)
-           runs the authentication (UC-18). Checks for a associated *user* in
-           the system and when there is none runs (b) user creation (UC-19).
-        3. ← *System* requests the information about the user's portfolio for
+        1. → *Player* requests a view of their *portfolio*.
+        2. → *System* requests the information about the user's portfolio for
            this particular league from the *Database*.
-        4. → *Database* returns the information regarding the portfolio.
-        5. ← *System* forms a query regarding all the currently held securities
-           within the portfolio and dispatches it to the *stock info provider*.
-        6. → *Stock info provider* returns the requested data.
-        7. ← *System* forms a web view of the portfolio information and returns
-           it to the *web player*
+        3. ← *Database* returns the information regarding the portfolio.
+        4. → *System* forms a query regarding all the currently held securities
+           within the portfolio and dispatches it to the *Stock
+           Information Provider*.
+        5. ← *Stock Information Provider* returns the requested data.
+        6. ← *System* forms a view of the portfolio information and returns
+           it to the *Player*
 
-Additional Notes:
-        When this use case is running the other contained use cases (UC-18 and
-        UC-19), each of these perform their own sequence of interactions with
-        the user. In the case of a failure in one of the included use cases,
-        the users remains in the control of that included use case until the
-        failure is resolved or another use case is initiated.
-
-UC-5: View League Statistics
+UC-4: View League Statistics
 .............................
 Related Requirements:
         REQ-1, REQ-6, REQ-9
@@ -319,19 +355,13 @@ Flow of Events for league does not exist:
 	3. ← *Database* signals the *System* that the league does not exist.
         4. ← *System* returns "page not found" error.
 
-Flow of Events for league is invite-only and the user is not a member:
-	1. → *Player* requests the league statistics page.
-	2. ← *System* signals the *Database* for authentication and the league's leaderboard.
-	3. ← *Database* signals the *System* that the league is invite-only and the *Player* is not a member.
-        4. ← *System* returns "access denied" error.
-
-UC-6: Modify League Settings
-............................
+UC-5: Invite to League
+......................
 Related Requirements:
         REQ-1, REQ-14, REQ-20
 
 Initiating Actor:
-        Coordinator
+        Administrator
 
 Actor's Goal:
         To modify settings for the coordinator's league. This includes modifying
@@ -373,8 +403,8 @@ Flow of Events for user is not a coordinator of the league:
         4. ← *System* returns "access denied" error.
 
 
-Use Case Tracability Matrix
----------------------------
+Use Case Traceability Matrix
+----------------------------
 The following is the relationship between the use-cases defined above and the
 requirements discussed in the statement of requirements:
 

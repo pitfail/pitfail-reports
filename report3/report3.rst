@@ -88,6 +88,13 @@ General Information
 Glossary
 ########
 
+.. include:: glossary.rst
+
+Summary of Changes
+##################
+
+.. include:: changes.rst
+	
 Architecture
 ############
 
@@ -105,33 +112,21 @@ Perturbations and Interactions
 
 .. include:: interactions.rst
 
-Class Diagram and Interface Specification
-#########################################
-
 System Architecutre and System Design
 #####################################
-
-.. include:: spser.rst
-
-.. include:: cohesion.rst
 
 .. include:: templating.rst
 
 .. include:: intform.rst
 
-Algorithms and Data Structures
-##############################
+.. include:: spser.rst
 
-User Interface Design and Implementation
-########################################
+.. include:: cohesion.rst
 
-Summary of Changes
-##################
-//TODO
-	
 Customer Statement of Requirements
 ##################################
-..TODO
+
+.. include:: reqs.rst
 
 Functional Requirements Specification
 #####################################
@@ -140,7 +135,11 @@ Functional Requirements Specification
 
 Nonfunctional Requirements
 ##########################
-..TODO
+
+.. include:: nonfunc.rst
+
+User Interface Design and Implementation
+########################################
 
 Effort Estimation using Use Case Points
 #######################################
@@ -150,23 +149,8 @@ Class Diagram and Interface Specification
 #########################################
 ..TODO
 
-Design Patterns
-###############
-..TODO
-
 Object Constraint Language (OCL) Contracts 
 ##########################################
-..TODO
-
-System Architecture and System Design 
-#####################################
-
-Algorithms and Data Structures
-##############################
-..TODO
-
-User Interface Design and Implementation
-########################################
 ..TODO
 
 History of Work & Current Status of Implemenation 
@@ -176,7 +160,8 @@ History of Work & Current Status of Implemenation
 
 Conclusions and Future Work
 ###########################
-..TODO
+
+.. include:: conclusions.rst
 
 References
 ##########
@@ -185,6 +170,9 @@ References
 .. [American] Investopedia. "How do you tell whether an option is American or European style?" http://www.investopedia.com/ask/answers/06/americanvseuropean.asp#axzz1gFsL9Mp8
 .. [Anemic] StackOverflow "Anemic Domain Model: Pros/Cons" http://stackoverflow.com/questions/258534/anemic-domain-model-pros-cons
 .. [Applicative1] Haskell Wikibook - Applicative Functors. http://en.wikibooks.org/wiki/Haskell/Applicative_Functors
+.. [Ask] Investopedia - Ask price http://www.investopedia.com/terms/a/ask.asp
+.. [Bid] Investopedia - Bid price http://www.investopedia.com/terms/b/bidprice.asp#axzz1gTt8rHSo
+.. [Browse] Mark Harrah's Browse Plugin https://github.com/harrah/browse
 .. [CAMC] Steven Counsell, Stephen Swift. "The Interpretation and Utility of Three Cohesion Metrics for Object-Oriented Design". ACM Trans. Softw. Eng. Methodol. 15, 2 (April 2006), 123-149. DOI=10.1145/1131421.1131422 http://doi.acm.org/10.1145/1131421.1131422 
 .. [CC] Challa Bonja and Eyob Kidanmariam. 2006. Metrics for class cohesion and similarity between methods. In Proceedings of the 44th annual Southeast regional conference (ACM-SE 44). ACM, New York, NY, USA, 91-95. DOI=10.1145/1185448.1185469 http://doi.acm.org/10.1145/1185448.1185469 
 .. [Controllers] Paul Oldfield. "Domain Modelling" http://www.aptprocess.com/whitepapers/DomainModelling.pdf
@@ -223,6 +211,7 @@ References
 
 .. [Lift1] Lift Web Framework. http://liftweb.net/
 .. [Lift2] Lift Forms. http://exploring.liftweb.net/master/index-6.html
+.. [Limit] Investopedia - Limit Order http://www.investopedia.com/terms/l/limitorder.asp
 .. [Loop] StackOverflow. "How to iterate through a heterogeneous recursive value in Haskell". http://stackoverflow.com/questions/5024148/how-to-iterate-through-a-heterogeneous-recursive-value-in-haskell
 .. [LSCC] J Al Dallal, Lionel C. Briand. "A Precise Method-Method Interaction-Based Cohesion Metric for Object-Oriented Classes". ACM Transactions on Software 2010.
 .. [Makers] Wikipedia. "Market Maker". http://en.wikipedia.org/wiki/Market_maker

@@ -46,8 +46,8 @@ Problems with OO cohesion metrics for Scala code
 ------------------------------------------------
 
 The biggest problem with these metrics is that in Scala it is common (and good
-practice) to have classes with no methods at all; that at merely as a container
-for multiple fields.
+practice) to have classes with no methods at all; that act merely as a container
+for multiple fields [ADTs]_.
 
 Another problem is that it is common (and also good practice) to abstract
 methods out into ``traits`` which contain no fields. Hence a large number of Scala

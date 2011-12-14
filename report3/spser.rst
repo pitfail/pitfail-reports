@@ -63,7 +63,7 @@ Generic representation of products
 
 We use the same representation of products as Mark Harrah's HLists [HList]_,
 which in turn is the same representation as Oleg Kiselyov's HList for
-Haskell[Kiselyov]_.
+Haskell [Kiselyov]_.
 
 A product is either HOne (model/spser.scala ref_220)::
     
@@ -178,7 +178,7 @@ are:
 Putting this all together
 -------------------------
 
-Ideally we would like to add the serialization/deserialization routines to
+Ideally we would like to add our serialization/deserialization routines to
 Squeryl. There is no reason this should not be possible. We tried; given more
 time, we might thave succeeded, but the Squeryl code is fairly set on using
 reflection to create objects. So we wrote a tiny DSL [DSL]_ for building SQL
