@@ -141,9 +141,11 @@ Nonfunctional Requirements
 User Interface Design and Implementation
 ########################################
 
+.. include:: ui_design.rst
+
 Effort Estimation using Use Case Points
 #######################################
-..TODO
+.. include:: ui_estimation
 
 Class Diagram and Interface Specification
 #########################################
