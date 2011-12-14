@@ -61,7 +61,7 @@ to build a ``Foo`` object (model/spser.scala ref_704).
 Generic representation of products
 ----------------------------------
 
-We use the same representation of products as Mark Harrah's HLists [HList1]_,
+We use the same representation of products as Mark Harrah's HLists [HList]_,
 which in turn is the same representation as Oleg Kiselyov's HList for
 Haskell[Kiselyov]_.
 

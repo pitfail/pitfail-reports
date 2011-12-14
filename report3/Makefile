@@ -16,17 +16,20 @@ TRASH  = $(TARGET).pdf \
 
 WSD_IN = $(shell find -name '*.wsd')
 DIA_IN = $(shell find -name '*.dia')
+SVG_IN = $(shell find -name '*.svg')
 
 SVG_OBJ = $(DIA_IN:.dia=.svg)
 PDF_OBJ = $(SVG_OBJ:.svg=.pdf) $(WSD_IN:.wsd=.pdf) use_case_diagram.pdf
 
 RSTS = $(wildcard *.rst)
 
-.PHONY: all clean wsds
+.PHONY: all clean wsds pngs
 
 all: $(TARGET).pdf
 
 wsds: $(PDF_OBJ)
+	
+pngs: $(PNG_OBJ)
 
 clean:
 	$(RM) $(TRASH)
@@ -52,9 +55,8 @@ clean:
 %.pdf: %.svg
 	$(INKSCAPE) --export-pdf=$@ $<
 
-%.pdf: %.tex $(PDF_OBJ) $(PNG_OBJ)
-	$(PDFLATEX) $< && \
-	$(PDFLATEX) $<
+%.pdf: %.tex $(PDF_OBJ)
+	rubber --warn refs --pdf report3
 
 %.tex: %.rst $(RSTS) Makefile docutils.conf stylesheet.tex
 	$(RST2LATEX) --traceback --config=docutils.conf --stylesheet-path=stylesheet.tex $< > $@
