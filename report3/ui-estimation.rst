@@ -1,3 +1,4 @@
+
 Several of the most common usage scenarios for the PitFail website are
 evaluated below. In particular, note that common scenarios (e.g. buying a
 stock) are much easier to perform than rare scenarios (e.g. creating a new
@@ -24,7 +25,7 @@ analyzed in detail below. This includes buying and selling stocks because of
 the lack of league support in the current version of PitFail.
 
 Purchase a Stock
-................
+================
 
 Assume the user wishes to purchase 10 shares of Google stock. The user must:
 
@@ -43,7 +44,7 @@ Assume the user wishes to purchase 10 shares of Google stock. The user must:
 Note that the user could press "enter" instead of clicking the "buy" button.
 
 Creating a Derivative
-.....................
+=====================
 
 Assume the user wishes to offer a call option to Bucky that includes 10 shares
 of Google stock and expires on December 25, 2011. This option costs $1000 to
@@ -71,7 +72,7 @@ rate for Google stock is greater than $1000 per share. The user must:
  13. Click on the "Propose Contract" button to complete the transaction.
 
 Sell a Stock
-............
+============
 
 Assume the user wishes to sell 10 shares of Google stock from his or her Global
 League. The user must:
@@ -90,7 +91,7 @@ Note that the user could press "enter" instead of clicking the "sell" button.
 
 
 Act on Derivative Offer
-.......................
+=======================
 
 Assume the user wishes to accept a derivative that was directly offered to him
 or her:
@@ -104,7 +105,7 @@ or her:
  1. Click on the "accept" button next to the correct derivative.
 
 Bid on Derivative
-.................
+=================
 
 Assume the user wishes to bid $50,000 on a derivative that is being sold in a
 public auction:
@@ -121,7 +122,7 @@ public auction:
  3. Click the "Cast Bid" button.
 
 Close Derivative Auction
-........................
+========================
 
 Assume the user wishes to close an auction that he or she posted:
 

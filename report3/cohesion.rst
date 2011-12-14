@@ -12,8 +12,16 @@ class.
 
 A summary of the metrics for all the classes are:
 
+.. raw:: latex
+
+    { \tiny
+
 .. csv-table::
     :file: metrics/metrics.csv
+    
+.. raw:: latex
+
+    }
 
 Decisions that were made about how to calculate the metrics
 -----------------------------------------------------------
