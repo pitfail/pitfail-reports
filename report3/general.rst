@@ -59,7 +59,7 @@ Option Types
 Many of our functions return a type like ``Option[Int]``. (example
 model/auctions.scala ref_188) ``Option`` is a Scala type (based on the ML type
 by the same name [ML]_) that can be either present or absent [Option1]_
-[Option2]_. So for example::
+[Iry1]_. So for example::
 
     def sumOption(l: List[Int]): Option[Int] =
         if (l.isEmpty) Some(l.sum)

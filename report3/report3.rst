@@ -1,3 +1,8 @@
+
+.. role:: ref
+
+.. role:: label
+
 .. raw:: latex
 
 	\begin{titlepage}
@@ -28,7 +33,7 @@
 	Roma Mehta, Sonu Iqbal \\
 	Avanti Kulkarni \\
 	\end{titlepage}
-
+    
 .. sectnum::
 
 .. contents:: Table of Contents
@@ -130,7 +135,8 @@ Customer Statement of Requirements
 
 Functional Requirements Specification
 #####################################
-..TODO
+
+.. include:: func_reqs.rst
 
 Nonfunctional Requirements
 ##########################
@@ -175,75 +181,79 @@ Conclusions and Future Work
 References
 ##########
 
-.. [ADTs] http://gleichmann.wordpress.com/2011/02/05/functional-scala-algebraic-datatypes-sum-and-product-types/
-.. [American] http://www.investopedia.com/ask/answers/06/americanvseuropean.asp#axzz1gFsL9Mp8
-.. [Anemic] http://stackoverflow.com/questions/258534/anemic-domain-model-pros-cons
-.. [Applicative1] http://en.wikibooks.org/wiki/Haskell/Applicative_Functors
-.. [Controllers] http://www.aptprocess.com/whitepapers/DomainModelling.pdf
-.. [CurryHoward] http://en.wikibooks.org/wiki/Haskell/The_Curry-Howard_isomorphism
-.. [Currying] http://www.haskell.org/haskellwiki/Currying
+.. [ADTs] Marie Gleichman. "Functional Scala: Algebraic Datatypes – Sum and Product Types" http://gleichmann.wordpress.com/2011/02/05/functional-scala-algebraic-datatypes-sum-and-product-types/
+.. [American] Investopedia. "How do you tell whether an option is American or European style?" http://www.investopedia.com/ask/answers/06/americanvseuropean.asp#axzz1gFsL9Mp8
+.. [Anemic] StackOverflow "Anemic Domain Model: Pros/Cons" http://stackoverflow.com/questions/258534/anemic-domain-model-pros-cons
+.. [Applicative1] Haskell Wikibook - Applicative Functors. http://en.wikibooks.org/wiki/Haskell/Applicative_Functors
+.. [CAMC] Steven Counsell, Stephen Swift. "The Interpretation and Utility of Three Cohesion Metrics for Object-Oriented Design". ACM Trans. Softw. Eng. Methodol. 15, 2 (April 2006), 123-149. DOI=10.1145/1131421.1131422 http://doi.acm.org/10.1145/1131421.1131422 
+.. [CC] Challa Bonja and Eyob Kidanmariam. 2006. Metrics for class cohesion and similarity between methods. In Proceedings of the 44th annual Southeast regional conference (ACM-SE 44). ACM, New York, NY, USA, 91-95. DOI=10.1145/1185448.1185469 http://doi.acm.org/10.1145/1185448.1185469 
+.. [Controllers] Paul Oldfield. "Domain Modelling" http://www.aptprocess.com/whitepapers/DomainModelling.pdf
+.. [CurryHoward] Haskell Wikibook - The Curry-Howard Isomorphism. http://en.wikibooks.org/wiki/Haskell/The_Curry-Howard_isomorphism
+.. [Currying] HaskellWiki - Currying. http://www.haskell.org/haskellwiki/Currying
 
 .. raw:: latex
     
     \clearpage
 
-.. [Data] http://en.wikibooks.org/wiki/Haskell/Type_declarations
-.. [DSL] http://c2.com/cgi/wiki?DomainSpecificLanguage
+.. [Data] Haskell Wikibook - Type Declarations. http://en.wikibooks.org/wiki/Haskell/Type_declarations
+.. [DRY] Ward's Wiki - Don't Repeat Yourself. http://c2.com/cgi/wiki?DontRepeatYourself
+.. [DSL] Ward's Wiki - Domain Specific Language. http://c2.com/cgi/wiki?DomainSpecificLanguage
     Ed.  Eric  McLaughlin  and  Mary  O'Brien. Sebastopol: O'Reilly, 2006.
-.. [Erasure] http://docs.oracle.com/javase/tutorial/java/generics/erasure.html
-.. [H2] http://www.h2database.com/html/main.html
-.. [HList1] http://apocalisp.wordpress.com/2010/06/08/type-level-programming-in-scala/
-.. [HList] http://apocalisp.wordpress.com/2010/06/08/type-level-programming-in-scala/
-.. [HTTP] http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
+.. [Erasure] Oracle. "Type Erasure". The Java Tutorials. http://docs.oracle.com/javase/tutorial/java/generics/erasure.html
+.. [H2] H2 Database Engine. http://www.h2database.com/html/main.html
+.. [HList] Mark Harrah. "Type Level Programming in Scala". http://apocalisp.wordpress.com/2010/06/08/type-level-programming-in-scala/
+.. [HTTP] Wikipedia. "Hypertext Transfer Protocol". http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
 
 .. raw:: latex
     
     \clearpage
 
-.. [Implicits] http://lampwww.epfl.ch/~odersky/talks/wg2.8-boston06.pdf
-.. [Inversion] http://martinfowler.com/bliki/InversionOfControl.html
-.. [Iry1] http://james-iry.blogspot.com/2010/08/why-scalas-and-haskells-types-will-save.html
-.. [Iry2] http://james-iry.blogspot.com/2009/08/getting-to-bottom-of-nothing-at-all.html
-.. [JDBC] http://en.wikipedia.org/wiki/Java_Database_Connectivity
-.. [Jetty1] http://jetty.codehaus.org/jetty/
+.. [Implicits] Martin Odersky. "Poor Man's Type Classes". http://lampwww.epfl.ch/~odersky/talks/wg2.8-boston06.pdf
+.. [Inversion] Martin Fowler. "Inversion of Control". http://martinfowler.com/bliki/InversionOfControl.html
+.. [Iry1] James Iry. "Why Scala's Option and Haskell's Maybe types will save you from null". http://james-iry.blogspot.com/2010/08/why-scalas-and-haskells-types-will-save.html
+.. [Iry2] James Iry. "Getting to the bottom of nothing at all". http://james-iry.blogspot.com/2009/08/getting-to-bottom-of-nothing-at-all.html
+.. [JDBC] Wikipedia. "Java Database Connectivity". http://en.wikipedia.org/wiki/Java_Database_Connectivity
+.. [Jetty1] Jetty Web Server. http://jetty.codehaus.org/jetty/
 .. [Kiselyov] Oleg Kiselyov and Ralf Lämmel and Keean Schupke. "Strongly typed heterogeneous collections". Haskell 2004: Proceedings of the ACM Sigplan workshop on Haskell.
-.. [Lambda] http://www.scala-lang.org/node/133
+.. [Lambda] "A Tour Of Scala: Anonymous Function Syntax". http://www.scala-lang.org/node/133
 
 .. raw:: latex
     
     \clearpage
 
-.. [Lift1] http://liftweb.net/
-.. [Lift2] http://exploring.liftweb.net/master/index-6.html
-.. [Loop] http://stackoverflow.com/questions/5024148/how-to-iterate-through-a-heterogeneous-recursive-value-in-haskell
-.. [Makers] http://en.wikipedia.org/wiki/Market_maker
-.. [Marsic] Marsic, Ivan. *Software Engineering*. Piscataway: Rutgers University, 2011. PDF. Miles,  Russ  and  Kim  Hamilton.  *Learning  UML  2.0*.
-.. [ML] http://www.standardml.org/Basis/option.html
-.. [Monads1] http://lamp.epfl.ch/~emir/bqbase/2005/01/20/monad.html
-.. [MVC] http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller
-.. [Option1] http://www.scala-lang.org/api/current/scala/Option.html
+.. [Lift1] Lift Web Framework. http://liftweb.net/
+.. [Lift2] Lift Forms. http://exploring.liftweb.net/master/index-6.html
+.. [Loop] StackOverflow. "How to iterate through a heterogeneous recursive value in Haskell". http://stackoverflow.com/questions/5024148/how-to-iterate-through-a-heterogeneous-recursive-value-in-haskell
+.. [LSCC] J Al Dallal, Lionel C. Briand. "A Precise Method-Method Interaction-Based Cohesion Metric for Object-Oriented Classes". ACM Transactions on Software 2010.
+.. [Makers] Wikipedia. "Market Maker". http://en.wikipedia.org/wiki/Market_maker
+.. [Marsic] Marsic, Ivan. *Software Engineering*. Piscataway: Rutgers University, 2011. PDF. 
+.. [ML] The Standard ML Basis Library - The Option Structure. http://www.standardml.org/Basis/option.html
+.. [Monads1] Burak Emir. "Monads in Scala". http://lamp.epfl.ch/~emir/bqbase/2005/01/20/monad.html
+.. [MVC] Wikipedia. "MVC". http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller
+.. [Option1] Scala Standard Library - Option. http://www.scala-lang.org/api/current/scala/Option.html
 
 .. raw:: latex
     
     \clearpage
 
-.. [Option2] http://james-iry.blogspot.com/2010/08/why-scalas-and-haskells-types-will-save.html
-.. [Pollak] http://markmail.org/message/cco7biz2g3jeilg6
-.. [Scalaz] http://code.google.com/p/scalaz/
+.. [Pollak] David Pollak. "Separating Presentation Logic from scala files". http://markmail.org/message/cco7biz2g3jeilg6
+.. [Scalaz] Scalaz Libarry. http://code.google.com/p/scalaz/
 .. [SCOM] Luis Fernández and Rosalía Peña. "A Sensitive Metric of Class Cohesion". Information Theories and Applications.
-.. [SICP1] http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-20.html#%_sec_3.1.1
-.. [SideEffects] http://c2.com/cgi/wiki?SideEffect
-.. [Squeryl1] http://squeryl.org/
+.. [SICP1] Harold Abelson, Gerald Sussman, Julie Sussman. "The Structure and Interpretation of Computer Programs". http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-20.html#%_sec_3.1.1
+.. [SideEffects] Ward's Wiki - Side Effect. http://c2.com/cgi/wiki?SideEffect
+.. [Squeryl1] Squeryl. http://squeryl.org/
 
 .. raw:: latex
     
     \clearpage
 
-.. [Squeryl2] https://github.com/max-l/Squeryl/blob/master/src/main/scala/org/squeryl/internals/PosoMetaData.scala
-.. [Stop] http://www.investopedia.com/terms/s/stoporder.asp#axzz1g4pXxPbD
-.. [Traits] http://www.scala-lang.org/node/126
-.. [Typing] http://www.haskell.org/haskellwiki/Typing
-.. [Unit] http://en.wikipedia.org/wiki/Unit_type
-.. [View] http://www.assembla.com/wiki/show/liftweb/View_First
-.. [XML] http://www.scala-lang.org/node/131
+.. [Squeryl2] Squeryl source code, showing where it fails at inner classes. https://github.com/max-l/Squeryl/blob/master/src/main/scala/org/squeryl/internals/PosoMetaData.scala
+.. [Stop] Investopedia - Stop Order. http://www.investopedia.com/terms/s/stoporder.asp#axzz1g4pXxPbD
+.. [Struct] Steven Schmidt. "Scala Goodness: Structural Typing". http://codemonkeyism.com/scala-goodness-structural-typing/
+.. [Traits] "A Tour Of Scala: Traits". http://www.scala-lang.org/node/126
+.. [Typing] Haskell Wiki - Typing. http://www.haskell.org/haskellwiki/Typing
+.. [UML] Miles,  Russ  and  Kim  Hamilton.  *Learning  UML  2.0*.
+.. [Unit] Wikipedia - "Unit Type". http://en.wikipedia.org/wiki/Unit_type
+.. [View] Lift - "View First". http://www.assembla.com/wiki/show/liftweb/View_First
+.. [XML] "A Tour of Scala: XML Processing". http://www.scala-lang.org/node/131
 
