@@ -85,12 +85,12 @@ Listing of Use Cases
    portfolios, graphs of the top portfolios, and the distribution of stocks
    held by the top portfolios
 
-5. Create League, Actor: WebPlayer.
-   Create a new *league* with the creator as the administrator.
-
-6. Invite to League, Actor: WebPlayer.
+5. Invite to League, Actor: WebPlayer.
    Send an invitation to a *player* to join a *league* of which the actor is an
    administrator.
+
+6. Create League, Actor: WebPlayer.
+   Create a new *league* with the creator as the administrator.
 
 7. Accept or Decline League Invitation, Actor: WebPlayer.
    Acceptance of an outstanding invitation allows the initiating actor to
