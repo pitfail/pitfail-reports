@@ -188,37 +188,37 @@ Postconditions:
 
 Flow of Events for Successful Buy:
         1. → The *Player, WebPlayer, or TwitterPlayer* determines a *Security*
-                   and how much of it to "BUY". This is sent to the *System*
+           and how much of it to "BUY". This is sent to the *System*
         2. → *System* signals the *Stock Information Provider* for the price of the
-                   security.
+           security.
         3. ← *Stock Information Provider* sends the price of the *Security* to the
-                   *System.*
+           *System.*
         4. → *System* requests the amount of cash the *Player* has from the
-                   *Database*.
+           *Database*.
         5. ← *Database* returns the amount of cash for the *Player* to the
-                   *System*.
+           *System*.
         6. → *System* checks that there is enough money for complete the
-                   transaction and sends the complete transaction for a
-                   *Player*, *Security*, and the quantity to the *Database*.
+           transaction and sends the complete transaction for a
+           *Player*, *Security*, and the quantity to the *Database*.
         7. ← *Database* signals the *System* the transaction is complete.
         8. ← *System* signals to the *Player* that the Buy operation was
-                   completed successfully.
+           completed successfully.
 
 Flow of Events for Unsuccessful Buy:
         1. → The *Player, WebPlayer, or TwitterPlayer* determines a *Security*
-                   and how much of it to "BUY". This is sent to the *System*
+           and how much of it to "BUY". This is sent to the *System*
         2. → *System* signals the *Stock Information Provider* for the price of the
-                   security.
+           security.
         3. ← *Stock Information Provider* sends the price of the *Security* to the
-                   *System.*
+           *System.*
         4. → *System* requests the amount of cash the *Player* has from the
-                   *Database*.
+           *Database*.
         5. ← *Database* returns the amount of cash for the *Player* to the
-                   *System*.
+           *System*.
         6. ← *System* checks that there is enough money for complete the
-                   transaction. There is not enough money. *System* signals to
-                   the *Player* "Transaction Not Completed: Insufficient
-                   Funds."
+           transaction. There is not enough money. *System* signals to
+           the *Player* "Transaction Not Completed: Insufficient
+           Funds."
 
 UC-2: Sell
 ..........
@@ -245,38 +245,38 @@ Postconditions:
 
 Flow of Events for Successful Sell:
         1. → The *Player* determines a *Security* and how much of it to "SELL".
-                   They send this information to the *System*.
+           They send this information to the *System*.
         2. →  *System* requests the price of the
-                   security from the *Stock Information Provider*
+           security from the *Stock Information Provider*
         3. ←  *Stock Information Provider* sends the price of the *Security* to the
-                   *System.*
+           *System.*
         4. →  *System* requests the amount of the *Security*
-                   the *Player* owns from the *Database*.
+           the *Player* owns from the *Database*.
         5. ←  *Database* returns the amount of the *Security* the *Player* has to
-                   the *System*.
+           the *System*.
         6. →  *System* checks that there are enough *Securities* to complete the
-                   transaction. *System* signals the *Database* to complete the
-                   transaction for a *Player*, *Security*, and the quantity.
+           transaction. *System* signals the *Database* to complete the
+           transaction for a *Player*, *Security*, and the quantity.
         7. ←  *Database* returns an indicator of transaction completion to the
-                   *System*.
+           *System*.
         8. ←  *System* signals the transaction successfully completed to the
-                   *Player*.
+           *Player*.
 
 Flow of Events for Unsuccessful Sell:
         1. → The *Player* determines a *Security* and how much of it to "SELL".
-                   They send this information to the *System*.
+           They send this information to the *System*.
         2. →  *System* requests the price of the
-                   security from the *Stock Information Provider*
+           security from the *Stock Information Provider*
         3. ←  *Stock Information Provider* sends the price of the *Security* to the
-                   *System.*
+           *System.*
         4. →  *System* requests the amount of the *Security*
-                   the *Player* owns from the *Database*.
+           the *Player* owns from the *Database*.
         5. ←  *Database* returns the amount of the *Security* the *Player* has to
-                   the *System*.
+           the *System*.
         6. ← *System* checks that there is enough *Securities* to complete the
-                   transaction. There is not. *System* signals that the
-                   transaction was not successfully completed due to
-                   insufficient funds to the *Player*.
+           transaction. There is not. *System* signals that the
+           transaction was not successfully completed due to
+           insufficient funds to the *Player*.
 
 UC-3: View Portfolio
 ....................
@@ -312,14 +312,14 @@ Postconditions:
 Flow of Events for Main Success Scenario:
         1. → *Player* requests a view of their *portfolio*.
         3. → *System* requests the information about the user's portfolio for
-                   this particular league from the *Database*.
+           this particular league from the *Database*.
         4. ← *Database* returns the information regarding the portfolio.
         5. → *System* forms a query regarding all the currently held securities
-                   within the portfolio and dispatches it to the *Stock
-                   Information Provider*.
+           within the portfolio and dispatches it to the *Stock
+           Information Provider*.
         6. ← *Stock Information Provider* returns the requested data.
         7. ← *System* forms a view of the portfolio information and returns
-                   it to the *Player*
+           it to the *Player*
 
 UC-4: View League Statistics
 .............................
